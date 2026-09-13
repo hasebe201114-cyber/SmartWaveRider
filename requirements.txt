@@ -4,7 +4,9 @@
 # ============================================
 # Core Dependencies
 # ============================================
-Python>=3.11
+# 必要な Python バージョン: >=3.11
+# ※ "Python" は PyPI 上に存在しないパッケージ名のため requirements には書けない。
+#    バージョン要件は setup.cfg / pyproject.toml の requires-python で表現する。
 
 # Data Processing
 pandas>=2.0.0
@@ -23,7 +25,8 @@ pydantic>=2.0.0
 firebase-admin>=6.0.0
 
 # Async
-asyncio>=3.4.3
+# ※ asyncio は Python 3.4 以降の標準ライブラリ。PyPI の同名パッケージは
+#    標準ライブラリを上書きして実行時に破壊するため、絶対に追加しない。
 aiofiles>=23.1.0
 
 # ============================================
@@ -32,14 +35,17 @@ aiofiles>=23.1.0
 
 # Backtesting
 backtrader>=1.9.74
-backtest>=0.2.2
 
 # Technical Indicators
-ta-lib>=0.4.28
-pandas-ta>=0.3.14
+# ta-lib は C ライブラリ同梱の wheel が配布されている（Linux/macOS/Windows）
+ta-lib>=0.5.0
+# pandas-ta は現在 0.4.x 系のみが公開されており Requires-Python >=3.12。
+# 本PJは Python 3.11 系で動かすため導入不可。テクニカル指標は ta-lib で賄う。
+# Python 3.12 へ移行する際に pandas-ta>=0.4.71b0 の追加を再検討する。
 
 # Financial Calculations
-numpy-financial>=1.21
+# 最新は 1.0.0。">=1.21" は存在しないバージョンを要求しており解決不能だった
+numpy-financial>=1.0.0
 
 # ============================================
 # AI/LLM Integration
