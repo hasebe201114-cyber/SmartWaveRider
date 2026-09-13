@@ -56,10 +56,12 @@ REPORT_PATH = REPO_ROOT / "research" / "STEP0-api-probe-report.md"
 JQUANTS_V2_BASE = "https://api.jquants.com/v2"
 TIMEOUT = 30
 # 前回の実測で HTTP 429 (レート制限) が多発した。全リクエストの間に最低これだけ間隔を空ける。
-MIN_REQUEST_INTERVAL_SEC = 0.6
-# 429 を受けたときのリトライ回数と待機秒数（指数バックオフ）
-RATE_LIMIT_MAX_RETRIES = 4
-RATE_LIMIT_BACKOFF_BASE_SEC = 3.0
+# 0.6秒では依然として429が頻発し、リトライの積み重ねで実行時間が数十分〜時間単位に
+# 膨らむ事故が起きたため、間隔を広げリトライは軽くする（粘るより早く諦めて記録する）。
+MIN_REQUEST_INTERVAL_SEC = 1.5
+# 429 を受けたときのリトライ回数と待機秒数（軽い固定バックオフ。指数的に伸ばさない）
+RATE_LIMIT_MAX_RETRIES = 2
+RATE_LIMIT_BACKOFF_SEC = 5.0
 
 # 1単元が概ね20万円前後で、判断2（TOPIX500）にも含まれる代表銘柄をプローブ対象にする
 PROBE_CODE = "72030"  # トヨタ自動車（V2 は5桁コード表記の可能性があるため後段で両対応を試す）
@@ -205,14 +207,14 @@ def http_json(
 
     前回の実測で HTTP 429（レート制限）が多発し、大半のプローブが「データなし」と
     誤判定される原因になった。全リクエストに最低間隔を強制し、429 が返った場合は
-    指数バックオフで自動リトライする。
+    固定秒数だけ軽くリトライする（粘りすぎると全体の実行時間が数十分〜時間単位に
+    膨らむため、指数バックオフにはしない。数回で諦めて「429だった」と正直に記録する）。
     """
     _throttle()
     status, body, err = _http_json_once(url, method=method, payload=payload, headers=headers)
     retries = 0
     while status == 429 and retries < RATE_LIMIT_MAX_RETRIES:
-        wait = RATE_LIMIT_BACKOFF_BASE_SEC * (2**retries)
-        time.sleep(wait)
+        time.sleep(RATE_LIMIT_BACKOFF_SEC)
         retries += 1
         _throttle()
         status, body, err = _http_json_once(url, method=method, payload=payload, headers=headers)
@@ -401,7 +403,8 @@ def probe_endpoints(api_key: str, valid_date: str, valid_code: str, log: list[st
     log.append(f"（日付パラメータは契約範囲内で疎通確認済みの `{valid_date}`、銘柄コードは `{valid_code}` を使用）\n")
     log.append("| エンドポイント | 用途 | 結果 |")
     log.append("|---|---|---|")
-    for path, raw_params, purpose, confirmed in ENDPOINT_PROBES:
+    for i, (path, raw_params, purpose, confirmed) in enumerate(ENDPOINT_PROBES, 1):
+        print(f"  [1/6] エンドポイント確認 {i}/{len(ENDPOINT_PROBES)}: {path}", flush=True)
         params = resolve_params(raw_params, valid_date, valid_code)
         qs = f"?{urllib.parse.urlencode(params)}" if params else ""
         status, body, err = http_json(f"{JQUANTS_V2_BASE}{path}{qs}", headers=headers)
@@ -442,7 +445,8 @@ def probe_intraday(api_key: str, valid_date: str, valid_code: str, log: list[str
     log.append("| エンドポイント（推測） | 結果 |")
     log.append("|---|---|")
     any_hit = False
-    for path, raw_params in INTRADAY_ENDPOINT_CANDIDATES:
+    for i, (path, raw_params) in enumerate(INTRADAY_ENDPOINT_CANDIDATES, 1):
+        print(f"  [2/6] 分足候補確認 {i}/{len(INTRADAY_ENDPOINT_CANDIDATES)}: {path}", flush=True)
         params = resolve_params(raw_params, valid_date, valid_code)
         qs = f"?{urllib.parse.urlencode(params)}" if params else ""
         status, body, err = http_json(f"{JQUANTS_V2_BASE}{path}{qs}", headers=headers)
@@ -517,7 +521,9 @@ def probe_history_range(
     log.append("|---|---|")
     oldest_ok = None
     debug_shown = 0
-    for date in month_starts_in_range(subscription_start, subscription_end):
+    dates_to_check = month_starts_in_range(subscription_start, subscription_end)
+    for i, date in enumerate(dates_to_check, 1):
+        print(f"  [3/6] 日足遡及確認 {i}/{len(dates_to_check)}: {date.isoformat()}", flush=True)
         status, body, _ = http_json(
             f"{JQUANTS_V2_BASE}/equities/bars/daily?code={valid_code}&date={date.isoformat()}",
             headers=headers,
@@ -558,10 +564,19 @@ def probe_delay(
     today = dt.date.today()
     search_from = subscription_end if subscription_end else today
     latest = None
+    # 全リクエストに間隔を空ける都合上、210日分を1日刻みで遡ると最悪ケースで
+    # 数分〜十数分かかる。search_from 自体か、その近傍数日で見つかるのが通常なので
+    # 上限を60営業日相当（約12週）に抑える。見つからなければ「不明」として正直に記録する。
+    MAX_PROBES = 60
+    checked = 0
     for back in range(0, 210):
+        if checked >= MAX_PROBES:
+            break
         d = search_from - dt.timedelta(days=back)
         if d.weekday() >= 5:
             continue
+        checked += 1
+        print(f"  [4/6] 遅延実測 {checked}/{MAX_PROBES}: {d.isoformat()} を確認中...", flush=True)
         status, body, _ = http_json(
             f"{JQUANTS_V2_BASE}/equities/bars/daily?code={valid_code}&date={d.isoformat()}",
             headers=headers,
@@ -585,7 +600,7 @@ def probe_delay(
                 "バックテスト専用と割り切るか、有料プランが必要。"
             )
     else:
-        log.append("- 探索範囲内に取得できるデータが見つからなかった。")
+        log.append(f"- 探索範囲内（直近{checked}営業日）に取得できるデータが見つからなかった。")
     log.append("")
 
 
@@ -706,6 +721,12 @@ def main() -> int:
         except Exception:  # noqa: BLE001  古い環境では無視してよい
             pass
 
+    print(
+        f"実行を開始します（{MIN_REQUEST_INTERVAL_SEC}秒間隔でAPIを叩くため、"
+        "全体で1〜3分程度かかります。進捗はこの画面にリアルタイムで表示されます）...",
+        flush=True,
+    )
+
     log: list[str] = []
     log.append("# STEP0 API 実機疎通レポート（タスク 0-8 / 0-9）\n")
     log.append(f"- 実行日時: {dt.datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -725,6 +746,7 @@ def main() -> int:
         return 1
 
     log.append("## 0-9: J-Quants API (V2) 疎通\n")
+    print("[0/6] APIキーの有効性チェック中...", flush=True)
     api_key = get_api_key(env, log)
     if api_key:
         ok, sub_start, sub_end, valid_date, valid_code = sanity_check(api_key, log)
@@ -733,13 +755,16 @@ def main() -> int:
             probe_intraday(api_key, valid_date, valid_code, log)
             probe_history_range(api_key, sub_start, sub_end, valid_code, log)
             probe_delay(api_key, sub_end, valid_code, log)
+            print("[5/6] /fins/summary のフィールド構造を確認中...", flush=True)
             probe_fins_summary_schema(api_key, valid_code, log)
+            print("[6/6] /equities/master のフィールド構造を確認中...", flush=True)
             probe_master_schema(api_key, valid_code, log)
         else:
             log.append("有効な日付が特定できなかったため、以降のプローブは実施しなかった。")
             log.append("J-Quants マイページでキーの発行状態・契約プランを確認すること。")
             log.append("")
 
+    print("kabu STATION API の疎通を確認中...", flush=True)
     probe_kabu(env, log)
 
     log.append("---\n")
