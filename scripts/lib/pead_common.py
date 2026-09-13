@@ -195,3 +195,68 @@ def business_days_between(start: dt.date, end: dt.date):
         if d.weekday() < 5:
             yield d
         d += dt.timedelta(days=1)
+
+
+# --- §4.0（2026-09-13改訂）: UL/LL フラグの解釈と約定可否判定 ---
+
+
+class AnomalousFlagValueError(ValueError):
+    """UL/LL が '1'/'0'/''/null 以外の値を取った場合。推測で埋めずここで検出し、呼び出し側でSへ差し戻す。"""
+
+
+def parse_ul_ll_flag(raw: Any) -> bool | None:
+    """§4.0.3 のパース規則。
+
+    戻り値: True(=1) / False(=0またはnull相当) / 例外(想定外の値)。
+    None（欠損）は呼び出し側で別途カウントする（本関数はNoneをFalse同様に扱わない）。
+    """
+    if raw is None:
+        return None  # 欠損。呼び出し側で欠損件数として記録すること。
+    s = str(raw).strip()
+    if s == "1":
+        return True
+    if s == "0" or s == "":
+        return False
+    raise AnomalousFlagValueError(f"UL/LL に想定外の値: {raw!r}")
+
+
+def _floats_equal(x: float, y: float) -> bool:
+    return abs(x - y) <= 1e-6 * max(1.0, abs(y))
+
+
+def buy_blocked(row: dict) -> tuple[bool, str]:
+    """§4.0.4 BUY_BLOCKED(t)。戻り値: (真偽, 内訳理由コード)。
+
+    理由コード: 'vo_zero' / 'o_null' / 'ul_stop_high_open' / 'not_blocked' /
+                'ul_hit_but_open_below_high'（参考値：約定したとみなした側）
+    """
+    vo = row.get("Vo")
+    o = row.get("O")
+    if vo is None or float(vo) == 0.0:
+        return True, "vo_zero"
+    if o is None:
+        return True, "o_null"
+    ul = parse_ul_ll_flag(row.get("UL"))
+    h = row.get("H")
+    if ul is True and h is not None and _floats_equal(float(o), float(h)):
+        return True, "ul_stop_high_open"
+    if ul is True and h is not None and not _floats_equal(float(o), float(h)):
+        return False, "ul_hit_but_open_below_high"
+    return False, "not_blocked"
+
+
+def sell_blocked(row: dict) -> tuple[bool, str]:
+    """§4.0.4 SELL_BLOCKED(t)。戻り値: (真偽, 内訳理由コード)。"""
+    vo = row.get("Vo")
+    o = row.get("O")
+    if vo is None or float(vo) == 0.0:
+        return True, "vo_zero"
+    if o is None:
+        return True, "o_null"
+    ll = parse_ul_ll_flag(row.get("LL"))
+    l_ = row.get("L")
+    if ll is True and l_ is not None and _floats_equal(float(o), float(l_)):
+        return True, "ll_stop_low_open"
+    if ll is True and l_ is not None and not _floats_equal(float(o), float(l_)):
+        return False, "ll_hit_but_open_above_low"
+    return False, "not_blocked"

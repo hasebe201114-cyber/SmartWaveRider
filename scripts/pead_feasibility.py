@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.pead_common import (  # noqa: E402
+    AnomalousFlagValueError,
     EVENT_CURPERTYPE_OK,
     EVENT_DOCTYPE_RE,
     MRGN_U2_OK,
@@ -28,6 +29,7 @@ from lib.pead_common import (  # noqa: E402
     compute_raw_sue_for_code,
     is_event_disclosure,
     load_fins_summary,
+    parse_ul_ll_flag,
 )
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -98,6 +100,59 @@ def task_9_1() -> dict:
             "curpertype_values_not_in_event_set": sorted(unmapped_curper),
         },
         "mapping_ambiguous": False,
+    }
+
+
+# ---------- 9-1b: UL/LL の全ユニーク値・欠損率（§4.0.3） ----------
+
+
+def task_9_1b(candidate_codes: list[str]) -> dict:
+    ul_counter: Counter = Counter()
+    ll_counter: Counter = Counter()
+    total_rows = 0
+    ul_null = 0
+    ll_null = 0
+    anomalous_values: set = set()
+
+    for code in candidate_codes:
+        bars = load_bars(code)
+        if bars is None:
+            continue
+        for r in bars:
+            total_rows += 1
+            ul_raw = r.get("UL")
+            ll_raw = r.get("LL")
+            ul_counter[repr(ul_raw)] += 1
+            ll_counter[repr(ll_raw)] += 1
+            for raw, is_ul in ((ul_raw, True), (ll_raw, False)):
+                try:
+                    parsed = parse_ul_ll_flag(raw)
+                    if parsed is None:
+                        if is_ul:
+                            ul_null += 1
+                        else:
+                            ll_null += 1
+                except AnomalousFlagValueError:
+                    anomalous_values.add(repr(raw))
+
+    missing_count = ul_null + ll_null
+    denom = total_rows * 2
+    missing_rate = (missing_count / denom) if denom else None
+
+    values_confined = len(anomalous_values) == 0
+
+    return {
+        "total_bars_rows_scanned": total_rows,
+        "ul_unique_values_and_counts": dict(ul_counter),
+        "ll_unique_values_and_counts": dict(ll_counter),
+        "ul_null_count": ul_null,
+        "ll_null_count": ll_null,
+        "combined_missing_rate": missing_rate,
+        "anomalous_values_outside_1_0_empty_null": sorted(anomalous_values),
+        "values_confined_to_1_0_empty_null": values_confined,
+        "missing_rate_threshold": 0.01,
+        "missing_rate_pass": (missing_rate is not None) and (missing_rate <= 0.01),
+        "pass": values_confined and (missing_rate is not None) and (missing_rate <= 0.01),
     }
 
 
@@ -389,10 +444,10 @@ def build_params_json(task91: dict) -> dict:
         "japan_specific_conditions_status": {
             "A_lot_size_100shares": "実装（単元離散化・実効f記録）",
             "B_price_limit_UL_LL": (
-                "実装ブロック中: /equities/bars/daily の UL/LL は価格水準ではなく"
-                "当日終値が値幅制限に抵触したか否かの0/1フラグであることを実測で確認した。"
-                "spec §4.1/§4.4/§7-Bが要求する『O(t1) >= UL(t1)』等の価格水準比較は"
-                "この実際のフィールド定義では計算不能。S戦略チームへの差し戻し対象（本報告参照）"
+                "実装（spec §4.0改訂により確定）。UL/LLは価格水準ではなく"
+                "日中高値/安値が値幅制限に達したか否かの0/1フラグ。"
+                "BUY_BLOCKED(t)=(Vo(t)==0) or (O(t) is null) or (UL(t)==1 and O(t)==H(t))、"
+                "SELL_BLOCKED(t)=(Vo(t)==0) or (O(t) is null) or (LL(t)==1 and O(t)==L(t)) の2式で判定（§4.0.4）"
             ),
             "C_trading_hours": "実装（日足のO=寄付・C=大引けとして対応。日中足は使用しない）",
             "D_earnings_calendar_carryover_rule": "未実装（G2フェーズで実装予定。G1未達なら測定しない）",
@@ -410,6 +465,9 @@ def main() -> int:
 
     print("9-1 実行中...")
     task91 = task_9_1()
+
+    print("9-1b 実行中...")
+    task91b = task_9_1b(candidate_codes)
 
     print("9-2 実行中...")
     task92 = task_9_2(candidate_codes)
@@ -436,6 +494,7 @@ def main() -> int:
             "mapping_ambiguous": task91["mapping_ambiguous"],
             "note": "詳細は params.json の field_value_mapping_9_1 を参照",
         },
+        "9-1b_ul_ll_flag_check": task91b,
         "9-2_missing_rate": task92,
         "9-3_concentration": task93,
         "9-4_data_sufficiency_gate": task94,
