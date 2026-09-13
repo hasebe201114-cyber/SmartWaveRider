@@ -58,10 +58,12 @@ TIMEOUT = 30
 # 前回の実測で HTTP 429 (レート制限) が多発した。全リクエストの間に最低これだけ間隔を空ける。
 # 0.6秒では依然として429が頻発し、リトライの積み重ねで実行時間が数十分〜時間単位に
 # 膨らむ事故が起きたため、間隔を広げリトライは軽くする（粘るより早く諦めて記録する）。
-MIN_REQUEST_INTERVAL_SEC = 1.5
-# 429 を受けたときのリトライ回数と待機秒数（軽い固定バックオフ。指数的に伸ばさない）
-RATE_LIMIT_MAX_RETRIES = 2
-RATE_LIMIT_BACKOFF_SEC = 5.0
+MIN_REQUEST_INTERVAL_SEC = 2.0
+# 429 を受けたときのリトライ回数と待機秒数（軽い固定バックオフ。指数的に伸ばさない。
+# 1.5秒間隔でも実測10分以上かかる事故が続いたため、間隔をさらに広げつつ
+# リトライは1回だけに削り、後述のリクエスト総数削減とあわせて実行時間の上限を保証する）
+RATE_LIMIT_MAX_RETRIES = 1
+RATE_LIMIT_BACKOFF_SEC = 4.0
 
 # 1単元が概ね20万円前後で、判断2（TOPIX500）にも含まれる代表銘柄をプローブ対象にする
 PROBE_CODE = "72030"  # トヨタ自動車（V2 は5桁コード表記の可能性があるため後段で両対応を試す）
@@ -475,17 +477,26 @@ def probe_intraday(api_key: str, valid_date: str, valid_code: str, log: list[str
     log.append("")
 
 
-def month_starts_in_range(start: dt.date, end: dt.date) -> list[dt.date]:
-    """start〜end の範囲内で、月初め直近の平日を列挙する（実測を間引くため）。"""
+def month_starts_in_range(start: dt.date, end: dt.date, step_months: int = 3) -> list[dt.date]:
+    """start〜end の範囲内で、step_months ヶ月おき・月初め直近の平日を列挙する（実測を間引くため）。
+
+    レート制限対策でリクエスト総数を絞る必要があり、既定は3ヶ月（四半期）おき。
+    月次(step_months=1)だと契約範囲2年で約25回叩くことになり、429の温床になっていた。
+    """
     dates: list[dt.date] = [start]
     cur = dt.date(start.year, start.month, 1)
+    month_index = 0
     while cur <= end:
-        d = cur
-        while d.weekday() >= 5:
-            d += dt.timedelta(days=1)
-        if start <= d <= end and d not in dates:
-            dates.append(d)
+        if month_index % step_months == 0:
+            d = cur
+            while d.weekday() >= 5:
+                d += dt.timedelta(days=1)
+            if start <= d <= end and d not in dates:
+                dates.append(d)
         cur = dt.date(cur.year + 1, 1, 1) if cur.month == 12 else dt.date(cur.year, cur.month + 1, 1)
+        month_index += 1
+    if end not in dates:
+        dates.append(end)  # 契約終了日ちょうども必ず確認する
     return sorted(set(dates))
 
 
@@ -566,8 +577,8 @@ def probe_delay(
     latest = None
     # 全リクエストに間隔を空ける都合上、210日分を1日刻みで遡ると最悪ケースで
     # 数分〜十数分かかる。search_from 自体か、その近傍数日で見つかるのが通常なので
-    # 上限を60営業日相当（約12週）に抑える。見つからなければ「不明」として正直に記録する。
-    MAX_PROBES = 60
+    # 上限を20営業日相当（約4週）に抑える。見つからなければ「不明」として正直に記録する。
+    MAX_PROBES = 20
     checked = 0
     for back in range(0, 210):
         if checked >= MAX_PROBES:
@@ -723,7 +734,14 @@ def main() -> int:
 
     print(
         f"実行を開始します（{MIN_REQUEST_INTERVAL_SEC}秒間隔でAPIを叩くため、"
-        "全体で1〜3分程度かかります。進捗はこの画面にリアルタイムで表示されます）...",
+        "全体で概ね2〜5分程度で終わるはずです。429(レート制限)が多発する場合はもう少し"
+        "かかることがあります。進捗はこの画面にリアルタイムで表示されます）...",
+        flush=True,
+    )
+    print(
+        "※ kabu STATION の疎通だけを先に・数秒で確認したい場合は、"
+        "このスクリプトを待たずに別ターミナルで scripts\\check_kabu_station.py "
+        "を実行してください。",
         flush=True,
     )
 
