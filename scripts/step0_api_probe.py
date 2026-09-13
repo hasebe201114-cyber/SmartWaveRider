@@ -55,15 +55,14 @@ REPORT_PATH = REPO_ROOT / "research" / "STEP0-api-probe-report.md"
 
 JQUANTS_V2_BASE = "https://api.jquants.com/v2"
 TIMEOUT = 30
-# 前回の実測で HTTP 429 (レート制限) が多発した。全リクエストの間に最低これだけ間隔を空ける。
-# 0.6秒では依然として429が頻発し、リトライの積み重ねで実行時間が数十分〜時間単位に
-# 膨らむ事故が起きたため、間隔を広げリトライは軽くする（粘るより早く諦めて記録する）。
-MIN_REQUEST_INTERVAL_SEC = 2.0
-# 429 を受けたときのリトライ回数と待機秒数（軽い固定バックオフ。指数的に伸ばさない。
-# 1.5秒間隔でも実測10分以上かかる事故が続いたため、間隔をさらに広げつつ
-# リトライは1回だけに削り、後述のリクエスト総数削減とあわせて実行時間の上限を保証する）
-RATE_LIMIT_MAX_RETRIES = 1
-RATE_LIMIT_BACKOFF_SEC = 4.0
+# 方針転換（2026-09-13、司令塔判断）: リクエスト数を削って速く済ませる方向は
+# 429を防ぎきれず、かえって結果が虫食いになった（§3/§4/§6が軒並み未確認に終わった）。
+# 今回は逆に「間隔を十分に取って確実に取得する」方向へ倒し、
+# 実行時間は30分程度かかることを前提にする。
+MIN_REQUEST_INTERVAL_SEC = 5.0
+# 429 を受けたときのリトライ回数と待機秒数。粘り強く待つ（指数的には伸ばさず固定秒）。
+RATE_LIMIT_MAX_RETRIES = 3
+RATE_LIMIT_BACKOFF_SEC = 10.0
 
 # 1単元が概ね20万円前後で、判断2（TOPIX500）にも含まれる代表銘柄をプローブ対象にする
 PROBE_CODE = "72030"  # トヨタ自動車（V2 は5桁コード表記の可能性があるため後段で両対応を試す）
@@ -532,7 +531,7 @@ def probe_history_range(
     log.append("|---|---|")
     oldest_ok = None
     debug_shown = 0
-    dates_to_check = month_starts_in_range(subscription_start, subscription_end)
+    dates_to_check = month_starts_in_range(subscription_start, subscription_end, step_months=1)
     for i, date in enumerate(dates_to_check, 1):
         print(f"  [3/6] 日足遡及確認 {i}/{len(dates_to_check)}: {date.isoformat()}", flush=True)
         status, body, _ = http_json(
@@ -575,10 +574,9 @@ def probe_delay(
     today = dt.date.today()
     search_from = subscription_end if subscription_end else today
     latest = None
-    # 全リクエストに間隔を空ける都合上、210日分を1日刻みで遡ると最悪ケースで
-    # 数分〜十数分かかる。search_from 自体か、その近傍数日で見つかるのが通常なので
-    # 上限を20営業日相当（約4週）に抑える。見つからなければ「不明」として正直に記録する。
-    MAX_PROBES = 20
+    # 方針転換（間隔優先・30分許容）に伴い、探索上限も精度優先の値に戻す。
+    # 12週間遅延という前提を確認するには、最低でもそれ以上遡れる余地が要る。
+    MAX_PROBES = 60
     checked = 0
     for back in range(0, 210):
         if checked >= MAX_PROBES:
@@ -733,9 +731,11 @@ def main() -> int:
             pass
 
     print(
-        f"実行を開始します（{MIN_REQUEST_INTERVAL_SEC}秒間隔でAPIを叩くため、"
-        "全体で概ね2〜5分程度で終わるはずです。429(レート制限)が多発する場合はもう少し"
-        "かかることがあります。進捗はこの画面にリアルタイムで表示されます）...",
+        f"実行を開始します（{MIN_REQUEST_INTERVAL_SEC}秒間隔でAPIを叩き、429時は"
+        f"{RATE_LIMIT_BACKOFF_SEC:.0f}秒待って最大{RATE_LIMIT_MAX_RETRIES}回リトライするため、"
+        "確実性を優先し全体で概ね30分程度かかる想定です。「速く終わらせる」より"
+        "「今回で結果を確定させる」ことを優先した設定です。"
+        "進捗はこの画面にリアルタイムで表示されます）...",
         flush=True,
     )
     print(
