@@ -1,0 +1,20 @@
+{
+ "date": "2026-08-29",
+ "pages_fetched": 1,
+ "row_count": 1,
+ "rows": [
+  {
+   "time": "09:30",
+   "code": "45020",
+   "company_name": "武田薬",
+   "title": "真性多血症の治療パラダイム転換につながる可能性を有するMIMRYLO（rusfertide）の米国食品医薬品局（FDA）の承認取得について",
+   "pdf_url": "140120260828528017.pdf",
+   "xbrl": "",
+   "exchange": "東名札福",
+   "update_history": ""
+  }
+ ],
+ "last_page_http_status": 200,
+ "fetched_at_utc": "2026-09-13T21:00:59.686350+00:00",
+ "source": "www.release.tdnet.info (無料公開サイト。約34日で公開終了するため日次保存が必要)"
+}

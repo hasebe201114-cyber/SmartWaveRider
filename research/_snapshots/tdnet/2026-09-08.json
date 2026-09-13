@@ -1,0 +1,1329 @@
+{
+ "date": "2026-09-08",
+ "pages_fetched": 2,
+ "row_count": 132,
+ "rows": [
+  {
+   "time": "19:00",
+   "code": "48910",
+   "company_name": "Ｇ－ティムス",
+   "title": "第10回新株予約権（行使価額修正条項付）の大量行使、行使完了及び月間行使状況に関するお知らせ",
+   "pdf_url": "140120260908533236.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:35",
+   "code": "13450",
+   "company_name": "上場Ｊリート",
+   "title": "ＥＴＦの収益分配のお知らせ",
+   "pdf_url": "140120260908533266.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:20",
+   "code": "15970",
+   "company_name": "ＭＸＳ　Ｊリート",
+   "title": "ＭＡＸＩＳ ＥＴＦの収益分配のお知らせ",
+   "pdf_url": "140120260908533259.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:00",
+   "code": "44180",
+   "company_name": "Ｇ－ＪＤＳＣ",
+   "title": "監査役の逝去及び退任に関するお知らせ",
+   "pdf_url": "140120260908533226.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:00",
+   "code": "576A0",
+   "company_name": "ＧＸチャイテクカバコ",
+   "title": "一口あたりの純資産額等（NAV）と市場価格の終値との重要な乖離に関するお知らせ",
+   "pdf_url": "140120260908533244.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:15",
+   "code": "74750",
+   "company_name": "アルビス",
+   "title": "2027年３月期第２四半期（中間期）及び通期連結業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260907532503.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:15",
+   "code": "74750",
+   "company_name": "アルビス",
+   "title": "株式会社ライフコーポレーションによる当社株式に対する 公開買付けに関する賛同の意見表明及び応募推奨のお知らせ",
+   "pdf_url": "140120260908533017.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:15",
+   "code": "74750",
+   "company_name": "アルビス",
+   "title": "2027年３月期配当予想の修正（無配）及び株主優待制度の廃止に関するお知らせ",
+   "pdf_url": "140120260907532597.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:15",
+   "code": "81940",
+   "company_name": "ライフコーポ",
+   "title": "アルビス株式会社（証券コード：7475）に対する公開買付けの開始に関するお知らせ",
+   "pdf_url": "140120260905532133.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "161A0",
+   "company_name": "Ｐ－三葉",
+   "title": "TOKYO PRO Marketへの上場目的の開示に関するお知らせ",
+   "pdf_url": "140120260908533195.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "34160",
+   "company_name": "ピクスタ",
+   "title": "投資有価証券売却による特別利益計上についてのお知らせ",
+   "pdf_url": "140120260908533174.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "36620",
+   "company_name": "エイチームＨＤ",
+   "title": "2026年7月期 通期決算説明会 書き起こし",
+   "pdf_url": "140120260908533206.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "40690",
+   "company_name": "Ｇ－ＢｌｕｅＭｅｍｅ",
+   "title": "特別調査委員会の調査報告書の公表及び当社の対応に関するお知らせ",
+   "pdf_url": "140120260908533107.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "48290",
+   "company_name": "日本エンタープライズ",
+   "title": "社外監査役の逝去及び退任に関するお知らせ",
+   "pdf_url": "140120260908533137.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "51300",
+   "company_name": "Ｐ－ヒロＨＤ",
+   "title": "TOKYO PRO Marketへの上場目的の開示について",
+   "pdf_url": "140120260908533102.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "73180",
+   "company_name": "Ｇ－セレンディップ",
+   "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+   "pdf_url": "140120260908533189.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "92840",
+   "company_name": "Ｉ－カナディアンソラ",
+   "title": "当社投資口の貸借銘柄選定に関するお知らせ",
+   "pdf_url": "140120260908532878.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "23210",
+   "company_name": "Ｇ－ソフトフロントＨ",
+   "title": "（開示事項の経過）「AI データセンター事業」におけるToken Factory 事業の開始に関するお知らせ",
+   "pdf_url": "140120260908533053.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "23210",
+   "company_name": "Ｇ－ソフトフロントＨ",
+   "title": "資金使途の変更に関するお知らせ",
+   "pdf_url": "140120260908533118.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "99410",
+   "company_name": "太洋物産",
+   "title": "新株式及び新株予約権の発行に関する資金使途及び支出予定時期変更のお知らせ",
+   "pdf_url": "140120260812518414.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "99410",
+   "company_name": "太洋物産",
+   "title": "プライムジャパン株式会社との業務提携解消に関するお知らせ",
+   "pdf_url": "140120260908532698.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "13980",
+   "company_name": "ＳＭＤＡＭ　Ｊリート",
+   "title": "ＥＴＦの収益分配のお知らせ",
+   "pdf_url": "140120260908533141.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "49850",
+   "company_name": "アース製薬",
+   "title": "機構の変更及び人事異動に関するお知らせ",
+   "pdf_url": "140120260908533037.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "78140",
+   "company_name": "日本創発Ｇ",
+   "title": "子会社間の吸収合併及び特定子会社の異動に関するお知らせ",
+   "pdf_url": "140120260902530382.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "80110",
+   "company_name": "三陽商",
+   "title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
+   "pdf_url": "140120260908532980.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "84210",
+   "company_name": "Ｙ－信中金",
+   "title": "自己優先出資の取得状況に関するお知らせ",
+   "pdf_url": "140120260908533011.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "89640",
+   "company_name": "Ｒ－三井不商業",
+   "title": "資金の借入及び返済に関するお知らせ",
+   "pdf_url": "140120260908533110.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "94130",
+   "company_name": "テレ東ＨＤ",
+   "title": "当社の「その他の関係会社」の決算に関するお知らせ",
+   "pdf_url": "140120260908533082.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "95620",
+   "company_name": "Ｇ－ビジネスコーチ",
+   "title": "当社の「その他の関係会社」の決算に関するお知らせ",
+   "pdf_url": "140120260908532900.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "96320",
+   "company_name": "スバル興",
+   "title": "2027年１月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260908532897.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "84730",
+   "company_name": "ＳＢＩ",
+   "title": "（訂正）公開買付届出書の訂正届出書の提出に伴う「BASE株式会社株式（証券コード：4477）に対する公開買付けの開始（略）」等の訂正に関するお知らせ",
+   "pdf_url": "140120260908533089.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "74350",
+   "company_name": "ナ・デックス",
+   "title": "2027年４月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260828527776.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "74350",
+   "company_name": "ナ・デックス",
+   "title": "2027年４月期　第１四半期決算補足説明資料",
+   "pdf_url": "140120260901529391.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "74350",
+   "company_name": "ナ・デックス",
+   "title": "株主・投資家の皆様からの主なご質問(FAQ)(2027年４月期第１四半期)",
+   "pdf_url": "140120260908532859.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:36",
+   "code": "14360",
+   "company_name": "Ｇ－グリーンエナジー",
+   "title": "2027年4月期第１四半期決算説明資料",
+   "pdf_url": "140120260908533135.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "14360",
+   "company_name": "Ｇ－グリーンエナジー",
+   "title": "業績予想の修正（上方修正）に関するお知らせ",
+   "pdf_url": "140120260908533009.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "14360",
+   "company_name": "Ｇ－グリーンエナジー",
+   "title": "2027年４月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260908533095.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "14470",
+   "company_name": "Ｇ－ＳＡＡＦＨＤ",
+   "title": "大規模買付等に関する対応策（買収への対応方針）に関する 共同協調行為の追加認定について",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": "2026/09/09 08:35 削除"
+  },
+  {
+   "time": "15:30",
+   "code": "24380",
+   "company_name": "Ｇ－アスカネット",
+   "title": "2027年４月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260907532355.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "25880",
+   "company_name": "プレミアムウォーター",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260907532475.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "278A0",
+   "company_name": "Ｇ－テラドローン",
+   "title": "第26回新株予約権（行使価額固定型）の行使に関するお知らせ",
+   "pdf_url": "140120260908532986.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "30450",
+   "company_name": "カワサキ",
+   "title": "非上場の親会社等の決算に関するお知らせ",
+   "pdf_url": "140120260904532150.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "34620",
+   "company_name": "Ｒ－ＮＭＦ",
+   "title": "コミットメントラインの設定に関するお知らせ",
+   "pdf_url": "140120260908532879.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "378A0",
+   "company_name": "Ｇ－ヒット",
+   "title": "監査役の辞任及び補欠監査役の監査役就任に関するお知らせ",
+   "pdf_url": "140120260907532790.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "401A0",
+   "company_name": "Ｒ－霞ヶ関ホテル",
+   "title": "ホテル運営実績に関するお知らせ（2026年7月度）",
+   "pdf_url": "140120260908533062.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48800",
+   "company_name": "セルソース",
+   "title": "2026年10月期8月度月次KPI速報",
+   "pdf_url": "140120260907532719.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48800",
+   "company_name": "セルソース",
+   "title": "本店移転及び特別損失の計上（見込み）に関するお知らせ",
+   "pdf_url": "140120260907532681.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48800",
+   "company_name": "セルソース",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260908533022.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48800",
+   "company_name": "セルソース",
+   "title": "法人税等調整額（損）の計上に関するお知らせ",
+   "pdf_url": "140120260907532673.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48800",
+   "company_name": "セルソース",
+   "title": "2026年10月期第3四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260907532703.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48800",
+   "company_name": "セルソース",
+   "title": "2026年10月期第3四半期決算説明資料",
+   "pdf_url": "140120260907532708.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "62320",
+   "company_name": "Ｇ－ＡＣＳＬ",
+   "title": "海外募集による新株式発行の払込完了に関するお知らせ",
+   "pdf_url": "140120260908532913.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "62320",
+   "company_name": "Ｇ－ＡＣＳＬ",
+   "title": "新株予約権の行使価額の調整に関するお知らせ",
+   "pdf_url": "140120260908532922.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "62870",
+   "company_name": "サトー",
+   "title": "子会社の吸収合併（簡易合併・略式合併）に関するお知らせ",
+   "pdf_url": "140120260908532841.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "63810",
+   "company_name": "アネスト岩田",
+   "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+   "pdf_url": "140120260908533097.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "66350",
+   "company_name": "大日光",
+   "title": "当社連結子会社による子会社の設立及び特定子会社の異動に関するお知らせ",
+   "pdf_url": "140120260907532553.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "68410",
+   "company_name": "横河電",
+   "title": "（訂正）「自己株式取得状況および取得終了に関するお知らせ （会社法第165 条第 2 項の規定による定款の定めに基づく自己株式の取得）」の一部訂正について",
+   "pdf_url": "140120260908532991.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "68660",
+   "company_name": "日置電",
+   "title": "組織変更及び人事異動に関するお知らせ",
+   "pdf_url": "140120260908533010.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "69050",
+   "company_name": "コーセル",
+   "title": "業績連動型譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+   "pdf_url": "140120260907532293.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "74590",
+   "company_name": "メディパル",
+   "title": "代表取締役および取締役の異動に関するお知らせ",
+   "pdf_url": "140120260908533018.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "74760",
+   "company_name": "アズワン",
+   "title": "自己株式の公開買付けの結果及び取得終了並びに主要株主の異動に関するお知らせ",
+   "pdf_url": "140120260907532717.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "76990",
+   "company_name": "Ｇ－ＯＰＳ",
+   "title": "当社有価証券信託受益証券の受益者への分配金の単価決定に関するお知らせ",
+   "pdf_url": "140120260908533060.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "79660",
+   "company_name": "リンテック",
+   "title": "社外取締役の辞任についてのお知らせ",
+   "pdf_url": "140120260908532896.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "92840",
+   "company_name": "Ｉ－カナディアンソラ",
+   "title": "太陽光発電所月次発電電力量実績及び出力制御による本投資法人の運用資産への影響（2026年８月）に関するお知らせ",
+   "pdf_url": "140120260908532872.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "96030",
+   "company_name": "Ｈ．Ｉ．Ｓ．",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260908532909.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "96360",
+   "company_name": "きんえい",
+   "title": "2027年１月期　第２四半期（中間期）決算短信［日本基準］（非連結）",
+   "pdf_url": "140120260904531677.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "96510",
+   "company_name": "日プロ",
+   "title": "取締役に対する譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+   "pdf_url": "140120260908532856.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "97590",
+   "company_name": "ＮＳＤ",
+   "title": "2026年８月の月次売上高(速報)に関するお知らせ",
+   "pdf_url": "140120260908532970.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "98230",
+   "company_name": "マミーマートＨＤ",
+   "title": "2026年8月　月次業績開示のお知らせ",
+   "pdf_url": "140120260908533083.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "98820",
+   "company_name": "イエローハット",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260907532261.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "27220",
+   "company_name": "ＩＫホールディングス",
+   "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ",
+   "pdf_url": "140120260908533012.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "30710",
+   "company_name": "ストリーム",
+   "title": "2027年１月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260904532061.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "40780",
+   "company_name": "堺化学",
+   "title": "自己株式の取得状況及び取得終了に関するお知らせ （会社法第459条第1項の規定による定款の定めに基づく自己株式の取得）",
+   "pdf_url": "140120260908533027.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "81510",
+   "company_name": "東陽テクニカ",
+   "title": "主要株主及び主要株主である筆頭株主の異動に関するお知らせ",
+   "pdf_url": "140120260908532951.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:46",
+   "code": "42380",
+   "company_name": "ミライアル",
+   "title": "2027年１月期  第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260908532943.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:46",
+   "code": "42380",
+   "company_name": "ミライアル",
+   "title": "2027年１月期 第2四半期 決算説明資料",
+   "pdf_url": "140120260908532957.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:46",
+   "code": "42380",
+   "company_name": "ミライアル",
+   "title": "中期成長戦略のアップデート",
+   "pdf_url": "140120260908532960.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "26980",
+   "company_name": "キャンドゥ",
+   "title": "2026年8月度　月次売上高前年比速報",
+   "pdf_url": "140120260908532855.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "74410",
+   "company_name": "Ｍｉｓｕｍｉ",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260907532525.pdf",
+   "xbrl": "",
+   "exchange": "福",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30830",
+   "company_name": "スターシーズ",
+   "title": "2027年２月期通期連結業績予想の修正（上方修正）に関するお知らせ",
+   "pdf_url": "140120260908532925.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "60730",
+   "company_name": "アサンテ",
+   "title": "2027年３月期　８月度月次売上高のお知らせ",
+   "pdf_url": "140120260907532662.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "81980",
+   "company_name": "ＭＶ東海",
+   "title": "2027年２月期　８月度月次売上高前年比速報",
+   "pdf_url": "140120260908532985.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "587A4",
+   "company_name": "Ｅ－インベスコＱＱＱ",
+   "title": "インベスコQQQトラスト シリーズ1 に関する日々の開示事項",
+   "pdf_url": "140120260908532959.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "95610",
+   "company_name": "Ｇ－グラッドキューブ",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260907532745.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:50",
+   "code": "15574",
+   "company_name": "Ｅ－ＳＳＧＡＴＣ",
+   "title": "State Street SPDR S&P500 ETFに関する日々の開示事項",
+   "pdf_url": "140120260908532941.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:45",
+   "code": "13264",
+   "company_name": "Ｅ－ワールド",
+   "title": "SPDRゴールド・シェアに関する日々の開示事項",
+   "pdf_url": "140120260908532938.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:40",
+   "code": "13494",
+   "company_name": "Ｅ－ＳＳＧＡ－ＳＩＮ",
+   "title": "アジア国債・公債ＥＴＦ（正式名称：ＡＢＦ汎アジア債券インデックス・ファンド）に関する日々の開示事項",
+   "pdf_url": "140120260908532935.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "20704",
+   "company_name": "Ｎ－三菱ＵＦＪ証ＨＤ",
+   "title": "上場ETN（発行者：三菱UFJ証券ホールディングス株式会社）に関する日々の開示事項",
+   "pdf_url": "140120260908532891.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "72790",
+   "company_name": "ハイレックス",
+   "title": "政策保有株式の売却および投資有価証券売却益（特別利益）の計上に関するお知らせ",
+   "pdf_url": "140120260908532936.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:00",
+   "code": "13820",
+   "company_name": "ホーブ",
+   "title": "（訂正・数値データ訂正）「2026年６月期　決算短信〔日本基準〕（連結）」の一部訂正について",
+   "pdf_url": "140120260907532558.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:00",
+   "code": "87660",
+   "company_name": "東京海上",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260907532613.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:00",
+   "code": "94750",
+   "company_name": "昭文社ＨＤ",
+   "title": "自己株式の取得状況に関するお知らせ",
+   "pdf_url": "140120260908532886.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:45",
+   "code": "94440",
+   "company_name": "トーシンＨＤ",
+   "title": "会社更生手続における管財人が更生計画案を提出すべき期間の伸長のお知らせ",
+   "pdf_url": "140120260908532888.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "13294",
+   "company_name": "Ｅ－ブラックロック",
+   "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+   "pdf_url": "140120260908532851.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "16714",
+   "company_name": "Ｅ－シンプレクス",
+   "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+   "pdf_url": "140120260908532836.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "20800",
+   "company_name": "ＰＢＲ１倍割れ解消",
+   "title": "ＥＴＦの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532808.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "20810",
+   "company_name": "政策保有解消",
+   "title": "ＥＴＦの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532809.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "20820",
+   "company_name": "投資家経営者一心同体",
+   "title": "ＥＴＦの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532810.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "32410",
+   "company_name": "ウィル",
+   "title": "2026年12月期中間期 決算補足説明資料",
+   "pdf_url": "140120260904531995.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "585A4",
+   "company_name": "Ｅ－ＪＡＭＰＦＭ",
+   "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
+   "pdf_url": "140120260908532807.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "09:50",
+   "code": "61910",
+   "company_name": "エアトリ",
+   "title": "自己株式立会外買付取引（ToSTNeT-３）による自己株式の取得結果および取得終了に関するお知らせ",
+   "pdf_url": "140120260908532844.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "09:30",
+   "code": "26330",
+   "company_name": "Ｓ＆Ｐ５００ヘッジ無",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532824.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "09:30",
+   "code": "26340",
+   "company_name": "Ｓ＆Ｐ５００ヘッジ有",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532825.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "09:30",
+   "code": "346A0",
+   "company_name": "Ｓ＆Ｐ５００半導体",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532826.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "09:05",
+   "code": "77690",
+   "company_name": "リズム",
+   "title": "（開示事項の経過）新設会社の株式取得完了に関するお知らせ",
+   "pdf_url": "140120260907532258.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:55",
+   "code": "15550",
+   "company_name": "上場Ａリート",
+   "title": "ＥＴＦの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532802.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:55",
+   "code": "15660",
+   "company_name": "上場ＥＭ債",
+   "title": "ＥＴＦの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532803.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:55",
+   "code": "16770",
+   "company_name": "上場外債",
+   "title": "ＥＴＦの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260908532804.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "22370",
+   "company_name": "ｉＦＳＰ５００ダブル",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532768.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "22380",
+   "company_name": "ｉＦＳＰ５００ベア",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532769.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "22470",
+   "company_name": "ｉＦＳＰ５００Ｈ無",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532770.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "22480",
+   "company_name": "ｉＦＳＰ５００Ｈ有",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532771.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "22490",
+   "company_name": "ｉＦＳＰ５００Ｗベア",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532772.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "25280",
+   "company_name": "ｉＦＪリートコア",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532773.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28400",
+   "company_name": "ｉＦナス１００Ｈ無",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532774.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28410",
+   "company_name": "ｉＦナス１００Ｈ有",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532775.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28420",
+   "company_name": "ｉＦナス１００ベア",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532776.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28650",
+   "company_name": "ＧＸＮＤＸカバコ",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532750.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28660",
+   "company_name": "ＧＸ優先証券",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532751.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28680",
+   "company_name": "ＧＸＳＰＸカバコ",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532752.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28690",
+   "company_name": "ｉＦナス１００ダブル",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532777.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "28700",
+   "company_name": "ｉＦナス１００Ｗベア",
+   "title": "iFreeETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532778.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "424A0",
+   "company_name": "ＧＸゴールドＨ",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532753.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "425A0",
+   "company_name": "ＧＸゴールド",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532754.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "467A0",
+   "company_name": "ＧＸＵＳ社債Ｈ",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532755.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "468A0",
+   "company_name": "ＧＸＵＳ社債",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532756.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "563A0",
+   "company_name": "ＧＸナスＤカバコ",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532757.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:50",
+   "code": "576A0",
+   "company_name": "ＧＸチャイテクカバコ",
+   "title": "ETFの収益分配金見込額のお知らせ",
+   "pdf_url": "140120260907532758.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:45",
+   "code": "42590",
+   "company_name": "Ｇ－エクサウィザーズ",
+   "title": "株式会社ele&companyの株式の取得（子会社化）に関するお知らせ",
+   "pdf_url": "140120260907532797.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:40",
+   "code": "16724",
+   "company_name": "Ｅ－ＷｉｓｄｏｍＴｒ",
+   "title": "上場ETF（管理会社：WisdomTree、外国投資法人：MSL）に関する日々の開示事項",
+   "pdf_url": "140120260908532800.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:30",
+   "code": "16724",
+   "company_name": "Ｅ－ＷｉｓｄｏｍＴｒ",
+   "title": "上場ETF（管理会社：WisdomTree、外国投資法人：CSL）に関する日々の開示事項",
+   "pdf_url": "140120260908532799.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:00",
+   "code": "426A0",
+   "company_name": "ＳＰ５００ＥＷＨ無",
+   "title": "ニッセイＥＴＦ　Ｓ＆Ｐ５００イコール・ウェイト（為替ヘッジなし）（2026年7月期）決算短信",
+   "pdf_url": "140120260907532195.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  }
+ ],
+ "last_page_http_status": 200,
+ "fetched_at_utc": "2026-09-13T21:00:11.199117+00:00",
+ "source": "www.release.tdnet.info (無料公開サイト。約34日で公開終了するため日次保存が必要)"
+}

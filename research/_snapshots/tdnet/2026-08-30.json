@@ -1,0 +1,20 @@
+{
+ "date": "2026-08-30",
+ "pages_fetched": 1,
+ "row_count": 1,
+ "rows": [
+  {
+   "time": "10:10",
+   "code": "32600",
+   "company_name": "エスポア",
+   "title": "第三者委員会の一部委員の辞任及び調査報告書提出の再延期について",
+   "pdf_url": "140120260830527792.pdf",
+   "xbrl": "",
+   "exchange": "名",
+   "update_history": ""
+  }
+ ],
+ "last_page_http_status": 200,
+ "fetched_at_utc": "2026-09-13T21:00:57.325477+00:00",
+ "source": "www.release.tdnet.info (無料公開サイト。約34日で公開終了するため日次保存が必要)"
+}

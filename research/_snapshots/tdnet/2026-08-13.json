@@ -1,0 +1,6250 @@
+{
+ "date": "2026-08-13",
+ "pages_fetched": 7,
+ "row_count": 624,
+ "rows": [
+  {
+   "time": "19:30",
+   "code": "87980",
+   "company_name": "アドバンスクリエイト",
+   "title": "再発防止策（骨子）の策定に関するお知らせ",
+   "pdf_url": "140120260813520046.pdf",
+   "xbrl": "",
+   "exchange": "東札福",
+   "update_history": ""
+  },
+  {
+   "time": "19:00",
+   "code": "14470",
+   "company_name": "Ｇ－ＳＡＡＦＨＤ",
+   "title": "2027年３月期第１四半期 決算説明会資料",
+   "pdf_url": "140120260813519886.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "19:00",
+   "code": "74620",
+   "company_name": "ＣＡＰＩＴＡ",
+   "title": "株式会社桃の木による当社株式に対する公開買付けに関する意見表明のお知らせ",
+   "pdf_url": "140120260813519711.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "19:00",
+   "code": "74620",
+   "company_name": "ＣＡＰＩＴＡ",
+   "title": "株式会社桃の木による株式会社ＣＡＰＩＴＡ（証券コード：7462）の株券等に対する公開買付けの開始に関するお知らせ",
+   "pdf_url": "140120260813519458.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:55",
+   "code": "241A0",
+   "company_name": "Ｇ－ＲＯＸＸ",
+   "title": "（訂正）「2026年９月期 第３四半期決算説明資料」の一部訂正について",
+   "pdf_url": "140120260813519990.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:30",
+   "code": "475A0",
+   "company_name": "ギミック",
+   "title": "（訂正）「2027年３月期第１四半期決算説明動画及び書き起こし記事公開に関するお知らせ」の一部訂正について",
+   "pdf_url": "140120260813519985.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:30",
+   "code": "65710",
+   "company_name": "キュービーネットＨＤ",
+   "title": "2026年６月期 決算短信〔ＩＦＲＳ〕(連結)",
+   "pdf_url": "140120260812518483.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:30",
+   "code": "65710",
+   "company_name": "キュービーネットＨＤ",
+   "title": "2026年6月期連結業績予想値と決算値との差異に関するお知らせ",
+   "pdf_url": "140120260812518492.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:30",
+   "code": "65710",
+   "company_name": "キュービーネットＨＤ",
+   "title": "2026年６月期 決算説明資料",
+   "pdf_url": "140120260812517941.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:00",
+   "code": "85700",
+   "company_name": "イオンＦＳ",
+   "title": "主要株主の異動に関するお知らせ",
+   "pdf_url": "140120260813519882.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "18:00",
+   "code": "87980",
+   "company_name": "アドバンスクリエイト",
+   "title": "2026年9月期第3四半期決算短信の開示が四半期末後45日を超えることに関するお知らせ",
+   "pdf_url": "140120260813519928.pdf",
+   "xbrl": "",
+   "exchange": "東札福",
+   "update_history": ""
+  },
+  {
+   "time": "17:45",
+   "code": "23710",
+   "company_name": "カカクコム",
+   "title": "Kamgras １株式会社による株式会社カカクコム（証券コード：2371）の株券等に対する公開買付けの買付条件等の変更に関するお知らせ",
+   "pdf_url": "140120260813519733.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:30",
+   "code": "602A0",
+   "company_name": "Ｐ－レックス",
+   "title": "2026年12月期 中間決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260807514839.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:30",
+   "code": "602A0",
+   "company_name": "Ｐ－レックス",
+   "title": "法人税等調整額（益）の計上に関するお知らせ",
+   "pdf_url": "140120260807515311.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:30",
+   "code": "65790",
+   "company_name": "Ｇ－ログリー",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519078.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:30",
+   "code": "65790",
+   "company_name": "Ｇ－ログリー",
+   "title": "2027年３月期　第１四半期決算説明資料",
+   "pdf_url": "140120260803506818.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:30",
+   "code": "70420",
+   "company_name": "アクセスグループ",
+   "title": "アスリート学生向け就職支援サービス「スポキャリ事業」に関する株式会社スポキャリとの業務提携契約についてのお知らせ",
+   "pdf_url": "140120260813519250.pdf",
+   "xbrl": "",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "17:15",
+   "code": "33500",
+   "company_name": "メタプラネット",
+   "title": "2026年12期第２四半期決算説明資料",
+   "pdf_url": "140120260812518572.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:15",
+   "code": "509A0",
+   "company_name": "Ｉ－Ｇライト・再エネ",
+   "title": "太陽光発電所月次発電電力量実績及び出力制御に関するお知らせ（2026年7月）",
+   "pdf_url": "140120260813519853.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "23320",
+   "company_name": "クエスト",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518401.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "23320",
+   "company_name": "クエスト",
+   "title": "2027年３月期 第１四半期決算補足説明資料",
+   "pdf_url": "140120260813518784.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "40530",
+   "company_name": "サンアスタリスク",
+   "title": "2026年12月期半期報告書の提出期限延長に関する承認申請書提出のお知らせ",
+   "pdf_url": "140120260813518920.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "48190",
+   "company_name": "デジタルガレージ",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260812518706.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "48190",
+   "company_name": "デジタルガレージ",
+   "title": "2027年３月期 第１四半期決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260812518702.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "48190",
+   "company_name": "デジタルガレージ",
+   "title": "持分法適用会社（株式会社カカクコム）株式に関する公開買付けの条件の変更に関するお知らせ",
+   "pdf_url": "140120260812518709.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "50350",
+   "company_name": "Ｇ－ＨＯＵＳＥＩ",
+   "title": "（訂正・数値データ訂正）「2026年12月期　第2四半期（中間期）決算短信〔日本基準〕(連結)」の一部訂正について",
+   "pdf_url": "140120260813519806.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "51030",
+   "company_name": "昭和ＨＤ",
+   "title": "2027年3月期第1四半期決算短信の開示が四半期末後45日を超えることに関するお知らせ",
+   "pdf_url": "140120260813519811.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "65130",
+   "company_name": "オリジン",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518385.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "73560",
+   "company_name": "Ｇ－Ｒｅｔｔｙ",
+   "title": "2026年９月期第３四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260813519807.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "73560",
+   "company_name": "Ｇ－Ｒｅｔｔｙ",
+   "title": "2026年9月期第３四半期決算説明資料",
+   "pdf_url": "140120260813519816.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "73560",
+   "company_name": "Ｇ－Ｒｅｔｔｙ",
+   "title": "通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519818.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "95010",
+   "company_name": "東電力ＨＤ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)(公認会計士等による期中レビューの完了)",
+   "pdf_url": "140120260813519261.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "33580",
+   "company_name": "Ｔｒａｉｌｈｅａｄ",
+   "title": "株式会社Onono Corporation及び株式会社Onono Villageとの業務提携に関するお知らせ",
+   "pdf_url": "140120260813518946.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "33580",
+   "company_name": "Ｔｒａｉｌｈｅａｄ",
+   "title": "台湾における合弁会社の設立及び事業の譲受けに関する基本合意書締結のお知らせ",
+   "pdf_url": "140120260813518960.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "33580",
+   "company_name": "Ｔｒａｉｌｈｅａｄ",
+   "title": "スリランカ民主社会主義共和国における飲食店出店の検討開始に関するお知らせ",
+   "pdf_url": "140120260813518969.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "340A0",
+   "company_name": "Ｇ－ジグザグ",
+   "title": "主要株主の異動に関するお知らせ",
+   "pdf_url": "140120260813519659.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "34450",
+   "company_name": "ＲＳＴＥＣＨ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519115.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "34450",
+   "company_name": "ＲＳＴＥＣＨ",
+   "title": "2026年12月期第2四半期 決算説明資料",
+   "pdf_url": "140120260813519454.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "35380",
+   "company_name": "ウイルプラスＨＤ",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519195.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "35380",
+   "company_name": "ウイルプラスＨＤ",
+   "title": "資本コストや株価を意識した経営の実現に向けた対応について（アップデート）",
+   "pdf_url": "140120260813519684.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "35380",
+   "company_name": "ウイルプラスＨＤ",
+   "title": "2026年6月期 決算補足説明資料",
+   "pdf_url": "140120260813519731.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "59740",
+   "company_name": "中国工",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260806511227.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "70780",
+   "company_name": "Ｇ－ＩＮＣ　ＨＤ",
+   "title": "2027年5月期第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519616.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "70780",
+   "company_name": "Ｇ－ＩＮＣ　ＨＤ",
+   "title": "2027年5月期第1四半期決算補足資料",
+   "pdf_url": "140120260813519629.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "70780",
+   "company_name": "Ｇ－ＩＮＣ　ＨＤ",
+   "title": "決算期の変更に伴う通期連結業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519655.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:30",
+   "code": "79570",
+   "company_name": "フジコピアン",
+   "title": "第三者割当による第２回新株予約権（行使価額修正条項付）の大量行使に関するお知らせ",
+   "pdf_url": "140120260813519704.pdf",
+   "xbrl": "",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "16:15",
+   "code": "80660",
+   "company_name": "三谷商",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ",
+   "pdf_url": "140120260813519720.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:15",
+   "code": "80660",
+   "company_name": "三谷商",
+   "title": "自己株式立会外買付取引（ＴｏＳＴＮｅＴ－３）による自己株式の買付けに関するお知らせ",
+   "pdf_url": "140120260813519747.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:10",
+   "code": "56980",
+   "company_name": "エンビプロＨＤ",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260807514708.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:10",
+   "code": "56980",
+   "company_name": "エンビプロＨＤ",
+   "title": "2026年６月期 決算説明資料",
+   "pdf_url": "140120260807514720.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "21800",
+   "company_name": "サニーサイドアップ",
+   "title": "2026年６月期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519093.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "21800",
+   "company_name": "サニーサイドアップ",
+   "title": "特別損失計上に関するお知らせ",
+   "pdf_url": "140120260812518135.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "21800",
+   "company_name": "サニーサイドアップ",
+   "title": "繰延税金資産の計上に関するお知らせ",
+   "pdf_url": "140120260812518609.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "21800",
+   "company_name": "サニーサイドアップ",
+   "title": "業績予想と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260812518139.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "25850",
+   "company_name": "ライフドリンクＣ",
+   "title": "2027年３月期 第１四半期決算短信 [日本基準] (連結)",
+   "pdf_url": "140120260813519263.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "25850",
+   "company_name": "ライフドリンクＣ",
+   "title": "2027年３月期 第１四半期決算補足説明資料",
+   "pdf_url": "140120260813519289.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "26540",
+   "company_name": "アスモ",
+   "title": "2026年7月度　月次実績のお知らせ",
+   "pdf_url": "140120260813519539.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "269A0",
+   "company_name": "Ｇ－Ｓａｐｅｅｔ",
+   "title": "2026年9月期第3四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260813518823.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "269A0",
+   "company_name": "Ｇ－Ｓａｐｅｅｔ",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813518841.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "269A0",
+   "company_name": "Ｇ－Ｓａｐｅｅｔ",
+   "title": "2026年9月期第3四半期 決算説明資料",
+   "pdf_url": "140120260813518866.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "281A0",
+   "company_name": "Ｇ－インフォメティス",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260810516872.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "281A0",
+   "company_name": "Ｇ－インフォメティス",
+   "title": "営業外収益の計上に関するお知らせ",
+   "pdf_url": "140120260812518421.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "30100",
+   "company_name": "ポラリスＨＤ",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812517753.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "30100",
+   "company_name": "ポラリスＨＤ",
+   "title": "2027年3月期第1四半期決算説明資料",
+   "pdf_url": "140120260813518822.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "31350",
+   "company_name": "マーケットエンター",
+   "title": "取締役候補者および監査役候補者の選任に関するお知らせ",
+   "pdf_url": "140120260813518772.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "320A0",
+   "company_name": "Ｐ－Ｄ＆Ｉ",
+   "title": "通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519495.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "33500",
+   "company_name": "メタプラネット",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518571.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "33500",
+   "company_name": "メタプラネット",
+   "title": "営業外収益、営業外費用（ビットコイン評価損ほか）及び法人税等調整額の計上に関するお知らせ",
+   "pdf_url": "140120260812518291.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "35590",
+   "company_name": "ピーバンドットコム",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519063.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "35590",
+   "company_name": "ピーバンドットコム",
+   "title": "2027年3月期第1四半期決算補足資料",
+   "pdf_url": "140120260813519080.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "37100",
+   "company_name": "ジョルダン",
+   "title": "令和８年９月期 第３四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519057.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "37100",
+   "company_name": "ジョルダン",
+   "title": "通期業績予想及び配当予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519009.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "38400",
+   "company_name": "ＰＡＴＨ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519483.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "38400",
+   "company_name": "ＰＡＴＨ",
+   "title": "営業外収益（暗号資産評価益）の計上に関するお知らせ",
+   "pdf_url": "140120260813519674.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "386A0",
+   "company_name": "みのや",
+   "title": "特別損失の計上及び業績予想値と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260810516867.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "386A0",
+   "company_name": "みのや",
+   "title": "2026年６月期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260810516909.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "386A0",
+   "company_name": "みのや",
+   "title": "2026年６月期決算説明資料",
+   "pdf_url": "140120260810516915.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "386A0",
+   "company_name": "みのや",
+   "title": "2026年６月期決算について高い関心が予想される事項",
+   "pdf_url": "140120260810516919.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "39370",
+   "company_name": "Ｕｂｉｃｏｍ",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518667.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "39370",
+   "company_name": "Ｕｂｉｃｏｍ",
+   "title": "2027年３月期第１四半期決算説明資料",
+   "pdf_url": "140120260812518639.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "39930",
+   "company_name": "ＰＫＳＨＡ",
+   "title": "2026年９月期 第３四半期決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260813518953.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "41180",
+   "company_name": "カネカ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260804507888.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "41180",
+   "company_name": "カネカ",
+   "title": "2027年３月期　第１四半期決算説明資料",
+   "pdf_url": "140120260804507894.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "41920",
+   "company_name": "Ｇ－スパイダープラス",
+   "title": "2026年12月期 第２四半期 決算説明資料スクリプト",
+   "pdf_url": "140120260813519493.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "41920",
+   "company_name": "Ｇ－スパイダープラス",
+   "title": "【決算説明会】決算説明会質疑応答書き起こし",
+   "pdf_url": "140120260813519498.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "41960",
+   "company_name": "ネオマーケ",
+   "title": "2026年9月期第3四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260810517260.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "41960",
+   "company_name": "ネオマーケ",
+   "title": "2026年9月期第3四半期 決算説明資料",
+   "pdf_url": "140120260810517306.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43160",
+   "company_name": "Ｇ－ビーマップ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519441.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43230",
+   "company_name": "日本システム技術",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260804507924.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43230",
+   "company_name": "日本システム技術",
+   "title": "2027年３月期　第１四半期決算補足説明資料",
+   "pdf_url": "140120260804507928.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43310",
+   "company_name": "Ｔ＆Ｇニーズ",
+   "title": "2026年12月期 中間期 決算説明資料",
+   "pdf_url": "140120260813519685.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43310",
+   "company_name": "Ｔ＆Ｇニーズ",
+   "title": "中期経営計画EVOL2030FinalStageToward2035Vision",
+   "pdf_url": "140120260813519717.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43950",
+   "company_name": "Ｇ－アクリート",
+   "title": "剰余金の配当（中間配当）に関するお知らせ",
+   "pdf_url": "140120260813519253.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "43950",
+   "company_name": "Ｇ－アクリート",
+   "title": "2026年12月期半期報告書の提出期限延長に関する承認申請書提出のお知らせ",
+   "pdf_url": "140120260813519262.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "44140",
+   "company_name": "Ｇ－フレクト",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260812518450.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "44140",
+   "company_name": "Ｇ－フレクト",
+   "title": "2027年3月期 第1四半期決算説明資料",
+   "pdf_url": "140120260813519171.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "44140",
+   "company_name": "Ｇ－フレクト",
+   "title": "2027年3月期第1四半期決算 高い関心が想定される事項",
+   "pdf_url": "140120260813519199.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "44140",
+   "company_name": "Ｇ－フレクト",
+   "title": "株式報酬制度の改定に伴う株式取得等の決定に関するお知らせ",
+   "pdf_url": "140120260813519211.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "44380",
+   "company_name": "Ｇ－Ｗｅｌｂｙ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519290.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "44380",
+   "company_name": "Ｇ－Ｗｅｌｂｙ",
+   "title": "特別利益(新株予約権戻入益)の計上に関するお知らせ",
+   "pdf_url": "140120260813519296.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "45830",
+   "company_name": "Ｇ－カイオム",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260812518376.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "45830",
+   "company_name": "Ｇ－カイオム",
+   "title": "決算補足資料　2026年12月期　第2四半期",
+   "pdf_url": "140120260812518408.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "45840",
+   "company_name": "Ｇ－キッズ・バイオ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518835.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "45840",
+   "company_name": "Ｇ－キッズ・バイオ",
+   "title": "営業外費用の計上に関するお知らせ",
+   "pdf_url": "140120260813519260.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "45840",
+   "company_name": "Ｇ－キッズ・バイオ",
+   "title": "2026年度 第１四半期 決算補足説明資料",
+   "pdf_url": "140120260813519252.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "47070",
+   "company_name": "キタック",
+   "title": "名古屋証券取引所メイン市場への上場承認に関するお知らせ",
+   "pdf_url": "140120260729501607.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "475A0",
+   "company_name": "ギミック",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260812518174.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "475A0",
+   "company_name": "ギミック",
+   "title": "2027年３月期 第１四半期決算説明動画及び書き起こし記事公開に関するお知らせ",
+   "pdf_url": "140120260812518210.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "480A0",
+   "company_name": "Ｇ－リブコンサル",
+   "title": "2026年12月期 第２四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519412.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "480A0",
+   "company_name": "Ｇ－リブコンサル",
+   "title": "通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519420.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "480A0",
+   "company_name": "Ｇ－リブコンサル",
+   "title": "2026年12月期 第2四半期決算説明資料",
+   "pdf_url": "140120260813519430.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55370",
+   "company_name": "Ｇ－ＡｌｂａＬｉｎｋ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519004.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55370",
+   "company_name": "Ｇ－ＡｌｂａＬｉｎｋ",
+   "title": "2026年12月期 第２四半期決算 補足説明資料",
+   "pdf_url": "140120260813519061.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55370",
+   "company_name": "Ｇ－ＡｌｂａＬｉｎｋ",
+   "title": "通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519040.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55370",
+   "company_name": "Ｇ－ＡｌｂａＬｉｎｋ",
+   "title": "自己株式の取得状況及び取得終了に関するお知らせ",
+   "pdf_url": "140120260813519021.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55860",
+   "company_name": "Ｇ－ＬａｂｏｒｏＡＩ",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518436.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55860",
+   "company_name": "Ｇ－ＬａｂｏｒｏＡＩ",
+   "title": "2026年９月期 第３四半期 決算説明資料",
+   "pdf_url": "140120260812518066.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55860",
+   "company_name": "Ｇ－ＬａｂｏｒｏＡＩ",
+   "title": "通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260812518364.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "55860",
+   "company_name": "Ｇ－ＬａｂｏｒｏＡＩ",
+   "title": "代表取締役の異動（辞任）に関するお知らせ",
+   "pdf_url": "140120260812518286.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "58920",
+   "company_name": "Ｇ－ｙｕｔｏｒｉ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518717.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "58920",
+   "company_name": "Ｇ－ｙｕｔｏｒｉ",
+   "title": "2027年３月期 第１四半期 決算説明資料",
+   "pdf_url": "140120260812518741.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "58920",
+   "company_name": "Ｇ－ｙｕｔｏｒｉ",
+   "title": "2027年３月期 第１四半期 決算説明資料 スマホ向けサマリ版",
+   "pdf_url": "140120260812518743.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "60780",
+   "company_name": "バリューＨＲ",
+   "title": "剰余金の配当（中間配当）に関するお知らせ",
+   "pdf_url": "140120260813519192.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "60780",
+   "company_name": "バリューＨＲ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518080.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "60780",
+   "company_name": "バリューＨＲ",
+   "title": "2026年12月期第2四半期決算説明資料",
+   "pdf_url": "140120260813519283.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "61770",
+   "company_name": "Ｇ－ＡｐｐＢａｎｋ",
+   "title": "減損損失（連結決算）及び子会社株式評価損（個別決算）の計上に関するお知らせ",
+   "pdf_url": "140120260813519705.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "61770",
+   "company_name": "Ｇ－ＡｐｐＢａｎｋ",
+   "title": "2026年12月期第2四半期（中間期）決算短信（日本基準）（連結）",
+   "pdf_url": "140120260813519721.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "61770",
+   "company_name": "Ｇ－ＡｐｐＢａｎｋ",
+   "title": "2026年12月期第2四半期決算説明資料",
+   "pdf_url": "140120260813519728.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "61770",
+   "company_name": "Ｇ－ＡｐｐＢａｎｋ",
+   "title": "2026年12月期第2四半期決算説明資料（スマートフォン版）",
+   "pdf_url": "140120260813519734.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "61930",
+   "company_name": "Ｇ－バーチャレクス",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519054.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "61930",
+   "company_name": "Ｇ－バーチャレクス",
+   "title": "2027年３月期第１四半期決算説明資料",
+   "pdf_url": "140120260813519150.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "64970",
+   "company_name": "ハマイ",
+   "title": "2026年12月期半期報告書の提出期限延長申請の検討に関するお知らせ",
+   "pdf_url": "140120260812518360.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "67070",
+   "company_name": "サンケン電",
+   "title": "2027年３月期　第１四半期決算補足資料（データ）",
+   "pdf_url": "140120260813519405.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "67070",
+   "company_name": "サンケン電",
+   "title": "2027年３月期　第１四半期決算補足資料（市場環境）",
+   "pdf_url": "140120260813519408.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "74620",
+   "company_name": "ＣＡＰＩＴＡ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518891.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "74620",
+   "company_name": "ＣＡＰＩＴＡ",
+   "title": "株式会社ＣＡＰＩＴＡ2027年3月期第1四半期決算短信補足資料",
+   "pdf_url": "140120260813519447.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "75620",
+   "company_name": "安楽亭",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260723598102.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "75850",
+   "company_name": "かんなん",
+   "title": "2026年６月期 決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519414.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "75850",
+   "company_name": "かんなん",
+   "title": "特別損失の計上及び通期業績予想と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260813519423.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "75850",
+   "company_name": "かんなん",
+   "title": "剰余金の配当（無配）に関するお知らせ",
+   "pdf_url": "140120260813519438.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "75850",
+   "company_name": "かんなん",
+   "title": "2027年６月期　月次売上状況について（７月度）",
+   "pdf_url": "140120260813519445.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "77760",
+   "company_name": "Ｇ－セルシード",
+   "title": "2026年12月期  第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813518928.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "77760",
+   "company_name": "Ｇ－セルシード",
+   "title": "営業外損益及び特別損失の計上に関するお知らせ",
+   "pdf_url": "140120260813518943.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "77760",
+   "company_name": "Ｇ－セルシード",
+   "title": "2026年12月期  第２四半期（中間期）業績予想値と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260813519000.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "78140",
+   "company_name": "日本創発Ｇ",
+   "title": "2026年12月期  第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260724599212.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "78510",
+   "company_name": "カワセコンピュ",
+   "title": "令和９年３月期 第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813518814.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "83090",
+   "company_name": "三井住友トラストＧ",
+   "title": "2027年3月期第1四半期 自己資本比率について",
+   "pdf_url": "140120260813518809.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "85080",
+   "company_name": "Ｊトラスト",
+   "title": "自己株式取得に係る事項の変更（取得枠の拡大）に関するお知らせ",
+   "pdf_url": "140120260813518886.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "89460",
+   "company_name": "エイシアンスター",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260807515721.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "89520",
+   "company_name": "Ｒ－ジャパン",
+   "title": "借入金の期限前弁済に関するお知らせ",
+   "pdf_url": "140120260813519239.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "96250",
+   "company_name": "セレスポ",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260715593944.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "96580",
+   "company_name": "ビジ太田昭和",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519460.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "96580",
+   "company_name": "ビジ太田昭和",
+   "title": "2027年３月期 第１四半期決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260813519502.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "96580",
+   "company_name": "ビジ太田昭和",
+   "title": "2027年3月期 第1四半期 決算説明資料",
+   "pdf_url": "140120260813519572.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "97040",
+   "company_name": "アゴーラＨＧ",
+   "title": "営業外収益および営業外費用の計上に関するお知らせ",
+   "pdf_url": "140120260810516104.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "97040",
+   "company_name": "アゴーラＨＧ",
+   "title": "第２四半期（中間）業績予想と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260810516110.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "16:00",
+   "code": "97040",
+   "company_name": "アゴーラＨＧ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260810516357.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:50",
+   "code": "97400",
+   "company_name": "ＣＳＰ",
+   "title": "和解による損害賠償請求訴訟の解決に関するお知らせ",
+   "pdf_url": "140120260813519722.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "149A0",
+   "company_name": "Ｇ－シンカ",
+   "title": "2026年12月期 第2四半期決算説明資料",
+   "pdf_url": "140120260813519479.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "38030",
+   "company_name": "Ｇ－イメージ情",
+   "title": "特別利益及び特別損失の計上に関するお知らせ_20260813",
+   "pdf_url": "140120260812518544.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "38030",
+   "company_name": "Ｇ－イメージ情",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518552.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "38030",
+   "company_name": "Ｇ－イメージ情",
+   "title": "2027年3月期第1四半期_決算説明資料",
+   "pdf_url": "140120260812518597.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "46640",
+   "company_name": "アールエスシー",
+   "title": "2027年3月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518285.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "52440",
+   "company_name": "Ｇ－ｊｉｇ．ｊｐ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519699.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "52440",
+   "company_name": "Ｇ－ｊｉｇ．ｊｐ",
+   "title": "2027年３月期第１四半期 決算説明資料",
+   "pdf_url": "140120260813519714.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "52440",
+   "company_name": "Ｇ－ｊｉｇ．ｊｐ",
+   "title": "株主還元方針の変更（総還元性向の引き上げ）に関するお知らせ",
+   "pdf_url": "140120260813519683.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "59830",
+   "company_name": "イワブチ",
+   "title": "2027年3月期第1四半期決算短信(日本基準)(連結)",
+   "pdf_url": "140120260717596216.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "93460",
+   "company_name": "Ｇ－ココルポート",
+   "title": "2026年６月期 決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260812518335.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "93460",
+   "company_name": "Ｇ－ココルポート",
+   "title": "2026年６月期 決算説明資料",
+   "pdf_url": "140120260812518347.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:45",
+   "code": "93460",
+   "company_name": "Ｇ－ココルポート",
+   "title": "剰余金の配当（増配）及び配当政策の基本方針の変更 （配当性向の変更・中間配当の実施）に関するお知らせ",
+   "pdf_url": "140120260812518339.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "27800",
+   "company_name": "コメ兵ＨＤ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519116.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "27800",
+   "company_name": "コメ兵ＨＤ",
+   "title": "2027年3月期 第1四半期 決算説明資料",
+   "pdf_url": "140120260813519205.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "31740",
+   "company_name": "ハピネス＆Ｄ",
+   "title": "（訂正・数値データ訂正）「2025年８月期　決算短信〔日本基準〕（連結）」の一部訂正について",
+   "pdf_url": "140120260813519185.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "90730",
+   "company_name": "京極運輸",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260810517138.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:40",
+   "code": "93630",
+   "company_name": "大運",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519187.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:35",
+   "code": "77350",
+   "company_name": "スクリン",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）（公認会計士等による期中レビューの完了）",
+   "pdf_url": "140120260812518669.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:32",
+   "code": "13840",
+   "company_name": "ホクリヨウ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813518740.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "36330",
+   "company_name": "ＧＭＯペパボ",
+   "title": "2026年12月期 第2四半期（中間期） 決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519255.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "36330",
+   "company_name": "ＧＭＯペパボ",
+   "title": "2026年12月期 第2四半期 決算説明会資料",
+   "pdf_url": "140120260813519264.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "36330",
+   "company_name": "ＧＭＯペパボ",
+   "title": "法人税等調整額（益）の計上および通期連結業績予想の修正ならびに期末配当予想の修正（増配）に関するお知らせ",
+   "pdf_url": "140120260813519273.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "37880",
+   "company_name": "ＧＭＯＧＳＨＤ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519101.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "37880",
+   "company_name": "ＧＭＯＧＳＨＤ",
+   "title": "（開示事項の経過）連結子会社株式の譲渡に伴う特別利益の計上に関するお知らせ",
+   "pdf_url": "140120260813519301.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "37880",
+   "company_name": "ＧＭＯＧＳＨＤ",
+   "title": "2026年12月期_第2四半期決算説明資料",
+   "pdf_url": "140120260813519609.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "40510",
+   "company_name": "ＧＭＯ－ＦＧ",
+   "title": "2026年９月期 第３四半期 決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260730503720.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "40510",
+   "company_name": "ＧＭＯ－ＦＧ",
+   "title": "2026年９月期 第３四半期決算説明会",
+   "pdf_url": "140120260810516037.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "410A0",
+   "company_name": "Ｇ－ＧＭＯコマース",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260812517706.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "410A0",
+   "company_name": "Ｇ－ＧＭＯコマース",
+   "title": "2026年12月期 第２四半期 決算説明資料",
+   "pdf_url": "140120260812517708.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "415A0",
+   "company_name": "Ｇ－ＧＭＯＴＥ－ＨＤ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519010.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "415A0",
+   "company_name": "Ｇ－ＧＭＯＴＥ－ＨＤ",
+   "title": "2026年12月期　第２四半期決算説明資料",
+   "pdf_url": "140120260813519593.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "479A0",
+   "company_name": "Ｇ－ＰＲＯＮＩ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518520.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "479A0",
+   "company_name": "Ｇ－ＰＲＯＮＩ",
+   "title": "2026年12月期第２四半期決算説明資料",
+   "pdf_url": "140120260812518542.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "479A0",
+   "company_name": "Ｇ－ＰＲＯＮＩ",
+   "title": "連結決算開始に伴う連結業績予想に関するお知らせ",
+   "pdf_url": "140120260812518547.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "61800",
+   "company_name": "Ｇ－ＧＭＯメディア",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518289.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:31",
+   "code": "61800",
+   "company_name": "Ｇ－ＧＭＯメディア",
+   "title": "2026年12月期 第2四半期決算補足説明資料",
+   "pdf_url": "140120260813519167.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "141A0",
+   "company_name": "Ｇ－トライアル",
+   "title": "通期連結業績予想と実績値との差異及び剰余金の配当(増配)に関するお知らせ",
+   "pdf_url": "140120260813518769.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "141A0",
+   "company_name": "Ｇ－トライアル",
+   "title": "2026年6月期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260808515899.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "141A0",
+   "company_name": "Ｇ－トライアル",
+   "title": "2026年6月期 決算説明資料",
+   "pdf_url": "140120260810517420.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "14310",
+   "company_name": "Ｇ－リブワーク",
+   "title": "業績予想値と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260812518598.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "14310",
+   "company_name": "Ｇ－リブワーク",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518581.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "14310",
+   "company_name": "Ｇ－リブワーク",
+   "title": "2026年６月期 通期決算説明資料",
+   "pdf_url": "140120260812518593.pdf",
+   "xbrl": "",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "148A0",
+   "company_name": "Ｇ－ハッチ・ワーク",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260813519258.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "148A0",
+   "company_name": "Ｇ－ハッチ・ワーク",
+   "title": "2026年12月期　第２四半期決算説明資料",
+   "pdf_url": "140120260813519363.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "149A0",
+   "company_name": "Ｇ－シンカ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519165.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "150A0",
+   "company_name": "Ｇ－ＪＳＨ",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812517623.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "150A0",
+   "company_name": "Ｇ－ＪＳＨ",
+   "title": "2027年３月期第１四半期決算説明資料",
+   "pdf_url": "140120260812517598.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "150A0",
+   "company_name": "Ｇ－ＪＳＨ",
+   "title": "スマホ向け2027年３月期第１四半期決算説明資料抜粋",
+   "pdf_url": "140120260812518591.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "150A0",
+   "company_name": "Ｇ－ＪＳＨ",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ",
+   "pdf_url": "140120260812517671.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "150A0",
+   "company_name": "Ｇ－ＪＳＨ",
+   "title": "2027年３月期の配当予想（初配）に関するお知らせ",
+   "pdf_url": "140120260812517635.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "151A0",
+   "company_name": "Ｇ－ダイブグループ",
+   "title": "2026年６月期　決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260810517389.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "151A0",
+   "company_name": "Ｇ－ダイブグループ",
+   "title": "2026年６月期 通期決算説明資料（事業計画及び成長可能性に関する事項）",
+   "pdf_url": "140120260812518136.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "151A0",
+   "company_name": "Ｇ－ダイブグループ",
+   "title": "「2026年６月期 通期決算説明資料」に関する動画書き起こし",
+   "pdf_url": "140120260812518181.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "151A0",
+   "company_name": "Ｇ－ダイブグループ",
+   "title": "2026年６月期 通期決算において高い関心が予想される事項",
+   "pdf_url": "140120260812518159.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "155A0",
+   "company_name": "Ｇ－情報戦略",
+   "title": "2026年12月期　第２四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518666.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "155A0",
+   "company_name": "Ｇ－情報戦略",
+   "title": "株式の取得（子会社化）に関するお知らせ",
+   "pdf_url": "140120260813518907.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "155A0",
+   "company_name": "Ｇ－情報戦略",
+   "title": "2026年12月期　第２四半期決算説明資料",
+   "pdf_url": "140120260812518675.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "195A0",
+   "company_name": "Ｇ－ＭＵＳＣＡＴ　Ｇ",
+   "title": "2027年3月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519170.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "196A0",
+   "company_name": "Ｇ－ＭＦＳ",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518980.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "196A0",
+   "company_name": "Ｇ－ＭＦＳ",
+   "title": "繰延税金資産の計上及び2026年６月期通期業績予想と実績値との差異並びに通期個別業績の前期実績値との差異に関するお知らせ",
+   "pdf_url": "140120260813519091.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "196A0",
+   "company_name": "Ｇ－ＭＦＳ",
+   "title": "2026年６月期通期決算説明資料",
+   "pdf_url": "140120260813518981.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "197A0",
+   "company_name": "タウンズ",
+   "title": "特別利益（補助金収入）計上のお知らせ",
+   "pdf_url": "140120260813519019.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "197A0",
+   "company_name": "タウンズ",
+   "title": "2026年６月期 決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519300.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "197A0",
+   "company_name": "タウンズ",
+   "title": "2026年6月期 決算説明資料",
+   "pdf_url": "140120260813519322.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "220A0",
+   "company_name": "ファベル",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518618.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "220A0",
+   "company_name": "ファベル",
+   "title": "2026年９月期 第３四半期 決算説明資料",
+   "pdf_url": "140120260813519188.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "22660",
+   "company_name": "六甲バター",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260730503750.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "22660",
+   "company_name": "六甲バター",
+   "title": "2026年12月期 通期連結業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260805509905.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "22940",
+   "company_name": "柿安本店",
+   "title": "2027年4月期7月度の売上高および第1四半期の売上高についてのお知らせ",
+   "pdf_url": "140120260813519295.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "23230",
+   "company_name": "ｆｏｎｆｕｎ",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518388.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "23230",
+   "company_name": "ｆｏｎｆｕｎ",
+   "title": "2027年3月期 第1四半期 決算補足説明資料",
+   "pdf_url": "140120260812518458.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "23700",
+   "company_name": "Ｇ－ＭＤＮＴ",
+   "title": "営業外収益の計上に関するお知らせ",
+   "pdf_url": "140120260813519095.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "23700",
+   "company_name": "Ｇ－ＭＤＮＴ",
+   "title": "2026年９月期 第３四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519183.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "241A0",
+   "company_name": "Ｇ－ＲＯＸＸ",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260810517269.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "241A0",
+   "company_name": "Ｇ－ＲＯＸＸ",
+   "title": "2026年９月期 第３四半期決算説明資料",
+   "pdf_url": "140120260810517287.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "24360",
+   "company_name": "共同ＰＲ",
+   "title": "2026年12月期（第63期）第２四半期決算説明会資料",
+   "pdf_url": "140120260813519314.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "24360",
+   "company_name": "共同ＰＲ",
+   "title": "2026年12月期（第63期）第２四半期 決算補足資料",
+   "pdf_url": "140120260813519304.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "24360",
+   "company_name": "共同ＰＲ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519291.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "24850",
+   "company_name": "ティア",
+   "title": "業績予想修正に関するお知らせ",
+   "pdf_url": "140120260812518054.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "24850",
+   "company_name": "ティア",
+   "title": "2026年9月期 第3四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260805510608.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "25590",
+   "company_name": "ＭＸＳ全世界株式",
+   "title": "ＥＴＦの投資信託約款の変更に関するお知らせ",
+   "pdf_url": "140120260813518832.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "274A0",
+   "company_name": "ガーデン",
+   "title": "2027年２月期７月度 直営店売上速報についてのお知らせ",
+   "pdf_url": "140120260813519002.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "28310",
+   "company_name": "はごろも",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518778.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "288A0",
+   "company_name": "Ｇ－ラクサス",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813518799.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "288A0",
+   "company_name": "Ｇ－ラクサス",
+   "title": "2027年３月期 第１四半期 決算説明資料",
+   "pdf_url": "140120260813518859.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "291A0",
+   "company_name": "Ｇ－リスキル",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260810517231.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "291A0",
+   "company_name": "Ｇ－リスキル",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ",
+   "pdf_url": "140120260810517261.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "307A0",
+   "company_name": "Ｐ－ハウジング・Ｓ",
+   "title": "営業外収益及び特別損失の計上ならびに通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519119.pdf",
+   "xbrl": "",
+   "exchange": "東福",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "31330",
+   "company_name": "Ｇ－海帆",
+   "title": "決算期（事業年度の末日）の変更及び定款一部変更に関するお知らせ",
+   "pdf_url": "140120260813519594.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "31380",
+   "company_name": "富士山マガジン",
+   "title": "第2四半期(中間期)業績予想と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260812518084.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "31380",
+   "company_name": "富士山マガジン",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518178.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "31820",
+   "company_name": "オイシックス",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518967.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "31820",
+   "company_name": "オイシックス",
+   "title": "2027年3月期 第1四半期決算説明資料",
+   "pdf_url": "140120260813519368.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "31820",
+   "company_name": "オイシックス",
+   "title": "2027年3月期 第1四半期決算FAQ",
+   "pdf_url": "140120260813519374.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "32520",
+   "company_name": "地主",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260806512085.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "32520",
+   "company_name": "地主",
+   "title": "2026年12月期 第2四半期決算説明資料",
+   "pdf_url": "140120260813518853.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33000",
+   "company_name": "Ｇ－アンビションＤＸ",
+   "title": "2026年６月期通期連結業績予想と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260807515731.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33000",
+   "company_name": "Ｇ－アンビションＤＸ",
+   "title": "2026年６月期 決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260807515747.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33000",
+   "company_name": "Ｇ－アンビションＤＸ",
+   "title": "2026年６月期 通期決算説明資料",
+   "pdf_url": "140120260807515749.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33000",
+   "company_name": "Ｇ－アンビションＤＸ",
+   "title": "2027年６月期配当予想に関するお知らせ",
+   "pdf_url": "140120260807515753.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33000",
+   "company_name": "Ｇ－アンビションＤＸ",
+   "title": "剰余金の配当に関するお知らせ",
+   "pdf_url": "140120260807515743.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33460",
+   "company_name": "ヒロタグループＨＤ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519034.pdf",
+   "xbrl": "XBRL",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33460",
+   "company_name": "ヒロタグループＨＤ",
+   "title": "（開示事項の経過）連結子会社における固定資産の譲渡及び特別利益の発生に関するお知らせ",
+   "pdf_url": "140120260813518760.pdf",
+   "xbrl": "",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33580",
+   "company_name": "Ｔｒａｉｌｈｅａｄ",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518923.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33580",
+   "company_name": "Ｔｒａｉｌｈｅａｄ",
+   "title": "Trailhead_2027年3月期第1四半期_決算説明資料",
+   "pdf_url": "140120260813518942.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "335A0",
+   "company_name": "Ｇ－ミライロ",
+   "title": "2026年９月期 第３四半期 決算補足資料",
+   "pdf_url": "140120260813519173.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "335A0",
+   "company_name": "Ｇ－ミライロ",
+   "title": "2026年９月期  第３四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260810517184.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "335A0",
+   "company_name": "Ｇ－ミライロ",
+   "title": "2026年９月期通期業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519169.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "33750",
+   "company_name": "ＺＯＡ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813518776.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "338A0",
+   "company_name": "Ｇ－Ｚｅｎｍｕ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260812517698.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "338A0",
+   "company_name": "Ｇ－Ｚｅｎｍｕ",
+   "title": "2026年12月期 第２四半期（中間期）の業績予想値と実績値の差異に関するお知らせ",
+   "pdf_url": "140120260812517700.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "338A0",
+   "company_name": "Ｇ－Ｚｅｎｍｕ",
+   "title": "2026年12月期 第２四半期 決算説明資料",
+   "pdf_url": "140120260812517722.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "34650",
+   "company_name": "ケイアイスター不動産",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260811517451.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "34650",
+   "company_name": "ケイアイスター不動産",
+   "title": "2027年３月期 第１四半期 決算説明資料",
+   "pdf_url": "140120260811517458.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "34650",
+   "company_name": "ケイアイスター不動産",
+   "title": "業績予想及び配当予想の修正に関するお知らせ",
+   "pdf_url": "140120260811517453.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "34740",
+   "company_name": "Ｇ－Ｇ－ＦＡＣ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519312.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "34740",
+   "company_name": "Ｇ－Ｇ－ＦＡＣ",
+   "title": "2026年12月期第２四半期決算説明資料",
+   "pdf_url": "140120260813519329.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36230",
+   "company_name": "Ｇ－ＢＳ",
+   "title": "2026年12月期 第2四半期（中間期）決算短信[日本基準](連結)",
+   "pdf_url": "140120260812518540.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36230",
+   "company_name": "Ｇ－ＢＳ",
+   "title": "2026年12月期　第2四半期決算説明資料",
+   "pdf_url": "140120260813518783.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36390",
+   "company_name": "ボルテージ",
+   "title": "2026年６月期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260727500437.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36390",
+   "company_name": "ボルテージ",
+   "title": "2026年６月期 決算説明会資料",
+   "pdf_url": "140120260813519583.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36390",
+   "company_name": "ボルテージ",
+   "title": "剰余金の配当（無配）に関するお知らせ",
+   "pdf_url": "140120260813519599.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36390",
+   "company_name": "ボルテージ",
+   "title": "当期実績(連結・個別)と前期実績の差異、および投資有価証券売却益の計上に関するお知らせ",
+   "pdf_url": "140120260813519605.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36490",
+   "company_name": "ファインデックス",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518912.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36490",
+   "company_name": "ファインデックス",
+   "title": "2026年12月期 第2四半期 決算説明資料",
+   "pdf_url": "140120260813519350.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36590",
+   "company_name": "ネクソン",
+   "title": "2026年12月期第2四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260812518692.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36590",
+   "company_name": "ネクソン",
+   "title": "剰余金の中間配当に関するお知らせ",
+   "pdf_url": "140120260812518693.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36590",
+   "company_name": "ネクソン",
+   "title": "2026年12月期配当予想の修正に関するお知らせ",
+   "pdf_url": "140120260812518694.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36590",
+   "company_name": "ネクソン",
+   "title": "自己株式の消却に関するお知らせ",
+   "pdf_url": "140120260812518695.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518446.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "第24回新株予約権の取得及び特別損失の計上見込に関するお知らせ",
+   "pdf_url": "140120260813518997.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ",
+   "pdf_url": "140120260813519003.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "連結子会社からの配当金受領に関するお知らせ",
+   "pdf_url": "140120260813519012.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "剰余金の配当に関するお知らせ",
+   "pdf_url": "140120260813519017.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "取締役候補者選任に関するお知らせ",
+   "pdf_url": "140120260813519022.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36600",
+   "company_name": "アイスタイル",
+   "title": "2026年6月期通期決算及び2027年6月期事業計画について",
+   "pdf_url": "140120260813519067.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36790",
+   "company_name": "じげん",
+   "title": "2027年３月期 第１四半期決算短信〔ＩＦＲＳ〕(連結)",
+   "pdf_url": "140120260813519455.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36790",
+   "company_name": "じげん",
+   "title": "2027年3月期　第１四半期 データブック",
+   "pdf_url": "140120260813519496.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36790",
+   "company_name": "じげん",
+   "title": "2027年3月期　第１四半期決算説明会資料",
+   "pdf_url": "140120260813519489.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36860",
+   "company_name": "ＤＬＥ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519491.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36860",
+   "company_name": "ＤＬＥ",
+   "title": "2027年３月期　第１四半期 決算説明資料",
+   "pdf_url": "140120260813519590.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36860",
+   "company_name": "ＤＬＥ",
+   "title": "（開示事項の経過）特別利益の計上に関するお知らせ",
+   "pdf_url": "140120260813519505.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36860",
+   "company_name": "ＤＬＥ",
+   "title": "完全子会社の吸収合併に関するお知らせ",
+   "pdf_url": "140120260813519618.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36920",
+   "company_name": "Ｇ－ＦＦＲＩ",
+   "title": "令和９年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260716595283.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "36920",
+   "company_name": "Ｇ－ＦＦＲＩ",
+   "title": "令和９年３月 第１四半期決算短信補足説明資料",
+   "pdf_url": "140120260716595299.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "37270",
+   "company_name": "Ｇ－ＡＰＬＩＸ",
+   "title": "2026年12月期第2四半期（中間期）決算補足説明資料",
+   "pdf_url": "140120260813519007.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "37270",
+   "company_name": "Ｇ－ＡＰＬＩＸ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔ＩＦＲＳ〕(連結)",
+   "pdf_url": "140120260813518798.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "37990",
+   "company_name": "キーウェア",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812517977.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "38070",
+   "company_name": "Ｇ－フィスコ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260812518580.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "39200",
+   "company_name": "アイビーシー",
+   "title": "2026年9月期 第3四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813518782.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "39200",
+   "company_name": "アイビーシー",
+   "title": "2026年9月期第3四半期決算説明資料",
+   "pdf_url": "140120260813518748.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "39250",
+   "company_name": "ダブルスタンダード",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260805510706.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "39250",
+   "company_name": "ダブルスタンダード",
+   "title": "2027年３月期第１四半期　決算説明資料",
+   "pdf_url": "140120260805510430.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "393A0",
+   "company_name": "Ｐ－ＲｉｔａＸ",
+   "title": "2026年12月期中間決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518752.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "39620",
+   "company_name": "チェンジＨＤ",
+   "title": "2027年3月期 第1四半期決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260813519282.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "39620",
+   "company_name": "チェンジＨＤ",
+   "title": "2027年3月期第1四半期決算説明資料",
+   "pdf_url": "140120260813519307.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "401A0",
+   "company_name": "Ｒ－霞ヶ関ホテル",
+   "title": "投資法人及び資産運用会社の本店移転に関するお知らせ",
+   "pdf_url": "140120260813519373.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "401A0",
+   "company_name": "Ｒ－霞ヶ関ホテル",
+   "title": "2026年7月期（第2期）の運用状況及び分配金の予想の修正に関するお知らせ",
+   "pdf_url": "140120260810517304.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40400",
+   "company_name": "南海化学",
+   "title": "(訂正・数値データ訂正) 「2026年３月期 決算短信〔日本基準〕（連結）」の一部訂正について",
+   "pdf_url": "140120260813518770.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40400",
+   "company_name": "南海化学",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812517693.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40540",
+   "company_name": "Ｇ－日本情報Ｃ",
+   "title": "2026年６月期 決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519194.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40540",
+   "company_name": "Ｇ－日本情報Ｃ",
+   "title": "2026年６月期 通期 決算説明資料",
+   "pdf_url": "140120260813519225.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40540",
+   "company_name": "Ｇ－日本情報Ｃ",
+   "title": "次期配当予想に関するお知らせ",
+   "pdf_url": "140120260813519398.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40550",
+   "company_name": "Ｇ－ティアンドエスＧ",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518359.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40550",
+   "company_name": "Ｇ－ティアンドエスＧ",
+   "title": "2026年９月期 第３四半期決算補足説明資料",
+   "pdf_url": "140120260812518377.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40600",
+   "company_name": "Ｇ－ｒａｋｕｍｏ",
+   "title": "2026年度中間期 決算説明資料",
+   "pdf_url": "140120260804508730.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "40600",
+   "company_name": "Ｇ－ｒａｋｕｍｏ",
+   "title": "2026年12月期 第2四半期 （中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260804508726.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41650",
+   "company_name": "Ｇ－プレイド",
+   "title": "2026年12月期 第3四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518673.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41650",
+   "company_name": "Ｇ－プレイド",
+   "title": "2026年12月期第3四半期決算説明資料",
+   "pdf_url": "140120260812518680.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41650",
+   "company_name": "Ｇ－プレイド",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260812518683.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41650",
+   "company_name": "Ｇ－プレイド",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ",
+   "pdf_url": "140120260812518688.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41650",
+   "company_name": "Ｇ－プレイド",
+   "title": "剰余金の処分に関するお知らせ",
+   "pdf_url": "140120260812518690.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41660",
+   "company_name": "Ｇ－かっこ",
+   "title": "投資有価証券評価損の計上に関するお知らせ",
+   "pdf_url": "140120260813519083.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41660",
+   "company_name": "Ｇ－かっこ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519156.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41660",
+   "company_name": "Ｇ－かっこ",
+   "title": "2026年12月期 第２四半期 決算説明資料",
+   "pdf_url": "140120260813519218.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41660",
+   "company_name": "Ｇ－かっこ",
+   "title": "2026年12月期通期個別業績予想の修正および連結業績予想の公表に関するお知らせ",
+   "pdf_url": "140120260813519079.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41680",
+   "company_name": "Ｇ－ヤプリ",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260805510491.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41680",
+   "company_name": "Ｇ－ヤプリ",
+   "title": "剰余金の配当（中間配当）に関するお知らせ",
+   "pdf_url": "140120260812518516.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41680",
+   "company_name": "Ｇ－ヤプリ",
+   "title": "2026年12月期 第2四半期決算 決算説明資料",
+   "pdf_url": "140120260812518522.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41720",
+   "company_name": "Ｈｉクラテス",
+   "title": "主要株主の株式処分信託契約締結に関するお知らせ",
+   "pdf_url": "140120260812518517.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41800",
+   "company_name": "Ａｐｐｉｅｒ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260812518724.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41800",
+   "company_name": "Ａｐｐｉｅｒ",
+   "title": "通期連結業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260812518725.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "41800",
+   "company_name": "Ａｐｐｉｅｒ",
+   "title": "2026年12月期 第2四半期 決算説明資料",
+   "pdf_url": "140120260812518728.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "42370",
+   "company_name": "フジプレアム",
+   "title": "令和9年3月期　第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260717595991.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "42640",
+   "company_name": "Ｇ－セキュア",
+   "title": "2026年12月期第2四半期決算説明資料",
+   "pdf_url": "140120260812518236.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "42640",
+   "company_name": "Ｇ－セキュア",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518227.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "42650",
+   "company_name": "Ｇ－ＩＧＳ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518950.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "42650",
+   "company_name": "Ｇ－ＩＧＳ",
+   "title": "営業外費用の計上に関するお知らせ",
+   "pdf_url": "140120260813518977.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "42650",
+   "company_name": "Ｇ－ＩＧＳ",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260813518971.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43010",
+   "company_name": "アミューズ",
+   "title": "2027年３月期 第１四半期決算短信[日本基準]（連結）",
+   "pdf_url": "140120260812517969.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43010",
+   "company_name": "アミューズ",
+   "title": "2027年３月期 第１四半期決算短信　補足資料（連結）",
+   "pdf_url": "140120260813518998.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43310",
+   "company_name": "Ｔ＆Ｇニーズ",
+   "title": "第2四半期（中間期）業績予想と実績値との差異 および通期業績予想の上方修正に関するお知らせ",
+   "pdf_url": "140120260813519044.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43310",
+   "company_name": "Ｔ＆Ｇニーズ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519073.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43740",
+   "company_name": "Ｇ－ロボペイ",
+   "title": "2026年7月度 月次売上高のお知らせ",
+   "pdf_url": "140120260813518759.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43770",
+   "company_name": "Ｇ－ワンキャリア",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518295.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43770",
+   "company_name": "Ｇ－ワンキャリア",
+   "title": "2026年12月期 第２四半期決算説明資料",
+   "pdf_url": "140120260812518343.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43790",
+   "company_name": "Ｇ－フォトシンス",
+   "title": "(訂正・数値データ訂正)「2026年12月期 第１四半期決算短信〔日本基準〕（連結）」の一部訂正について",
+   "pdf_url": "140120260813519421.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43790",
+   "company_name": "Ｇ－フォトシンス",
+   "title": "関係会社株式評価損（個別）の計上に関するお知らせ",
+   "pdf_url": "140120260813519153.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43790",
+   "company_name": "Ｇ－フォトシンス",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518868.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43790",
+   "company_name": "Ｇ－フォトシンス",
+   "title": "2026年12月期 第2四半期 決算説明資料",
+   "pdf_url": "140120260813518987.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "43900",
+   "company_name": "ｉｐｓ",
+   "title": "投資家の皆様よりいただいたご質問と回答",
+   "pdf_url": "140120260813519175.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44240",
+   "company_name": "Ｇ－Ａｍａｚｉａ",
+   "title": "2026年９月期第３四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518995.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44240",
+   "company_name": "Ｇ－Ａｍａｚｉａ",
+   "title": "2026年９月期第３四半期 決算説明資料",
+   "pdf_url": "140120260813519023.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44250",
+   "company_name": "Ｇ－Ｋｕｄａｎ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260806513338.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44250",
+   "company_name": "Ｇ－Ｋｕｄａｎ",
+   "title": "2027年３月期　第１四半期決算説明資料",
+   "pdf_url": "140120260812518179.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44250",
+   "company_name": "Ｇ－Ｋｕｄａｎ",
+   "title": "営業外収益及び特別損失の計上に関するお知らせ",
+   "pdf_url": "140120260810516586.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44780",
+   "company_name": "Ｇ－フリー",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519620.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44780",
+   "company_name": "Ｇ－フリー",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ",
+   "pdf_url": "140120260813519638.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44780",
+   "company_name": "Ｇ－フリー",
+   "title": "株式給付信託（J-ESOP）への追加拠出に関するお知らせ",
+   "pdf_url": "140120260813519532.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44780",
+   "company_name": "Ｇ－フリー",
+   "title": "2026年６月期連結業績と前期実績値及び業績予想との差異に関するお知らせ",
+   "pdf_url": "140120260813519651.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44780",
+   "company_name": "Ｇ－フリー",
+   "title": "2026年６月期 決算説明資料",
+   "pdf_url": "140120260813519664.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44800",
+   "company_name": "メドレー",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518934.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44800",
+   "company_name": "メドレー",
+   "title": "2026年12月期 第2四半期決算説明資料",
+   "pdf_url": "140120260813518754.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44800",
+   "company_name": "メドレー",
+   "title": "配当方針の変更及び配当予想の修正（初配）に関するお知らせ",
+   "pdf_url": "140120260813518962.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44800",
+   "company_name": "メドレー",
+   "title": "自己株式の消却に関するお知らせ",
+   "pdf_url": "140120260813518994.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "44800",
+   "company_name": "メドレー",
+   "title": "完全子会社の吸収合併に伴う特別損失の計上に関するお知らせ",
+   "pdf_url": "140120260813519013.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45740",
+   "company_name": "大幸薬品",
+   "title": "2026年12月期 第２四半期(中間期)決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260810516652.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45750",
+   "company_name": "Ｇ－ＣＡＮＢＡＳ",
+   "title": "（訂正）「事業計画及び成長可能性に関するご説明資料」の一部訂正について",
+   "pdf_url": "140120260813519459.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45760",
+   "company_name": "Ｇ－ＤＷＴＩ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260724598820.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45760",
+   "company_name": "Ｇ－ＤＷＴＩ",
+   "title": "2026年12月期　第２四半期決算説明資料",
+   "pdf_url": "140120260724598816.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45760",
+   "company_name": "Ｇ－ＤＷＴＩ",
+   "title": "営業外収益及び営業外費用の計上に関するお知らせ",
+   "pdf_url": "140120260724598822.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45910",
+   "company_name": "Ｇ－リボミック",
+   "title": "営業外損失（為替差損）の計上に関するお知らせ",
+   "pdf_url": "140120260810517279.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45910",
+   "company_name": "Ｇ－リボミック",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519122.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45970",
+   "company_name": "Ｇ－ソレイジア",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260810516960.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45970",
+   "company_name": "Ｇ－ソレイジア",
+   "title": "製品開発品等の事業状況（2026年12月期第2四半期）",
+   "pdf_url": "140120260813518758.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "45970",
+   "company_name": "Ｇ－ソレイジア",
+   "title": "2026年12月期第2四半期決算説明資料",
+   "pdf_url": "140120260813519033.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "47040",
+   "company_name": "トレンド",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結) 2026年",
+   "pdf_url": "140120260812518658.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "47760",
+   "company_name": "ＣＹＢＯＺＵ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260810516325.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "47760",
+   "company_name": "ＣＹＢＯＺＵ",
+   "title": "2026年12月期 第２四半期決算補足資料",
+   "pdf_url": "140120260810516506.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "483A0",
+   "company_name": "テラテクノロジー",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260812518457.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "483A0",
+   "company_name": "テラテクノロジー",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518445.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "485A0",
+   "company_name": "Ｇ－パワーエックス",
+   "title": "上場調達資金使途変更に関するお知らせ",
+   "pdf_url": "140120260813518825.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "485A0",
+   "company_name": "Ｇ－パワーエックス",
+   "title": "（開示事項の経過）北海道苫小牧市への新工場開設に関するお知らせ",
+   "pdf_url": "140120260813518852.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "485A0",
+   "company_name": "Ｇ－パワーエックス",
+   "title": "（開示事項の経過）本社工場への大型蓄電システムの製造ライン増設に関するお知ら",
+   "pdf_url": "140120260813518864.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "485A0",
+   "company_name": "Ｇ－パワーエックス",
+   "title": "2026年12月期 第2四半期(中間期)決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519172.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "485A0",
+   "company_name": "Ｇ－パワーエックス",
+   "title": "2026年12月期 第2四半期 決算説明資料",
+   "pdf_url": "140120260813519639.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48820",
+   "company_name": "Ｇ－ペルセウス",
+   "title": "2027年３月期  第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260805510662.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48820",
+   "company_name": "Ｇ－ペルセウス",
+   "title": "営業外収益、営業外費用及び特別損失の計上に関するお知らせ",
+   "pdf_url": "140120260805510647.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48880",
+   "company_name": "Ｇ－ステラファーマ",
+   "title": "営業外収益（補助金収入）の計上に関するお知らせ",
+   "pdf_url": "140120260810516977.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48880",
+   "company_name": "Ｇ－ステラファーマ",
+   "title": "2027年３月期  第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260702586974.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48880",
+   "company_name": "Ｇ－ステラファーマ",
+   "title": "株式及び新株予約権発行プログラム設定契約に基づく第３回第三者割当による新株式及び新株予約権の発行に関するお知らせ",
+   "pdf_url": "140120260810516980.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48930",
+   "company_name": "Ｇ－ノイルイミューン",
+   "title": "2026年12月期  第２四半期（中間期）決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260813519467.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48940",
+   "company_name": "Ｇ－クオリプス",
+   "title": "2027年３月期  第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519102.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "48940",
+   "company_name": "Ｇ－クオリプス",
+   "title": "2027年３月期　第１四半期決算説明資料",
+   "pdf_url": "140120260813519110.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "49780",
+   "company_name": "Ｇ－リプロセル",
+   "title": "2027年３月期 第１四半期決算短信［日本基準］（連結）",
+   "pdf_url": "140120260813519308.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "49780",
+   "company_name": "Ｇ－リプロセル",
+   "title": "営業外収益計上に関するお知らせ",
+   "pdf_url": "140120260813519321.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "50340",
+   "company_name": "Ｇ－ｕｎｅｒｒｙ",
+   "title": "2026年６月期 決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518846.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "50340",
+   "company_name": "Ｇ－ｕｎｅｒｒｙ",
+   "title": "2026年６月期通期 決算説明資料",
+   "pdf_url": "140120260813519066.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "50340",
+   "company_name": "Ｇ－ｕｎｅｒｒｙ",
+   "title": "完全子会社の吸収合併に関する検討開始のお知らせ",
+   "pdf_url": "140120260813519166.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "50360",
+   "company_name": "日本ビジネスシステム",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519032.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "51370",
+   "company_name": "Ｇ－スマートドライブ",
+   "title": "2026年９月期第３四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260811517528.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "51370",
+   "company_name": "Ｇ－スマートドライブ",
+   "title": "2026年9月期第3四半期 決算説明資料",
+   "pdf_url": "140120260811517529.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "51380",
+   "company_name": "Ｇ－Ｒｅｂａｓｅ",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260813519379.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "51380",
+   "company_name": "Ｇ－Ｒｅｂａｓｅ",
+   "title": "2027年3月期 第1四半期 決算説明資料",
+   "pdf_url": "140120260813519428.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "53680",
+   "company_name": "日本インシュレ",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519144.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "53680",
+   "company_name": "日本インシュレ",
+   "title": "株主優待制度に関するお知らせ",
+   "pdf_url": "140120260813519123.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "55900",
+   "company_name": "Ｇ－ネットスターズ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518634.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "55900",
+   "company_name": "Ｇ－ネットスターズ",
+   "title": "2026年12月期　第2四半期決算説明資料",
+   "pdf_url": "140120260813519485.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "55900",
+   "company_name": "Ｇ－ネットスターズ",
+   "title": "株主優待制度の新設に関するお知らせ",
+   "pdf_url": "140120260813519501.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "56180",
+   "company_name": "Ｇ－ナイル",
+   "title": "2026年12月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518603.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "56180",
+   "company_name": "Ｇ－ナイル",
+   "title": "2026年12月期　第2四半期決算説明資料",
+   "pdf_url": "140120260812518605.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "57040",
+   "company_name": "ＪＭＣ",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260714592868.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "57150",
+   "company_name": "古河機金",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518428.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "57150",
+   "company_name": "古河機金",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260812518378.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "58840",
+   "company_name": "Ｇ－クラダシ",
+   "title": "2026年６月期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519436.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "58840",
+   "company_name": "Ｇ－クラダシ",
+   "title": "2026年６月期 決算説明資料",
+   "pdf_url": "140120260813519469.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "58840",
+   "company_name": "Ｇ－クラダシ",
+   "title": "2026年６月期 決算補足資料（データシート）",
+   "pdf_url": "140120260813519475.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "58840",
+   "company_name": "Ｇ－クラダシ",
+   "title": "2026年6月期業績予想と実績との差異に関するお知らせ",
+   "pdf_url": "140120260813519484.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "598A0",
+   "company_name": "Ｇ－チャットプラス",
+   "title": "資本金の減少（減資）に関するお知らせ",
+   "pdf_url": "140120260812517572.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "598A0",
+   "company_name": "Ｇ－チャットプラス",
+   "title": "親会社以外の支配株主の異動に関するお知らせ",
+   "pdf_url": "140120260812518290.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "598A0",
+   "company_name": "Ｇ－チャットプラス",
+   "title": "2026年６月期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260812518297.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "598A0",
+   "company_name": "Ｇ－チャットプラス",
+   "title": "2026年６月期決算説明資料",
+   "pdf_url": "140120260812518350.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "60300",
+   "company_name": "Ｇ－アドベンチャー",
+   "title": "2026年６月期決算短信〔ＩＦＲＳ〕(連結)",
+   "pdf_url": "140120260812518730.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "60300",
+   "company_name": "Ｇ－アドベンチャー",
+   "title": "2026年6月期第4四半期　決算説明資料",
+   "pdf_url": "140120260813519636.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "60300",
+   "company_name": "Ｇ－アドベンチャー",
+   "title": "連結業績予想と実績との差異、減損損失計上に関するお知らせ",
+   "pdf_url": "140120260813519419.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "60300",
+   "company_name": "Ｇ－アドベンチャー",
+   "title": "剰余金の配当に関するお知らせ",
+   "pdf_url": "140120260813519415.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "60300",
+   "company_name": "Ｇ－アドベンチャー",
+   "title": "募集新株予約権（有償ストック・オプション）の発行内容確定に関するお知らせ",
+   "pdf_url": "140120260813519406.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "62980",
+   "company_name": "ワイエイシイＨＤ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260807515337.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "62980",
+   "company_name": "ワイエイシイＨＤ",
+   "title": "2027年３月期　第１四半期決算補足資料",
+   "pdf_url": "140120260807515542.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65220",
+   "company_name": "Ｇ－アスタリスク",
+   "title": "第三者割当による第９回新株予約権の行使完了に関するお知らせ",
+   "pdf_url": "140120260813519451.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65480",
+   "company_name": "Ｇ－旅工房",
+   "title": "2026年６月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519571.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65480",
+   "company_name": "Ｇ－旅工房",
+   "title": "2026年６月期_決算説明資料",
+   "pdf_url": "140120260813519696.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65600",
+   "company_name": "ＬＴＳ",
+   "title": "2026年12月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260810516843.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65600",
+   "company_name": "ＬＴＳ",
+   "title": "2026年12月期　第2四半期（中間期）決算説明資料",
+   "pdf_url": "140120260810516857.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65600",
+   "company_name": "ＬＴＳ",
+   "title": "自己株式の取得に係る事項の決定に関するお知らせ（会社法第165条第2項の規定による定款の定めに基づく自己株式の取得）",
+   "pdf_url": "140120260812518682.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65600",
+   "company_name": "ＬＴＳ",
+   "title": "東京証券取引所スタンダード市場への市場区分変更申請に向けた準備に関するお知らせ",
+   "pdf_url": "140120260812518684.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "65990",
+   "company_name": "エブレン",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260806512832.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "66250",
+   "company_name": "ＪＡＬＣＯ　ＨＤ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519334.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "66940",
+   "company_name": "ズーム",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519219.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "66940",
+   "company_name": "ズーム",
+   "title": "2026年12月期 第２四半期（中間期）決算説明会資料",
+   "pdf_url": "140120260813519248.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "66940",
+   "company_name": "ズーム",
+   "title": "特別利益の計上及び連結業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519268.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "67070",
+   "company_name": "サンケン電",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260810517053.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "67500",
+   "company_name": "エレコム",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260630584268.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "68900",
+   "company_name": "フェローテック",
+   "title": "リストリクテッド・ストック・ユニット（RSU）としての自己株式の処分の払込完了に関するお知らせ",
+   "pdf_url": "140120260812518499.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "69040",
+   "company_name": "原田工業",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260708589822.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "69180",
+   "company_name": "アバール",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260807515248.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "69180",
+   "company_name": "アバール",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260810517314.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "69180",
+   "company_name": "アバール",
+   "title": "自己株式の消却に関するお知らせ",
+   "pdf_url": "140120260806512891.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "70690",
+   "company_name": "Ｇ－サイバー・バズ",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕〈連結〉",
+   "pdf_url": "140120260812518600.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "70690",
+   "company_name": "Ｇ－サイバー・バズ",
+   "title": "2026年9月期 第3四半期決算説明資料",
+   "pdf_url": "140120260812518625.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "70690",
+   "company_name": "Ｇ－サイバー・バズ",
+   "title": "連結子会社の異動（株式譲渡）及び特別利益の計上に関するお知らせ",
+   "pdf_url": "140120260812518629.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71140",
+   "company_name": "Ｇ－フーディソン",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519168.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71140",
+   "company_name": "Ｇ－フーディソン",
+   "title": "2027年3月期 第1四半期 決算説明資料",
+   "pdf_url": "140120260813519107.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71180",
+   "company_name": "伸和ホールディングス",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260803507040.pdf",
+   "xbrl": "XBRL",
+   "exchange": "名札",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71270",
+   "company_name": "一家ホールディングス",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518653.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71270",
+   "company_name": "一家ホールディングス",
+   "title": "2027年３月期第１四半期決算補足資料",
+   "pdf_url": "140120260812518651.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71380",
+   "company_name": "Ｇ－ＴＯＲＩＣＯ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519340.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71380",
+   "company_name": "Ｇ－ＴＯＲＩＣＯ",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260813519359.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71380",
+   "company_name": "Ｇ－ＴＯＲＩＣＯ",
+   "title": "ETH建てヘッジファンドへの出資に関するお知らせ",
+   "pdf_url": "140120260813519352.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "71380",
+   "company_name": "Ｇ－ＴＯＲＩＣＯ",
+   "title": "営業外費用（暗号資産評価損）の計上に関するお知らせ",
+   "pdf_url": "140120260813519652.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "73470",
+   "company_name": "マーキュリアＨＤ",
+   "title": "2026年12月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260803506368.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "73470",
+   "company_name": "マーキュリアＨＤ",
+   "title": "2026年12月期　第2四半期　決算ハイライト",
+   "pdf_url": "140120260803506370.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "73670",
+   "company_name": "セルム",
+   "title": "自己株式の消却に関するお知らせ",
+   "pdf_url": "140120260813518779.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "73670",
+   "company_name": "セルム",
+   "title": "2027年3月期第１四半期決算説明資料",
+   "pdf_url": "140120260813518851.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "73670",
+   "company_name": "セルム",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518869.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "76980",
+   "company_name": "アイスコ",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260807514298.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "77790",
+   "company_name": "Ｇ－サイバダイン－議",
+   "title": "2027年３月期 第１四半期決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260813519598.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "77940",
+   "company_name": "Ｇ－イーディーピー",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519382.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "78030",
+   "company_name": "Ｇ－ブシロード",
+   "title": "2026年６月期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519370.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "78030",
+   "company_name": "Ｇ－ブシロード",
+   "title": "2026年6月期 通期決算説明資料",
+   "pdf_url": "140120260813519403.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "78030",
+   "company_name": "Ｇ－ブシロード",
+   "title": "連結子会社からの配当金受領に関するお知らせ",
+   "pdf_url": "140120260813519140.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "80390",
+   "company_name": "築地魚",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260727500366.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "81540",
+   "company_name": "加賀電子",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519369.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "81540",
+   "company_name": "加賀電子",
+   "title": "2027年３月期 通期業績予想の修正（上方修正）に関するお知らせ",
+   "pdf_url": "140120260813518889.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "81540",
+   "company_name": "加賀電子",
+   "title": "2027年３月期（第59期）第１四半期 決算説明資料",
+   "pdf_url": "140120260813519349.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "87370",
+   "company_name": "あかつき本社",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260729501642.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "87370",
+   "company_name": "あかつき本社",
+   "title": "連結子会社（あかつき証券株式会社）の2027年３月期第１四半期決算について",
+   "pdf_url": "140120260813519065.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "87460",
+   "company_name": "ｕｎｂａｎｋｅｄ",
+   "title": "2027年３月期第１四半期業績見通しに関するお知らせ",
+   "pdf_url": "140120260813519316.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "89540",
+   "company_name": "Ｒ－オリックスＦ",
+   "title": "資金の借入及び借入金の期限前弁済に関するお知らせ",
+   "pdf_url": "140120260813518931.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "89540",
+   "company_name": "Ｒ－オリックスＦ",
+   "title": "（変更）国内不動産信託受益権の取得（天神ノースフロントビル）に関するお知らせ",
+   "pdf_url": "140120260813518947.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "91730",
+   "company_name": "東海船",
+   "title": "2026年12月期　第２四半期（中間期）決算短信[日本基準]（連結）",
+   "pdf_url": "140120260812518176.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "91730",
+   "company_name": "東海船",
+   "title": "法人税等調整額（益）の計上に関するお知らせ",
+   "pdf_url": "140120260812518214.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "91730",
+   "company_name": "東海船",
+   "title": "取締役の辞任に関するお知らせについて",
+   "pdf_url": "140120260812518299.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "92710",
+   "company_name": "Ｇ－和心",
+   "title": "2026年12月期　第２四半期（中間期）決算短信［日本基準］（連結）",
+   "pdf_url": "140120260812518670.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "92710",
+   "company_name": "Ｇ－和心",
+   "title": "2026年12月期　第２四半期　決算説明資料",
+   "pdf_url": "140120260813519074.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "93640",
+   "company_name": "上組",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518854.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "93990",
+   "company_name": "ビート",
+   "title": "2026年12月期　第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519217.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "93990",
+   "company_name": "ビート",
+   "title": "営業外収益及び営業外費用の計上に関するお知らせ",
+   "pdf_url": "140120260813519221.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "94190",
+   "company_name": "ワイヤレスゲート",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812517879.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "94190",
+   "company_name": "ワイヤレスゲート",
+   "title": "2026年12月期 第2四半期 決算説明資料",
+   "pdf_url": "140120260812518115.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "94680",
+   "company_name": "ＫＡＤＯＫＡＷＡ",
+   "title": "2027年3月期  第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519114.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "94680",
+   "company_name": "ＫＡＤＯＫＡＷＡ",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519142.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "96210",
+   "company_name": "建設技研",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519418.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "96210",
+   "company_name": "建設技研",
+   "title": "第64期(2026年) 第２四半期 決算報告",
+   "pdf_url": "140120260813519446.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "97310",
+   "company_name": "白洋舎",
+   "title": "2026年12月期　第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519161.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "97310",
+   "company_name": "白洋舎",
+   "title": "2026年12月期　第２四半期決算説明資料",
+   "pdf_url": "140120260813519259.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "97690",
+   "company_name": "学究社",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518871.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:30",
+   "code": "99940",
+   "company_name": "やまや",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519244.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:13",
+   "code": "195A0",
+   "company_name": "Ｇ－ＭＵＳＣＡＴ　Ｇ",
+   "title": "2027年３月期 第１四半期 決算説明資料",
+   "pdf_url": "140120260813519097.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "14470",
+   "company_name": "Ｇ－ＳＡＡＦＨＤ",
+   "title": "特別損失（投資有価証券評価損および特別調査費用）の計上に関するお知らせ",
+   "pdf_url": "140120260813519550.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "14470",
+   "company_name": "Ｇ－ＳＡＡＦＨＤ",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813519586.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "26670",
+   "company_name": "イメージワン",
+   "title": "（訂正）「有償ストック・オプション（「第15回新株予約権」）の発行に関するお知らせ」 の一部訂正について",
+   "pdf_url": "140120260813519251.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "30660",
+   "company_name": "ＪＢイレブン",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260802506065.pdf",
+   "xbrl": "XBRL",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "44820",
+   "company_name": "Ｇ－ウィルズ",
+   "title": "特別損失（減損損失）及び法人税等調整額（益）の計上に関するお知らせ",
+   "pdf_url": "140120260813519328.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "44820",
+   "company_name": "Ｇ－ウィルズ",
+   "title": "剰余金の配当（中間配当）に関するお知らせ",
+   "pdf_url": "140120260813519338.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "44820",
+   "company_name": "Ｇ－ウィルズ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信[日本基準]（非連結）",
+   "pdf_url": "140120260813519343.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "44820",
+   "company_name": "Ｇ－ウィルズ",
+   "title": "2026年12月期第2四半期決算説明資料",
+   "pdf_url": "140120260813519367.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "47250",
+   "company_name": "ＣＡＣＨＤ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518662.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "47250",
+   "company_name": "ＣＡＣＨＤ",
+   "title": "創業60周年記念株主優待の実施に関するお知らせ",
+   "pdf_url": "140120260812518664.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "52730",
+   "company_name": "三谷セキサン",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518820.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "558A0",
+   "company_name": "Ｇ－ＳＱＵＥＥＺＥ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518631.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "558A0",
+   "company_name": "Ｇ－ＳＱＵＥＥＺＥ",
+   "title": "2026年12月期 第２四半期決算説明資料",
+   "pdf_url": "140120260813518949.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "558A0",
+   "company_name": "Ｇ－ＳＱＵＥＥＺＥ",
+   "title": "RS Investment Management株式会社との包括業務提携契約締結に関するお知らせ",
+   "pdf_url": "140120260813519160.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "60630",
+   "company_name": "ＥＡＪ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518298.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "60630",
+   "company_name": "ＥＡＪ",
+   "title": "2026年12月期 第２四半期（中間期）決算説明資料",
+   "pdf_url": "140120260812518342.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "78860",
+   "company_name": "ヤマトモビＭｆｇ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260807515708.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "78860",
+   "company_name": "ヤマトモビＭｆｇ",
+   "title": "2027年３月期 第１四半期決算短信補足資料",
+   "pdf_url": "140120260807515713.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "81450",
+   "company_name": "中部水",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（非連結）",
+   "pdf_url": "140120260810517027.pdf",
+   "xbrl": "XBRL",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "94350",
+   "company_name": "光通信",
+   "title": "2027年３月期 第１四半期決算短信〔IFRS〕（連結）",
+   "pdf_url": "140120260812518652.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "94350",
+   "company_name": "光通信",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260812518656.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "15:00",
+   "code": "94350",
+   "company_name": "光通信",
+   "title": "剰余金の配当および配当予想の修正に関するお知らせ",
+   "pdf_url": "140120260812518701.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:30",
+   "code": "27490",
+   "company_name": "ＪＰＨＤ",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519443.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:30",
+   "code": "41930",
+   "company_name": "ファブリカＨＤ",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260813518879.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:30",
+   "code": "41930",
+   "company_name": "ファブリカＨＤ",
+   "title": "配当予想の修正（増配）及び株主優待制度の一部変更に関するお知らせ",
+   "pdf_url": "140120260812518657.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:30",
+   "code": "41930",
+   "company_name": "ファブリカＨＤ",
+   "title": "2027年３月期 第１四半期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518654.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:30",
+   "code": "65740",
+   "company_name": "Ｇ－コンヴァノ",
+   "title": "保有する暗号資産の売却完了に関するお知らせ",
+   "pdf_url": "140120260730504069.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "63400",
+   "company_name": "渋谷工",
+   "title": "2026年6月期　決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260801505982.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "63400",
+   "company_name": "渋谷工",
+   "title": "剰余金の配当に関するお知らせ",
+   "pdf_url": "140120260812517774.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "65470",
+   "company_name": "グリーンズ",
+   "title": "2026年６月期 決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260811517439.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "65470",
+   "company_name": "グリーンズ",
+   "title": "取締役候補者の選任に関するお知らせ",
+   "pdf_url": "140120260812518714.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "69770",
+   "company_name": "日抵抗器",
+   "title": "業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260803506569.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "93220",
+   "company_name": "川西倉庫",
+   "title": "2027年３月期　第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518374.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "93650",
+   "company_name": "トレーディア",
+   "title": "2027年３月期第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260806513298.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "14:00",
+   "code": "99360",
+   "company_name": "王将フード",
+   "title": "オーストラリア子会社設立登記完了に関するお知らせ",
+   "pdf_url": "140120260807514097.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:47",
+   "code": "58450",
+   "company_name": "全保連",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260806512329.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:47",
+   "code": "58450",
+   "company_name": "全保連",
+   "title": "2027年3月期　第1四半期決算説明資料",
+   "pdf_url": "140120260806512514.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:47",
+   "code": "58450",
+   "company_name": "全保連",
+   "title": "本社移転に関するお知らせ",
+   "pdf_url": "140120260806512518.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:30",
+   "code": "70360",
+   "company_name": "Ｇ－イーエムネットＪ",
+   "title": "（訂正）「2026年12月期 第２四半期決算説明資料」の一部訂正について",
+   "pdf_url": "140120260813518932.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:30",
+   "code": "80660",
+   "company_name": "三谷商",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813518904.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30320",
+   "company_name": "ゴルフ・ドゥ",
+   "title": "通期連結業績予想および配当予想の修正ならびに株主優待制度の変更に関するお知らせ",
+   "pdf_url": "140120260813518775.pdf",
+   "xbrl": "",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30320",
+   "company_name": "ゴルフ・ドゥ",
+   "title": "2027年3月期第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260731505084.pdf",
+   "xbrl": "XBRL",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30320",
+   "company_name": "ゴルフ・ドゥ",
+   "title": "2027年3月期第1四半期決算説明資料",
+   "pdf_url": "140120260813518771.pdf",
+   "xbrl": "",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30320",
+   "company_name": "ゴルフ・ドゥ",
+   "title": "法人税等調整額（損）の計上に関するお知らせ",
+   "pdf_url": "140120260813519347.pdf",
+   "xbrl": "",
+   "exchange": "名",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30990",
+   "company_name": "ミツコシイセタン",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518489.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30990",
+   "company_name": "ミツコシイセタン",
+   "title": "2027年3月期　第1四半期決算説明資料",
+   "pdf_url": "140120260812518532.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30990",
+   "company_name": "ミツコシイセタン",
+   "title": "2027年3月期　第1四半期決算説明会資料",
+   "pdf_url": "140120260811517525.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "30990",
+   "company_name": "ミツコシイセタン",
+   "title": "株式分割、および株式分割に伴う自己株式取得に係る事項の一部変更、配当予想の修正、株主優待制度の変更に関するお知らせ",
+   "pdf_url": "140120260812518587.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "39130",
+   "company_name": "ＧｒｅｅｎＢｅｅ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518399.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "39130",
+   "company_name": "ＧｒｅｅｎＢｅｅ",
+   "title": "2026年12月期 第２四半期決算説明資料",
+   "pdf_url": "140120260812518451.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "43370",
+   "company_name": "ぴあ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260806512734.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "45830",
+   "company_name": "Ｇ－カイオム",
+   "title": "第23回新株予約権（行使価額修正条項付）の月間行使状況及び権利行使完了に関するお知らせ",
+   "pdf_url": "140120260813518992.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "70630",
+   "company_name": "Ｇ－Ｂｉｒｄｍａｎ",
+   "title": "(開示事項の経過)学生ランウェイエリアイベント「GAKUSEI RUNWAY 2026 WINTER in YOKOHAMA」開催決定に関するお知らせ",
+   "pdf_url": "140120260813519047.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "73690",
+   "company_name": "Ｇ－メイホーＨＤ",
+   "title": "2026年6月期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260813519149.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "73690",
+   "company_name": "Ｇ－メイホーＨＤ",
+   "title": "2026年6月期決算説明資料",
+   "pdf_url": "140120260813519179.pdf",
+   "xbrl": "",
+   "exchange": "東名",
+   "update_history": ""
+  },
+  {
+   "time": "13:00",
+   "code": "79150",
+   "company_name": "ＮＩＳＳＨＡ",
+   "title": "2026年12月期半期報告書の提出期限延長に関する承認申請書提出のお知らせ",
+   "pdf_url": "140120260810517052.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "17870",
+   "company_name": "ナカボーテック",
+   "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+   "pdf_url": "140120260806512244.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "194A0",
+   "company_name": "Ｇ－ＷＯＬＶＥＳ",
+   "title": "2026年６月期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518909.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "194A0",
+   "company_name": "Ｇ－ＷＯＬＶＥＳ",
+   "title": "2026年６月期決算短信説明資料",
+   "pdf_url": "140120260813518927.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "194A0",
+   "company_name": "Ｇ－ＷＯＬＶＥＳ",
+   "title": "配当方針の変更及び2027年６月期の配当予想（初配）に関するお知らせ",
+   "pdf_url": "140120260813519001.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "32450",
+   "company_name": "ディア・ライフ",
+   "title": "2026年９月期 第３四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518521.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "32450",
+   "company_name": "ディア・ライフ",
+   "title": "2026年９月期 第３四半期 決算説明資料",
+   "pdf_url": "140120260812518523.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:30",
+   "code": "587A4",
+   "company_name": "Ｅ－インベスコＱＱＱ",
+   "title": "インベスコQQQトラスト シリーズ1 に関する日々の開示事項",
+   "pdf_url": "140120260813519215.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:20",
+   "code": "15574",
+   "company_name": "Ｅ－ＳＳＧＡＴＣ",
+   "title": "State Street SPDR S&P500 ETFに関する日々の開示事項",
+   "pdf_url": "140120260813519193.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:15",
+   "code": "13264",
+   "company_name": "Ｅ－ワールド",
+   "title": "SPDRゴールド・シェアに関する日々の開示事項",
+   "pdf_url": "140120260813519180.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:15",
+   "code": "80430",
+   "company_name": "スターゼン",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518606.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:15",
+   "code": "80430",
+   "company_name": "スターゼン",
+   "title": "配当予想の修正（増配）に関するお知らせ",
+   "pdf_url": "140120260813519206.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:15",
+   "code": "80430",
+   "company_name": "スターゼン",
+   "title": "2027年3月期 第1四半期 決算補足資料",
+   "pdf_url": "140120260813519228.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:10",
+   "code": "13494",
+   "company_name": "Ｅ－ＳＳＧＡ－ＳＩＮ",
+   "title": "アジア国債・公債ＥＴＦ（正式名称：ＡＢＦ汎アジア債券インデックス・ファンド）に関する日々の開示事項",
+   "pdf_url": "140120260813519176.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "27640",
+   "company_name": "ひらまつ",
+   "title": "2027年３月期 第１四半期決算説明資料",
+   "pdf_url": "140120260812518294.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "27640",
+   "company_name": "ひらまつ",
+   "title": "ひらまつＩＲレポート（月次売上速報）",
+   "pdf_url": "140120260812518319.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "27640",
+   "company_name": "ひらまつ",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260810517388.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "343A0",
+   "company_name": "ＩＡＣＥトラベル",
+   "title": "2027年３月期 第１四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518895.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "343A0",
+   "company_name": "ＩＡＣＥトラベル",
+   "title": "2027年３月期 第１四半期決算補足説明資料",
+   "pdf_url": "140120260813518913.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "36820",
+   "company_name": "エンカレッジ",
+   "title": "2027年３月期　第１四半期決算短信［日本基準］（非連結）",
+   "pdf_url": "140120260810517180.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "36960",
+   "company_name": "セレス",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518870.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "36960",
+   "company_name": "セレス",
+   "title": "2026年12月期 第２四半期決算説明資料",
+   "pdf_url": "140120260813518901.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "37190",
+   "company_name": "ＡＩストーム",
+   "title": "第63期半期報告書の提出期限延長に係る承認申請書提出のお知らせ",
+   "pdf_url": "140120260812518507.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "39790",
+   "company_name": "Ｇ－うるる",
+   "title": "2027年3月期 第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812518470.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "39790",
+   "company_name": "Ｇ－うるる",
+   "title": "2027年3月期 第1四半期 決算説明資料",
+   "pdf_url": "140120260812518473.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "39790",
+   "company_name": "Ｇ－うるる",
+   "title": "2026年7月 月次IRレポート (NJSS月次情報含む)",
+   "pdf_url": "140120260812518479.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "39790",
+   "company_name": "Ｇ－うるる",
+   "title": "2027年3月期 第1四半期 決算データシート（PDF）",
+   "pdf_url": "140120260812518519.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "50350",
+   "company_name": "Ｇ－ＨＯＵＳＥＩ",
+   "title": "2026年12月期　第2四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518635.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "50350",
+   "company_name": "Ｇ－ＨＯＵＳＥＩ",
+   "title": "新会社（孫会社）設立に関するお知らせ",
+   "pdf_url": "140120260810516954.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "66350",
+   "company_name": "大日光",
+   "title": "2026年12月期第２四半期（中間期）連結業績予想と実績値との差異に関するお知らせ",
+   "pdf_url": "140120260812517998.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "12:00",
+   "code": "66350",
+   "company_name": "大日光",
+   "title": "2026年12月期　第2四半期（中間期）決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260805510780.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "20704",
+   "company_name": "Ｎ－三菱ＵＦＪ証ＨＤ",
+   "title": "上場ETN（発行者：三菱UFJ証券ホールディングス株式会社）に関する日々の開示事項",
+   "pdf_url": "140120260813518982.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "31970",
+   "company_name": "すかいらーくＨＤ",
+   "title": "2026年12月期 第2四半期（中間期）決算短信〔ＩＦＲＳ〕（連結）",
+   "pdf_url": "140120260813518978.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "31970",
+   "company_name": "すかいらーくＨＤ",
+   "title": "2026年度第2四半期決算説明会資料",
+   "pdf_url": "140120260813519015.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "31970",
+   "company_name": "すかいらーくＨＤ",
+   "title": "2026年12月期連結業績予想（IFRS）及び期末配当予想の修正に関するお知らせ",
+   "pdf_url": "140120260813519030.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "35610",
+   "company_name": "力の源ＨＤ",
+   "title": "2027年3月期　第1四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260813518790.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "35610",
+   "company_name": "力の源ＨＤ",
+   "title": "2027年3月期　第1四半期決算補足説明資料",
+   "pdf_url": "140120260813518817.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "35610",
+   "company_name": "力の源ＨＤ",
+   "title": "連結子会社からの配当金受領に関するお知らせ",
+   "pdf_url": "140120260813518836.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "35610",
+   "company_name": "力の源ＨＤ",
+   "title": "（開示事項の経過）役員向け株式給付信託の終了に伴う自己株式の消却に関するお知らせ",
+   "pdf_url": "140120260813518855.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "39680",
+   "company_name": "セグエ",
+   "title": "通期連結業績予想の修正(上方修正)に関するお知らせ",
+   "pdf_url": "140120260806512983.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "39680",
+   "company_name": "セグエ",
+   "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260812517955.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "39680",
+   "company_name": "セグエ",
+   "title": "2026年12月期第２四半期決算説明資料",
+   "pdf_url": "140120260806512964.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "40580",
+   "company_name": "Ｇ－トヨクモ",
+   "title": "2026年12月期 第２四半期決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260810517280.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "40580",
+   "company_name": "Ｇ－トヨクモ",
+   "title": "2026年12月期 第２四半期 決算説明資料",
+   "pdf_url": "140120260810517283.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "40580",
+   "company_name": "Ｇ－トヨクモ",
+   "title": "連結業績予想の修正に関するお知らせ",
+   "pdf_url": "140120260810517286.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "40580",
+   "company_name": "Ｇ－トヨクモ",
+   "title": "2026年7月度 月次売上速報に関するお知らせ",
+   "pdf_url": "140120260810517290.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "74090",
+   "company_name": "Ｇ－ＡｅｒｏＥｄｇｅ",
+   "title": "2026年6月期 決算短信〔日本基準〕(連結)",
+   "pdf_url": "140120260812518476.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:30",
+   "code": "74090",
+   "company_name": "Ｇ－ＡｅｒｏＥｄｇｅ",
+   "title": "2026年6月期 決算補足資料",
+   "pdf_url": "140120260812518546.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "11:00",
+   "code": "38000",
+   "company_name": "ユニリタ",
+   "title": "自己株式立会外買付取引（ToSTNeT‐３）による自己株式の取得結果及び取得終了に関するお知らせ",
+   "pdf_url": "140120260813518968.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:20",
+   "code": "42580",
+   "company_name": "Ｇ－網屋",
+   "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の取得結果及び取得終了に関するお知らせ",
+   "pdf_url": "140120260813518878.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "13294",
+   "company_name": "Ｅ－ブラックロック",
+   "title": "上場ETF（管理会社：ブラックロック・ジャパン）に関する日々の開示事項",
+   "pdf_url": "140120260813518800.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "14790",
+   "company_name": "ｉＦＭＳＣＩ人材設備",
+   "title": "「iFreeETF MSCI日本株人材設備投資指数」基準価額と市場価格の重要な乖離に関するお知らせ",
+   "pdf_url": "140120260813518805.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "16714",
+   "company_name": "Ｅ－シンプレクス",
+   "title": "上場ＥＴＦ(管理会社：シンプレクス・アセット・マネジメント)に関する日々の開示事項",
+   "pdf_url": "140120260813518794.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "332A0",
+   "company_name": "Ｇ－ミーク",
+   "title": "自己株式立会外買付取引（ToSTNeT-3）による自己株式の買付結果",
+   "pdf_url": "140120260813518796.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "36400",
+   "company_name": "電算",
+   "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ",
+   "pdf_url": "140120260812517978.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "585A4",
+   "company_name": "Ｅ－ＪＡＭＰＦＭ",
+   "title": "上場ETF（管理会社：JAMPファンド・マネジメント）に関する日々の開示事項",
+   "pdf_url": "140120260813518761.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "10:00",
+   "code": "93800",
+   "company_name": "東海運",
+   "title": "自己株式立会外買付取引(ToSTNeT-3)による自己株式の取得結果および取得終了に関するお知らせ",
+   "pdf_url": "140120260807515244.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:59",
+   "code": "89120",
+   "company_name": "エリアクエスト",
+   "title": "2026年6月期　決算短信〔日本基準〕（連結）",
+   "pdf_url": "140120260727500253.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:30",
+   "code": "16724",
+   "company_name": "Ｅ－ＷｉｓｄｏｍＴｒ",
+   "title": "上場ETF（管理会社：WisdomTree、外国投資法人：MSL）に関する日々の開示事項",
+   "pdf_url": "140120260813518732.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:30",
+   "code": "16724",
+   "company_name": "Ｅ－ＷｉｓｄｏｍＴｒ",
+   "title": "上場ETF（管理会社：WisdomTree、外国投資法人：CSL）に関する日々の開示事項",
+   "pdf_url": "140120260813518733.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:30",
+   "code": "45780",
+   "company_name": "大塚ＨＤ",
+   "title": "ジパレルチニブと化学療法併用群、第III相REZILIENT3試験の中間解析で、主要評価項目である無増悪生存期間を達成",
+   "pdf_url": "140120260812518351.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "08:30",
+   "code": "48960",
+   "company_name": "Ｇ－ケイファーマ",
+   "title": "2026年12月期第２四半期（中間期）決算短信〔日本基準〕(非連結)",
+   "pdf_url": "140120260812517813.pdf",
+   "xbrl": "XBRL",
+   "exchange": "東",
+   "update_history": ""
+  }
+ ],
+ "last_page_http_status": 200,
+ "fetched_at_utc": "2026-09-13T21:02:46.050048+00:00",
+ "source": "www.release.tdnet.info (無料公開サイト。約34日で公開終了するため日次保存が必要)"
+}

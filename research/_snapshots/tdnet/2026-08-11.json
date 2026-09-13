@@ -1,0 +1,30 @@
+{
+ "date": "2026-08-11",
+ "pages_fetched": 1,
+ "row_count": 2,
+ "rows": [
+  {
+   "time": "18:30",
+   "code": "67580",
+   "company_name": "ソニーグループ",
+   "title": "ソニーセミコンダクタソリューションズとTSMCとの合弁会社設立に関する確定契約締結のお知らせ",
+   "pdf_url": "140120260811517496.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  },
+  {
+   "time": "17:00",
+   "code": "48890",
+   "company_name": "Ｇ－レナサイエンス",
+   "title": "XPRIZE Healthspan 参加取り止めに関するお知らせ",
+   "pdf_url": "140120260810516356.pdf",
+   "xbrl": "",
+   "exchange": "東",
+   "update_history": ""
+  }
+ ],
+ "last_page_http_status": 200,
+ "fetched_at_utc": "2026-09-13T21:03:02.955207+00:00",
+ "source": "www.release.tdnet.info (無料公開サイト。約34日で公開終了するため日次保存が必要)"
+}
