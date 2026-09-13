@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 import socket
 import ssl
 import sys
@@ -58,24 +59,20 @@ TIMEOUT = 30
 PROBE_CODE = "72030"  # トヨタ自動車（V2 は5桁コード表記の可能性があるため後段で両対応を試す）
 PROBE_CODE_ALT = "7203"
 
-# 提供開始時期を粗く二分するための年初営業日（土日祝は避けた平日）
-YEAR_PROBE_DATES = [
-    "2015-01-05", "2016-01-04", "2017-01-04", "2018-01-04", "2019-01-04",
-    "2020-01-06", "2021-01-04", "2022-01-04", "2023-01-04", "2024-01-04",
-    "2025-01-06", "2026-01-05",
-]
-
 # 確認済み・推測を含むエンドポイント候補。
 # 確認済みは "/equities/bars/daily" のみ。他は公式ドキュメントを直接取得できなかったため、
 # 命名規則から類推した複数候補を並べ、実測でどれが有効か（200）を判定する。
+# 日付パラメータは "{DATE}" / "{DATE_FROM}" / "{DATE_TO}" というプレースホルダにしておき、
+# 実行時に「契約範囲内で確認できた有効な日付」へ差し替える（固定日付だと契約範囲外で
+# 400 になり、無関係なエンドポイントまで誤って「利用不可」と判定してしまうため）。
 ENDPOINT_PROBES: list[tuple[str, dict, str, bool]] = [
     # (パス, パラメータ, 用途, 確認済みか)
     ("/equities/master", {}, "上場銘柄一覧（ユニバース構築の土台）", False),
-    ("/equities/bars/daily", {"code": PROBE_CODE, "date": "2024-06-03"}, "日足 四本値【確認済みパス】", True),
+    ("/equities/bars/daily", {"code": PROBE_CODE, "date": "{DATE}"}, "日足 四本値【確認済みパス】", True),
     ("/fins/summary", {"code": PROBE_CODE}, "財務情報（PEAD のサプライズ度算出に使う）", False),
     ("/equities/earnings-calendar", {}, "決算発表予定（H-3 の決算跨ぎ回避に必須）", False),
     ("/indices/bars/daily", {"code": "0000"}, "TOPIX等 指数 日足", False),
-    ("/markets/trading-by-type", {"from": "2024-06-01", "to": "2024-06-30"}, "投資部門別売買状況（需給スリーブ）", False),
+    ("/markets/trading-by-type", {"from": "{DATE_FROM}", "to": "{DATE_TO}"}, "投資部門別売買状況（需給スリーブ）", False),
     ("/markets/margin-interest", {"code": PROBE_CODE}, "信用残（需給スリーブ）", False),
     ("/markets/short-selling", {}, "業種別空売り比率", False),
 ]
@@ -83,14 +80,30 @@ ENDPOINT_PROBES: list[tuple[str, dict, str, bool]] = [
 # C-4 の核心: 分足・時間足に相当しそうなパスを推測で総当たりする。
 # 1つでも 200 を返せば、それが正式パスである可能性が高い。
 INTRADAY_ENDPOINT_CANDIDATES: list[tuple[str, dict]] = [
-    ("/equities/bars/minute", {"code": PROBE_CODE, "date": "2024-06-03"}),
-    ("/equities/bars/intraday", {"code": PROBE_CODE, "date": "2024-06-03"}),
-    ("/equities/bars/1m", {"code": PROBE_CODE, "date": "2024-06-03"}),
-    ("/equities/bars/hourly", {"code": PROBE_CODE, "date": "2024-06-03"}),
-    ("/equities/bars/am", {"code": PROBE_CODE, "date": "2024-06-03"}),
-    ("/equities/prices/am", {"code": PROBE_CODE, "date": "2024-06-03"}),
-    ("/equities/prices/minute", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/bars/minute", {"code": PROBE_CODE, "date": "{DATE}"}),
+    ("/equities/bars/intraday", {"code": PROBE_CODE, "date": "{DATE}"}),
+    ("/equities/bars/1m", {"code": PROBE_CODE, "date": "{DATE}"}),
+    ("/equities/bars/hourly", {"code": PROBE_CODE, "date": "{DATE}"}),
+    ("/equities/bars/am", {"code": PROBE_CODE, "date": "{DATE}"}),
+    ("/equities/prices/am", {"code": PROBE_CODE, "date": "{DATE}"}),
+    ("/equities/prices/minute", {"code": PROBE_CODE, "date": "{DATE}"}),
 ]
+
+
+def resolve_params(params: dict, valid_date: str) -> dict:
+    """{DATE} 等のプレースホルダを、契約範囲内で有効と確認できた日付に差し替える。"""
+    resolved = {}
+    for k, v in params.items():
+        if v == "{DATE}":
+            resolved[k] = valid_date
+        elif v == "{DATE_FROM}":
+            d = dt.date.fromisoformat(valid_date) - dt.timedelta(days=30)
+            resolved[k] = d.isoformat()
+        elif v == "{DATE_TO}":
+            resolved[k] = valid_date
+        else:
+            resolved[k] = v
+    return resolved
 
 
 def mask(value: str) -> str:
@@ -189,43 +202,100 @@ def v2_headers(api_key: str) -> dict[str, str]:
     return {"x-api-key": api_key}
 
 
-def sanity_check(api_key: str, log: list[str]) -> bool:
-    """まず軽いエンドポイントでキー自体が有効かを確認する。"""
+SUBSCRIPTION_RANGE_RE = re.compile(
+    r"covers the following dates:\s*(\d{4}-\d{2}-\d{2})\s*~\s*(\d{4}-\d{2}-\d{2})"
+)
+
+
+def parse_subscription_range(message: str) -> tuple[dt.date, dt.date] | None:
+    """HTTP 400 のエラーメッセージから契約がカバーする日付範囲を抽出する。
+
+    実例: "Your subscription covers the following dates: 2024-06-21 ~ 2026-06-21.
+           If you want more data, please check other plans"
+    これは「APIキーが無効」ではなく「クエリした日付が契約範囲外」という正常なレスポンス。
+    """
+    m = SUBSCRIPTION_RANGE_RE.search(message)
+    if not m:
+        return None
+    start = dt.date.fromisoformat(m.group(1))
+    end = dt.date.fromisoformat(m.group(2))
+    return start, end
+
+
+def sanity_check(api_key: str, log: list[str]) -> tuple[bool, dt.date | None, dt.date | None, str | None]:
+    """まず軽いエンドポイントでキー自体が有効かを確認する。
+
+    戻り値: (成功したか, 契約開始日, 契約終了日, 疎通に使えた実際の日付(ISO文字列))
+    HTTP 400 で「契約範囲外」と言われた場合はキー自体は有効なので、
+    契約範囲内の日付で取り直して成功させる。
+    """
     log.append("### 0. APIキーの有効性チェック\n")
-    status, body, err = http_json(f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date=2024-06-03",
-                                   headers=v2_headers(api_key))
+    today = dt.date.today().isoformat()
+    status, body, err = http_json(
+        f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date={today}",
+        headers=v2_headers(api_key),
+    )
     if status == 200:
-        log.append(f"- `/equities/bars/daily` への疎通: **成功**（HTTP 200）")
+        log.append(f"- `/equities/bars/daily`（{today}）への疎通: **成功**（HTTP 200）")
         log.append("")
-        return True
-    if status in (401, 403):
-        # コード桁数の違いを疑い、別表記でも試す
-        status2, body2, err2 = http_json(
-            f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE_ALT}&date=2024-06-03",
-            headers=v2_headers(api_key),
-        )
-        if status2 == 200:
-            log.append("- `/equities/bars/daily` への疎通: **成功**（HTTP 200、銘柄コード4桁表記）")
+        return True, None, None, today
+
+    if status == 400:
+        rng = parse_subscription_range(err)
+        if rng:
+            start, end = rng
+            log.append(
+                f"- `/equities/bars/daily`（{today}）への疎通: HTTP 400"
+                f"（**APIキーは有効**。クエリ日付が契約範囲外だっただけ）"
+            )
+            log.append(f"- **契約がカバーする日付範囲: {start.isoformat()} 〜 {end.isoformat()}**")
+            if end < dt.date.today():
+                log.append(
+                    f"- ⚠️ 契約終了日（{end.isoformat()}）が実行日（{dt.date.today().isoformat()}）より過去。"
+                    "契約期間が既に終了しているか、期限が固定された過去ログ用プランの可能性がある。"
+                )
             log.append("")
-            return True
-        log.append(f"- `/equities/bars/daily` への疎通: **失敗**（HTTP {status} / {err[:120]}）")
+            # 契約範囲内（終了日の直前の平日）で再テストして本当に取得できるか確認する
+            probe_date = end
+            while probe_date.weekday() >= 5:
+                probe_date -= dt.timedelta(days=1)
+            status2, body2, err2 = http_json(
+                f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date={probe_date.isoformat()}",
+                headers=v2_headers(api_key),
+            )
+            if status2 == 200:
+                log.append(f"- 契約範囲内の日付（{probe_date.isoformat()}）で再テスト: **成功**（HTTP 200）")
+                log.append("")
+                return True, start, end, probe_date.isoformat()
+            log.append(
+                f"- 契約範囲内の日付（{probe_date.isoformat()}）で再テスト: **失敗**"
+                f"（HTTP {status2} / {err2[:120]}）"
+            )
+            log.append("")
+            return False, start, end, None
+
+    if status in (401, 403):
+        log.append(f"- `/equities/bars/daily`（{today}）への疎通: **失敗**（HTTP {status} / {err[:120]}）")
         log.append(
             "- → APIキー自体が無効、期限切れ、またはプラン未契約の可能性が高い。"
             "J-Quants マイページでキーの状態・契約プランを確認すること。"
         )
         log.append("")
-        return False
-    log.append(f"- `/equities/bars/daily` への疎通: **予期しない結果**（HTTP {status} / {err[:120]}）")
+        return False, None, None, None
+
+    log.append(f"- `/equities/bars/daily`（{today}）への疎通: **予期しない結果**（HTTP {status} / {err[:120]}）")
     log.append("")
-    return False
+    return False, None, None, None
 
 
-def probe_endpoints(api_key: str, log: list[str]) -> None:
+def probe_endpoints(api_key: str, valid_date: str, log: list[str]) -> None:
     headers = v2_headers(api_key)
     log.append("### 1. エンドポイント別のアクセス可否（＝契約プランで何が使えるか）\n")
+    log.append(f"（日付パラメータは契約範囲内で疎通確認済みの `{valid_date}` を使用）\n")
     log.append("| エンドポイント | 用途 | 結果 |")
     log.append("|---|---|---|")
-    for path, params, purpose, confirmed in ENDPOINT_PROBES:
+    for path, raw_params, purpose, confirmed in ENDPOINT_PROBES:
+        params = resolve_params(raw_params, valid_date)
         qs = f"?{urllib.parse.urlencode(params)}" if params else ""
         status, body, err = http_json(f"{JQUANTS_V2_BASE}{path}{qs}", headers=headers)
         tag = "" if confirmed else "（推測パス）"
@@ -249,7 +319,7 @@ def probe_endpoints(api_key: str, log: list[str]) -> None:
     log.append("")
 
 
-def probe_intraday(api_key: str, log: list[str]) -> None:
+def probe_intraday(api_key: str, valid_date: str, log: list[str]) -> None:
     """C-4 の核心。分足・時間足エンドポイントの候補を総当たりする。"""
     headers = v2_headers(api_key)
     log.append("### 2. 分足・時間足データの有無（重大論点 C-4 の決着材料）\n")
@@ -261,7 +331,8 @@ def probe_intraday(api_key: str, log: list[str]) -> None:
     log.append("| エンドポイント（推測） | 結果 |")
     log.append("|---|---|")
     any_hit = False
-    for path, params in INTRADAY_ENDPOINT_CANDIDATES:
+    for path, raw_params in INTRADAY_ENDPOINT_CANDIDATES:
+        params = resolve_params(raw_params, valid_date)
         qs = f"?{urllib.parse.urlencode(params)}" if params else ""
         status, body, err = http_json(f"{JQUANTS_V2_BASE}{path}{qs}", headers=headers)
         if status == 200:
@@ -287,50 +358,79 @@ def probe_intraday(api_key: str, log: list[str]) -> None:
     log.append("")
 
 
-def probe_history_range(api_key: str, log: list[str]) -> None:
-    """日足がどこまで遡れるか＝選定/確認分割が成立するかを実測する。"""
+def month_starts_in_range(start: dt.date, end: dt.date) -> list[dt.date]:
+    """start〜end の範囲内で、月初め直近の平日を列挙する（実測を間引くため）。"""
+    dates: list[dt.date] = [start]
+    cur = dt.date(start.year, start.month, 1)
+    while cur <= end:
+        d = cur
+        while d.weekday() >= 5:
+            d += dt.timedelta(days=1)
+        if start <= d <= end and d not in dates:
+            dates.append(d)
+        cur = dt.date(cur.year + 1, 1, 1) if cur.month == 12 else dt.date(cur.year, cur.month + 1, 1)
+    return sorted(set(dates))
+
+
+def probe_history_range(
+    api_key: str, subscription_start: dt.date | None, subscription_end: dt.date | None, log: list[str]
+) -> None:
+    """日足がどこまで遡れるか＝選定/確認分割が成立するかを実測する。
+
+    0. APIキーの有効性チェックで判明した「契約がカバーする日付範囲」を土台にし、
+       その範囲内で実際にデータが返るかを月次で実測する。
+    """
     headers = v2_headers(api_key)
     log.append("### 3. 日足の遡及可能範囲（PJ000001 §6.2 の選定/確認分割が成立するか）\n")
+
+    if not subscription_start or not subscription_end:
+        log.append(
+            "契約範囲が特定できなかったため、本項の実測は省略した"
+            "（「0. APIキーの有効性チェック」の結果を参照）。"
+        )
+        log.append("")
+        return
+
+    log.append(
+        f"契約がカバーする日付範囲: **{subscription_start.isoformat()} 〜 {subscription_end.isoformat()}**"
+        "（0番の結果より）。この範囲内で月次に実測する。\n"
+    )
     log.append("| 日付 | データ有無 |")
     log.append("|---|---|")
     oldest_ok = None
-    for date in YEAR_PROBE_DATES:
+    for date in month_starts_in_range(subscription_start, subscription_end):
         status, body, _ = http_json(
-            f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date={date}",
+            f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date={date.isoformat()}",
             headers=headers,
         )
         found = status == 200 and body and any(isinstance(v, list) and v for v in body.values())
-        log.append(f"| {date} | {'✅ あり' if found else '— なし'} |")
+        log.append(f"| {date.isoformat()} | {'✅ あり' if found else '— なし'} |")
         if found and oldest_ok is None:
             oldest_ok = date
     log.append("")
-    if oldest_ok:
-        log.append(f"**取得できた最も古い日付: {oldest_ok}**")
-        if oldest_ok <= "2015-01-05":
-            log.append("→ 選定期間 2015-2022 / 確認期間 2023-2026 の分割は**成立する**。")
-        elif oldest_ok < "2023-01-01":
-            log.append(
-                f"→ 選定期間は {oldest_ok} 開始に短縮される。"
-                "確認期間 2023-2026 は確保できるため分割自体は成立する。"
-            )
-        else:
-            log.append(
-                "→ **選定期間が確保できない。**"
-                "PJ000001 §6.2 の分割を見直すか、有料プランを検討する必要がある。"
-            )
+
+    oldest_iso = oldest_ok.isoformat() if oldest_ok else subscription_start.isoformat()
+    log.append(f"**実測できた最も古い日付: {oldest_iso}**")
+    if oldest_iso <= "2015-01-05":
+        log.append("→ 選定期間 2015-2022 / 確認期間 2023-2026 の分割は**成立する**。")
     else:
-        log.append("**いずれの日付でもデータを取得できなかった。**")
+        log.append(
+            f"→ **選定期間 2015-2022 は確保できない**（契約は {subscription_start.isoformat()} までしか遡れない）。"
+            "PJ000001 §6.2 の選定/確認分割は、この契約の下では成立しない。"
+            "確認期間のみのフォワード中心の検証、または有料プランの検討が必要。"
+        )
     log.append("")
 
 
-def probe_delay(api_key: str, log: list[str]) -> None:
+def probe_delay(api_key: str, subscription_end: dt.date | None, log: list[str]) -> None:
     """最新データがいつのものか＝遅延の実測。無料プランは12週間遅延とされる。"""
     headers = v2_headers(api_key)
     log.append("### 4. データ遅延の実測（無料プランは12週間遅延とされる）\n")
     today = dt.date.today()
+    search_from = subscription_end if subscription_end else today
     latest = None
-    for back in range(0, 210, 7):
-        d = today - dt.timedelta(days=back)
+    for back in range(0, 210):
+        d = search_from - dt.timedelta(days=back)
         if d.weekday() >= 5:
             continue
         status, body, _ = http_json(
@@ -344,14 +444,19 @@ def probe_delay(api_key: str, log: list[str]) -> None:
         delay = (today - latest).days
         log.append(f"- 実行日: {today.isoformat()}")
         log.append(f"- 取得できた最新の日付: **{latest.isoformat()}**")
-        log.append(f"- 遅延: **約 {delay} 日（{delay / 7:.1f} 週）**")
-        if delay > 30:
+        log.append(f"- 実行日との差: **約 {delay} 日（{delay / 7:.1f} 週）**")
+        if subscription_end and subscription_end < today:
+            log.append(
+                f"- この差は「配信遅延」ではなく、**契約終了日（{subscription_end.isoformat()}）が"
+                "実行日より過去であること**が主因の可能性が高い。契約の更新・プラン確認が必要。"
+            )
+        elif delay > 30:
             log.append(
                 "- → この遅延では**ライブ運用および STEP3 フォワード較正に使えない**。"
                 "バックテスト専用と割り切るか、有料プランが必要。"
             )
     else:
-        log.append("- 直近210日以内に取得できるデータが見つからなかった。")
+        log.append("- 探索範囲内に取得できるデータが見つからなかった。")
     log.append("")
 
 
@@ -431,15 +536,17 @@ def main() -> int:
 
     log.append("## 0-9: J-Quants API (V2) 疎通\n")
     api_key = get_api_key(env, log)
-    if api_key and sanity_check(api_key, log):
-        probe_endpoints(api_key, log)
-        probe_intraday(api_key, log)
-        probe_history_range(api_key, log)
-        probe_delay(api_key, log)
-    elif api_key:
-        log.append("APIキーが無効と判定されたため、以降のプローブは実施しなかった。")
-        log.append("J-Quants マイページでキーの発行状態・契約プランを確認すること。")
-        log.append("")
+    if api_key:
+        ok, sub_start, sub_end, valid_date = sanity_check(api_key, log)
+        if ok and valid_date:
+            probe_endpoints(api_key, valid_date, log)
+            probe_intraday(api_key, valid_date, log)
+            probe_history_range(api_key, sub_start, sub_end, log)
+            probe_delay(api_key, sub_end, log)
+        else:
+            log.append("有効な日付が特定できなかったため、以降のプローブは実施しなかった。")
+            log.append("J-Quants マイページでキーの発行状態・契約プランを確認すること。")
+            log.append("")
 
     probe_kabu(env, log)
 
