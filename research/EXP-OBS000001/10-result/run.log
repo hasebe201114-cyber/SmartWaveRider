@@ -1,0 +1,59 @@
+# EXP-OBS000001（PEAD）実行ログ
+
+実行日時: 2026-09-13 10:23 〜 15:28 UTC
+実行者: B実装チーム（quant-researcher）
+乱数シード: 20260913（本ランでは未使用。permutationはG1未実施のため未実行）
+
+## 再現用実行コマンド（実行順）
+
+```bash
+# 1. 銘柄マスタの2時点スナップショット取得（選定期間開始日・確認期間開始日）
+python3 scripts/pead_fetch_data.py --step master
+
+# 2. 候補ユニバース確定（U-1: ScaleCat, U-2: Mrgn の実測マッピングに基づく）
+#    → research/EXP-OBS000001/10-result/candidate_codes.json（511銘柄、両期間の和集合）
+
+# 3. 契約全期間（2024-06-21〜2026-06-21）の /fins/summary を平日ごとに取得
+python3 scripts/pead_fetch_data.py --step fins
+
+# 4. 候補銘柄511件の日足を銘柄ごとに全期間分取得
+python3 scripts/pead_fetch_data.py --step bars --codes-file research/EXP-OBS000001/10-result/candidate_codes.json
+
+# 5. ユニバース確定（spec §5.4 U-1〜U-7）
+python3 scripts/pead_build_universe.py
+
+# 6. 先行タスク 9-1・9-1b・9-2・9-3・9-4・9-5 の実測
+python3 scripts/pead_feasibility.py
+```
+
+## APIリクエスト統計
+
+- master: 2リクエスト・429リトライ0回
+- fins/summary: 521リクエスト（契約全期間の平日）・429リトライ0回・成功485日・0件日36日・失敗0日
+- bars/daily: 511リクエスト（候補銘柄数）・429リトライ623回（すべて指数バックオフで解消）・成功511・失敗0
+
+## 出力ファイル
+
+- `candidate_codes.json`（511銘柄）
+- `universe.json`
+- `params.json`（9-1・9-1bの値対応付け含む）
+- `feasibility.json`（9-1b・9-2・9-3・9-4・9-5）
+- `cost-model.json`（spec §8.1の前提の写し。G2未実施のため実測値ではない）
+- `run.log`（本ファイル）
+
+## 未生成のファイル（意図的）
+
+- `prediction-unit.json`: **未生成**。§9-4（データ十分性ゲート）がDS-2で不成立、かつ選定期間ユニバースが構築不能（下記「停止理由」参照）のため、spec §6.1のG1測定に進んでいない。
+- `pipeline.json`: **未生成**。G1未実施のためspec §10.2 N-8（G1未達ならG2を測定しない）に準じ、G2も未実施。
+
+## 停止理由（2件・いずれも推測で埋めず本ファイルとparams.json/feasibility.jsonに実測値のみ記録）
+
+### 停止理由A: §9-4 データ十分性ゲート DS-2 不成立
+
+feasibility.json の `9-4_data_sufficiency_gate` を参照。DS-1・DS-3・DS-4は充足したが、DS-2（確認期間の「1日あたり5件以上のイベントを持つ開示日」の数 ≥30日）が実測27日で不成立。
+
+### 停止理由B: 選定期間ユニバースの構築不能（U-4の窓が契約データ範囲外を要求する）
+
+`universe.json` の `selection_universe` を参照。U-4（期間開始日の直前60営業日の売買代金中央値）を計算する際、選定期間開始日は2024-06-21であり、これは契約データの最初の日そのもの（`feasibility.json` の `9-2_missing_rate.reference_calendar_range` = `["2024-06-21","2026-06-22"]` で確認）である。したがって「開始日の直前60営業日」に該当する取引日が契約データ中に1日も存在せず、全511候補銘柄でU-4のVa中央値がNone（未定義）となり、U-1・U-2通過銘柄493件のうちU-4通過が0件になった。U-7の株価帯緩和（700〜8,000円）を適用しても、そもそもU-4がNoneのため0件のまま変化せず、選定期間ユニバースの銘柄数は0（不成立基準150未満）。
+
+この2点は、B実装チームが独自の安全側解釈（例: 「60営業日に足りない分は取得できた分だけで代用する」「選定期間の開始日を後ろにずらす」等）で埋めることを避け、実測値のみを記録してS戦略チームへ差し戻す。

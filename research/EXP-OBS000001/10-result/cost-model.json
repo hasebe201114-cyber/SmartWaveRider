@@ -1,0 +1,22 @@
+{
+  "source": "spec §8.1（バックテスト実行前の固定値。9-1〜9-4段階でのG1/G2未実施のため実測ではない）",
+  "components_roundtrip_pct": {
+    "spread": 0.0005,
+    "slippage": 0.0015,
+    "commission": 0.0005,
+    "margin_interest_at_avg_10cal_days": 0.0008
+  },
+  "total_roundtrip_pct_at_avg_10cal_days": 0.0035,
+  "status_by_component": {
+    "spread": "仮置き（R-2未確認）",
+    "slippage": "仮置き（決算翌日の寄り付きを想定）",
+    "commission": "仮置き（R-3未確認・司令塔確認待ち）",
+    "margin_interest": "仮置き（R-3未確認。年率2.8%×実保有暦日数/365）"
+  },
+  "sensitivity_levels_pct_roundtrip_SA4": [
+    0.0025,
+    0.0035,
+    0.005
+  ],
+  "note": "G2未実施のため、コスト控除後の実測トレードリターン（P-1等）はまだ存在しない。本ファイルはspec§8.1の前提の写しのみ。"
+}
