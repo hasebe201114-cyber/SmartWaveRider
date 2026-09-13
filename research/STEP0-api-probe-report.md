@@ -1,6 +1,6 @@
 # STEP0 API 実機疎通レポート（タスク 0-8 / 0-9）
 
-- 実行日時: 2026-09-13 11:59
+- 実行日時: 2026-09-13 13:32
 - 実行環境の Python: 3.14.4
 - 対象: J-Quants API **V2**（V1 は 2026-06-01 廃止済みのため対象外）
 - **本レポートに認証情報は一切含まれない**（値は長さのみ記録）
@@ -17,11 +17,13 @@
 - **契約がカバーする日付範囲: 2024-06-21 〜 2026-06-21**
 - ⚠️ 契約終了日（2026-06-21）が実行日（2026-09-13）より過去。契約期間が既に終了しているか、期限が固定された過去ログ用プランの可能性がある。
 
-- 契約範囲内の日付（2026-06-19）で再テスト: **成功**（HTTP 200）
+- 契約範囲内の日付（2026-06-19）で再テスト: HTTP 200
+- レスポンス構造: `data=list[1]先頭要素keys=(Date,Code,O,H,L,C,UL,LL,Vo,Va)`
+- **実データあり**
 
 ### 1. エンドポイント別のアクセス可否（＝契約プランで何が使えるか）
 
-（日付パラメータは契約範囲内で疎通確認済みの `2026-06-19` を使用）
+（日付パラメータは契約範囲内で疎通確認済みの `2026-06-19`、銘柄コードは `72030` を使用）
 
 | エンドポイント | 用途 | 結果 |
 |---|---|---|
@@ -36,7 +38,7 @@
 
 ### 2. 分足・時間足データの有無（重大論点 C-4 の決着材料）
 
-以下は**推測パスの総当たり**である。1つでも 200 が返れば、それが正式な分足エンドポイントである可能性が高い。全滅した場合、少なくとも本スクリプトが試した範囲では分足の提供を確認できなかったことを意味する（正式パスがまだ特定できていない可能性は残る）。
+以下は**推測パスの総当たり**である。1つでも 200（かつ実データあり）が返れば、それが正式な分足エンドポイントである可能性が高い。全滅した場合、少なくとも本スクリプトが試した範囲では分足の提供を確認できなかったことを意味する（正式パスがまだ特定できていない可能性は残る）。
 
 | エンドポイント（推測） | 結果 |
 |---|---|
@@ -52,13 +54,13 @@
 
 ### 3. 日足の遡及可能範囲（PJ000001 §6.2 の選定/確認分割が成立するか）
 
-契約がカバーする日付範囲: **2024-06-21 〜 2026-06-21**（0番の結果より）。この範囲内で月次に実測する。
+契約がカバーする日付範囲: **2024-06-21 〜 2026-06-21**（0番の結果より）。銘柄コードは `72030`（0番で実データが確認できたもの）を使用し、この範囲内で月次に実測する。
 
 | 日付 | データ有無 |
 |---|---|
-| 2024-06-21 | — なし |
-| 2024-07-01 | — なし |
-| 2024-08-01 | — なし |
+| 2024-06-21 | — なし（HTTP 429・`(空またはJSON以外)`） |
+| 2024-07-01 | — なし（HTTP 429・`(空またはJSON以外)`） |
+| 2024-08-01 | — なし（HTTP 429・`(空またはJSON以外)`） |
 | 2024-09-02 | — なし |
 | 2024-10-01 | — なし |
 | 2024-11-01 | — なし |
@@ -88,6 +90,16 @@
 ### 4. データ遅延の実測（無料プランは12週間遅延とされる）
 
 - 探索範囲内に取得できるデータが見つからなかった。
+
+### 5. `/fins/summary` のフィールド構造（PEAD prescreen R-1: 会社業績予想の有無）
+
+- レスポンス構造: `data=list[8]先頭要素keys=(DiscDate,DiscTime,Code,DiscNo,DocType,CurPerType,CurPerSt,CurPerEn,CurFYSt,CurFYEn)`
+- 1レコードの全フィールド名: `DiscDate, DiscTime, Code, DiscNo, DocType, CurPerType, CurPerSt, CurPerEn, CurFYSt, CurFYEn, NxtFYSt, NxtFYEn, Sales, OP, OdP, NP, EPS, DEPS, TA, Eq, EqAR, BPS, CFO, CFI, CFF, CashEq, Div1Q, Div2Q, Div3Q, DivFY, DivAnn, DivUnit, DivTotalAnn, PayoutRatioAnn, FDiv1Q, FDiv2Q, FDiv3Q, FDivFY, FDivAnn, FDivUnit, FDivTotalAnn, FPayoutRatioAnn, NxFDiv1Q, NxFDiv2Q, NxFDiv3Q, NxFDivFY, NxFDivAnn, NxFDivUnit, NxFPayoutRatioAnn, FSales2Q, FOP2Q, FOdP2Q, FNP2Q, FEPS2Q, NxFSales2Q, NxFOP2Q, NxFOdP2Q, NxFNp2Q, NxFEPS2Q, FSales, FOP, FOdP, FNP, FEPS, NxFSales, NxFOP, NxFOdP, NxFNp, NxFEPS, MatChgSub, SigChgInC, ChgByASRev, ChgNoASRev, ChgAcEst, RetroRst, ShOutFY, TrShFY, AvgSh, NCSales, NCOP, NCOdP, NCNP, NCEPS, NCTA, NCEq, NCEqAR, NCBPS, FNCSales2Q, FNCOP2Q, FNCOdP2Q, FNCNP2Q, FNCEPS2Q, NxFNCSales2Q, NxFNCOP2Q, NxFNCOdP2Q, NxFNCNP2Q, NxFNCEPS2Q, FNCSales, FNCOP, FNCOdP, FNCNP, FNCEPS, NxFNCSales, NxFNCOP, NxFNCOdP, NxFNCNP, NxFNCEPS, ShEq, NCShEq, ROE, NCROE`
+- 上記に「Forecast」「予想」「会社予想」に相当するフィールド（例: ForecastNetSales, ForecastOperatingProfit 等）が含まれるか目視確認すること。含まれていれば R-1 は解消、含まれていなければ SUE が算出できず PEAD は成立しない
+
+### 6. `/equities/master` のフィールド構造（PEAD prescreen R-1c: ユニバース定義）
+
+- 取得失敗（HTTP 429 / Rate limit exceeded. Please try again later.）。R-1c は未確認のまま。
 
 ## 0-8: kabu STATION API 疎通
 
