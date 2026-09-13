@@ -6,26 +6,29 @@
          この結果が重大論点 C-4（1時間足/15分足の過去データが無償で入手できない疑い）を決着させる。
   - 0-8: kabu STATION API（Windows 常駐アプリのローカルAPI）の疎通可否を確認する。
 
+重要な前提（2026-09-13 に判明）:
+  J-Quants API は V1 が 2026-06-01 に廃止されており、現在は **V2（APIキー方式）のみ**が有効。
+  V1（メールアドレス+パスワード → リフレッシュトークン → IDトークン、ベースURL api.jquants.com/v1）
+  を前提にした本スクリプトの旧版は、廃止済みエンドポイントを叩いて 403 になっていた。
+  V2 は `x-api-key` ヘッダーに直接 APIキーを載せる方式で、ベースURLは api.jquants.com/v2。
+
+  V2 の正確なエンドポイントパス一覧は一次情報源（公式サイト）を自動取得できず確認できていない
+  （Bot対策で 403）。判明しているのは `/equities/bars/daily` のみ。分足・時間足を含む他のパスは
+  複数の**推測候補**を実測して仕分ける方式にしている。的中しなくても 404 として記録されるだけで
+  安全であり、どれかが 200 を返せばそれが正しいパスだと分かる。
+
 セキュリティ方針（CLAUDE.md 準拠）:
   - 認証情報は .env.local からこのスクリプトが読む。**値は一切出力しない**。
-  - トークン・パスワード・メールアドレスはマスクして扱い、レポートにも残さない。
+  - トークン・パスワード・APIキーはマスクして扱い、レポートにも残さない。
   - 生成されるレポートはそのまま共有・コミットしてよい内容のみを含む。
 
 使い方:
-    python3 scripts/step0_api_probe.py
+    python scripts/step0_api_probe.py
 
     依存パッケージ不要（Python 3.11+ 標準ライブラリのみ）。
 
-.env.local に必要な変数（いずれかの組み合わせ）:
-    # 方式A: メールアドレス + パスワード
-    JQUANTS_MAILADDRESS=...
-    JQUANTS_PASSWORD=...
-
-    # 方式B: リフレッシュトークン
-    JQUANTS_REFRESH_TOKEN=...
-
-    # 方式C: 既存の .env.example に合わせた名前でも可（リフレッシュトークンとして解釈を試みる）
-    JQUANTS_API_KEY=...
+.env.local に必要な変数:
+    JQUANTS_API_KEY=...     # J-Quants マイページ（ダッシュボード）で発行した V2 用 APIキー
 
     # 0-8 を試す場合（任意）
     KABU_API_PASSWORD=...
@@ -36,7 +39,6 @@ from __future__ import annotations
 
 import datetime as dt
 import json
-import os
 import socket
 import ssl
 import sys
@@ -49,11 +51,12 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 ENV_FILE = REPO_ROOT / ".env.local"
 REPORT_PATH = REPO_ROOT / "research" / "STEP0-api-probe-report.md"
 
-JQUANTS_BASE = "https://api.jquants.com/v1"
+JQUANTS_V2_BASE = "https://api.jquants.com/v2"
 TIMEOUT = 30
 
 # 1単元が概ね20万円前後で、判断2（TOPIX500）にも含まれる代表銘柄をプローブ対象にする
-PROBE_SYMBOLS = ["7203", "9984", "8306"]
+PROBE_CODE = "72030"  # トヨタ自動車（V2 は5桁コード表記の可能性があるため後段で両対応を試す）
+PROBE_CODE_ALT = "7203"
 
 # 提供開始時期を粗く二分するための年初営業日（土日祝は避けた平日）
 YEAR_PROBE_DATES = [
@@ -62,18 +65,31 @@ YEAR_PROBE_DATES = [
     "2025-01-06", "2026-01-05",
 ]
 
-# 粒度の実測対象。分足系のエンドポイントが存在しないことの確認が C-4 の核心。
-ENDPOINT_PROBES = [
-    ("/listed/info", {}, "上場銘柄一覧（ユニバース構築の土台）"),
-    ("/prices/daily_quotes", {"code": "7203", "date": "2024-06-03"}, "日足 四本値"),
-    ("/prices/prices_am", {}, "前場四本値（当日前場のみ・粒度は日中1本）"),
-    ("/fins/statements", {"code": "7203"}, "財務諸表（PEAD のサプライズ度算出に使う）"),
-    ("/fins/announcement", {}, "決算発表予定日（H-3 の決算跨ぎ回避に必須）"),
-    ("/markets/trades_spec", {"from": "2024-06-01", "to": "2024-06-30"}, "投資部門別売買状況（需給スリーブ）"),
-    ("/markets/weekly_margin_interest", {"code": "7203"}, "週次信用残（需給スリーブ）"),
-    ("/markets/short_selling", {"sector33code": "0050"}, "業種別空売り比率"),
-    ("/markets/breakdown", {"code": "7203", "date": "2024-06-03"}, "売買内訳データ"),
-    ("/indices/topix", {}, "TOPIX 指数"),
+# 確認済み・推測を含むエンドポイント候補。
+# 確認済みは "/equities/bars/daily" のみ。他は公式ドキュメントを直接取得できなかったため、
+# 命名規則から類推した複数候補を並べ、実測でどれが有効か（200）を判定する。
+ENDPOINT_PROBES: list[tuple[str, dict, str, bool]] = [
+    # (パス, パラメータ, 用途, 確認済みか)
+    ("/equities/master", {}, "上場銘柄一覧（ユニバース構築の土台）", False),
+    ("/equities/bars/daily", {"code": PROBE_CODE, "date": "2024-06-03"}, "日足 四本値【確認済みパス】", True),
+    ("/fins/summary", {"code": PROBE_CODE}, "財務情報（PEAD のサプライズ度算出に使う）", False),
+    ("/equities/earnings-calendar", {}, "決算発表予定（H-3 の決算跨ぎ回避に必須）", False),
+    ("/indices/bars/daily", {"code": "0000"}, "TOPIX等 指数 日足", False),
+    ("/markets/trading-by-type", {"from": "2024-06-01", "to": "2024-06-30"}, "投資部門別売買状況（需給スリーブ）", False),
+    ("/markets/margin-interest", {"code": PROBE_CODE}, "信用残（需給スリーブ）", False),
+    ("/markets/short-selling", {}, "業種別空売り比率", False),
+]
+
+# C-4 の核心: 分足・時間足に相当しそうなパスを推測で総当たりする。
+# 1つでも 200 を返せば、それが正式パスである可能性が高い。
+INTRADAY_ENDPOINT_CANDIDATES: list[tuple[str, dict]] = [
+    ("/equities/bars/minute", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/bars/intraday", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/bars/1m", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/bars/hourly", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/bars/am", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/prices/am", {"code": PROBE_CODE, "date": "2024-06-03"}),
+    ("/equities/prices/minute", {"code": PROBE_CODE, "date": "2024-06-03"}),
 ]
 
 
@@ -149,61 +165,70 @@ def http_json(
         return 0, None, f"例外: {type(e).__name__}"
 
 
-def get_id_token(env: dict[str, str], log: list[str]) -> str | None:
-    """認証して idToken を得る。トークンは戻り値としてのみ扱い、出力しない。"""
-    mail = env.get("JQUANTS_MAILADDRESS") or env.get("JQUANTS_MAIL_ADDRESS") or ""
-    password = env.get("JQUANTS_PASSWORD", "")
-    refresh = (
-        env.get("JQUANTS_REFRESH_TOKEN")
-        or env.get("JQUANTS_REFRESHTOKEN")
-        or env.get("JQUANTS_API_KEY")
+def get_api_key(env: dict[str, str], log: list[str]) -> str | None:
+    """V2 のAPIキーを .env.local から取得する。値は出力しない。"""
+    api_key = (
+        env.get("JQUANTS_API_KEY")
+        or env.get("JQUANTS_APIKEY")
+        or env.get("JQUANTS_REFRESH_TOKEN")  # 旧設定名との後方互換
         or ""
     )
-
     log.append("### 認証情報の検出状況\n")
-    log.append(f"- `JQUANTS_MAILADDRESS`: {mask(mail)}")
-    log.append(f"- `JQUANTS_PASSWORD`: {mask(password)}")
-    log.append(f"- リフレッシュトークン系: {mask(refresh)}")
+    log.append(f"- `JQUANTS_API_KEY`: {mask(env.get('JQUANTS_API_KEY', ''))}")
+    if not env.get("JQUANTS_API_KEY") and api_key:
+        log.append("- （`JQUANTS_API_KEY` が空だったため、別名の変数を代わりに使用した）")
     log.append("")
-
-    if mail and password:
-        status, body, err = http_json(
-            f"{JQUANTS_BASE}/token/auth_user",
-            method="POST",
-            payload={"mailaddress": mail, "password": password},
-        )
-        if status == 200 and body and "refreshToken" in body:
-            refresh = body["refreshToken"]
-            log.append("- メールアドレス+パスワードでの認証: **成功**")
-        else:
-            log.append(f"- メールアドレス+パスワードでの認証: **失敗**（HTTP {status} / {err}）")
-
-    if not refresh:
-        log.append("- リフレッシュトークンが得られず、認証を中断した")
-        return None
-
-    status, body, err = http_json(
-        f"{JQUANTS_BASE}/token/auth_refresh?refreshtoken={urllib.parse.quote(refresh)}",
-        method="POST",
-    )
-    if status == 200 and body and "idToken" in body:
-        log.append("- idToken の取得: **成功**")
+    if not api_key:
+        log.append("- APIキーが見つからず、疎通を中断した。`.env.local` に `JQUANTS_API_KEY` を設定すること。")
         log.append("")
-        return body["idToken"]
+        return None
+    return api_key
 
-    log.append(f"- idToken の取得: **失敗**（HTTP {status} / {err}）")
+
+def v2_headers(api_key: str) -> dict[str, str]:
+    return {"x-api-key": api_key}
+
+
+def sanity_check(api_key: str, log: list[str]) -> bool:
+    """まず軽いエンドポイントでキー自体が有効かを確認する。"""
+    log.append("### 0. APIキーの有効性チェック\n")
+    status, body, err = http_json(f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date=2024-06-03",
+                                   headers=v2_headers(api_key))
+    if status == 200:
+        log.append(f"- `/equities/bars/daily` への疎通: **成功**（HTTP 200）")
+        log.append("")
+        return True
+    if status in (401, 403):
+        # コード桁数の違いを疑い、別表記でも試す
+        status2, body2, err2 = http_json(
+            f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE_ALT}&date=2024-06-03",
+            headers=v2_headers(api_key),
+        )
+        if status2 == 200:
+            log.append("- `/equities/bars/daily` への疎通: **成功**（HTTP 200、銘柄コード4桁表記）")
+            log.append("")
+            return True
+        log.append(f"- `/equities/bars/daily` への疎通: **失敗**（HTTP {status} / {err[:120]}）")
+        log.append(
+            "- → APIキー自体が無効、期限切れ、またはプラン未契約の可能性が高い。"
+            "J-Quants マイページでキーの状態・契約プランを確認すること。"
+        )
+        log.append("")
+        return False
+    log.append(f"- `/equities/bars/daily` への疎通: **予期しない結果**（HTTP {status} / {err[:120]}）")
     log.append("")
-    return None
+    return False
 
 
-def probe_endpoints(token: str, log: list[str]) -> None:
-    headers = {"Authorization": f"Bearer {token}"}
+def probe_endpoints(api_key: str, log: list[str]) -> None:
+    headers = v2_headers(api_key)
     log.append("### 1. エンドポイント別のアクセス可否（＝契約プランで何が使えるか）\n")
     log.append("| エンドポイント | 用途 | 結果 |")
     log.append("|---|---|---|")
-    for path, params, purpose in ENDPOINT_PROBES:
+    for path, params, purpose, confirmed in ENDPOINT_PROBES:
         qs = f"?{urllib.parse.urlencode(params)}" if params else ""
-        status, body, err = http_json(f"{JQUANTS_BASE}{path}{qs}", headers=headers)
+        status, body, err = http_json(f"{JQUANTS_V2_BASE}{path}{qs}", headers=headers)
+        tag = "" if confirmed else "（推測パス）"
         if status == 200:
             n = 0
             if body:
@@ -211,34 +236,70 @@ def probe_endpoints(token: str, log: list[str]) -> None:
                     if isinstance(v, list):
                         n = len(v)
                         break
-            verdict = f"✅ 利用可（{n}件）" if n else "⚠️ 利用可だがデータ0件"
+            verdict = f"✅ 利用可（{n}件）"
+        elif status == 404:
+            verdict = f"❓ パス不明（HTTP 404。推測パスが外れている可能性）" if not confirmed else "❌ HTTP 404（確認済みパスのはずが404。要再確認）"
         elif status in (401, 403):
             verdict = f"🚫 プラン制限または権限なし（HTTP {status}）"
         elif status == 400:
             verdict = f"⚠️ パラメータ要調整（HTTP 400: {err[:60]}）"
         else:
             verdict = f"❌ HTTP {status} {err[:60]}"
-        log.append(f"| `{path}` | {purpose} | {verdict} |")
+        log.append(f"| `{path}`{tag} | {purpose} | {verdict} |")
     log.append("")
 
 
-def probe_history_range(token: str, log: list[str]) -> None:
+def probe_intraday(api_key: str, log: list[str]) -> None:
+    """C-4 の核心。分足・時間足エンドポイントの候補を総当たりする。"""
+    headers = v2_headers(api_key)
+    log.append("### 2. 分足・時間足データの有無（重大論点 C-4 の決着材料）\n")
+    log.append(
+        "以下は**推測パスの総当たり**である。1つでも 200 が返れば、それが正式な分足エンドポイントである可能性が高い。"
+        "全滅した場合、少なくとも本スクリプトが試した範囲では分足の提供を確認できなかったことを意味する"
+        "（正式パスがまだ特定できていない可能性は残る）。\n"
+    )
+    log.append("| エンドポイント（推測） | 結果 |")
+    log.append("|---|---|")
+    any_hit = False
+    for path, params in INTRADAY_ENDPOINT_CANDIDATES:
+        qs = f"?{urllib.parse.urlencode(params)}" if params else ""
+        status, body, err = http_json(f"{JQUANTS_V2_BASE}{path}{qs}", headers=headers)
+        if status == 200:
+            verdict = "✅ **200 成功 — 分足/時間足エンドポイントの可能性大**"
+            any_hit = True
+        elif status == 404:
+            verdict = "— 404（このパスは存在しない）"
+        elif status in (401, 403):
+            verdict = f"🚫 HTTP {status}（パスは存在するがプラン外の可能性）"
+        else:
+            verdict = f"❌ HTTP {status} {err[:60]}"
+        log.append(f"| `{path}` | {verdict} |")
+    log.append("")
+    if any_hit:
+        log.append("**→ 200 を返したパスがある。C-4 は「入手可能」の方向で再判定が必要。**")
+    else:
+        log.append(
+            "**→ 推測した範囲では分足/時間足エンドポイントを発見できなかった。**"
+            "ただし本スクリプトのパス推測が外れているだけの可能性があるため、"
+            "J-Quants マイページの API リファレンス（ログイン後に閲覧可能）で"
+            "分足関連エンドポイントの掲載有無を目視確認することを推奨する。"
+        )
+    log.append("")
+
+
+def probe_history_range(api_key: str, log: list[str]) -> None:
     """日足がどこまで遡れるか＝選定/確認分割が成立するかを実測する。"""
-    headers = {"Authorization": f"Bearer {token}"}
-    log.append("### 2. 日足の遡及可能範囲（PJ000001 §6.2 の選定/確認分割が成立するか）\n")
+    headers = v2_headers(api_key)
+    log.append("### 3. 日足の遡及可能範囲（PJ000001 §6.2 の選定/確認分割が成立するか）\n")
     log.append("| 日付 | データ有無 |")
     log.append("|---|---|")
     oldest_ok = None
     for date in YEAR_PROBE_DATES:
-        found = False
-        for sym in PROBE_SYMBOLS[:1]:
-            status, body, _ = http_json(
-                f"{JQUANTS_BASE}/prices/daily_quotes?code={sym}&date={date}",
-                headers=headers,
-            )
-            if status == 200 and body and body.get("daily_quotes"):
-                found = True
-                break
+        status, body, _ = http_json(
+            f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date={date}",
+            headers=headers,
+        )
+        found = status == 200 and body and any(isinstance(v, list) and v for v in body.values())
         log.append(f"| {date} | {'✅ あり' if found else '— なし'} |")
         if found and oldest_ok is None:
             oldest_ok = date
@@ -262,10 +323,10 @@ def probe_history_range(token: str, log: list[str]) -> None:
     log.append("")
 
 
-def probe_delay(token: str, log: list[str]) -> None:
+def probe_delay(api_key: str, log: list[str]) -> None:
     """最新データがいつのものか＝遅延の実測。無料プランは12週間遅延とされる。"""
-    headers = {"Authorization": f"Bearer {token}"}
-    log.append("### 3. データ遅延の実測（無料プランは12週間遅延とされる）\n")
+    headers = v2_headers(api_key)
+    log.append("### 4. データ遅延の実測（無料プランは12週間遅延とされる）\n")
     today = dt.date.today()
     latest = None
     for back in range(0, 210, 7):
@@ -273,10 +334,10 @@ def probe_delay(token: str, log: list[str]) -> None:
         if d.weekday() >= 5:
             continue
         status, body, _ = http_json(
-            f"{JQUANTS_BASE}/prices/daily_quotes?code={PROBE_SYMBOLS[0]}&date={d.isoformat()}",
+            f"{JQUANTS_V2_BASE}/equities/bars/daily?code={PROBE_CODE}&date={d.isoformat()}",
             headers=headers,
         )
-        if status == 200 and body and body.get("daily_quotes"):
+        if status == 200 and body and any(isinstance(v, list) and v for v in body.values()):
             latest = d
             break
     if latest:
@@ -291,35 +352,6 @@ def probe_delay(token: str, log: list[str]) -> None:
             )
     else:
         log.append("- 直近210日以内に取得できるデータが見つからなかった。")
-    log.append("")
-
-
-def report_intraday_finding(log: list[str]) -> None:
-    """C-4 の核心。分足エンドポイントの有無を明示的に記録する。"""
-    log.append("### 4. 分足・時間足データの有無（重大論点 C-4 の決着材料）\n")
-    log.append(
-        "上記「1. エンドポイント別のアクセス可否」に、"
-        "**1時間足・15分足に相当する時系列を返すエンドポイントが存在するか**を確認すること。"
-    )
-    log.append("")
-    log.append("- `/prices/daily_quotes` は**日足**であり、日中の値動きは含まない")
-    log.append(
-        "- `/prices/prices_am` は**当日前場の四本値1本**であり、"
-        "過去の分足時系列ではない（前場全体を1本に集約したもの）"
-    )
-    log.append("")
-    log.append(
-        "**判定**: 上記以外に分足系エンドポイントが見つからない場合、"
-        "司令塔判断7（テクニカル系＝主軸1時間足・エントリー15分足）は "
-        "**J-Quants からの過去データでは検証できない**ことが確定する。"
-    )
-    log.append("")
-    log.append("その場合の選択肢（PJ000001 §4 C-4）:")
-    log.append("1. 分足データを有料で調達する")
-    log.append("2. テクニカル系スリーブを自前蓄積後のフォワード中心の検証に切り替える")
-    log.append("3. 日足で代理検証してから分足へ移す")
-    log.append("")
-    log.append("※ 非価格系スリーブ（PEAD・需給）は日足で完結するため、この制約の影響を受けない。")
     log.append("")
 
 
@@ -383,6 +415,7 @@ def main() -> int:
     log.append("# STEP0 API 実機疎通レポート（タスク 0-8 / 0-9）\n")
     log.append(f"- 実行日時: {dt.datetime.now().strftime('%Y-%m-%d %H:%M')}")
     log.append(f"- 実行環境の Python: {sys.version.split()[0]}")
+    log.append("- 対象: J-Quants API **V2**（V1 は 2026-06-01 廃止済みのため対象外）")
     log.append("- **本レポートに認証情報は一切含まれない**（値は長さのみ記録）")
     log.append("")
 
@@ -396,16 +429,16 @@ def main() -> int:
         REPORT_PATH.write_text("\n".join(log), encoding="utf-8")
         return 1
 
-    log.append("## 0-9: J-Quants API 疎通\n")
-    token = get_id_token(env, log)
-    if token:
-        probe_endpoints(token, log)
-        probe_history_range(token, log)
-        probe_delay(token, log)
-        report_intraday_finding(log)
-    else:
-        log.append("認証に失敗したため、以降のプローブは実施できなかった。")
-        log.append("`.env.local` の変数名が想定と一致しているか確認すること。")
+    log.append("## 0-9: J-Quants API (V2) 疎通\n")
+    api_key = get_api_key(env, log)
+    if api_key and sanity_check(api_key, log):
+        probe_endpoints(api_key, log)
+        probe_intraday(api_key, log)
+        probe_history_range(api_key, log)
+        probe_delay(api_key, log)
+    elif api_key:
+        log.append("APIキーが無効と判定されたため、以降のプローブは実施しなかった。")
+        log.append("J-Quants マイページでキーの発行状態・契約プランを確認すること。")
         log.append("")
 
     probe_kabu(env, log)
@@ -413,9 +446,11 @@ def main() -> int:
     log.append("---\n")
     log.append("## 次のアクション\n")
     log.append("1. 本レポートを `research/STEP0-api-probe-report.md` としてコミットする")
-    log.append("2. 「2. 日足の遡及可能範囲」と「4. 分足・時間足データの有無」の結果をもとに、")
+    log.append("2. 「3. 日足の遡及可能範囲」と「2. 分足・時間足データの有無」の結果をもとに、")
     log.append("   `research/ACTIVE.md` のタスク 0-9 を完了、0-13（C-4）を決着させる")
     log.append("3. C-4 の選択肢1〜3のどれを採るかは司令塔判断とする")
+    log.append("4. 推測パスが的中しなかった場合、J-Quants マイページの API リファレンスで")
+    log.append("   正式なエンドポイント名を目視確認し、本スクリプトの候補リストを更新する")
     log.append("")
 
     out = "\n".join(log)
