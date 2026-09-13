@@ -1,0 +1,100 @@
+# Smart Wave Rider - Python Dependencies
+# Last updated: 2026-09-13
+
+# ============================================
+# Core Dependencies
+# ============================================
+Python>=3.11
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# API & HTTP
+aiohttp>=3.8.5
+httpx>=0.24.0
+requests>=2.31.0
+
+# Configuration
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Database & Storage
+firebase-admin>=6.0.0
+
+# Async
+asyncio>=3.4.3
+aiofiles>=23.1.0
+
+# ============================================
+# Trading & Finance
+# ============================================
+
+# Backtesting
+backtrader>=1.9.74
+backtest>=0.2.2
+
+# Technical Indicators
+ta-lib>=0.4.28
+pandas-ta>=0.3.14
+
+# Financial Calculations
+numpy-financial>=1.21
+
+# ============================================
+# AI/LLM Integration
+# ============================================
+
+# Claude API
+anthropic>=0.25.0
+
+# ============================================
+# Scheduling & Time
+# ============================================
+APScheduler>=3.10.0
+pytz>=2023.3
+
+# ============================================
+# Logging & Monitoring
+# ============================================
+python-json-logger>=2.0.7
+
+# Slack Integration (Optional)
+slack-sdk>=3.21.0
+
+# ============================================
+# Testing
+# ============================================
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+
+# ============================================
+# Code Quality
+# ============================================
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.4.0
+isort>=5.12.0
+
+# ============================================
+# Utilities
+# ============================================
+tqdm>=4.65.0
+pyyaml>=6.0
+click>=8.1.0
+jinja2>=3.1.0
+
+# ============================================
+# Visualization (Optional)
+# ============================================
+matplotlib>=3.7.0
+plotly>=5.15.0
+
+# ============================================
+# Development
+# ============================================
+ipython>=8.14.0
+jupyter>=1.0.0
+notebook>=7.0.0

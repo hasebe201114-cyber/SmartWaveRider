@@ -1,0 +1,99 @@
+# Environment Variables
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-workspace
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Data & Cache（生データ・キャッシュは追跡しない。ディレクトリ構造のみ維持）
+data/raw/*
+data/processed/*
+data/cache/*
+!data/*/.gitkeep
+
+# Logs（ディレクトリ構造のみ維持）
+logs/*/*
+!logs/*/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# API Keys & Secrets
+*.key
+*.pem
+credentials.json
+service-account-key.json
+
+# Database
+*.db
+*.sqlite3
+
+# Claude Code のローカル設定（マシン固有の権限設定のため追跡しない）
+.claude/settings.local.json
+
+# 初期配布アーカイブ（中身はリポジトリに展開済みのため重複）
+smart-wave-rider-project.zip
+
+# ------------------------------------------------------------------
+# 追跡する（明示）
+# ------------------------------------------------------------------
+# - docs/           利用者向けドキュメント
+# - obs/            開発件名・プロジェクト方針（記録の正）
+# - research/       実験の spec / 判定書 / 生結果 JSON / CSV / 台帳
+# - scripts/lib/    スクリプト共有ライブラリ（旧 .gitignore の `lib/` で
+#                   誤って除外されていたため、/lib/ へ限定した）
+#
+# research/ 配下の CSV・XLSX は実験の成果物であり追跡対象。
+# 旧 .gitignore の `*.csv` `*.xlsx` `research/EXP-*`
+# `research/STEP*-...` は STEP1〜3 の必須成果物を丸ごと除外していたため撤去した。
