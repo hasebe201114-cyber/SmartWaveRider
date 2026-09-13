@@ -8,13 +8,13 @@
 
 | 実験ID | 仮説（要約） | 現在の担当 | 次の待ち | 更新日 |
 |---|---|---|---|---|
-| EXP-OBS000001 | 決算サプライズ度（SUE）でフィルタしたPEADは、日本株3〜10営業日スイングで往復コスト後も正の期待値を持つか | **B実装チーム（quant-researcher）** | **B実装によるデータ生成・バックテスト実装**。まず `00-spec.md` §8.1（R-1d 継続確認＝175銘柄×全期間の日足カバレッジ集計）を実施し、欠測月があれば S戦略へ差し戻す | 2026-09-13 |
+| EXP-OBS000001 | 決算サプライズ度（SUE）でフィルタしたPEADは、日本株3〜10営業日スイングで往復コスト後も正の期待値を持つか | **司令塔（ローカル実行）** | B実装チームがコード実装を完了（`scripts/check_daily_bars_coverage.py`・`scripts/exp_obs000001_pead.py`・`scripts/lib/pead_*.py`）。**リモートコンテナにJ-Quants APIキーが無いため未実行。司令塔がローカルWindows環境で `python scripts/check_daily_bars_coverage.py` を実行し、spec §8.1（R-1d継続確認）の欠測月有無を確認する**のが次アクション | 2026-09-13 |
 
 ## パイプライン段階の凡例
 
 `S目利き → A設計 → B実装 → C検証 →(司令塔GO)→ D反映 → E記録`
 
-EXP-OBS000001 の現在地: `S目利き ✅ → A設計 ✅ → **B実装 ◀ いまここ** → C検証 → …`
+EXP-OBS000001 の現在地: `S目利き ✅ → A設計 ✅ → **B実装（コード完了・ローカル実行待ち）◀ いまここ** → C検証 → …`
 
 ## EXP-OBS000001 の成果物
 
@@ -22,7 +22,7 @@ EXP-OBS000001 の現在地: `S目利き ✅ → A設計 ✅ → **B実装 ◀ �
 |---|---|
 | `research/EXP-OBS000001/00-prescreen.md` | ✅ 完了（2026-09-13・S戦略）。条件付きGO → 条件⓪成立 |
 | `research/EXP-OBS000001/00-spec.md` | ✅ **完了（2026-09-13・S戦略がA設計兼務）**。成功/不採用基準を数値でロック |
-| `research/EXP-OBS000001/10-result/` | ⬜ 未着手（B実装）。`prediction-unit.json` / `pipeline.json` / `params.json` / `cost-model.json` / `run.log` の5点が揃うまで完了ではない |
+| `research/EXP-OBS000001/10-result/` | 🔶 コード実装完了・ローカル実行待ち。`scripts/check_daily_bars_coverage.py`・`scripts/exp_obs000001_pead.py` は作成済みだがリモートコンテナでは未実行（APIキー無し）。`prediction-unit.json` / `pipeline.json` / `params.json` / `cost-model.json` / `run.log` の5点が揃うまで完了ではない |
 | `research/EXP-OBS000001/20-review.md` | ⬜ 未着手（C品質） |
 
 ## STEP0 進行状況（実験起票前の基盤整備）
@@ -60,3 +60,4 @@ EXP-OBS000001 の現在地: `S目利き ✅ → A設計 ✅ → **B実装 ◀ �
 - 2026-09-13: EXP-OBS000001（PEAD）の prescreen が完了し S戦略チームが条件付きGOと判定。ただし prescreen 中に 0-9 レポートの内部矛盾が発覚したため、0-9 を「再実測待ち」に差し戻し。プローブスクリプトを修正（レスポンス構造のデバッグ出力・銘柄コードのフォールバック・R-1/R-1c確認用プローブを追加）。「現在進行中の実験」に EXP-OBS000001 を追加。
 - 2026-09-13: 司令塔がJ-Quantsマイページを目視確認しR-1eが解消（プランはFree・契約有効、契約終了日表示は契約失効ではなくFreeプランのデータ取得可能期間の上限を示すものと判明）。条件⓪（R-1/R-1c/R-1d/R-1e）が成立し、EXP-OBS000001は「S戦略チームによるspec作成」フェーズへ移行。
 - 2026-09-13: **EXP-OBS000001 の spec（`00-spec.md`）を S戦略チーム（A設計兼務）が起票し、数値基準をロック。** 担当をB実装チームへ、次の待ちを「データ生成・バックテスト実装」へ更新。B実装の最初のタスクは spec §8.1（R-1d 継続確認＝175銘柄×2024-06-21〜2026-06-21 の日足カバレッジ月次集計）であり、欠測月があれば実装を進めずS戦略へ差し戻す運用とした。
+- 2026-09-13: B実装チームがリモートコンテナにJ-Quants APIキーが存在しない（`.env.local`不在・環境変数未設定）ことを確認し、実行不能を報告。司令塔は方針転換し、**J-Quants APIの実行はローカルWindows環境（`.env.local`）で行う運用に切り替え**、リモートのB実装チームには「実装（コード作成）のみ」を依頼。これを受けB実装チームが `scripts/check_daily_bars_coverage.py`（spec §8.1単体スクリプト）・`scripts/exp_obs000001_pead.py`（spec §2〜§7フルパイプライン）・基盤ライブラリ `scripts/lib/pead_{bars,universe,events,execution,stats,costs}.py` を作成完了。合成データによるロジック検証（実APIなし）は実施済みだが、**実データでの実行は一度も行っていない**。次アクションは司令塔がローカル環境で `python scripts/check_daily_bars_coverage.py` を実行すること。担当を「司令塔（ローカル実行）」へ更新。
