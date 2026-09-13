@@ -43,6 +43,7 @@ import re
 import socket
 import ssl
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -54,6 +55,11 @@ REPORT_PATH = REPO_ROOT / "research" / "STEP0-api-probe-report.md"
 
 JQUANTS_V2_BASE = "https://api.jquants.com/v2"
 TIMEOUT = 30
+# 前回の実測で HTTP 429 (レート制限) が多発した。全リクエストの間に最低これだけ間隔を空ける。
+MIN_REQUEST_INTERVAL_SEC = 0.6
+# 429 を受けたときのリトライ回数と待機秒数（指数バックオフ）
+RATE_LIMIT_MAX_RETRIES = 4
+RATE_LIMIT_BACKOFF_BASE_SEC = 3.0
 
 # 1単元が概ね20万円前後で、判断2（TOPIX500）にも含まれる代表銘柄をプローブ対象にする
 PROBE_CODE = "72030"  # トヨタ自動車（V2 は5桁コード表記の可能性があるため後段で両対応を試す）
@@ -145,14 +151,22 @@ def load_env_local() -> dict[str, str]:
     return env
 
 
-def http_json(
-    url: str,
-    *,
-    method: str = "GET",
-    payload: dict | None = None,
-    headers: dict | None = None,
+_last_request_at: float = 0.0
+
+
+def _throttle() -> None:
+    """全リクエストに最低限の間隔を強制する（レート制限対策）。"""
+    global _last_request_at
+    elapsed = time.monotonic() - _last_request_at
+    if elapsed < MIN_REQUEST_INTERVAL_SEC:
+        time.sleep(MIN_REQUEST_INTERVAL_SEC - elapsed)
+    _last_request_at = time.monotonic()
+
+
+def _http_json_once(
+    url: str, *, method: str, payload: dict | None, headers: dict | None
 ) -> tuple[int, dict | None, str]:
-    """戻り値: (ステータスコード, JSON辞書 or None, エラー要約)"""
+    """1回だけ叩く。戻り値: (ステータスコード, JSON辞書 or None, エラー要約)"""
     data = json.dumps(payload).encode() if payload is not None else None
     req = urllib.request.Request(url, data=data, method=method)
     req.add_header("Content-Type", "application/json")
@@ -178,6 +192,31 @@ def http_json(
         return 0, None, f"接続失敗: {e.reason}"
     except Exception as e:  # noqa: BLE001
         return 0, None, f"例外: {type(e).__name__}"
+
+
+def http_json(
+    url: str,
+    *,
+    method: str = "GET",
+    payload: dict | None = None,
+    headers: dict | None = None,
+) -> tuple[int, dict | None, str]:
+    """戻り値: (ステータスコード, JSON辞書 or None, エラー要約)
+
+    前回の実測で HTTP 429（レート制限）が多発し、大半のプローブが「データなし」と
+    誤判定される原因になった。全リクエストに最低間隔を強制し、429 が返った場合は
+    指数バックオフで自動リトライする。
+    """
+    _throttle()
+    status, body, err = _http_json_once(url, method=method, payload=payload, headers=headers)
+    retries = 0
+    while status == 429 and retries < RATE_LIMIT_MAX_RETRIES:
+        wait = RATE_LIMIT_BACKOFF_BASE_SEC * (2**retries)
+        time.sleep(wait)
+        retries += 1
+        _throttle()
+        status, body, err = _http_json_once(url, method=method, payload=payload, headers=headers)
+    return status, body, err
 
 
 def has_real_data(body: dict | None) -> bool:
