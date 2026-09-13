@@ -84,12 +84,27 @@ def mask(value: str) -> str:
     return f"(設定あり・{len(value)}文字・値は非表示)"
 
 
+def read_text_tolerant(path: Path) -> str:
+    """Windows で保存された設定ファイルを想定し、文字コードを順に試す。
+
+    メモ帳等は BOM 付き UTF-8 や cp932(Shift_JIS) で保存することがあるため、
+    UTF-8 決め打ちだと読み込みに失敗する。
+    """
+    for encoding in ("utf-8-sig", "utf-8", "cp932"):
+        try:
+            return path.read_text(encoding=encoding)
+        except UnicodeDecodeError:
+            continue
+    # どれでも読めない場合は文字化けを許容してでも変数名だけは拾う
+    return path.read_text(encoding="utf-8", errors="replace")
+
+
 def load_env_local() -> dict[str, str]:
     """.env.local を読み込む。値は呼び出し側でもマスクして扱うこと。"""
     env: dict[str, str] = {}
     if not ENV_FILE.exists():
         return env
-    for raw in ENV_FILE.read_text(encoding="utf-8").splitlines():
+    for raw in read_text_tolerant(ENV_FILE).splitlines():
         line = raw.strip()
         if not line or line.startswith("#") or "=" not in line:
             continue
@@ -356,6 +371,14 @@ def probe_kabu(env: dict[str, str], log: list[str]) -> None:
 
 
 def main() -> int:
+    # Windows でコンソール出力をリダイレクトすると cp932 になり、
+    # レポート中の絵文字（✅ 等）で UnicodeEncodeError になるため UTF-8 に固定する。
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:  # noqa: BLE001  古い環境では無視してよい
+            pass
+
     log: list[str] = []
     log.append("# STEP0 API 実機疎通レポート（タスク 0-8 / 0-9）\n")
     log.append(f"- 実行日時: {dt.datetime.now().strftime('%Y-%m-%d %H:%M')}")
