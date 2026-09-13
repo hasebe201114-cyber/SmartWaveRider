@@ -4,8 +4,8 @@ import collections
 import datetime as dt
 from pathlib import Path
 
-SCRATCH = Path("/tmp/claude-0/-home-user-SmartWaveRider/70b3a5f3-4777-5a64-9788-dba5cef34bd2/scratchpad")
-d = json.load(open(SCRATCH / "ed_dates.json"))
+ROOT = Path(__file__).resolve().parent.parent
+d = json.load(open(ROOT / "research" / "_snapshots" / "earnings_date" / "scan_2026-02-02_2026-06-22.json"))
 rows_by_date = d["rows"]
 errors = d["errors"]
 
@@ -65,7 +65,7 @@ if deltas:
         print(f"  {x[1]}  {x[2]}:{x[3]} -> {x[4]}:{x[5]}  ({x[0]:+d}日)")
 
 # 175銘柄ユニバースに限定
-u = json.load(open("/home/user/SmartWaveRider/research/EXP-OBS000001/10-result/universe.json"))
+u = json.load(open(ROOT / "research" / "EXP-OBS000001" / "10-result" / "universe.json"))
 codes = set(u["confirmation_universe"]["codes"])
 g_u = {k: v for k, v in g.items() if k[0] in codes}
 ch_u = {k: v for k, v in changed.items() if k[0] in codes}
