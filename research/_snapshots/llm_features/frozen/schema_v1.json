@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SmartWaveRider LLM disclosure feature record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "doc_date",
+    "doc_time",
+    "company_code",
+    "company_name",
+    "doc_category",
+    "fiscal",
+    "revision",
+    "actuals",
+    "company_forecast",
+    "dividend",
+    "corporate_action_flags",
+    "factual_summary_ja",
+    "fields_not_found"
+  ],
+  "properties": {
+    "schema_version": { "const": "v1" },
+    "doc_date": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "doc_time": { "type": ["string", "null"], "pattern": "^\\d{2}:\\d{2}$" },
+    "company_code": { "type": ["string", "null"] },
+    "company_name": { "type": ["string", "null"] },
+    "doc_category": {
+      "type": "string",
+      "enum": [
+        "earnings_report",
+        "earnings_forecast_revision",
+        "dividend_forecast_revision",
+        "monthly_sales",
+        "share_buyback",
+        "capital_action",
+        "m_and_a",
+        "impairment_or_special_pl",
+        "personnel",
+        "governance_or_incident",
+        "other"
+      ]
+    },
+    "fiscal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fy_end", "period_type", "accounting_standard", "consolidated"],
+      "properties": {
+        "fy_end": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}$" },
+        "period_type": { "type": ["string", "null"], "enum": ["FY", "Q1", "Q2", "Q3", null] },
+        "accounting_standard": { "type": ["string", "null"], "enum": ["JGAAP", "IFRS", "USGAAP", null] },
+        "consolidated": { "type": ["boolean", "null"] }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["is_revision", "direction_as_stated", "target_fy_end", "items"],
+      "properties": {
+        "is_revision": { "type": "boolean" },
+        "direction_as_stated": {
+          "type": ["string", "null"],
+          "enum": ["upward", "downward", "mixed", "not_stated", null]
+        },
+        "target_fy_end": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}$" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["metric", "previous", "revised", "unit", "change_pct_as_stated"],
+            "properties": {
+              "metric": {
+                "type": "string",
+                "enum": [
+                  "net_sales",
+                  "operating_income",
+                  "ordinary_income",
+                  "net_income",
+                  "eps",
+                  "dividend_per_share"
+                ]
+              },
+              "previous": { "type": ["number", "null"] },
+              "revised": { "type": ["number", "null"] },
+              "unit": { "type": ["string", "null"], "enum": ["million_JPY", "thousand_JPY", "JPY", null] },
+              "change_pct_as_stated": { "type": ["number", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "actuals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "value", "unit", "period", "yoy_pct_as_stated"],
+        "properties": {
+          "metric": {
+            "type": "string",
+            "enum": ["net_sales", "operating_income", "ordinary_income", "net_income", "eps"]
+          },
+          "value": { "type": ["number", "null"] },
+          "unit": { "type": ["string", "null"], "enum": ["million_JPY", "thousand_JPY", "JPY", null] },
+          "period": { "type": ["string", "null"], "enum": ["FY", "Q1", "Q2", "Q3", null] },
+          "yoy_pct_as_stated": { "type": ["number", "null"] }
+        }
+      }
+    },
+    "company_forecast": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "value", "unit", "target_fy_end"],
+        "properties": {
+          "metric": {
+            "type": "string",
+            "enum": ["net_sales", "operating_income", "ordinary_income", "net_income", "eps"]
+          },
+          "value": { "type": ["number", "null"] },
+          "unit": { "type": ["string", "null"], "enum": ["million_JPY", "thousand_JPY", "JPY", null] },
+          "target_fy_end": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}$" }
+        }
+      }
+    },
+    "dividend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["annual_forecast_per_share", "annual_previous_forecast_per_share", "unit"],
+      "properties": {
+        "annual_forecast_per_share": { "type": ["number", "null"] },
+        "annual_previous_forecast_per_share": { "type": ["number", "null"] },
+        "unit": { "type": ["string", "null"], "enum": ["JPY", null] }
+      }
+    },
+    "corporate_action_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "share_buyback",
+        "share_cancellation",
+        "stock_split",
+        "m_and_a",
+        "impairment_or_special_loss",
+        "capital_raise",
+        "executive_change"
+      ],
+      "properties": {
+        "share_buyback": { "type": "boolean" },
+        "share_cancellation": { "type": "boolean" },
+        "stock_split": { "type": "boolean" },
+        "m_and_a": { "type": "boolean" },
+        "impairment_or_special_loss": { "type": "boolean" },
+        "capital_raise": { "type": "boolean" },
+        "executive_change": { "type": "boolean" }
+      }
+    },
+    "factual_summary_ja": { "type": "string", "maxLength": 120 },
+    "fields_not_found": { "type": "array", "items": { "type": "string" } }
+  }
+}

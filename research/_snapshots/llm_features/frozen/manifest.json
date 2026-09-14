@@ -1,0 +1,31 @@
+{
+ "manifest_version": "v1",
+ "track": "llm_features (ACTIVE 0-22 / 判断事項 D-11)",
+ "preregistration": "research/_snapshots/llm_features/00-preregistration.md",
+ "frozen_at_utc": "2026-09-14T12:35:18.388396+00:00",
+ "track_start_date": "2026-09-14",
+ "model_id_requested": "claude-haiku-4-5",
+ "model_served_frozen": null,
+ "api_params": {
+  "temperature": 0.0,
+  "max_tokens": 4096,
+  "thinking": "disabled (パラメータを送らない)",
+  "response_format_enforcement": null
+ },
+ "text_char_cap": 16000,
+ "schema_version": "v1",
+ "prompt_sha256": "b24aac1e9557c07ec9f659ec4475c906ab6e792493de6875c94bca8de07ace98",
+ "schema_sha256": "7a049f988fecde1450cd3e81293e98cbd73913c247b71ba3b26aa27d6f412768",
+ "universe_sha256": "47f042632da0500b166ac705bbd1649b6200407961a458b7406ee93dc3244070",
+ "cost_caps_usd": {
+  "daily": 1.0,
+  "monthly": 10.0
+ },
+ "pricing_usd_per_mtok": {
+  "input": 1.0,
+  "output": 5.0,
+  "cache_write": 1.25,
+  "cache_read": 0.1
+ },
+ "version_boundaries": []
+}

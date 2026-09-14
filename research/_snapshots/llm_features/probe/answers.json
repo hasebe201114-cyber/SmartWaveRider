@@ -1,0 +1,1010 @@
+{
+ "probe": "C-8 lookahead contamination probe",
+ "model": "claude-opus-5",
+ "administration": "self-administered by the running claude-opus-5 agent (no API key available in this environment). Answers were written before any true or placebo close was read or computed in this session; no price file for the confirmation period was opened prior to writing this file.",
+ "knowledge_cutoff_stated": "2026-05",
+ "price_data_provided": false,
+ "n": 200,
+ "answers": [
+  {
+   "item_id": "91420_2025-11-05",
+   "code": "9142",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "95020_2026-02-16",
+   "code": "9502",
+   "answer_close": 2100.0
+  },
+  {
+   "item_id": "36260_2026-02-03",
+   "code": "3626",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "66450_2025-11-07",
+   "code": "6645",
+   "answer_close": 4300.0
+  },
+  {
+   "item_id": "80860_2025-11-10",
+   "code": "8086",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "61780_2026-02-13",
+   "code": "6178",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "96020_2026-04-14",
+   "code": "9602",
+   "answer_close": 5000.0
+  },
+  {
+   "item_id": "77310_2025-11-06",
+   "code": "7731",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "35630_2026-05-08",
+   "code": "3563",
+   "answer_close": 4800.0
+  },
+  {
+   "item_id": "19420_2026-06-01",
+   "code": "1942",
+   "answer_close": 2900.0
+  },
+  {
+   "item_id": "64170_2025-11-06",
+   "code": "6417",
+   "answer_close": 2000.0
+  },
+  {
+   "item_id": "90050_2026-02-10",
+   "code": "9005",
+   "answer_close": 2000.0
+  },
+  {
+   "item_id": "99620_2026-04-30",
+   "code": "9962",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "46760_2026-02-03",
+   "code": "4676",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "72400_2025-08-05",
+   "code": "7240",
+   "answer_close": 2300.0
+  },
+  {
+   "item_id": "96160_2025-11-07",
+   "code": "9616",
+   "answer_close": 2700.0
+  },
+  {
+   "item_id": "92010_2026-02-03",
+   "code": "9201",
+   "answer_close": 2900.0
+  },
+  {
+   "item_id": "41510_2026-03-09",
+   "code": "4151",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "59380_2025-07-31",
+   "code": "5938",
+   "answer_close": 1900.0
+  },
+  {
+   "item_id": "53440_2025-11-05",
+   "code": "5344",
+   "answer_close": 28000.0
+  },
+  {
+   "item_id": "57140_2026-02-10",
+   "code": "5714",
+   "answer_close": 6500.0
+  },
+  {
+   "item_id": "32910_2026-02-10",
+   "code": "3291",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "71800_2025-11-14",
+   "code": "7180",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "22640_2026-02-12",
+   "code": "2264",
+   "answer_close": 3400.0
+  },
+  {
+   "item_id": "31410_2025-10-08",
+   "code": "3141",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "38800_2026-05-15",
+   "code": "3880",
+   "answer_close": 900.0
+  },
+  {
+   "item_id": "59290_2026-01-30",
+   "code": "5929",
+   "answer_close": 4200.0
+  },
+  {
+   "item_id": "97060_2026-02-04",
+   "code": "9706",
+   "answer_close": 5500.0
+  },
+  {
+   "item_id": "68450_2026-02-06",
+   "code": "6845",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "28010_2026-04-24",
+   "code": "2801",
+   "answer_close": 1500.0
+  },
+  {
+   "item_id": "49190_2025-11-14",
+   "code": "4919",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "79510_2026-05-11",
+   "code": "7951",
+   "answer_close": 1200.0
+  },
+  {
+   "item_id": "90220_2025-10-29",
+   "code": "9022",
+   "answer_close": 3200.0
+  },
+  {
+   "item_id": "80010_2026-02-13",
+   "code": "8001",
+   "answer_close": 8000.0
+  },
+  {
+   "item_id": "78670_2025-11-11",
+   "code": "7867",
+   "answer_close": 3300.0
+  },
+  {
+   "item_id": "17210_2025-08-07",
+   "code": "1721",
+   "answer_close": 3700.0
+  },
+  {
+   "item_id": "46120_2025-11-14",
+   "code": "4612",
+   "answer_close": 1100.0
+  },
+  {
+   "item_id": "52330_2025-08-07",
+   "code": "5233",
+   "answer_close": 4300.0
+  },
+  {
+   "item_id": "32890_2026-02-06",
+   "code": "3289",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "70130_2026-02-10",
+   "code": "7013",
+   "answer_close": 15000.0
+  },
+  {
+   "item_id": "75320_2026-05-13",
+   "code": "7532",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "99870_2026-05-14",
+   "code": "9987",
+   "answer_close": 6000.0
+  },
+  {
+   "item_id": "45680_2025-10-31",
+   "code": "4568",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "45870_2025-08-06",
+   "code": "4587",
+   "answer_close": 1700.0
+  },
+  {
+   "item_id": "42720_2025-11-11",
+   "code": "4272",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "84240_2026-02-06",
+   "code": "8424",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "63700_2025-11-07",
+   "code": "6370",
+   "answer_close": 6000.0
+  },
+  {
+   "item_id": "51010_2026-05-15",
+   "code": "5101",
+   "answer_close": 3600.0
+  },
+  {
+   "item_id": "79120_2026-02-13",
+   "code": "7912",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "67580_2025-08-07",
+   "code": "6758",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "64480_2026-05-08",
+   "code": "6448",
+   "answer_close": 2800.0
+  },
+  {
+   "item_id": "19690_2026-06-12",
+   "code": "1969",
+   "answer_close": 5000.0
+  },
+  {
+   "item_id": "80600_2026-04-22",
+   "code": "8060",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "40450_2025-07-31",
+   "code": "4045",
+   "answer_close": 1400.0
+  },
+  {
+   "item_id": "37740_2025-11-07",
+   "code": "3774",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "72610_2025-08-05",
+   "code": "7261",
+   "answer_close": 1100.0
+  },
+  {
+   "item_id": "99840_2026-05-13",
+   "code": "9984",
+   "answer_close": 12000.0
+  },
+  {
+   "item_id": "63830_2025-11-11",
+   "code": "6383",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "46310_2026-02-16",
+   "code": "4631",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "80580_2025-08-04",
+   "code": "8058",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "52320_2025-11-11",
+   "code": "5232",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "63670_2025-08-05",
+   "code": "6367",
+   "answer_close": 18000.0
+  },
+  {
+   "item_id": "91430_2026-05-08",
+   "code": "9143",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "67240_2025-11-05",
+   "code": "6724",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "49220_2025-11-10",
+   "code": "4922",
+   "answer_close": 6000.0
+  },
+  {
+   "item_id": "46130_2025-11-07",
+   "code": "4613",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "99340_2025-07-31",
+   "code": "9934",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "16050_2026-05-13",
+   "code": "1605",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "36350_2026-01-26",
+   "code": "3635",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "41180_2026-05-14",
+   "code": "4118",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "14140_2025-11-10",
+   "code": "1414",
+   "answer_close": 5500.0
+  },
+  {
+   "item_id": "28970_2025-08-04",
+   "code": "2897",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "62730_2026-05-14",
+   "code": "6273",
+   "answer_close": 55000.0
+  },
+  {
+   "item_id": "49800_2026-02-09",
+   "code": "4980",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "19110_2026-02-13",
+   "code": "1911",
+   "answer_close": 5000.0
+  },
+  {
+   "item_id": "47680_2026-02-02",
+   "code": "4768",
+   "answer_close": 3300.0
+  },
+  {
+   "item_id": "60980_2026-02-09",
+   "code": "6098",
+   "answer_close": 8500.0
+  },
+  {
+   "item_id": "82530_2025-08-14",
+   "code": "8253",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "88010_2025-08-05",
+   "code": "8801",
+   "answer_close": 1500.0
+  },
+  {
+   "item_id": "84390_2025-11-07",
+   "code": "8439",
+   "answer_close": 1800.0
+  },
+  {
+   "item_id": "53010_2026-05-13",
+   "code": "5301",
+   "answer_close": 1100.0
+  },
+  {
+   "item_id": "83040_2025-08-01",
+   "code": "8304",
+   "answer_close": 2300.0
+  },
+  {
+   "item_id": "85720_2025-11-11",
+   "code": "8572",
+   "answer_close": 380.0
+  },
+  {
+   "item_id": "22010_2026-05-11",
+   "code": "2201",
+   "answer_close": 2900.0
+  },
+  {
+   "item_id": "67530_2026-05-12",
+   "code": "6753",
+   "answer_close": 1000.0
+  },
+  {
+   "item_id": "53330_2025-08-07",
+   "code": "5333",
+   "answer_close": 2100.0
+  },
+  {
+   "item_id": "46650_2026-05-15",
+   "code": "4665",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "43070_2025-10-30",
+   "code": "4307",
+   "answer_close": 5300.0
+  },
+  {
+   "item_id": "33970_2026-05-15",
+   "code": "3397",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "32310_2025-10-30",
+   "code": "3231",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "34010_2026-02-04",
+   "code": "3401",
+   "answer_close": 1400.0
+  },
+  {
+   "item_id": "25020_2026-03-10",
+   "code": "2502",
+   "answer_close": 1800.0
+  },
+  {
+   "item_id": "90310_2025-08-07",
+   "code": "9031",
+   "answer_close": 2900.0
+  },
+  {
+   "item_id": "80120_2026-05-07",
+   "code": "8012",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "82830_2025-08-04",
+   "code": "8283",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "98610_2026-04-09",
+   "code": "9861",
+   "answer_close": 3300.0
+  },
+  {
+   "item_id": "65260_2026-01-30",
+   "code": "6526",
+   "answer_close": 2300.0
+  },
+  {
+   "item_id": "94680_2026-02-12",
+   "code": "9468",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "58320_2025-11-14",
+   "code": "5832",
+   "answer_close": 1900.0
+  },
+  {
+   "item_id": "83090_2025-11-12",
+   "code": "8309",
+   "answer_close": 4300.0
+  },
+  {
+   "item_id": "64810_2025-11-11",
+   "code": "6481",
+   "answer_close": 3400.0
+  },
+  {
+   "item_id": "30640_2026-05-07",
+   "code": "3064",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "69880_2026-04-27",
+   "code": "6988",
+   "answer_close": 2800.0
+  },
+  {
+   "item_id": "97440_2025-07-31",
+   "code": "9744",
+   "answer_close": 3200.0
+  },
+  {
+   "item_id": "85700_2026-04-08",
+   "code": "8570",
+   "answer_close": 1700.0
+  },
+  {
+   "item_id": "45400_2025-08-05",
+   "code": "4540",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "46810_2025-08-13",
+   "code": "4681",
+   "answer_close": 3200.0
+  },
+  {
+   "item_id": "91070_2026-05-08",
+   "code": "9107",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "77290_2026-05-13",
+   "code": "7729",
+   "answer_close": 11000.0
+  },
+  {
+   "item_id": "45030_2026-04-27",
+   "code": "4503",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "62010_2025-07-31",
+   "code": "6201",
+   "answer_close": 16000.0
+  },
+  {
+   "item_id": "41860_2026-02-09",
+   "code": "4186",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "65040_2026-04-28",
+   "code": "6504",
+   "answer_close": 7500.0
+  },
+  {
+   "item_id": "83540_2026-05-13",
+   "code": "8354",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "76490_2025-10-09",
+   "code": "7649",
+   "answer_close": 2500.0
+  },
+  {
+   "item_id": "84100_2026-02-06",
+   "code": "8410",
+   "answer_close": 350.0
+  },
+  {
+   "item_id": "30920_2025-07-31",
+   "code": "3092",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "90090_2026-05-08",
+   "code": "9009",
+   "answer_close": 1500.0
+  },
+  {
+   "item_id": "81740_2026-02-03",
+   "code": "8174",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "79840_2025-07-30",
+   "code": "7984",
+   "answer_close": 2700.0
+  },
+  {
+   "item_id": "67230_2025-10-30",
+   "code": "6723",
+   "answer_close": 2000.0
+  },
+  {
+   "item_id": "30480_2025-10-10",
+   "code": "3048",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "63020_2025-10-31",
+   "code": "6302",
+   "answer_close": 5000.0
+  },
+  {
+   "item_id": "88040_2026-02-12",
+   "code": "8804",
+   "answer_close": 2500.0
+  },
+  {
+   "item_id": "19280_2025-12-04",
+   "code": "1928",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "18600_2025-08-08",
+   "code": "1860",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "77350_2025-07-25",
+   "code": "7735",
+   "answer_close": 11000.0
+  },
+  {
+   "item_id": "42050_2025-10-30",
+   "code": "4205",
+   "answer_close": 1400.0
+  },
+  {
+   "item_id": "29140_2025-07-31",
+   "code": "2914",
+   "answer_close": 4600.0
+  },
+  {
+   "item_id": "67540_2025-07-30",
+   "code": "6754",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "41820_2025-08-07",
+   "code": "4182",
+   "answer_close": 2800.0
+  },
+  {
+   "item_id": "87950_2026-02-13",
+   "code": "8795",
+   "answer_close": 3300.0
+  },
+  {
+   "item_id": "95030_2026-01-30",
+   "code": "9503",
+   "answer_close": 2300.0
+  },
+  {
+   "item_id": "83160_2025-11-14",
+   "code": "8316",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "82420_2026-05-12",
+   "code": "8242",
+   "answer_close": 2000.0
+  },
+  {
+   "item_id": "22060_2025-11-06",
+   "code": "2206",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "77510_2026-04-30",
+   "code": "7751",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "68690_2025-11-05",
+   "code": "6869",
+   "answer_close": 2700.0
+  },
+  {
+   "item_id": "47330_2025-10-28",
+   "code": "4733",
+   "answer_close": 6000.0
+  },
+  {
+   "item_id": "54060_2025-08-07",
+   "code": "5406",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "58010_2026-02-09",
+   "code": "5801",
+   "answer_close": 9000.0
+  },
+  {
+   "item_id": "53340_2025-10-31",
+   "code": "5334",
+   "answer_close": 5000.0
+  },
+  {
+   "item_id": "46610_2025-07-30",
+   "code": "4661",
+   "answer_close": 3300.0
+  },
+  {
+   "item_id": "67070_2026-05-13",
+   "code": "6707",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "72820_2026-02-03",
+   "code": "7282",
+   "answer_close": 3300.0
+  },
+  {
+   "item_id": "77520_2026-05-12",
+   "code": "7752",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "19250_2025-08-06",
+   "code": "1925",
+   "answer_close": 5200.0
+  },
+  {
+   "item_id": "95060_2026-04-30",
+   "code": "9506",
+   "answer_close": 1100.0
+  },
+  {
+   "item_id": "32880_2025-11-14",
+   "code": "3288",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "26700_2026-01-07",
+   "code": "2670",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "72720_2026-02-13",
+   "code": "7272",
+   "answer_close": 1400.0
+  },
+  {
+   "item_id": "61410_2026-02-10",
+   "code": "6141",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "98430_2026-02-13",
+   "code": "9843",
+   "answer_close": 15000.0
+  },
+  {
+   "item_id": "37690_2025-11-13",
+   "code": "3769",
+   "answer_close": 9000.0
+  },
+  {
+   "item_id": "45070_2025-07-28",
+   "code": "4507",
+   "answer_close": 2200.0
+  },
+  {
+   "item_id": "90720_2026-02-06",
+   "code": "9072",
+   "answer_close": 2500.0
+  },
+  {
+   "item_id": "50190_2026-05-12",
+   "code": "5019",
+   "answer_close": 1200.0
+  },
+  {
+   "item_id": "90410_2026-05-15",
+   "code": "9041",
+   "answer_close": 3000.0
+  },
+  {
+   "item_id": "63230_2025-10-10",
+   "code": "6323",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "50160_2026-02-10",
+   "code": "5016",
+   "answer_close": 1100.0
+  },
+  {
+   "item_id": "25010_2026-02-13",
+   "code": "2501",
+   "answer_close": 8500.0
+  },
+  {
+   "item_id": "63260_2025-08-05",
+   "code": "6326",
+   "answer_close": 1800.0
+  },
+  {
+   "item_id": "84180_2026-05-08",
+   "code": "8418",
+   "answer_close": 2000.0
+  },
+  {
+   "item_id": "40620_2025-08-01",
+   "code": "4062",
+   "answer_close": 6500.0
+  },
+  {
+   "item_id": "79560_2025-11-06",
+   "code": "7956",
+   "answer_close": 1500.0
+  },
+  {
+   "item_id": "79360_2026-02-13",
+   "code": "7936",
+   "answer_close": 3800.0
+  },
+  {
+   "item_id": "36970_2026-04-14",
+   "code": "3697",
+   "answer_close": 1800.0
+  },
+  {
+   "item_id": "83410_2026-01-30",
+   "code": "8341",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "37650_2025-11-07",
+   "code": "3765",
+   "answer_close": 2600.0
+  },
+  {
+   "item_id": "69250_2025-08-05",
+   "code": "6925",
+   "answer_close": 2100.0
+  },
+  {
+   "item_id": "24130_2025-08-06",
+   "code": "2413",
+   "answer_close": 1800.0
+  },
+  {
+   "item_id": "77800_2025-08-08",
+   "code": "7780",
+   "answer_close": 1300.0
+  },
+  {
+   "item_id": "58300_2026-05-08",
+   "code": "5830",
+   "answer_close": 1800.0
+  },
+  {
+   "item_id": "90080_2026-02-09",
+   "code": "9008",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "39940_2026-04-14",
+   "code": "3994",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "95080_2026-01-30",
+   "code": "9508",
+   "answer_close": 1600.0
+  },
+  {
+   "item_id": "69540_2025-10-31",
+   "code": "6954",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "22290_2025-08-01",
+   "code": "2229",
+   "answer_close": 3100.0
+  },
+  {
+   "item_id": "67550_2025-07-24",
+   "code": "6755",
+   "answer_close": 2500.0
+  },
+  {
+   "item_id": "30380_2025-09-11",
+   "code": "3038",
+   "answer_close": 3800.0
+  },
+  {
+   "item_id": "96970_2026-01-27",
+   "code": "9697",
+   "answer_close": 1100.0
+  },
+  {
+   "item_id": "18120_2025-08-06",
+   "code": "1812",
+   "answer_close": 3400.0
+  },
+  {
+   "item_id": "23270_2026-01-30",
+   "code": "2327",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "39230_2026-05-14",
+   "code": "3923",
+   "answer_close": 2000.0
+  },
+  {
+   "item_id": "83770_2026-05-11",
+   "code": "8377",
+   "answer_close": 2400.0
+  },
+  {
+   "item_id": "51100_2026-02-12",
+   "code": "5110",
+   "answer_close": 1900.0
+  },
+  {
+   "item_id": "42020_2026-02-05",
+   "code": "4202",
+   "answer_close": 1500.0
+  },
+  {
+   "item_id": "90030_2025-10-30",
+   "code": "9003",
+   "answer_close": 2600.0
+  },
+  {
+   "item_id": "93640_2026-02-13",
+   "code": "9364",
+   "answer_close": 4000.0
+  },
+  {
+   "item_id": "78320_2026-02-05",
+   "code": "7832",
+   "answer_close": 4500.0
+  },
+  {
+   "item_id": "99830_2025-07-10",
+   "code": "9983",
+   "answer_close": 48000.0
+  },
+  {
+   "item_id": "83310_2025-08-04",
+   "code": "8331",
+   "answer_close": 1400.0
+  },
+  {
+   "item_id": "77010_2025-08-07",
+   "code": "7701",
+   "answer_close": 4200.0
+  },
+  {
+   "item_id": "82790_2025-08-08",
+   "code": "8279",
+   "answer_close": 2700.0
+  },
+  {
+   "item_id": "69230_2026-05-12",
+   "code": "6923",
+   "answer_close": 2800.0
+  },
+  {
+   "item_id": "69810_2026-04-30",
+   "code": "6981",
+   "answer_close": 2500.0
+  },
+  {
+   "item_id": "64060_2025-11-07",
+   "code": "6406",
+   "answer_close": 4300.0
+  },
+  {
+   "item_id": "27680_2025-07-30",
+   "code": "2768",
+   "answer_close": 3500.0
+  },
+  {
+   "item_id": "34020_2026-02-10",
+   "code": "3402",
+   "answer_close": 1000.0
+  },
+  {
+   "item_id": "96130_2025-08-05",
+   "code": "9613",
+   "answer_close": 3000.0
+  }
+ ]
+}
