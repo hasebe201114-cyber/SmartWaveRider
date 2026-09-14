@@ -17,6 +17,12 @@ aiohttp>=3.8.5
 httpx>=0.24.0
 requests>=2.31.0
 
+# PDF テキスト抽出（TDnet適時開示PDFのテキスト化・D-11）
+# cffi は cryptography(pyo3) の _cffi_backend 依存を解決するために明示指定
+# (環境によってはこれがないと pdfminer.six の import が pyo3 panic で失敗する)
+cffi>=1.16.0
+pdfminer.six>=20231228
+
 # Configuration
 python-dotenv>=1.0.0
 pydantic>=2.0.0
