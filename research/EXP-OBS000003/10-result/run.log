@@ -1,0 +1,70 @@
+EXP-OBS000003（非決算オーバーナイト・ギャップ） B実装チーム 実行ログ
+spec: research/EXP-OBS000003/01-spec.md §9（9-1〜9-9）
+
+## 再現用コマンド
+
+```
+python3 scripts/gap_feasibility.py
+```
+
+- 入力データ: 新規フェッチなし。`data/raw/pead/bars_daily/*.json`（候補銘柄511件・
+  /equities/bars/daily 全履歴。spec §2.0 が指す「候補銘柄数511」と一致）および
+  `research/EXP-OBS000001/10-result/candidate_codes.json` を再利用した
+  （spec §2.0: T の定義は EXP-OBS000001 §2.1.0 と完全に同一であり、新しい候補銘柄選定を行わない）。
+- 乱数: 本実行では乱数を使用しない（9-1〜9-3はいずれもカウント・比較のみの決定的処理）。
+  spec が指定する seed 20260914 は permutation を伴う G1 以降で使用する想定だが、
+  本実行では到達していない。
+- 実行日時: 2026-09-14
+- 終了コード: 2（stop_reason あり）
+
+## 実行結果サマリ（生データのみ・判定語なし）
+
+### 9-1（参照営業日カレンダー T の再構成）
+- candidate_codes=511, codes_missing_bars=0
+- |T|=487, T[1]=2024-06-21, T[487]=2026-06-22
+- 既知値（research/EXP-OBS000001/10-result/feasibility.json の 9-2_missing_rate）との一致: True
+- gate_9_1_pass = True
+
+### 9-2（価格調整規約の確定。本EXP固有の最重要タスク）
+- rows_scanned=245273, codes_scanned=511
+- AdjFactor ユニーク値数=9（1.0 が245182件、非1.0が91件）
+- AdjFactor 非1.0の91件はすべて整数分の1のクリーンな比率（1/2, 1/3, 1/4, 1/5, 1/6, 1/7, 1/10, 1/15）
+  のいずれかであり、分割・併合比率と整合する非整数比率は0件
+- ExRT ユニーク値=2（null 245182件、'1' 91件）。'1' はAdjFactor非1.0の91件と完全一致
+- 累積調整の継続性検算: 91件中91件が prev_AdjC == prev_C × AdjFactor(当日) を満たす
+  （丸め誤差0.06円以内。1件は初回0.05円の丸め差で許容範囲内）
+- 分割・併合の識別可能性（E-1）: 可能（split_merger_identifiable=True）
+- 配当落ちの識別可能性（E-2）: 不可能（dividend_identifiable=False）
+  - 根拠: AdjFactor非1.0の全91件がクリーンな分割比率のみで構成され、配当調整に典型的な
+    非整数比率（1-配当/株価型）が1件も観測されない
+  - ExRT!=null は2年511銘柄で91件のみであり、配当（主要企業で年1〜2回発生）を含むには
+    件数が少なすぎる
+  - /fins/summary（全111フィールド）に配当金額フィールド（Div1Q/Div2Q/Div3Q/DivAnn/DivFY/
+    DivTotalAnn/DivUnit/FDiv*/NxFDiv* 系）は存在するが、配当の除権日・権利確定日に相当する
+    日付フィールドは存在しない
+  - /equities/bars/daily 側にも配当専用フラグは存在しない（O/H/L/C/UL/LL/Vo/Va/AdjFactor/
+    AdjO/AdjH/AdjL/AdjC/AdjVo/MktCap/ExRT の16フィールドのみ）
+- E1_E2_uniquely_determined = False
+- gate_9_2_pass = False
+- verdict = AMBIGUOUS_ESCALATE_TO_S
+
+### 9-3（UL/LL の再検証）
+- total_rows=245273
+- UL ユニーク値=2（'0', '1'）、LL ユニーク値=2（'0', '1'）
+- 異常値=0件、欠損率=0.0%
+- gate_9_3_pass = True
+
+## 停止判定
+
+9-2 が不成立（配当落ち日の識別手段が実データ上に存在しない）。
+spec §9-2 の不成立時規定（K-6）および D-7（司令塔承認済み方針: 2026-09-14）に従い、
+9-4以降（ユニバース構築・g/σ_gap/z の記述統計・z* 較正・DS ゲート評価・PEAD排反性確認・
+未識別ニュース混入記述・自己整合チェック）および G1・G2 のいずれも実行していない。
+
+出力ファイル:
+- research/EXP-OBS000003/10-result/feasibility.json
+- research/EXP-OBS000003/10-result/params.json
+- research/EXP-OBS000003/10-result/run.log（本ファイル）
+
+未作成（stop_reason ありのため生成せず）:
+- prediction-unit.json / pipeline.json / cost-model.json / universe.json

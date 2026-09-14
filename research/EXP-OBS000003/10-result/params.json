@@ -1,0 +1,42 @@
+{
+  "generated_from": "gap_feasibility.py",
+  "spec_reference": "research/EXP-OBS000003/01-spec.md",
+  "seed": 20260914,
+  "reference_calendar_T_checkpoints": {
+    "T[1]": "2024-06-21",
+    "T[60]": "2024-09-17",
+    "T[61]": "2024-09-18",
+    "T[62]": "2024-09-19",
+    "T[477]": "2026-06-08",
+    "T[481]": "2026-06-12",
+    "T[482]": "2026-06-15",
+    "T[487]": "2026-06-22"
+  },
+  "reference_calendar_T_len": 487,
+  "reference_calendar_known_values_match": true,
+  "price_adjustment_convention": {
+    "split_merger_adjustment_convention": {
+      "identifiable": true,
+      "rule": "ExRT=='1' かつ AdjFactor!=1.0 の銘柄日を株式分割・併合・株式無償割当等の権利落ち日とする。AdjFactor は当日以前の全履行日に遡って乗じる累積調整係数であり、prev_AdjC == prev_C * AdjFactor(当日) が成立する（継続性を実測で確認）。"
+    },
+    "dividend_ex_date_identification": {
+      "identifiable": false,
+      "reasoning": "AdjFactor!=1 の全91件が整数分の1のクリーンな比率（分割・併合と整合）のみで構成され、配当調整に典型的な非整数比率（1-配当/株価型）が一件も観測されない。ExRT!=null は2年511銘柄で91件のみであり、配当（主要企業で年1〜2回発生）を含むには少なすぎる。/fins/summary の111フィールド中に配当金額（Div*/FDiv*/NxFDiv*）は存在するが、配当の除権日・権利確定日に相当する日付フィールドは存在しない。/equities/bars/daily 側にも配当専用フラグは存在しない。したがって本契約で取得可能なデータの範囲内では、配当落ち日を識別する手段が存在しない。"
+    },
+    "E1_E2_uniquely_determined": false
+  },
+  "ul_ll_flag_parse_rule": "'1' -> True, '0'/'' -> False, null -> 欠損。それ以外の値は AnomalousFlagValueError（research/EXP-OBS000001/01-spec.md §4.0.3 を参照により流用。scripts/lib/pead_common.py の parse_ul_ll_flag / buy_blocked / sell_blocked を再利用）",
+  "ul_ll_missing_rate": 0.0,
+  "japan_specific_conditions_status": {
+    "A_unit_100_share_discretization": "未実施（9-2差し戻しのため）",
+    "B_price_limit_ul_ll": "未実施（9-2差し戻しのため）",
+    "C_trading_hours_fixed": "未実施（9-2差し戻しのため）",
+    "D_earnings_date_avoidance": "未実施（9-2差し戻しのため）",
+    "E_margin_requirement": "未実施（9-2差し戻しのため）",
+    "F_credit_regulation_unsimulatable": "模擬不能（データ取得不可・C-5・HTTP403）。spec §7 F項の通り",
+    "G_margin_interest_rate": "未実施（9-2差し戻しのため）",
+    "H_short_leg": "該当なし（ロングオンリー・spec §5.2）",
+    "I_rights_dividend_exclusion": "権利落ち(分割・併合)は識別可能。配当落ちは識別不能につき9-2でS差し戻し（K-6）"
+  },
+  "stop_reason": "9-2: 配当落ち日(E-2)の識別手段が実データ上に存在しないため一意に決まらない。K-6・D-7（司令塔承認済み方針）に従い S へ差し戻す。実験（9-4以降・G1・G2）は実行しない。"
+}
