@@ -65,15 +65,21 @@ def extract_pdf_text(pdf_bytes: bytes) -> str:
     return extract_text(io.BytesIO(pdf_bytes))
 
 
-def process_day(json_path: Path, force: bool = False, log=print) -> dict:
+def process_day(json_path: Path, force: bool = False, universe: set[str] | None = None, log=print) -> dict:
     data = json.loads(json_path.read_text(encoding="utf-8"))
     rows = data.get("rows", [])
-    counts = {"ok": 0, "empty": 0, "fetch_error": 0, "parse_error": 0, "skipped_exists": 0, "skipped_no_pdf": 0}
+    counts = {
+        "ok": 0, "empty": 0, "fetch_error": 0, "parse_error": 0,
+        "skipped_exists": 0, "skipped_no_pdf": 0, "skipped_outside_universe": 0,
+    }
 
     for row in rows:
         pdf_rel = row.get("pdf_url")
         if not pdf_rel:
             counts["skipped_no_pdf"] += 1
+            continue
+        if universe is not None and row.get("code") not in universe:
+            counts["skipped_outside_universe"] += 1
             continue
         if not force and row.get("body_text_extract_status") is not None:
             counts["skipped_exists"] += 1
@@ -135,20 +141,36 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--date", type=str, default=None, help="YYYY-MM-DD形式で1日だけ処理(省略時は全日)")
     ap.add_argument("--force", action="store_true", help="既に抽出済みの行も再抽出する")
+    ap.add_argument(
+        "--universe-file",
+        type=str,
+        default=None,
+        help="このJSONの'codes'配列に含まれる銘柄コードのみ処理する"
+        "(司令塔判断2026-09-14: 全銘柄追跡は断念し271銘柄ユニバースに限定)",
+    )
     args = ap.parse_args()
+
+    universe: set[str] | None = None
+    if args.universe_file:
+        u = json.loads(Path(args.universe_file).read_text(encoding="utf-8"))
+        universe = set(u["codes"])
+        print(f"ユニバース限定: {len(universe)}銘柄")
 
     if args.date:
         targets = [OUT_DIR / f"{args.date}.json"]
     else:
         targets = sorted(OUT_DIR.glob("*.json"))
 
-    total = {"ok": 0, "empty": 0, "fetch_error": 0, "parse_error": 0, "skipped_exists": 0, "skipped_no_pdf": 0}
+    total = {
+        "ok": 0, "empty": 0, "fetch_error": 0, "parse_error": 0,
+        "skipped_exists": 0, "skipped_no_pdf": 0, "skipped_outside_universe": 0,
+    }
     for p in targets:
         if not p.exists():
             print(f"[{p.name}] ファイルが存在しない。スキップ")
             continue
         print(f"[{p.name}] 処理開始")
-        counts = process_day(p, force=args.force)
+        counts = process_day(p, force=args.force, universe=universe)
         for k, v in counts.items():
             total[k] += v
 
