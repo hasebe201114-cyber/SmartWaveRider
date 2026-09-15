@@ -1,0 +1,46 @@
+EXP-OBS000006（ギャップ・10年データ版・spec第2版）§9 先行タスク 実行ログ
+========================================================================
+
+このログは §9-0〜§9-2 まで実行し、§9-2でK-6により停止した記録である。
+§9-3以降（配当落ち識別V-1〜V-5・遡り上限66・z*較正・DSゲート等）は未実行。
+
+再現用コマンド（実行順序どおり）:
+
+    # 1〜3. EXP-OBS000005 の run.log と同一（候補集合・master_v2・新規銘柄bars取得はEXP-OBS000005と共用）
+
+    # 4. §9 先行タスク本体（9-0〜9-9。9-2で停止する）
+    python3 scripts/gap_feasibility_v2.py
+
+実行日: 2026-09-15
+
+実行結果サマリー（gap_feasibility_v2.py の標準出力）:
+
+[9-0] backup_exists=True path=/home/user/backups/data_raw_backup_20260915.tar.gz
+[9-1] candidate_codes_count=554
+[T] N=2441 m=1220 T[1]=2016-09-15 T[N]=2026-09-14 T[68]=2016-12-27 matches=True
+[9-2] rows=1300269 non_unity=349 all_clean=True non_clean_values=[] continuity_pass=274/349 exrt2_present=True exrt2_continuity=69/100 exrt1_continuity=205/249 split_merger_identifiable=False
+[9-8] total_rows=1300269 anomalous=[] missing_rate=0.0 gate=True
+STOP (K-6): 9-2: AdjFactor/ExRTの調整規約が一意に決まらない
+
+最終判定: stop_reason="9-2: AdjFactor/ExRTの調整規約が一意に決まらない", can_proceed_to_G1=False
+escalate_kind=K-6
+
+停止理由の要点: `ExRT='2'` という値が、本10年版・554銘柄の候補集合で初めて観測された
+（旧EXP-OBS000003の511銘柄・より狭い期間データには0件）。既存の共有関数
+`gap_common.is_split_merger_row()`（E-1除外判定・σ_gap有効窓判定の両方に使用）は
+`ExRT=='1'` のみを権利落ち（分割・併合）として扱っており、`ExRT='2'` を捕捉しない。
+詳細は feasibility.json の `9-2_price_adjustment_convention.EXRT_2_NEWLY_DISCOVERED_finding`
+を参照。S戦略チームの判断を仰ぐため、推測で処理方法を決めずここで停止した。
+
+出力ファイル:
+  - research/EXP-OBS000006/10-result/candidate_codes_v2.json（EXP-OBS000005と共用）
+  - research/EXP-OBS000006/10-result/feasibility.json
+  - research/EXP-OBS000006/10-result/params.json
+  - research/EXP-OBS000006/10-result/run.log（本ファイル）
+
+universe_v2.json は9-2で停止したため未生成（universe構築は9-3のV-1〜V-5合格後に実行する設計）。
+
+データバックアップ: /home/user/backups/data_raw_backup_20260915.tar.gz（EXP-OBS000005と共用）
+
+決定性についての注記: EXP-OBS000005 run.log と同一（ローリング窓の性質上、既存キャッシュを
+変更しない限り本スクリプトの再実行結果は決定的）。

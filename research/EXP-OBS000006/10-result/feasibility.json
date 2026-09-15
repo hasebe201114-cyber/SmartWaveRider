@@ -1,0 +1,144 @@
+{
+  "generated_from": "gap_feasibility_v2.py",
+  "spec_reference": "research/EXP-OBS000006/01-spec.md（第2版）§9",
+  "9-0_backup_verification": {
+    "raw_data_backup_path": "/home/user/backups/data_raw_backup_20260915.tar.gz",
+    "backup_exists": true,
+    "backup_size_bytes": 90612488
+  },
+  "9-1_candidate_set": {
+    "candidate_codes_count": 554,
+    "shared_with": "EXP-OBS000005 §9-1（同一のcandidate_codes_v2.json）",
+    "selection_du_2016-12-15_pass_count": 501,
+    "confirmation_du_2021-09-16_pass_count": 497
+  },
+  "T_reconstruction": {
+    "contract_range_pin": [
+      "2016-09-15",
+      "2026-09-14"
+    ],
+    "N": 2441,
+    "m": 1220,
+    "missing_bars_codes": [],
+    "checkpoints": {
+      "T[1]": "2016-09-15",
+      "T[N]": "2026-09-14",
+      "T[m]": "2021-09-15",
+      "T[m+1]": "2021-09-16",
+      "T[61]": "2016-12-15",
+      "T[68]": "2016-12-27",
+      "T[m-11]": "2021-08-31",
+      "T[N-11]": "2026-08-28"
+    },
+    "expected": {
+      "N": 2441,
+      "m": 1220,
+      "T1": "2016-09-15",
+      "TN": "2026-09-14",
+      "Tm": "2021-09-15",
+      "T61": "2016-12-15",
+      "T68": "2016-12-27",
+      "Tm_plus_1": "2021-09-16"
+    },
+    "matches_expected": true
+  },
+  "9-2_price_adjustment_convention": {
+    "field_names": [
+      "AdjFactor",
+      "ExRT",
+      "AdjO",
+      "AdjH",
+      "AdjL",
+      "AdjC",
+      "AdjVo"
+    ],
+    "total_bars_rows_scanned_pinned_range": 1300269,
+    "AdjFactor_unique_values_and_counts": {
+      "1.0": 1299920,
+      "0.3333333333333333": 66,
+      "0.5": 106,
+      "0.25": 27,
+      "0.2": 35,
+      "5.0": 43,
+      "2.0": 19,
+      "0.1": 8,
+      "10.0": 38,
+      "0.8333333333333334": 1,
+      "0.7692307692307693": 1,
+      "0.9090909090909091": 1,
+      "0.16666666666666666": 1,
+      "0.9523809523809523": 1,
+      "0.14285714285714285": 1,
+      "0.04": 1
+    },
+    "ExRT_unique_values_and_counts": {
+      "None": 1299920,
+      "'1'": 249,
+      "'2'": 100
+    },
+    "AdjFactor_non_unity_row_count": 349,
+    "all_non_unity_values_are_clean_split_ratios": true,
+    "non_clean_adjfactor_values": [],
+    "cumulative_adjustment_continuity_checked_count": 349,
+    "cumulative_adjustment_continuity_pass_count": 274,
+    "era_check_non_unity_count_2016_2017": {
+      "5.0": 35,
+      "0.5": 14,
+      "2.0": 14,
+      "0.3333333333333333": 2,
+      "10.0": 30,
+      "0.9090909090909091": 1,
+      "0.25": 1,
+      "0.1": 1,
+      "0.2": 1
+    },
+    "era_check_non_unity_count_2021": {
+      "0.5": 7,
+      "5.0": 1,
+      "0.7692307692307693": 1,
+      "0.2": 2,
+      "0.25": 1,
+      "0.3333333333333333": 3
+    },
+    "EXRT_2_NEWLY_DISCOVERED_finding": {
+      "description": "ExRT='2' が本10年版・554銘柄データで初めて観測された（旧EXP-OBS000003の511銘柄・より狭い期間データには0件）。AdjFactorはExRT='2'の全100行で{2.0, 5.0, 10.0}のいずれか（>1、整数）であり、ExRT='1'（AdjFactor<1が通常）とは逆方向。継続性検算（prev_C×AdjFactor≒prev_AdjC）は69/100件で成立し、残り31件は主にprev_AdjCがまだprev_Cと同値（未反映）というパターンで不一致。既存のgap_common.is_split_merger_row()はExRT=='1'のみを分割・併合として扱っており、ExRT='2'を捕捉しない。この関数はE-1除外判定とσ_gap有効窓判定の両方に使う共有関数であり、EXP-OBS000003（frozen）とEXP-OBS000006（本EXP）の双方に影響する。ExRT='2'が何を表すか（株式併合か、それ以外か）についての公式フィールド定義をこのセッションでは確認できなかった。",
+      "exrt2_row_count": 100,
+      "exrt2_distinct_codes": 100,
+      "exrt2_adjfactor_values": [
+        2.0,
+        5.0,
+        10.0
+      ],
+      "exrt2_continuity_check": {
+        "pass": 69,
+        "checked": 100
+      },
+      "exrt1_continuity_check": {
+        "pass": 205,
+        "checked": 249
+      }
+    },
+    "convention": "AdjFactorは累積調整係数。ExRT='1'は順方向の権利落ち（分割等、AdjFactor<1）を示すフラグとして既存実装で扱われている。ExRT='2'の意味は本タスクでは未確定（上記参照）。",
+    "split_merger_identifiable": false,
+    "gate_pass": false
+  },
+  "9-8_ul_ll_flag_check": {
+    "total_bars_rows_scanned_pinned_range": 1300269,
+    "UL_unique_values_and_counts": {
+      "'0'": 1299849,
+      "'1'": 420
+    },
+    "LL_unique_values_and_counts": {
+      "'0'": 1300066,
+      "'1'": 203
+    },
+    "combined_missing_rate": 0.0,
+    "anomalous_values": [],
+    "values_confined_to_1_0_empty_null": true,
+    "gate_pass": true
+  },
+  "stop_reason": "9-2: AdjFactor/ExRTの調整規約が一意に決まらない",
+  "escalate_to_S": true,
+  "escalate_kind": "K-6",
+  "can_proceed_to_G1": false
+}

@@ -1,0 +1,441 @@
+{
+  "generated_from": "pead_feasibility_v2.py",
+  "spec_reference": "research/EXP-OBS000005/01-spec.md（第2版）",
+  "seed": 20260915,
+  "raw_data_backup_path": "/home/user/backups/data_raw_backup_20260915.tar.gz",
+  "raw_data_backup_verified": true,
+  "t_contract_range_pin": [
+    "2016-09-15",
+    "2026-09-14"
+  ],
+  "T_reconstruction": {
+    "contract_range_pin": [
+      "2016-09-15",
+      "2026-09-14"
+    ],
+    "N": 2441,
+    "m": 1220,
+    "missing_bars_codes": [],
+    "checkpoints": {
+      "T[1]": "2016-09-15",
+      "T[N]": "2026-09-14",
+      "T[m]": "2021-09-15",
+      "T[m+1]": "2021-09-16",
+      "T[61]": "2016-12-15",
+      "T[m-16]": "2021-08-24",
+      "T[N-16]": "2026-08-21"
+    },
+    "expected": {
+      "N": 2441,
+      "m": 1220,
+      "T1": "2016-09-15",
+      "TN": "2026-09-14",
+      "Tm": "2021-09-15",
+      "T61": "2016-12-15",
+      "Tm_plus_1": "2021-09-16"
+    },
+    "matches_expected": true
+  },
+  "field_value_mapping_9_2": {
+    "master_field_unique_values_by_determination_date": {
+      "ScaleCat": {
+        "d_sel_2016-12-15": {
+          "TOPIX Mid400": 401,
+          "TOPIX Large70": 70,
+          "TOPIX Small 2": 44,
+          "TOPIX Core30": 30,
+          "-": 3
+        },
+        "d_conf_2021-09-16": {
+          "TOPIX Mid400": 398,
+          "TOPIX Large70": 70,
+          "TOPIX Small 1": 38,
+          "TOPIX Core30": 29,
+          "-": 1
+        },
+        "value_set_identical": false,
+        "values_only_in_d_sel": [
+          "TOPIX Small 2"
+        ],
+        "values_only_in_d_conf": [
+          "TOPIX Small 1"
+        ]
+      },
+      "Mrgn": {
+        "d_sel_2016-12-15": {
+          "2": 543,
+          "1": 4,
+          "3": 1
+        },
+        "d_conf_2021-09-16": {
+          "2": 533,
+          "1": 2,
+          "3": 1
+        },
+        "value_set_identical": true,
+        "values_only_in_d_sel": [],
+        "values_only_in_d_conf": []
+      },
+      "MrgnNm": {
+        "d_sel_2016-12-15": {
+          "貸借": 543,
+          "信用": 4,
+          "その他": 1
+        },
+        "d_conf_2021-09-16": {
+          "貸借": 533,
+          "信用": 2,
+          "その他": 1
+        },
+        "value_set_identical": true,
+        "values_only_in_d_sel": [],
+        "values_only_in_d_conf": []
+      },
+      "S33": {
+        "d_sel_2016-12-15": {
+          "3650": 50,
+          "3200": 47,
+          "6100": 37,
+          "7050": 35,
+          "5250": 34,
+          "3600": 34,
+          "3050": 29,
+          "9050": 26,
+          "6050": 26,
+          "3250": 25,
+          "5050": 24,
+          "2050": 23,
+          "3700": 23,
+          "8050": 14,
+          "4050": 13,
+          "3750": 11,
+          "7200": 11,
+          "3800": 10,
+          "3400": 9,
+          "3450": 8,
+          "3500": 8,
+          "7150": 7,
+          "7100": 7,
+          "3100": 6,
+          "3550": 6,
+          "3300": 5,
+          "3150": 4,
+          "3350": 4,
+          "5100": 3,
+          "5200": 3,
+          "0050": 2,
+          "1050": 2,
+          "5150": 2
+        },
+        "d_conf_2021-09-16": {
+          "3650": 50,
+          "3200": 46,
+          "6100": 36,
+          "5250": 34,
+          "3600": 34,
+          "7050": 34,
+          "3050": 28,
+          "9050": 25,
+          "6050": 25,
+          "5050": 25,
+          "3250": 24,
+          "2050": 23,
+          "3700": 23,
+          "8050": 13,
+          "4050": 13,
+          "3750": 11,
+          "7200": 10,
+          "3800": 10,
+          "3400": 9,
+          "3500": 8,
+          "3450": 7,
+          "7100": 7,
+          "3100": 6,
+          "3550": 6,
+          "7150": 6,
+          "3150": 4,
+          "3350": 4,
+          "3300": 3,
+          "5100": 3,
+          "5200": 3,
+          "0050": 2,
+          "1050": 2,
+          "5150": 2
+        },
+        "value_set_identical": null,
+        "values_only_in_d_sel": null,
+        "values_only_in_d_conf": null
+      },
+      "S33Nm": {
+        "d_sel_2016-12-15": {
+          "電気機器": 50,
+          "化学": 47,
+          "小売業": 37,
+          "銀行業": 35,
+          "情報･通信業": 34,
+          "機械": 34,
+          "食料品": 29,
+          "サービス業": 26,
+          "卸売業": 26,
+          "医薬品": 25,
+          "陸運業": 24,
+          "建設業": 23,
+          "輸送用機器": 23,
+          "不動産業": 14,
+          "電気･ガス業": 13,
+          "精密機器": 11,
+          "その他金融業": 11,
+          "その他製品": 10,
+          "ガラス･土石製品": 9,
+          "鉄鋼": 8,
+          "非鉄金属": 8,
+          "保険業": 7,
+          "証券･商品先物取引業": 7,
+          "繊維製品": 6,
+          "金属製品": 6,
+          "石油･石炭製品": 5,
+          "パルプ・紙": 4,
+          "ゴム製品": 4,
+          "海運業": 3,
+          "倉庫･運輸関連業": 3,
+          "水産・農林業": 2,
+          "鉱業": 2,
+          "空運業": 2
+        },
+        "d_conf_2021-09-16": {
+          "電気機器": 50,
+          "化学": 46,
+          "小売業": 36,
+          "情報･通信業": 34,
+          "機械": 34,
+          "銀行業": 34,
+          "食料品": 28,
+          "サービス業": 25,
+          "卸売業": 25,
+          "陸運業": 25,
+          "医薬品": 24,
+          "建設業": 23,
+          "輸送用機器": 23,
+          "不動産業": 13,
+          "電気･ガス業": 13,
+          "精密機器": 11,
+          "その他金融業": 10,
+          "その他製品": 10,
+          "ガラス･土石製品": 9,
+          "非鉄金属": 8,
+          "鉄鋼": 7,
+          "証券･商品先物取引業": 7,
+          "繊維製品": 6,
+          "金属製品": 6,
+          "保険業": 6,
+          "パルプ・紙": 4,
+          "ゴム製品": 4,
+          "石油･石炭製品": 3,
+          "海運業": 3,
+          "倉庫･運輸関連業": 3,
+          "水産・農林業": 2,
+          "鉱業": 2,
+          "空運業": 2
+        },
+        "value_set_identical": null,
+        "values_only_in_d_sel": null,
+        "values_only_in_d_conf": null
+      }
+    },
+    "fins_summary_scanned_records": 25134,
+    "doctype_unique_values_and_counts": {
+      "FYFinancialStatements_Consolidated_JP": 4089,
+      "3QFinancialStatements_Consolidated_JP": 4009,
+      "2QFinancialStatements_Consolidated_JP": 3973,
+      "1QFinancialStatements_Consolidated_JP": 3961,
+      "EarnForecastRevision": 2688,
+      "1QFinancialStatements_Consolidated_IFRS": 1376,
+      "FYFinancialStatements_Consolidated_IFRS": 1326,
+      "3QFinancialStatements_Consolidated_IFRS": 1268,
+      "2QFinancialStatements_Consolidated_IFRS": 1265,
+      "DividendForecastRevision": 529,
+      "FYFinancialStatements_Consolidated_US": 116,
+      "3QFinancialStatements_Consolidated_US": 115,
+      "2QFinancialStatements_Consolidated_US": 112,
+      "1QFinancialStatements_Consolidated_US": 102,
+      "1QFinancialStatements_NonConsolidated_JP": 53,
+      "3QFinancialStatements_NonConsolidated_JP": 52,
+      "FYFinancialStatements_NonConsolidated_JP": 51,
+      "2QFinancialStatements_NonConsolidated_JP": 48,
+      "OtherPeriodFinancialStatements_Consolidated_JP": 1
+    },
+    "curpertype_unique_values_and_counts": {
+      "FY": 8137,
+      "2Q": 6042,
+      "1Q": 5499,
+      "3Q": 5455,
+      "4Q": 1
+    },
+    "era_check_2016_2017_doctype_values": [
+      "1QFinancialStatements_Consolidated_IFRS",
+      "1QFinancialStatements_Consolidated_JP",
+      "1QFinancialStatements_Consolidated_US",
+      "1QFinancialStatements_NonConsolidated_JP",
+      "2QFinancialStatements_Consolidated_IFRS",
+      "2QFinancialStatements_Consolidated_JP",
+      "2QFinancialStatements_Consolidated_US",
+      "2QFinancialStatements_NonConsolidated_JP",
+      "3QFinancialStatements_Consolidated_IFRS",
+      "3QFinancialStatements_Consolidated_JP",
+      "3QFinancialStatements_Consolidated_US",
+      "3QFinancialStatements_NonConsolidated_JP",
+      "FYFinancialStatements_Consolidated_IFRS",
+      "FYFinancialStatements_Consolidated_JP",
+      "FYFinancialStatements_Consolidated_US",
+      "FYFinancialStatements_NonConsolidated_JP"
+    ],
+    "era_check_2021_doctype_values": [
+      "1QFinancialStatements_Consolidated_IFRS",
+      "1QFinancialStatements_Consolidated_JP",
+      "1QFinancialStatements_Consolidated_US",
+      "1QFinancialStatements_NonConsolidated_JP",
+      "2QFinancialStatements_Consolidated_IFRS",
+      "2QFinancialStatements_Consolidated_JP",
+      "2QFinancialStatements_Consolidated_US",
+      "2QFinancialStatements_NonConsolidated_JP",
+      "3QFinancialStatements_Consolidated_IFRS",
+      "3QFinancialStatements_Consolidated_JP",
+      "3QFinancialStatements_Consolidated_US",
+      "3QFinancialStatements_NonConsolidated_JP",
+      "FYFinancialStatements_Consolidated_IFRS",
+      "FYFinancialStatements_Consolidated_JP",
+      "FYFinancialStatements_Consolidated_US",
+      "FYFinancialStatements_NonConsolidated_JP"
+    ],
+    "era_check_2016_2017_curpertype_values": [
+      "1Q",
+      "2Q",
+      "3Q",
+      "FY"
+    ],
+    "era_check_2021_curpertype_values": [
+      "1Q",
+      "2Q",
+      "3Q",
+      "FY"
+    ],
+    "event_doctype_matched_values": [
+      "1QFinancialStatements_Consolidated_IFRS",
+      "1QFinancialStatements_Consolidated_JP",
+      "1QFinancialStatements_Consolidated_US",
+      "1QFinancialStatements_NonConsolidated_JP",
+      "2QFinancialStatements_Consolidated_IFRS",
+      "2QFinancialStatements_Consolidated_JP",
+      "2QFinancialStatements_Consolidated_US",
+      "2QFinancialStatements_NonConsolidated_JP",
+      "3QFinancialStatements_Consolidated_IFRS",
+      "3QFinancialStatements_Consolidated_JP",
+      "3QFinancialStatements_Consolidated_US",
+      "3QFinancialStatements_NonConsolidated_JP",
+      "FYFinancialStatements_Consolidated_IFRS",
+      "FYFinancialStatements_Consolidated_JP",
+      "FYFinancialStatements_Consolidated_US",
+      "FYFinancialStatements_NonConsolidated_JP"
+    ],
+    "curpertype_values_not_in_event_set": [
+      "4Q"
+    ],
+    "mapping_used": {
+      "U1_scalecat_topix500_equivalent": [
+        "TOPIX Core30",
+        "TOPIX Large70",
+        "TOPIX Mid400"
+      ],
+      "U2_mrgn_margin_eligible": [
+        "1",
+        "2"
+      ],
+      "event_doctype_pattern": "^(1Q|2Q|3Q|FY)FinancialStatements_",
+      "event_curpertype_values": [
+        "1Q",
+        "2Q",
+        "3Q",
+        "FY"
+      ]
+    },
+    "scalecat_vocabulary_note": "ScaleCatの全ユニーク値集合は2016-12-15時点と2021-09-16時点で完全には一致しない（2021-09-16時点にのみ 'TOPIX Small 1' が出現。2016-12-15時点は 'TOPIX Small 2' と '-' のみでSmall1相当の区分が無い）。これはTOPIX指数区分自体の制度変更であり、U-1が受理する集合 {TOPIX Core30, TOPIX Large70, TOPIX Mid400} にもその意味にも影響しない（Small1・Small2ともに常にU-1の対象外）ため、mapping_unambiguousの判定には用いていない。curpertype '4Q' はEVENT_CURPERTYPE_OKに含まれない値として両時点に存在するが、これは元spec（EXP-OBS000001）から継続する既知の非イベント値であり、is_event_disclosure()が要求するCurPerType∈{1Q,2Q,3Q,FY}の判定から機械的に除外される（curpertype_values_not_in_event_setに記録済み）。",
+    "mapping_unambiguous": true
+  },
+  "sue_definition": {
+    "formula": "RawSUE(j,t) = (A(t) - B(t)) / Scale(t)",
+    "A_t_source": "1Q/2Q/3Q開示: FOdP / FY開示: OdP",
+    "B_t_source": "直前開示が1Q/2Q/3Q/修正: FOdP / 直前がFY: NxFOdP",
+    "Scale_t_source": "直前開示が1Q/2Q/3Q/修正: FSales / 直前がFY: NxFSales",
+    "winsorize": "行わない（RawSUE・リターンとも）"
+  },
+  "prediction_window": {
+    "horizon_primary_H": 5,
+    "horizon_sensitivity": [
+      3,
+      5,
+      10
+    ],
+    "entry_price": "O(t1)（DiscDateの翌営業日の始値）",
+    "entry_slippage": 0.00075,
+    "gross_return_formula": "R_5(j) = C(T[i+5]) / O(T[i+1]) - 1"
+  },
+  "trailing_stop_params": {
+    "initial_stop_pct": -0.03,
+    "trail_activation_pct": 0.04,
+    "trail_follow_pct": -0.02,
+    "update_and_fill_basis": "日足終値のみで更新・抵触判定。抵触翌営業日始値で約定",
+    "max_holding_business_days": 10,
+    "forced_carry_over_max_days": 5
+  },
+  "position_sizing": {
+    "capital_jpy": 1000000,
+    "leverage": 2.0,
+    "position_cap_jpy": 2000000,
+    "unit_shares": 100
+  },
+  "universe_rules": {
+    "U1_scalecat": [
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400"
+    ],
+    "U2_mrgn_ok": [
+      "1",
+      "2"
+    ],
+    "U4_liquidity_min_va_jpy": 500000000.0,
+    "U4_window_business_days": 60,
+    "U5_price_band_main": [
+      1000,
+      3500
+    ],
+    "U6_max_universe": 175,
+    "U7_min_universe": 150,
+    "U7_price_band_fallback": [
+      700,
+      8000
+    ]
+  },
+  "cost_model_summary": {
+    "slippage_one_way_pct": 0.00075,
+    "roundtrip_cost_pct_primary": 0.0035,
+    "roundtrip_cost_sensitivity": [
+      0.0025,
+      0.0035,
+      0.005
+    ],
+    "margin_interest_annual_pct": 0.028,
+    "status": "仮置き（EXP-OBS000001由来を継承）"
+  },
+  "japan_specific_conditions_status": {
+    "A_lot_size_100shares": "9タスク段階では未実施（G2到達時に実装）",
+    "B_price_limit_UL_LL": "規約確定済み（§4.0.4の2式）。9-7で全ユニーク値・欠損率を確認",
+    "C_trading_hours": "日足のO=寄付・C=大引けとして対応（G2到達時）",
+    "D_earnings_calendar_carryover_rule": "未実装（G2フェーズ）。/fins/earnings-date を使用予定",
+    "E_margin_requirement_ratio": "未実装（G2フェーズ）",
+    "F_credit_regulation": "模擬不能（C-5・HTTP403）。測定範囲の空白として明記",
+    "G_margin_interest_rate": "未実装（G2フェーズ。年率2.8%×実保有暦日数/365）",
+    "H_short_selling": "該当なし（ロングオンリー）"
+  },
+  "ds_gates_all_pass": true
+}

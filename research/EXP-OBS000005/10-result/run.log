@@ -1,0 +1,64 @@
+EXP-OBS000005（PEAD・10年データ版・spec第2版）§9 先行タスク 実行ログ
+========================================================================
+
+このログは §9-0〜§9-7 の実行記録である。G1/G2 は未実行（フェーズ2は§9全ゲート合格後に別途実行する）。
+
+再現用コマンド（実行順序どおり）:
+
+    # 1. master_v2 の追加取得（EXP-OBS000005/000006 共用。Standard契約中のみ実行可能）
+    python3 scripts/pead_fetch_data.py --step master_v2
+
+    # 2. 候補集合の再構成（EXP-OBS000005/000006 共用）は本リポジトリでは
+    #    research/EXP-OBS000005/10-result/candidate_codes_v2.json として既に生成済み。
+    #    生成に使ったロジックは本ログの「候補集合構築（再現用）」を参照。
+
+    # 3. 新規90銘柄の日足取得（候補集合再構成で新たに必要になった銘柄のみ。
+    #    既存キャッシュは絶対に --force で上書きしない。§9-0/N-10）
+    python3 scripts/pead_fetch_data.py --step bars --codes-file <newly_added_codes.json>
+
+    # 4. §9 先行タスク本体（9-0〜9-7）
+    python3 scripts/pead_feasibility_v2.py
+
+実行日: 2026-09-15
+実行環境: JQUANTS_API_KEY は環境変数から取得（.env.local は読んでいない）
+
+候補集合構築（再現用・candidate_codes_v2.json の生成ロジック）:
+
+    D_sel = 2016-12-15 (= T[61])
+    D_conf = 2021-09-16 (= T[m+1])
+    候補集合 = (D_sel時点master の U-1∩U-2 通過銘柄) ∪ (D_conf時点master の U-1∩U-2 通過銘柄)
+    結果: 554銘柄（D_sel通過501・D_conf通過497の和集合）
+    旧EXP-OBS000001由来の511銘柄集合に対し、新規90銘柄・除外47銘柄
+
+実行結果サマリー（pead_feasibility_v2.py の標準出力）:
+
+[9-0] backup_exists=True path=/home/user/backups/data_raw_backup_20260915.tar.gz
+[9-1] candidate_codes_count=554
+[T] N=2441 m=1220 T[1]=2016-09-15 T[N]=2026-09-14 T[m]=2021-09-15 matches=True
+[9-2] scalecat_u1_ok_present_both=True mrgn_u2_ok_present_both=True scalecat_value_set_identical=False (values_only_in_d_conf=['TOPIX Small 1']) doctype_2016_subset=True doctype_2021_subset=True mapping_unambiguous=True
+[universe] [selection] candidates=554 u1u2_pass=501 missing_bars=0 main_band_pass=233 fallback_applied=False final_count=175 truncated=True unresolved(<150)=False
+[universe] [confirmation] candidates=554 u1u2_pass=497 missing_bars=0 main_band_pass=195 fallback_applied=False final_count=175 truncated=True unresolved(<150)=False
+[9-3] overall_missing_rate=0.001370910883880392 codes_with_any_missing=2
+[9-5] DS-1=1930:True DS-2=160:True DS-3=175:True DS-4=0.001370910883880392:True C7-1=160:True C7-2=0.011398963730569948:True C7-3=1.0207792508004023:True ALL_PASS=True
+[9-6] excluded_total=8395 by_reason={'null_or_nonnumeric_input': 7875, 'no_matching_prior_disclosure': 520}
+[9-7] total_rows=1300269 anomalous=[] missing_rate=0.0 gate=True
+[9-9] later_start_codes=98 (in_new90=90) u4_window_va_below_30=7
+
+最終判定: stop_reason=None, can_proceed_to_G1=True
+data_sufficiency_gate（DS-1〜DS-4・C7-1〜C7-3）: 全7項目合格
+
+出力ファイル:
+  - research/EXP-OBS000005/10-result/candidate_codes_v2.json
+  - research/EXP-OBS000005/10-result/universe_v2.json
+  - research/EXP-OBS000005/10-result/feasibility.json
+  - research/EXP-OBS000005/10-result/params.json
+  - research/EXP-OBS000005/10-result/run.log（本ファイル）
+
+データバックアップ: /home/user/backups/data_raw_backup_20260915.tar.gz（オーケストレータが取得。87MB圧縮・1,126ファイル）
+
+乱数シード: 20260915（本フェーズではpermutation検定を実行していないため未使用。G1で使用予定）
+
+決定性についての注記: `/equities/bars/daily`（コード指定のみ）はクエリ実行日から遡るローリング窓を
+返すため、本スクリプト自体は決定的だが、**新規に候補銘柄を追加してキャッシュを再構築する場合**は
+取得実行日によって結果が変わりうる（研究 §2.0.1 参照）。既存キャッシュ（本ログの実行時点のもの）を
+変更しない限り、本スクリプトの再実行結果は決定的である。
