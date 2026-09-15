@@ -41,8 +41,14 @@ RAW_DIR = REPO_ROOT / "data" / "raw" / "pead"
 
 SELECTION_START = dt.date(2024, 6, 21)
 CONFIRMATION_START = dt.date(2025, 7, 1)
-CONTRACT_START = dt.date(2024, 6, 21)
-CONTRACT_END = dt.date(2026, 6, 21)
+# Standardプラン契約(0-23)後に実測した契約可能期間。/fins/summary に日付を振って境界を確認:
+#   2016-09-14 => HTTP 400 "Your subscription covers the following dates: 2016-09-15 ~"
+#   2016-09-15 => HTTP 200 実データ25件（=契約開始日）
+#   2026-09-14 => HTTP 200 実データ103件（=直近営業日、確認できた最新日）
+# `/equities/bars/daily` も同一境界（2016-09-15〜2026-09-14、トヨタ72030で2,441件）であることを
+# 別途確認済み（オーケストレータ実測、2026-09-15）。
+CONTRACT_START = dt.date(2016, 9, 15)
+CONTRACT_END = dt.date(2026, 9, 14)
 
 
 def fetch_master(client: JQuantsClient, force: bool = False) -> None:
