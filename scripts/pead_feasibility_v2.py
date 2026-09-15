@@ -183,6 +183,16 @@ def main() -> int:  # noqa: C901
         r9_9 = task_9_9(cal, codes, sel_universe, log)
         feasibility["9-9_rolling_window_leading_gap"] = r9_9
 
+    # ---------------- 9-10: 分割・併合による前方リターン汚染の検査（第3版で新設） ----------------
+    if stop_reason is None:
+        sel_range_910 = (cal.at(61), cal.at(m - 16))
+        conf_range_910 = (cal.at(m + 1), cal.at(N - 16))
+        r9_10 = task_9_10(cal, all_events, sel_universe, conf_universe, sel_range_910, conf_range_910, log)
+        feasibility["9-10_corporate_action_in_forward_window"] = r9_10
+        if r9_10["total_violations"] > 0:
+            stop_reason = "9-10: イベントの[t1,t16]窓に分割・併合(AdjFactor≠1)を含む件数が0でない"
+            escalate_kind = "K-6"
+
     feasibility["stop_reason"] = stop_reason
     feasibility["escalate_to_S"] = stop_reason is not None
     feasibility["escalate_kind"] = escalate_kind
@@ -555,6 +565,56 @@ def task_9_7(codes: list[str], log: list[str]) -> dict:
 # ---------------------------------------------------------------------------
 # 9-9: ローリング窓による先頭欠けの開示
 # ---------------------------------------------------------------------------
+
+
+def task_9_10(cal: v2.CalendarV2, all_events, sel_universe: dict, conf_universe: dict, sel_range, conf_range, log) -> dict:
+    """spec §9-10（第3版で新設）: 分割・併合による前方リターン汚染の検査。
+
+    イベントの[t_1, t_16]窓（W-7: i+1〜i+16）にAdjFactor≠1の行を含む件数を数える。
+    リターンの値は一切参照しない（AdjFactorと日付だけで決まる）。
+    """
+    valid_events = [e for e in all_events if e["raw_sue"] is not None]
+
+    def check(codes_set: set[str], date_range: tuple[str, str]) -> tuple[int, list[dict]]:
+        lo, hi = date_range
+        violations = []
+        checked = 0
+        for e in valid_events:
+            if e["code"] not in codes_set:
+                continue
+            d = e["disc_date"]
+            if not (lo <= d <= hi):
+                continue
+            i = cal.idx(d)
+            if i is None:
+                continue
+            checked += 1
+            for k in range(i + 1, i + 17):
+                date_k = cal.at(k)
+                if date_k is None:
+                    continue
+                row = cal.row(e["code"], date_k)
+                if row is None:
+                    continue
+                af = row.get("AdjFactor")
+                if af is not None and abs(af - 1.0) > 1e-9:
+                    violations.append({"code": e["code"], "disc_date": d, "window_date": date_k, "AdjFactor": af})
+        return checked, violations
+
+    sel_checked, sel_viol = check(set(sel_universe["codes"]), sel_range)
+    conf_checked, conf_viol = check(set(conf_universe["codes"]), conf_range)
+    total = len(sel_viol) + len(conf_viol)
+    log.append(
+        f"[9-10] selection_checked={sel_checked} selection_violations={len(sel_viol)} "
+        f"confirmation_checked={conf_checked} confirmation_violations={len(conf_viol)} total={total}"
+    )
+    return {
+        "methodology": "イベントの[t1,t16]窓（W-7）にAdjFactor≠1の行を含む件数。カウントのみ、リターンは参照しない",
+        "selection_range": list(sel_range), "confirmation_range": list(conf_range),
+        "selection_checked_events": sel_checked, "selection_violations": sel_viol,
+        "confirmation_checked_events": conf_checked, "confirmation_violations": conf_viol,
+        "total_violations": total,
+    }
 
 
 def task_9_9(cal: v2.CalendarV2, codes: list[str], sel_universe: dict, log: list[str]) -> dict:

@@ -100,27 +100,419 @@
       "0.25": 1,
       "0.3333333333333333": 3
     },
-    "EXRT_2_NEWLY_DISCOVERED_finding": {
-      "description": "ExRT='2' が本10年版・554銘柄データで初めて観測された（旧EXP-OBS000003の511銘柄・より狭い期間データには0件）。AdjFactorはExRT='2'の全100行で{2.0, 5.0, 10.0}のいずれか（>1、整数）であり、ExRT='1'（AdjFactor<1が通常）とは逆方向。継続性検算（prev_C×AdjFactor≒prev_AdjC）は69/100件で成立し、残り31件は主にprev_AdjCがまだprev_Cと同値（未反映）というパターンで不一致。既存のgap_common.is_split_merger_row()はExRT=='1'のみを分割・併合として扱っており、ExRT='2'を捕捉しない。この関数はE-1除外判定とσ_gap有効窓判定の両方に使う共有関数であり、EXP-OBS000003（frozen）とEXP-OBS000006（本EXP）の双方に影響する。ExRT='2'が何を表すか（株式併合か、それ以外か）についての公式フィールド定義をこのセッションでは確認できなかった。",
-      "exrt2_row_count": 100,
+    "EXRT_2_RESOLVED_finding": {
+      "description": "ExRT='2' は spec §3.1.2（第3版・S戦略チーム確定）により株式併合（リバーススプリット）と識別された。判定条件は AdjFactor≠1（機構ベース。ExRTの値を列挙しない）に確定済み。gap_common.is_split_merger_row() はこの定義に更新済み（本セッションで反映）。V-6（適合性検査）で捕捉漏れ・ExRT/AdjFactorの相互整合性を検算する。",
+      "exrt2_row_count_this_v2_candidate_set_554codes": 100,
+      "exrt2_row_count_S_measured_601_codes": 105,
+      "count_discrepancy_note": "本スクリプトは candidate_codes_v2.json（554銘柄。§9-1で再構成した正式な候補集合）のみを対象にExRT='2'を100件カウントしている。spec §3.1.2に記載のS実測105件は全601キャッシュ（旧511銘柄のうちv2候補集合に含まれない47銘柄を含む）を対象にした独立検算であり、母集団が異なるため件数が一致しないのは想定内（554銘柄はv2候補集合の正式な母集団であり、これを基準にDS ゲート等を評価する）。",
       "exrt2_distinct_codes": 100,
       "exrt2_adjfactor_values": [
         2.0,
         5.0,
         10.0
       ],
-      "exrt2_continuity_check": {
-        "pass": 69,
-        "checked": 100
-      },
-      "exrt1_continuity_check": {
-        "pass": 205,
-        "checked": 249
+      "prev_AdjC_continuity_check_diagnostic_only_not_a_gate": {
+        "exrt2": {
+          "pass": 69,
+          "checked": 100
+        },
+        "exrt1": {
+          "pass": 205,
+          "checked": 249
+        },
+        "note": "spec §3.1.2の識別根拠には使われていない（C(t)/C(t-1)÷AdjFactorとMktCap連続性が根拠）。本スクリプト独自の診断であり合否には用いない。"
       }
     },
-    "convention": "AdjFactorは累積調整係数。ExRT='1'は順方向の権利落ち（分割等、AdjFactor<1）を示すフラグとして既存実装で扱われている。ExRT='2'の意味は本タスクでは未確定（上記参照）。",
-    "split_merger_identifiable": false,
-    "gate_pass": false
+    "convention": "AdjFactorは累積調整係数。E-1（権利落ち日＝分割・併合）の判定は spec §3.1.2 により AdjFactor≠1（絶対差>1e-9）に確定。ExRT='1'=分割（AdjFactor<1）、ExRT='2'=併合（AdjFactor>1、株式併合）。ExRTの値を列挙する方式は採らない。",
+    "split_merger_identifiable": true,
+    "gate_pass": true
+  },
+  "9-3_dividend_identification_gates": {
+    "V6_split_merger_conformance": {
+      "total_bars_rows_scanned_pinned_range": 1300269,
+      "ExRT_unique_values_and_counts": {
+        "None": 1299920,
+        "'1'": 249,
+        "'2'": 100
+      },
+      "AdjFactor_non_unity_unique_values_and_counts": {
+        "0.3333333333333333": 66,
+        "0.5": 106,
+        "0.25": 27,
+        "0.2": 35,
+        "5.0": 43,
+        "2.0": 19,
+        "0.1": 8,
+        "10.0": 38,
+        "0.8333333333333334": 1,
+        "0.7692307692307693": 1,
+        "0.9090909090909091": 1,
+        "0.16666666666666666": 1,
+        "0.9523809523809523": 1,
+        "0.14285714285714285": 1,
+        "0.04": 1
+      },
+      "check_a_all_nonunity_captured": {
+        "violations_count": 0,
+        "violations": [],
+        "pass": true
+      },
+      "check_b_exrt_adjfactor_mutual_consistency": {
+        "violations_count": 0,
+        "violations": [],
+        "pass": true
+      },
+      "unknown_exrt_values_outside_1_2": [],
+      "unknown_exrt_values_pass": true,
+      "pass": true
+    },
+    "skipped_missing_fy_count": 0,
+    "e2a_summary": {
+      "positive_codes_count": 550,
+      "explicit_zero_only_codes_count": 4,
+      "any_record_codes_count": 554,
+      "no_codes_with_any_record_count": 0,
+      "no_mapping_count": 211,
+      "below_t1_count": 0,
+      "e2a_pairs_count": 9630,
+      "duplicate_pairs_count": 4659
+    },
+    "e2b_summary": {
+      "months_count": 121
+    },
+    "V1_pooled_regression": {
+      "fit": {
+        "a": 0.0018110492588356668,
+        "b": -0.9151497475056031,
+        "se_b": 0.022331702329328476,
+        "n": 9479
+      },
+      "excluded_e1_count": 151,
+      "missing_count": 0,
+      "threshold": [
+        -1.15,
+        -0.7
+      ],
+      "pass": true
+    },
+    "V2_placebo": {
+      "results": {
+        "-2": {
+          "fit": {
+            "a": 0.0013706269140786951,
+            "b": 0.0433747595250228,
+            "se_b": 0.014935668008463526,
+            "n": 9629
+          },
+          "excluded_e1": 0,
+          "missing": 1,
+          "abs_b_le_0_35": true
+        },
+        "-1": {
+          "fit": {
+            "a": -0.0003517626918438388,
+            "b": 0.009688235365604954,
+            "se_b": 0.01852856755252412,
+            "n": 9536
+          },
+          "excluded_e1": 93,
+          "missing": 1,
+          "abs_b_le_0_35": true
+        },
+        "1": {
+          "fit": {
+            "a": -0.0017535411426816364,
+            "b": -0.04517454277206284,
+            "se_b": 0.013892278604024571,
+            "n": 9630
+          },
+          "excluded_e1": 0,
+          "missing": 0,
+          "abs_b_le_0_35": true
+        },
+        "2": {
+          "fit": {
+            "a": 0.0025498676488434737,
+            "b": 0.005644646749718801,
+            "se_b": 0.012600599571779057,
+            "n": 9288
+          },
+          "excluded_e1": 0,
+          "missing": 342,
+          "abs_b_le_0_35": true
+        }
+      },
+      "threshold_abs_max": 0.35,
+      "pass": true
+    },
+    "V3_day_reproducibility": {
+      "qualifying_days_count": 40,
+      "in_range_count": 23,
+      "fraction": 0.575,
+      "threshold_fraction_min": 0.7,
+      "pass": false,
+      "day_results": [
+        {
+          "x": "2016-09-29",
+          "n": 365,
+          "b": 0.27813848883618664,
+          "in_range": false
+        },
+        {
+          "x": "2016-12-29",
+          "n": 63,
+          "b": -0.14452901130703388,
+          "in_range": false
+        },
+        {
+          "x": "2017-03-30",
+          "n": 428,
+          "b": -0.04409026362150253,
+          "in_range": false
+        },
+        {
+          "x": "2017-06-29",
+          "n": 56,
+          "b": -0.284189573450907,
+          "in_range": false
+        },
+        {
+          "x": "2017-09-28",
+          "n": 378,
+          "b": 0.12978646033525337,
+          "in_range": false
+        },
+        {
+          "x": "2017-12-28",
+          "n": 66,
+          "b": -0.10119000300321832,
+          "in_range": false
+        },
+        {
+          "x": "2018-03-29",
+          "n": 432,
+          "b": -0.09036216374282423,
+          "in_range": false
+        },
+        {
+          "x": "2018-06-28",
+          "n": 60,
+          "b": -0.22293018437345566,
+          "in_range": false
+        },
+        {
+          "x": "2018-09-27",
+          "n": 375,
+          "b": -0.027960558449503754,
+          "in_range": false
+        },
+        {
+          "x": "2018-12-27",
+          "n": 67,
+          "b": 0.1533255178636963,
+          "in_range": false
+        },
+        {
+          "x": "2019-03-28",
+          "n": 426,
+          "b": 0.04319407736318354,
+          "in_range": false
+        },
+        {
+          "x": "2019-06-27",
+          "n": 60,
+          "b": 0.5732240800936244,
+          "in_range": false
+        },
+        {
+          "x": "2019-09-27",
+          "n": 377,
+          "b": -1.2356013883712147,
+          "in_range": true
+        },
+        {
+          "x": "2019-12-27",
+          "n": 68,
+          "b": -1.1724123636838641,
+          "in_range": true
+        },
+        {
+          "x": "2020-03-30",
+          "n": 407,
+          "b": -1.3403605406736772,
+          "in_range": false
+        },
+        {
+          "x": "2020-06-29",
+          "n": 57,
+          "b": -1.2731905800181766,
+          "in_range": false
+        },
+        {
+          "x": "2020-09-29",
+          "n": 338,
+          "b": -0.6461788956480344,
+          "in_range": true
+        },
+        {
+          "x": "2020-12-29",
+          "n": 70,
+          "b": -0.7052904448122433,
+          "in_range": true
+        },
+        {
+          "x": "2021-03-30",
+          "n": 397,
+          "b": -1.0189833630728478,
+          "in_range": true
+        },
+        {
+          "x": "2021-06-29",
+          "n": 62,
+          "b": -1.4950314278606787,
+          "in_range": false
+        },
+        {
+          "x": "2021-09-29",
+          "n": 350,
+          "b": -0.5639602005518484,
+          "in_range": false
+        },
+        {
+          "x": "2021-12-29",
+          "n": 71,
+          "b": -0.6648782519156137,
+          "in_range": true
+        },
+        {
+          "x": "2022-03-30",
+          "n": 406,
+          "b": -1.1898087053614108,
+          "in_range": true
+        },
+        {
+          "x": "2022-06-29",
+          "n": 64,
+          "b": -0.40940153518243505,
+          "in_range": false
+        },
+        {
+          "x": "2022-09-29",
+          "n": 343,
+          "b": -0.9422634271854912,
+          "in_range": true
+        },
+        {
+          "x": "2022-12-29",
+          "n": 71,
+          "b": -0.8833276336289878,
+          "in_range": true
+        },
+        {
+          "x": "2023-03-30",
+          "n": 388,
+          "b": -0.9367501569013164,
+          "in_range": true
+        },
+        {
+          "x": "2023-06-29",
+          "n": 66,
+          "b": -1.236084185086701,
+          "in_range": true
+        },
+        {
+          "x": "2023-09-28",
+          "n": 347,
+          "b": -0.8029720767963044,
+          "in_range": true
+        },
+        {
+          "x": "2023-12-28",
+          "n": 69,
+          "b": -0.9572256922330428,
+          "in_range": true
+        },
+        {
+          "x": "2024-03-28",
+          "n": 373,
+          "b": -0.7445586458800512,
+          "in_range": true
+        },
+        {
+          "x": "2024-06-27",
+          "n": 65,
+          "b": -1.2187344250266672,
+          "in_range": true
+        },
+        {
+          "x": "2024-09-27",
+          "n": 345,
+          "b": -0.8056912094122384,
+          "in_range": true
+        },
+        {
+          "x": "2024-12-27",
+          "n": 73,
+          "b": -0.8097791403445288,
+          "in_range": true
+        },
+        {
+          "x": "2025-03-28",
+          "n": 383,
+          "b": -0.9711845680901616,
+          "in_range": true
+        },
+        {
+          "x": "2025-06-27",
+          "n": 66,
+          "b": -0.8353765954888751,
+          "in_range": true
+        },
+        {
+          "x": "2025-09-29",
+          "n": 354,
+          "b": -0.9160788962675819,
+          "in_range": true
+        },
+        {
+          "x": "2025-12-29",
+          "n": 69,
+          "b": -0.946949421385347,
+          "in_range": true
+        },
+        {
+          "x": "2026-03-30",
+          "n": 374,
+          "b": -0.6454117341120459,
+          "in_range": true
+        },
+        {
+          "x": "2026-06-29",
+          "n": 67,
+          "b": -1.1545270410052164,
+          "in_range": true
+        }
+      ],
+      "settlement_cycle_diagnostic_NOT_APPLIED": {
+        "note": "day_resultsを実測したところ、in_range=Falseの17日は全件2016-09-29〜2022-06-29（うち大半は2019-07-16=日本のT+3→T+2決済移行日より前）に集中し、傾きが理論値-1付近ではなくほぼ0または正（例: 2016-09-29 b=+0.278, 2019-03-28 b=+0.043）であった。§3.1.1 step3の権利落ち日構成式 X := b(R)の1営業日前 はT+2決済を前提とした式（spec原文: 'T+2決済のもとで権利付最終日=b(R)の2営業日前、その翌営業日であるb(R)の1営業日前が権利落ち日'）であり、2019-07-16より前のT+3決済期間には理論上適用できない。診断として、Xをb(R)の2営業日前（T+3仮説）に変更して同じ日を再計算したところ、2016-09-29: b=-0.886、2018-09-27: b=-1.005、2019-03-28: b=-0.995 といずれも理論区間[-1.15,-0.70]付近に入ることを確認した（別のスクラッチ検証。本番の build_e2a には反映していない）。これは §3.1.1（frozen・EXP-OBS000003由来）の権利落ち日構成式そのものに関わる変更であり、B実装チームの裁量では決定せずSに差し戻す。"
+      }
+    },
+    "V4_coverage": {
+      "covered_codes_count": 554,
+      "total_candidate_codes": 554,
+      "fraction": 1.0,
+      "threshold_fraction_min": 0.95,
+      "pass": true
+    },
+    "V5_period_end_self_check": {
+      "total_2Q_unique_periods": 5363,
+      "match_count": 5363,
+      "fraction": 1.0,
+      "threshold_fraction_min": 0.995,
+      "pass": true
+    },
+    "gate_v1_v5_all_pass": false,
+    "gate_v1_v6_all_pass": false
   },
   "9-8_ul_ll_flag_check": {
     "total_bars_rows_scanned_pinned_range": 1300269,
@@ -137,7 +529,7 @@
     "values_confined_to_1_0_empty_null": true,
     "gate_pass": true
   },
-  "stop_reason": "9-2: AdjFactor/ExRTの調整規約が一意に決まらない",
+  "stop_reason": "9-3: 検証ゲートV-1〜V-6のいずれかが未達。K-6に従いSへ差し戻す。",
   "escalate_to_S": true,
   "escalate_kind": "K-6",
   "can_proceed_to_G1": false

@@ -96,29 +96,37 @@
       "0.25": 1,
       "0.3333333333333333": 3
     },
-    "EXRT_2_NEWLY_DISCOVERED_finding": {
-      "description": "ExRT='2' が本10年版・554銘柄データで初めて観測された（旧EXP-OBS000003の511銘柄・より狭い期間データには0件）。AdjFactorはExRT='2'の全100行で{2.0, 5.0, 10.0}のいずれか（>1、整数）であり、ExRT='1'（AdjFactor<1が通常）とは逆方向。継続性検算（prev_C×AdjFactor≒prev_AdjC）は69/100件で成立し、残り31件は主にprev_AdjCがまだprev_Cと同値（未反映）というパターンで不一致。既存のgap_common.is_split_merger_row()はExRT=='1'のみを分割・併合として扱っており、ExRT='2'を捕捉しない。この関数はE-1除外判定とσ_gap有効窓判定の両方に使う共有関数であり、EXP-OBS000003（frozen）とEXP-OBS000006（本EXP）の双方に影響する。ExRT='2'が何を表すか（株式併合か、それ以外か）についての公式フィールド定義をこのセッションでは確認できなかった。",
-      "exrt2_row_count": 100,
+    "EXRT_2_RESOLVED_finding": {
+      "description": "ExRT='2' は spec §3.1.2（第3版・S戦略チーム確定）により株式併合（リバーススプリット）と識別された。判定条件は AdjFactor≠1（機構ベース。ExRTの値を列挙しない）に確定済み。gap_common.is_split_merger_row() はこの定義に更新済み（本セッションで反映）。V-6（適合性検査）で捕捉漏れ・ExRT/AdjFactorの相互整合性を検算する。",
+      "exrt2_row_count_this_v2_candidate_set_554codes": 100,
+      "exrt2_row_count_S_measured_601_codes": 105,
+      "count_discrepancy_note": "本スクリプトは candidate_codes_v2.json（554銘柄。§9-1で再構成した正式な候補集合）のみを対象にExRT='2'を100件カウントしている。spec §3.1.2に記載のS実測105件は全601キャッシュ（旧511銘柄のうちv2候補集合に含まれない47銘柄を含む）を対象にした独立検算であり、母集団が異なるため件数が一致しないのは想定内（554銘柄はv2候補集合の正式な母集団であり、これを基準にDS ゲート等を評価する）。",
       "exrt2_distinct_codes": 100,
       "exrt2_adjfactor_values": [
         2.0,
         5.0,
         10.0
       ],
-      "exrt2_continuity_check": {
-        "pass": 69,
-        "checked": 100
-      },
-      "exrt1_continuity_check": {
-        "pass": 205,
-        "checked": 249
+      "prev_AdjC_continuity_check_diagnostic_only_not_a_gate": {
+        "exrt2": {
+          "pass": 69,
+          "checked": 100
+        },
+        "exrt1": {
+          "pass": 205,
+          "checked": 249
+        },
+        "note": "spec §3.1.2の識別根拠には使われていない（C(t)/C(t-1)÷AdjFactorとMktCap連続性が根拠）。本スクリプト独自の診断であり合否には用いない。"
       }
     },
-    "convention": "AdjFactorは累積調整係数。ExRT='1'は順方向の権利落ち（分割等、AdjFactor<1）を示すフラグとして既存実装で扱われている。ExRT='2'の意味は本タスクでは未確定（上記参照）。",
-    "split_merger_identifiable": false,
-    "gate_pass": false
+    "convention": "AdjFactorは累積調整係数。E-1（権利落ち日＝分割・併合）の判定は spec §3.1.2 により AdjFactor≠1（絶対差>1e-9）に確定。ExRT='1'=分割（AdjFactor<1）、ExRT='2'=併合（AdjFactor>1、株式併合）。ExRTの値を列挙する方式は採らない。",
+    "split_merger_identifiable": true,
+    "gate_pass": true
   },
-  "dividend_construction": null,
+  "dividend_construction": {
+    "method": "spec §3.1.1 E-2A(銘柄別・厳密)+E-2B(暦ベース・一括)の和集合",
+    "v1_v5_all_pass": false
+  },
   "z_star_frozen": null,
   "z_star_grid_27points": [
     -1.5,

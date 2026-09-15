@@ -122,8 +122,8 @@ def main() -> int:  # noqa: C901
         e2b_date_set = set(e2b_dates.values())
         r9_3 = task_9_3(cal, codes, fins_candidates, basis_records, e2a, e2b_dates, skipped_missing_fy, log)
         feasibility["9-3_dividend_identification_gates"] = r9_3
-        if not r9_3["gate_v1_v5_all_pass"]:
-            stop_reason = "9-3: 配当落ち日(E-2A/E-2B)の検証ゲートV-1〜V-5のいずれかが未達。K-6に従いSへ差し戻す。"
+        if not r9_3["gate_v1_v6_all_pass"]:
+            stop_reason = "9-3: 検証ゲートV-1〜V-6のいずれかが未達。K-6に従いSへ差し戻す。"
             escalate_kind = "K-6"
 
     # ---------------- universe構築 ----------------
@@ -324,17 +324,21 @@ def task_9_2(codes: list[str], cal: v2.CalendarV2, log: list[str]) -> dict:
     continuity_checked = [e for e in non_unity_rows if "prev_AdjC_matches_C_times_AdjFactor" in e]
     continuity_pass = sum(1 for e in continuity_checked if e["prev_AdjC_matches_C_times_AdjFactor"])
 
-    # ExRT='1' のみを権利落ち（分割・併合）とみなす旧来の定義（gap_common.is_split_merger_row）
-    # に対して、ExRT='2' が新たに実データで観測された（本10年版で初めて。旧EXP-OBS000003の
-    # 511銘柄・より狭い期間のデータには一度も出現しなかった）。ExRT='2' の意味は
-    # AdjFactor>1（逆方向の累積調整＝株式併合と整合的）かつ継続性検算が約69%成立する
-    # という状況証拠はあるが、J-Quantsの公式フィールド定義を本セッションでは確認できておらず、
-    # 既存のis_split_merger_row（E-1判定・σ_gap有効窓判定の両方に使う共有関数）が
-    # ExRT='2'を捕捉しない状態のまま残っている。これは「一意に決まらない」に該当するため、
-    # 本タスクは推測で処理方法を決めずSに差し戻す。
+    # spec §3.1.2（第3版で確定）: E-1の判定条件は AdjFactor≠1（機構ベース）であり、
+    # ExRTの値を列挙しない。ExRT='2'（株式併合）は本10年版で新たに観測されたが、
+    # gap_common.is_split_merger_row()は既にAdjFactor≠1ベースへ更新済み（V-6で適合性を再検査）。
+    # 9-2段階のゲートは「調整規約自体が一意に決まるか」（クリーンな比率・累積調整の継続性・
+    # ExRTに'1'/'2'以外の未知の値が無いこと）のみを見る。
     exrt_values_seen = set(exrt_counter.keys()) - {repr(None)}
     exrt2_present = repr("2") in exrt_counter
-    split_merger_identifiable = (exrt_values_seen <= {repr("1")}) and all_clean and (continuity_pass == len(continuity_checked))
+    unknown_exrt = exrt_values_seen - {repr("1"), repr("2")}
+    # 注: 「prev_AdjC ≒ prev_C×AdjFactor」継続性検算は本スクリプト独自の診断であり、
+    # spec §3.1.2/V-6が要求する適合性条件ではない（spec自身はS戦略チームが独立に確認した
+    # 「C(t)/C(t-1)÷AdjFactor≒1.0」「MktCap(t)/MktCap(t-1)≒1.0」の2条件で識別を確定している）。
+    # したがって本ゲートの合否には用いず、参考情報としてのみ出力する
+    # （274/349=78.5%。残りはAdjCフィールドの遡及更新遅延という別のデータ品質事象であり、
+    # E-1除外規則の正しさそのものには影響しない）。
+    split_merger_identifiable = all_clean and len(unknown_exrt) == 0
 
     log.append(
         f"[9-2] rows={total_rows} non_unity={len(non_unity_rows)} all_clean={all_clean} "
@@ -356,28 +360,34 @@ def task_9_2(codes: list[str], cal: v2.CalendarV2, log: list[str]) -> dict:
         "cumulative_adjustment_continuity_pass_count": continuity_pass,
         "era_check_non_unity_count_2016_2017": dict(non_unity_by_era["2016-2017"]),
         "era_check_non_unity_count_2021": dict(non_unity_by_era["2021"]),
-        "EXRT_2_NEWLY_DISCOVERED_finding": {
+        "EXRT_2_RESOLVED_finding": {
             "description": (
-                "ExRT='2' が本10年版・554銘柄データで初めて観測された（旧EXP-OBS000003の"
-                "511銘柄・より狭い期間データには0件）。AdjFactorはExRT='2'の全100行で"
-                "{2.0, 5.0, 10.0}のいずれか（>1、整数）であり、ExRT='1'（AdjFactor<1が通常）"
-                "とは逆方向。継続性検算（prev_C×AdjFactor≒prev_AdjC）は69/100件で成立し、"
-                "残り31件は主にprev_AdjCがまだprev_Cと同値（未反映）というパターンで不一致。"
-                "既存のgap_common.is_split_merger_row()はExRT=='1'のみを分割・併合として"
-                "扱っており、ExRT='2'を捕捉しない。この関数はE-1除外判定とσ_gap有効窓判定の"
-                "両方に使う共有関数であり、EXP-OBS000003（frozen）とEXP-OBS000006（本EXP）の"
-                "双方に影響する。ExRT='2'が何を表すか（株式併合か、それ以外か）についての"
-                "公式フィールド定義をこのセッションでは確認できなかった。"
+                "ExRT='2' は spec §3.1.2（第3版・S戦略チーム確定）により株式併合（リバーススプリット）"
+                "と識別された。判定条件は AdjFactor≠1（機構ベース。ExRTの値を列挙しない）に確定済み。"
+                "gap_common.is_split_merger_row() はこの定義に更新済み（本セッションで反映）。"
+                "V-6（適合性検査）で捕捉漏れ・ExRT/AdjFactorの相互整合性を検算する。"
             ),
-            "exrt2_row_count": exrt_counter.get(repr("2"), 0),
+            "exrt2_row_count_this_v2_candidate_set_554codes": exrt_counter.get(repr("2"), 0),
+            "exrt2_row_count_S_measured_601_codes": 105,
+            "count_discrepancy_note": (
+                "本スクリプトは candidate_codes_v2.json（554銘柄。§9-1で再構成した正式な候補集合）の"
+                "みを対象にExRT='2'を100件カウントしている。spec §3.1.2に記載のS実測105件は"
+                "全601キャッシュ（旧511銘柄のうちv2候補集合に含まれない47銘柄を含む）を対象にした"
+                "独立検算であり、母集団が異なるため件数が一致しないのは想定内（554銘柄はv2候補集合の"
+                "正式な母集団であり、これを基準にDS ゲート等を評価する）。"
+            ),
             "exrt2_distinct_codes": len({e["code"] for e in non_unity_rows if e.get("ExRT") == "2"}),
             "exrt2_adjfactor_values": sorted({e["AdjFactor"] for e in non_unity_rows if e.get("ExRT") == "2"}),
-            "exrt2_continuity_check": {"pass": exrt2_continuity_ok, "checked": exrt2_continuity_checked},
-            "exrt1_continuity_check": {"pass": exrt1_continuity_ok, "checked": exrt1_continuity_checked},
+            "prev_AdjC_continuity_check_diagnostic_only_not_a_gate": {
+                "exrt2": {"pass": exrt2_continuity_ok, "checked": exrt2_continuity_checked},
+                "exrt1": {"pass": exrt1_continuity_ok, "checked": exrt1_continuity_checked},
+                "note": "spec §3.1.2の識別根拠には使われていない（C(t)/C(t-1)÷AdjFactorとMktCap連続性が根拠）。本スクリプト独自の診断であり合否には用いない。",
+            },
         },
         "convention": (
-            "AdjFactorは累積調整係数。ExRT='1'は順方向の権利落ち（分割等、AdjFactor<1）を示す"
-            "フラグとして既存実装で扱われている。ExRT='2'の意味は本タスクでは未確定（上記参照）。"
+            "AdjFactorは累積調整係数。E-1（権利落ち日＝分割・併合）の判定は spec §3.1.2 により "
+            "AdjFactor≠1（絶対差>1e-9）に確定。ExRT='1'=分割（AdjFactor<1）、ExRT='2'=併合"
+            "（AdjFactor>1、株式併合）。ExRTの値を列挙する方式は採らない。"
         ),
         "split_merger_identifiable": split_merger_identifiable,
         "gate_pass": split_merger_identifiable,
@@ -387,6 +397,64 @@ def task_9_2(codes: list[str], cal: v2.CalendarV2, log: list[str]) -> dict:
 # ---------------------------------------------------------------------------
 # 9-3: 配当落ち日構成 + V-1〜V-5（gap_common.pyの既存ロジックを再利用）
 # ---------------------------------------------------------------------------
+
+
+def task_v6_split_merger_conformance(cal: v2.CalendarV2, codes: list[str], log: list[str]) -> dict:
+    """spec §3.1.2 / §9-3 V-6（第3版で新設）: 適合性検査。調整可能な閾値を持たない。
+
+    (a) AdjFactor≠1の全行がis_split_merger_row()で捕捉されること（違反0件必須）
+    (b) ExRTが非nullの全行がAdjFactor≠1を満たし、かつその逆も成り立つこと（違反0件必須）
+    (c) ExRT/AdjFactorの全ユニーク値と件数
+    """
+    exrt_counter: Counter = Counter()
+    adjfactor_nonunity_counter: Counter = Counter()
+    total_rows = 0
+    a_violations = []  # AdjFactor≠1だがis_split_merger_row()がFalse（構造的に起こり得ないが検算）
+    b_violations = []  # ExRT非null と AdjFactor≠1 が食い違う
+    unknown_exrt_values = set()
+
+    for code in codes:
+        bd = cal.bars_by_code.get(code)
+        if not bd:
+            continue
+        for r in bd.values():
+            total_rows += 1
+            af = r.get("AdjFactor")
+            ex = r.get("ExRT")
+            exrt_counter[repr(ex)] += 1
+            af_nonunity = af is not None and abs(af - 1.0) > 1e-9
+            if af_nonunity:
+                adjfactor_nonunity_counter[af] += 1
+            captured = gc.is_split_merger_row(r)
+            if af_nonunity and not captured:
+                a_violations.append({"code": r.get("Code"), "date": r.get("Date"), "AdjFactor": af, "ExRT": ex})
+            ex_nonnull = ex is not None
+            if ex_nonnull != af_nonunity:
+                b_violations.append({"code": r.get("Code"), "date": r.get("Date"), "AdjFactor": af, "ExRT": ex})
+            if ex_nonnull and str(ex) not in ("1", "2"):
+                unknown_exrt_values.add(repr(ex))
+
+    a_pass = len(a_violations) == 0
+    b_pass = len(b_violations) == 0
+    unknown_pass = len(unknown_exrt_values) == 0
+    v6_pass = a_pass and b_pass and unknown_pass
+
+    log.append(
+        f"[V6] total_rows={total_rows} ExRT_values={dict(exrt_counter)} "
+        f"a_violations={len(a_violations)} b_violations={len(b_violations)} "
+        f"unknown_exrt_values={sorted(unknown_exrt_values)} pass={v6_pass}"
+    )
+
+    return {
+        "total_bars_rows_scanned_pinned_range": total_rows,
+        "ExRT_unique_values_and_counts": {str(k): v for k, v in exrt_counter.items()},
+        "AdjFactor_non_unity_unique_values_and_counts": {str(k): v for k, v in adjfactor_nonunity_counter.items()},
+        "check_a_all_nonunity_captured": {"violations_count": len(a_violations), "violations": a_violations[:20], "pass": a_pass},
+        "check_b_exrt_adjfactor_mutual_consistency": {"violations_count": len(b_violations), "violations": b_violations[:20], "pass": b_pass},
+        "unknown_exrt_values_outside_1_2": sorted(unknown_exrt_values),
+        "unknown_exrt_values_pass": unknown_pass,
+        "pass": v6_pass,
+    }
 
 
 def task_9_3(cal, codes, fins_candidates, basis_records, e2a, e2b_dates, skipped_missing_fy, log) -> dict:
@@ -497,16 +565,20 @@ def task_9_3(cal, codes, fins_candidates, basis_records, e2a, e2b_dates, skipped
     v5_fraction = (v5_match / v5_total) if v5_total else None
     v5_pass = v5_fraction is not None and v5_fraction >= 0.995
 
-    all_pass = v1_pass and v2_pass and v3_pass and v4_pass and v5_pass
+    v6 = task_v6_split_merger_conformance(cal, codes, log)
+    v6_pass = v6["pass"]
+
+    all_pass = v1_pass and v2_pass and v3_pass and v4_pass and v5_pass and v6_pass
 
     log.append(
         f"[9-3] V1 b={fit_v1['b']} n={fit_v1['n']} pass={v1_pass} | V2 pass={v2_pass} | "
         f"V3 {in_range_count}/{len(qualifying_days)}={v3_fraction} pass={v3_pass} | "
         f"V4 {len(covered)}/{len(codes)}={v4_fraction} pass={v4_pass} | "
-        f"V5 {v5_match}/{v5_total}={v5_fraction} pass={v5_pass} | ALL_PASS={all_pass}"
+        f"V5 {v5_match}/{v5_total}={v5_fraction} pass={v5_pass} | V6 pass={v6_pass} | ALL_PASS={all_pass}"
     )
 
     return {
+        "V6_split_merger_conformance": v6,
         "skipped_missing_fy_count": skipped_missing_fy,
         "e2a_summary": {
             "positive_codes_count": len(e2a["positive_codes"]),
@@ -520,13 +592,33 @@ def task_9_3(cal, codes, fins_candidates, basis_records, e2a, e2b_dates, skipped
         "V1_pooled_regression": {"fit": fit_v1, "excluded_e1_count": excl_e1_v1, "missing_count": missing_v1,
                                   "threshold": [-1.15, -0.70], "pass": v1_pass},
         "V2_placebo": {"results": v2_results, "threshold_abs_max": 0.35, "pass": v2_pass},
-        "V3_day_reproducibility": {"qualifying_days_count": len(qualifying_days), "in_range_count": in_range_count,
-                                    "fraction": v3_fraction, "threshold_fraction_min": 0.70, "pass": v3_pass},
+        "V3_day_reproducibility": {
+            "qualifying_days_count": len(qualifying_days), "in_range_count": in_range_count,
+            "fraction": v3_fraction, "threshold_fraction_min": 0.70, "pass": v3_pass,
+            "day_results": day_results,
+            "settlement_cycle_diagnostic_NOT_APPLIED": {
+                "note": (
+                    "day_resultsを実測したところ、in_range=Falseの17日は全件2016-09-29〜2022-06-29"
+                    "（うち大半は2019-07-16=日本のT+3→T+2決済移行日より前）に集中し、傾きが"
+                    "理論値-1付近ではなくほぼ0または正（例: 2016-09-29 b=+0.278, 2019-03-28 b=+0.043）"
+                    "であった。§3.1.1 step3の権利落ち日構成式 X := b(R)の1営業日前 はT+2決済を"
+                    "前提とした式（spec原文: 'T+2決済のもとで権利付最終日=b(R)の2営業日前、"
+                    "その翌営業日であるb(R)の1営業日前が権利落ち日'）であり、2019-07-16より前の"
+                    "T+3決済期間には理論上適用できない。診断として、Xをb(R)の2営業日前（T+3仮説）"
+                    "に変更して同じ日を再計算したところ、2016-09-29: b=-0.886、2018-09-27: b=-1.005、"
+                    "2019-03-28: b=-0.995 といずれも理論区間[-1.15,-0.70]付近に入ることを確認した"
+                    "（別のスクラッチ検証。本番の build_e2a には反映していない）。"
+                    "これは §3.1.1（frozen・EXP-OBS000003由来）の権利落ち日構成式そのものに関わる"
+                    "変更であり、B実装チームの裁量では決定せずSに差し戻す。"
+                ),
+            },
+        },
         "V4_coverage": {"covered_codes_count": len(covered), "total_candidate_codes": len(codes),
                         "fraction": v4_fraction, "threshold_fraction_min": 0.95, "pass": v4_pass},
         "V5_period_end_self_check": {"total_2Q_unique_periods": v5_total, "match_count": v5_match,
                                       "fraction": v5_fraction, "threshold_fraction_min": 0.995, "pass": v5_pass},
         "gate_v1_v5_all_pass": all_pass,
+        "gate_v1_v6_all_pass": all_pass,
     }
 
 

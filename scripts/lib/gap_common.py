@@ -258,11 +258,17 @@ def build_e2b(cal: Calendar) -> dict[str, str]:
 
 
 def is_split_merger_row(row: dict | None) -> bool:
+    """spec §3.1.2（EXP-OBS000006 第3版で確定）: 機構ベースの判定。
+
+    `AdjFactor ≠ 1` を直接見る（`ExRT` の値を列挙しない）。
+    `ExRT='2'`（株式併合）が10年データで新たに観測されたことを受けて確定した定義。
+    根拠: `AdjFactor≠1`の行のExRTはすべて'1'（分割）または'2'（併合）のいずれかであり、
+    `ExRT`を明示的に列挙する方式は将来の未知の値を静かに取りこぼす。
+    """
     if row is None:
         return False
     af = row.get("AdjFactor")
-    ex = row.get("ExRT")
-    return ex is not None and str(ex) == "1" and af is not None and af != 1.0
+    return af is not None and abs(af - 1.0) > 1e-9
 
 
 # ---------------------------------------------------------------------------
