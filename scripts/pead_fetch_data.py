@@ -124,6 +124,7 @@ def fetch_fins_summary(client: JQuantsClient, force: bool = False) -> None:
             records = body.get("data", []) if isinstance(body, dict) else []
             if not records:
                 zero.add(iso)
+                failed.discard(iso)
                 _save_state(state_path, done, failed, zero)
                 continue
 
