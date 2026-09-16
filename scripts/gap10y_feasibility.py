@@ -333,6 +333,15 @@ def main() -> int:
     (RESULT_DIR / "feasibility.json").write_text(json.dumps(feasibility, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     log(f"saved: {RESULT_DIR / 'feasibility.json'}")
 
+    # プールP（is_candidate & z<=-1.5）をG1測定で再利用できるよう永続化する
+    # （all_rowsの完全再計算を避けるため。件数が小さいため軽量）。
+    pool_out = [
+        {"code": r["code"], "date": r["date"], "g": r["g"], "sigma": r["sigma"], "z": r["z"], "S": r["S"]}
+        for r in pool
+    ]
+    (RESULT_DIR / "gap_pool.json").write_text(json.dumps(pool_out, ensure_ascii=False), encoding="utf-8")
+    log(f"saved: {RESULT_DIR / 'gap_pool.json'}（{len(pool_out)}件）")
+
     params = {"calendar": cal_json, "gap_ds_gate_result": ds_result, "z_star": z_star, "random_seed": 20260915}
     (RESULT_DIR / "params.json").write_text(json.dumps(params, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     log(f"saved: {RESULT_DIR / 'params.json'}")
