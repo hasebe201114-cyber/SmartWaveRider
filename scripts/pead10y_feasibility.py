@@ -283,6 +283,24 @@ def main() -> int:
     params["calendar"] = cal_json
     params["pead_ds_gate_result"] = ds
     params["pead_random_seed"] = 20260915
+    params["u6_cap"] = {"pead": 271, "gap": 175}
+    params["shared_data_layer_reference"] = {
+        "d0_contract_range_probe": "data/raw/jq10y/d0_contract_range_probe.json",
+        "d3_master_fetch_summary": "data/raw/jq10y/d3_master_fetch_summary.json",
+        "point_in_time_master_validation": "research/EXP-OBS000005/10-result/point_in_time_master_validation.json",
+        "d4_d8_common_tasks": "research/EXP-OBS000005/10-result/d4_d8_common_tasks.json",
+        "universe": "research/EXP-OBS000005/10-result/universe.json",
+        "raw_data_root": "data/raw/jq10y/",
+    }
+    try:
+        d0 = json.loads((RAW_DIR / "d0_contract_range_probe.json").read_text(encoding="utf-8"))
+        params["d0_contract_range_probe_summary"] = {
+            "measured_min_date": d0.get("measured_min_date"),
+            "measured_max_date": d0.get("measured_max_date"),
+            "executed_date": d0.get("executed_date"),
+        }
+    except FileNotFoundError:
+        pass
     params_path.write_text(json.dumps(params, ensure_ascii=False, indent=2), encoding="utf-8")
     log(f"saved: {params_path}")
 
