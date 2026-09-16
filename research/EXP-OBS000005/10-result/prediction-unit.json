@@ -1,0 +1,90 @@
+{
+  "G1-1_confirmation_IC_bar": 0.042022704715280704,
+  "G1-1_K": 237,
+  "G1-1_permutation_p_value": 0.028597140285971403,
+  "G1-1_permutation_reps": 10000,
+  "G1-1_permutation_std": 0.022025974486481466,
+  "G1-1_pass": true,
+  "G1-1_virtual_included_IC_bar": 0.04215411507516137,
+  "G1-2_selection_IC_bar": -0.009026087543577806,
+  "G1-2_selection_K": 115,
+  "G1-2_pass": false,
+  "G1-3_top_decile_R5_gross_mean": 0.013635001014812848,
+  "G1-3_threshold": 0.0035,
+  "G1-3_pass": true,
+  "G1-4_top3_decile_market_excess_mean": 0.001608933364625119,
+  "G1-4_pass": true,
+  "G1-5_rho_dec": 0.7142857142857143,
+  "G1-5_pass": true,
+  "G1-6_max_quarter_excluded": "2025Q2",
+  "G1-6_IC_bar_excl": 0.03663390786017319,
+  "G1-6_top_decile_mean_excl": 0.013960538216613557,
+  "G1-6_pass": true,
+  "G1-7_IC_bar_top175": 0.01984663497043864,
+  "G1-7_top_decile_mean_top175": 0.014873272655410458,
+  "G1-7_pass": true,
+  "all_G1_pass": false,
+  "decile_stats_gross": {
+    "1": {
+      "n": 345,
+      "mean": 0.0025497033588206632,
+      "median": 0.0027548209366390353,
+      "stdev": 0.049069745387947894
+    },
+    "2": {
+      "n": 1870,
+      "mean": 0.0032840872036016162,
+      "median": 0.0038491147036181506,
+      "stdev": 0.04766968882871281
+    },
+    "3": {
+      "n": 0
+    },
+    "4": {
+      "n": 0
+    },
+    "5": {
+      "n": 0
+    },
+    "6": {
+      "n": 0
+    },
+    "7": {
+      "n": 95,
+      "mean": -0.002781392762136375,
+      "median": -0.004188880426504227,
+      "stdev": 0.046888563545754304
+    },
+    "8": {
+      "n": 322,
+      "mean": 0.003957315662692506,
+      "median": 0.0006888238333047081,
+      "stdev": 0.04659399568625287
+    },
+    "9": {
+      "n": 408,
+      "mean": 0.005862952747394963,
+      "median": 0.0061787072243346675,
+      "stdev": 0.04966500261766197
+    },
+    "10": {
+      "n": 475,
+      "mean": 0.013635001014812848,
+      "median": 0.012332628611698482,
+      "stdev": 0.05010533531954855
+    }
+  },
+  "n_d_avg_confirmation": 12.337552742616033,
+  "sigma_R_measured_confirmation": 0.04837173874579238,
+  "R5_measured_stats": {
+    "n": 3515,
+    "mean": 0.0048078589654297075,
+    "stdev": 0.04837173874579238
+  },
+  "buy_blocked_excluded_count": 12,
+  "status_counter_forward_calc": {
+    "ok": 5355,
+    "missing_bar_row": 1
+  },
+  "total_universe_events": 5356
+}
