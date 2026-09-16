@@ -199,6 +199,20 @@ def main() -> int:
     exit_breakdown = result["exit_reason_counter"]
     slot_conflict_reasons = Counter(sc.get("reason") for sc in result["slot_conflicts"])
 
+    eq = [e["equity"] for e in result["equity_curve"]]
+    daily_rets = [(eq[i] / eq[i - 1] - 1.0) for i in range(1, len(eq)) if eq[i - 1]]
+    sharpe_annual = None
+    sharpe_ci95 = None
+    if len(daily_rets) > 2:
+        m = sum(daily_rets) / len(daily_rets)
+        sd = (sum((x - m) ** 2 for x in daily_rets) / (len(daily_rets) - 1)) ** 0.5
+        if sd > 0:
+            sharpe_daily = m / sd
+            sharpe_annual = sharpe_daily * (245 ** 0.5)
+            n_years = len(daily_rets) / 245.0
+            se = (1.0 / n_years) ** 0.5 if n_years > 0 else None
+            sharpe_ci95 = [sharpe_annual - 1.96 * se, sharpe_annual + 1.96 * se] if se else None
+
     pipeline_result = {
         "z_star": z_star,
         "G2-1_confirmation_avg_net_return": g2_1_value, "G2-1_pass": g2_1_pass,
@@ -216,6 +230,8 @@ def main() -> int:
         "cb_events": result["cb_events"],
         "candidates_total": len(candidates_raw),
         "candidates_c_d_missing_skipped": skipped_no_cd,
+        "sharpe_annualized_reference_only": sharpe_annual,
+        "sharpe_annualized_95ci_reference_only": sharpe_ci95,
     }
 
     RESULT_DIR.mkdir(parents=True, exist_ok=True)
