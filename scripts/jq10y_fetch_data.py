@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EXP-OBS000005 / EXP-OBS000006（10年版）共通データ取得スクリプト。
+"""EXP-OBS000007 / EXP-OBS000008（10年版）共通データ取得スクリプト。
 
 10Y-COMMON §8 D-0・D-1・D-3・D-4・D-5・D-7 を実装する。
 `pead_fetch_data.py` / `gap_fetch_data.py` を統合・拡張したもの。

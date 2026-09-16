@@ -1,0 +1,87 @@
+EXP-OBS000007（PEAD・10年版）実行ログ
+担当: B実装チーム（quant-researcher）
+実行日: 2026-09-16
+
+## 再現用実行コマンド（決定的。乱数を使うのはG1のpermutationのみ・シード20260915固定。本ログの範囲ではpermutationは未実行）
+
+    cd /home/user/SmartWaveRider
+    python3 scripts/jq10y_build_universe.py
+    python3 scripts/jq10y_common_tasks.py
+    python3 scripts/pead10y_feasibility.py
+    # ↓ 以降はD-6未解決のため未実行（下記「停止理由」参照）
+    # python3 scripts/pead10y_prediction_unit.py --seed 20260915
+    # python3 scripts/pead10y_pipeline.py        --seed 20260915
+
+データ層: `data/raw/jq10y/`（EXP-OBS000005で取得済みの生データをそのまま再利用。API再取得なし）。
+
+## 実施内容
+
+1. `jq10y_build_universe.py`: 10Y-COMMON §5 U-1〜U-9・point-in-timeマスタ・フォールバックを再計算（ロジック変更なし・出力先のみEXP-OBS000005→EXP-OBS000007に変更）。
+   全11確定日でDS-3（≥150銘柄）を充足。unresolved_dates=[]。
+   → `universe.json` / `point_in_time_master_validation.json`
+
+2. `jq10y_common_tasks.py`: D-4〜D-8を再計算。
+   - D-4: 10Y-COMMON §8.1.2（第2版・暦日按分判定式）を新規実装。records_by_yearは既存実測値を再利用（再取得なし）。
+     - 第1版（生カウント比較・廃止済みだが比較のため保持）: `pass_v1_first_edition = False`（2016年比率0.38で不成立、旧EXP-OBS000005と同一の実測値）。
+     - 第2版（暦日按分）: `d4_v2_pass = True`。全11年（2016〜2026）で `records_by_year(y) >= 0.50 * expected(y)` を充足。
+   - D-6: 10Y-COMMON §8.2 の二段階手続きを実施。
+     - §8.2.1（Gap側E-1 OR条件検算）: `scripts/lib/gap_common.py::is_split_merger_row()` を
+       `AdjFactor(D)!=1 の単独条件でも除外成立` するOR条件に修正（旧実装は `ExRT=="1"` 単独条件のみだった）。
+       Gapユニバース（390銘柄）限定の検算は `research/EXP-OBS000008/10-result/feasibility.json` の
+       `8.2.1_e1_or_condition_check` を参照（e1_adjfactor_ne1_total=263, excluded=263, match=True）。
+     - §8.2.3（PEAD側AdjC累積規約の全件検算・新規実装）: `AdjFactor!=1.0` の2,592行（ExRT='1'=1,815/'2'=754/'3'=23）
+       全件について、銘柄ごとにAdjFactor!=1の行を区分境界としてC(t)/AdjC(t)比率が区間内で一定（相対誤差1e-3以内）
+       であることを検算した。
+       **結果: 不合格。** 非境界行4,116,775件中38,543件（約0.94%）が許容誤差を超えて不一致。
+       原因調査（記述のみ・合否判定には使わない）: サンプル検算（code=15450等）では、不一致の大部分が
+       AdjC（調整後終値）が銘柄によって粗い小数精度（例: 0.1円単位）で丸められて格納されていることに
+       起因すると見られる。ただしこれはBの推測であり、spec §8.2.3は「相対誤差1e-3」という数値基準以外に
+       比較粒度（日次全件か・境界前後の局所比較か）を明示していない。**この曖昧さをB自身が「安全側だろう」
+       と解釈して埋めることはせず、実測どおり日次全件・相対1e-3で判定した結果をそのまま報告する。**
+     - 10Y-COMMON §8.2.4の判定規則: 「§8.2.1と§8.2.3が両方とも合格した場合のみD-6を解除する。
+       いずれか一方でも不合格ならSに差し戻す」。§8.2.1は合格・§8.2.3は不合格のため、**D-6はこの基準では未解決**。
+   - D-5: `/fins/earnings-date` カバレッジを記録のみ（合否基準なし）。
+   - D-7: UL/LL値域・欠損率チェック。合格（欠損率0.16%）。
+   - D-8: 欠損営業日率チェック。合格（0.16%）。
+   → `d4_d8_common_tasks.json`
+
+3. `pead10y_feasibility.py`: §9-1〜9-7・DS-1〜DS-7を再計算（ロジック変更なし）。
+   総イベント数=151,596。DS-1〜DS-7すべて合格（`all_pass=true`）。
+   → `feasibility.json` / `params.json`（一部）/ `pead_disc_dates.json`
+
+## 停止理由（無条件停止規則。実験を回さずSに差し戻す）
+
+**EXP-OBS000007 spec §14.1「D-4・D-6とも解消（またはD-6は§8.2.3の実害なし確認）した場合のみ、
+以下14.2の修正を適用のうえG1を再実行する」** に照らし、D-6が上記の理由で未解決であるため、
+**G1（`pead10y_prediction_unit.py`）以降は実行していない。**
+
+DSゲート（DS-1〜DS-7）はすべて合格しており、G1自体を測定不能にする要因ではない。
+停止要因はD-6のみである。
+
+## §14.2 デシルタイ処理修正（実装のみ完了。G1未実行のため効果未検証）
+
+`scripts/pead10y_prediction_unit.py` のSUEpct計算を `bisect_left`（タイ集団の最小順位）から
+`(bisect_left + bisect_right) / 2`（タイ集団の平均順位）に修正した。この修正はコード上完了しているが、
+D-6未解決のため `pead10y_prediction_unit.py` 自体を実行していない。したがってデシル分布の歪みが
+解消されたことは今回は確認できていない（次回D-6解消後の実行で確認すること）。
+
+## 旧EXP-OBS000005実測値との比較
+
+| 項目 | EXP-OBS000005実測 | EXP-OBS000007実測（本ログ） | 差分 |
+|---|---|---|---|
+| D-4（第1版・生カウント） | 2016年比率0.38で不成立 | 同一（0.38・不成立） | 変化なし（データ層再利用のため） |
+| D-4（第2版・暦日按分。本EXPで新規実装） | 未実装 | 全年pass=True | 新規判定式を初めて適用し合格 |
+| D-6 ExRT内訳 | "1"=1815/"2"=754/"3"=23 | 同一 | 変化なし |
+| D-6 E-1 OR条件（Gap側） | 未実装（ExRT=="1"単独条件） | 実装・match=True（Gapユニバース限定） | 新規検算追加 |
+| D-6 PEAD側累積規約全件検算 | 未実装（サンプル5銘柄のみ） | 実装・不合格（38,543/4,116,775件不一致） | 新規検算追加。結果は不合格 |
+| DS-1〜DS-7（PEAD） | 全合格 | 全合格 | 変化なし |
+| G1（IC_bar等） | 選定-0.009026/確認0.042023・G1-2不合格 | **未実行**（D-6未解決のため） | 測定せず |
+
+## 生成ファイル
+
+- universe.json / point_in_time_master_validation.json
+- d4_d8_common_tasks.json
+- feasibility.json / params.json / pead_disc_dates.json
+- run.log（本ファイル）
+- prediction-unit.json: **なし**（D-6未解決による停止のため生成せず。正当な不在）
+- pipeline.json / cost-model.json: **なし**（G1未実行のため生成せず。正当な不在）

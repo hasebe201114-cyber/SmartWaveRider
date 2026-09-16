@@ -1,0 +1,208 @@
+[
+  {
+    "date": "2016-12-16",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2017-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2018-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2019-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2020-01-06",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2021-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2022-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2023-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2024-01-04",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2025-01-06",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "date": "2026-01-05",
+    "branch": "i_primary",
+    "fallback_stats": null,
+    "master_available": true,
+    "master_scalecat_unique_values": [
+      "-",
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400",
+      "TOPIX Small 1",
+      "TOPIX Small 2"
+    ],
+    "master_mrgn_unique_values": [
+      "1",
+      "2",
+      "3"
+    ]
+  }
+]

@@ -5,10 +5,10 @@
 `jq10y_build_db.py --tables bars master` が完了していること。
 
 出力:
-  - `research/EXP-OBS000005/10-result/universe.json`
+  - `research/EXP-OBS000007/10-result/universe.json`
       確定日ごとの U-1〜U-5 通過集合（打ち切り前）・Va順位、および U6_cap=175/271それぞれの
       打ち切り結果を別キーで出力する（10Y-COMMON §5.2 末尾の要求）。
-  - `research/EXP-OBS000005/10-result/params.json` に D-3（point-in-timeマスタ検証）の結果をマージする
+  - `research/EXP-OBS000007/10-result/params.json` に D-3（point-in-timeマスタ検証）の結果をマージする
     （このスクリプト単体では params_universe_fragment.json として出力し、feasibility側でマージする）。
 
 判定語は書かない。数値と事実のみ。
@@ -24,7 +24,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = REPO_ROOT / "data" / "raw" / "jq10y"
 DB_PATH = RAW_DIR / "jq10y.db"
-RESULT_DIR_SHARED = REPO_ROOT / "research" / "EXP-OBS000005" / "10-result"
+RESULT_DIR_SHARED = REPO_ROOT / "research" / "EXP-OBS000007" / "10-result"
 
 SCALECAT_U1_OK = {"TOPIX Core30", "TOPIX Large70", "TOPIX Mid400"}
 MRGN_U2_OK = {"1", "2"}

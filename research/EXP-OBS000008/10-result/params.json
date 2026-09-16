@@ -1,0 +1,15 @@
+{
+  "calendar_reference": "research/EXP-OBS000007/10-result/d4_d8_common_tasks.json 及び data/raw/jq10y/calendar.json（Tはgap10y_feasibility.py内でload_calendar()経由・PEADと共有）",
+  "u6_cap_applied": 175,
+  "shared_universe_reference": "research/EXP-OBS000007/10-result/universe.json（U6_cap=175で打ち切り）",
+  "shared_data_layer_reference": {
+    "raw_data_root": "data/raw/jq10y/",
+    "d4_d8_common_tasks": "research/EXP-OBS000007/10-result/d4_d8_common_tasks.json"
+  },
+  "random_seed": 20260915,
+  "stop_status": {
+    "stopped_at": "9-5_k_look_gate (gap10y_feasibility.py)",
+    "reason": "K_look>66 が1件以上存在する（spec §3.2・§9-5・K-6の無条件停止規則）。実際の停止フローとして実装（13.3是正）。",
+    "also_note": "K_look>66停止に加え、feasibility.json内のV_gates（9-2b実行分）ではV-3（日別再現性）・V-6（T+3期独立検証）も不合格（spec §3.1.2 V-1〜V-6の無条件停止規則K-6に該当）。V-5（期末日算術検算・13.2是正で新規実装）は合格。また10Y-COMMON D-6についても、§8.2.4の基準でPEAD側検算（§8.2.3）が不合格のため未解決。いずれの理由からもDSゲート・z*較正・G1測定には進んでいない。"
+  }
+}

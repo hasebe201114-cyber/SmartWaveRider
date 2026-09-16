@@ -1,4 +1,4 @@
-"""EXP-OBS000005 / EXP-OBS000006（10年版）共通ロジック。10Y-COMMON 正本に対応。
+"""EXP-OBS000007 / EXP-OBS000008（10年版）共通ロジック。10Y-COMMON 正本に対応。
 
 SQLite DB (`data/raw/jq10y/jq10y.db`) と `calendar.json` / `universe.json` を読み込み、
 T・確定日ごとのユニバース・SUE計算・ギャップ計算などの純粋関数を提供する。
@@ -20,7 +20,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 RAW_DIR = REPO_ROOT / "data" / "raw" / "jq10y"
 DB_PATH = RAW_DIR / "jq10y.db"
-SHARED_RESULT_DIR = REPO_ROOT / "research" / "EXP-OBS000005" / "10-result"
+SHARED_RESULT_DIR = REPO_ROOT / "research" / "EXP-OBS000007" / "10-result"
 
 PERM_SEED = 20260915
 
@@ -345,7 +345,7 @@ def make_rng():
 
 
 # ---------------------------------------------------------------------------
-# 配当落ち日構成（EXP-OBS000006用。決済サイクル分岐を含む。10Y-COMMON §6.1）
+# 配当落ち日構成（EXP-OBS000008用。決済サイクル分岐を含む。10Y-COMMON §6.1）
 # ---------------------------------------------------------------------------
 
 

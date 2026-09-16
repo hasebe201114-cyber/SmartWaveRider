@@ -258,11 +258,21 @@ def build_e2b(cal: Calendar) -> dict[str, str]:
 
 
 def is_split_merger_row(row: dict | None) -> bool:
+    """spec §3.1 E-1: `AdjFactor(D) != 1` **または** `ExRT` が権利落ちを示す場合に除外する（OR条件）。
+
+    10Y-COMMON §8.2.1（D-6是正・最優先事項）: 旧実装は `ExRT=="1"` の単独条件のみを見ており、
+    `AdjFactor!=1.0` の行のうち ExRT="2"/"3" の777行（意味未解決）を除外し損ねていた。
+    `AdjFactor(D) != 1` は ExRT の値によらず単独で除外を成立させる。
+    """
     if row is None:
         return False
     af = row.get("AdjFactor")
+    if af is not None and af != 1.0:
+        return True
     ex = row.get("ExRT")
-    return ex is not None and str(ex) == "1" and af is not None and af != 1.0
+    if ex is not None and str(ex) == "1":
+        return True
+    return False
 
 
 # ---------------------------------------------------------------------------

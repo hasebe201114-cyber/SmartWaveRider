@@ -1,0 +1,909 @@
+{
+  "9-1_doctype_curpertype_mapping": {
+    "doctype_unique_values_and_counts_all": {
+      "FYFinancialStatements_Consolidated_JP": 32865,
+      "2QFinancialStatements_Consolidated_JP": 31000,
+      "1QFinancialStatements_Consolidated_JP": 30996,
+      "3QFinancialStatements_Consolidated_JP": 30934,
+      "EarnForecastRevision": 27218,
+      "FYFinancialStatements_NonConsolidated_JP": 5524,
+      "1QFinancialStatements_NonConsolidated_JP": 5282,
+      "3QFinancialStatements_NonConsolidated_JP": 5282,
+      "2QFinancialStatements_NonConsolidated_JP": 5250,
+      "DividendForecastRevision": 4666,
+      "1QFinancialStatements_Consolidated_IFRS": 2415,
+      "FYFinancialStatements_Consolidated_IFRS": 2404,
+      "2QFinancialStatements_Consolidated_IFRS": 2256,
+      "3QFinancialStatements_Consolidated_IFRS": 2237,
+      "FYFinancialStatements_Consolidated_REIT": 1206,
+      "REITEarnForecastRevision": 636,
+      "FYFinancialStatements_Consolidated_US": 122,
+      "3QFinancialStatements_Consolidated_US": 121,
+      "2QFinancialStatements_Consolidated_US": 120,
+      "1QFinancialStatements_Consolidated_US": 109,
+      "REITDividendForecastRevision": 41,
+      "OtherPeriodFinancialStatements_Consolidated_JP": 32,
+      "2QFinancialStatements_Consolidated_REIT": 17,
+      "3QFinancialStatements_NonConsolidated_IFRS": 16,
+      "1QFinancialStatements_NonConsolidated_IFRS": 14,
+      "2QFinancialStatements_NonConsolidated_IFRS": 13,
+      "FYFinancialStatements_NonConsolidated_IFRS": 13,
+      "FYFinancialStatements_Consolidated_Foreign": 10,
+      "1QFinancialStatements_Consolidated_Foreign": 9,
+      "2QFinancialStatements_Consolidated_Foreign": 7,
+      "OtherPeriodFinancialStatements_NonConsolidated_JP": 6,
+      "3QFinancialStatements_Consolidated_Foreign": 6,
+      "OtherPeriodFinancialStatements_Consolidated_IFRS": 1,
+      "2QFinancialStatements_NonConsolidated_Foreign": 1
+    },
+    "curpertype_unique_values_and_counts_all": {
+      "FY": 66974,
+      "2Q": 45972,
+      "1Q": 39049,
+      "3Q": 38795,
+      "4Q": 37,
+      "5Q": 2
+    },
+    "doctype_by_year": {
+      "2016": {
+        "2QFinancialStatements_Consolidated_JP": 2279,
+        "EarnForecastRevision": 1305,
+        "3QFinancialStatements_Consolidated_JP": 417,
+        "2QFinancialStatements_NonConsolidated_JP": 330,
+        "FYFinancialStatements_Consolidated_JP": 225,
+        "1QFinancialStatements_Consolidated_JP": 180,
+        "DividendForecastRevision": 114,
+        "3QFinancialStatements_NonConsolidated_JP": 87,
+        "2QFinancialStatements_Consolidated_IFRS": 84,
+        "FYFinancialStatements_NonConsolidated_JP": 61,
+        "1QFinancialStatements_NonConsolidated_JP": 60,
+        "FYFinancialStatements_Consolidated_REIT": 28,
+        "REITEarnForecastRevision": 19,
+        "2QFinancialStatements_Consolidated_US": 19,
+        "3QFinancialStatements_Consolidated_IFRS": 15,
+        "1QFinancialStatements_Consolidated_IFRS": 4,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 2,
+        "FYFinancialStatements_Consolidated_IFRS": 2,
+        "3QFinancialStatements_Consolidated_US": 2,
+        "REITDividendForecastRevision": 2,
+        "2QFinancialStatements_Consolidated_REIT": 1
+      },
+      "2017": {
+        "FYFinancialStatements_Consolidated_JP": 3223,
+        "EarnForecastRevision": 3219,
+        "1QFinancialStatements_Consolidated_JP": 3029,
+        "2QFinancialStatements_Consolidated_JP": 3027,
+        "3QFinancialStatements_Consolidated_JP": 3020,
+        "DividendForecastRevision": 679,
+        "FYFinancialStatements_NonConsolidated_JP": 540,
+        "3QFinancialStatements_NonConsolidated_JP": 523,
+        "1QFinancialStatements_NonConsolidated_JP": 519,
+        "2QFinancialStatements_NonConsolidated_JP": 510,
+        "2QFinancialStatements_Consolidated_IFRS": 139,
+        "1QFinancialStatements_Consolidated_IFRS": 138,
+        "FYFinancialStatements_Consolidated_IFRS": 122,
+        "3QFinancialStatements_Consolidated_IFRS": 120,
+        "FYFinancialStatements_Consolidated_REIT": 119,
+        "REITEarnForecastRevision": 62,
+        "FYFinancialStatements_Consolidated_US": 22,
+        "3QFinancialStatements_Consolidated_US": 21,
+        "1QFinancialStatements_Consolidated_US": 21,
+        "2QFinancialStatements_Consolidated_US": 21,
+        "REITDividendForecastRevision": 3,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 2,
+        "OtherPeriodFinancialStatements_NonConsolidated_JP": 1,
+        "2QFinancialStatements_Consolidated_REIT": 1
+      },
+      "2018": {
+        "FYFinancialStatements_Consolidated_JP": 3219,
+        "1QFinancialStatements_Consolidated_JP": 3069,
+        "3QFinancialStatements_Consolidated_JP": 3055,
+        "2QFinancialStatements_Consolidated_JP": 3018,
+        "EarnForecastRevision": 2698,
+        "DividendForecastRevision": 534,
+        "FYFinancialStatements_NonConsolidated_JP": 529,
+        "1QFinancialStatements_NonConsolidated_JP": 517,
+        "2QFinancialStatements_NonConsolidated_JP": 512,
+        "3QFinancialStatements_NonConsolidated_JP": 507,
+        "1QFinancialStatements_Consolidated_IFRS": 185,
+        "2QFinancialStatements_Consolidated_IFRS": 181,
+        "FYFinancialStatements_Consolidated_IFRS": 167,
+        "3QFinancialStatements_Consolidated_IFRS": 154,
+        "FYFinancialStatements_Consolidated_REIT": 119,
+        "REITEarnForecastRevision": 70,
+        "FYFinancialStatements_Consolidated_US": 20,
+        "3QFinancialStatements_Consolidated_US": 19,
+        "1QFinancialStatements_Consolidated_US": 13,
+        "2QFinancialStatements_Consolidated_US": 13,
+        "REITDividendForecastRevision": 9,
+        "2QFinancialStatements_Consolidated_REIT": 2,
+        "OtherPeriodFinancialStatements_NonConsolidated_JP": 1,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 1,
+        "2QFinancialStatements_NonConsolidated_IFRS": 1
+      },
+      "2019": {
+        "FYFinancialStatements_Consolidated_JP": 3239,
+        "1QFinancialStatements_Consolidated_JP": 3064,
+        "2QFinancialStatements_Consolidated_JP": 3051,
+        "3QFinancialStatements_Consolidated_JP": 3042,
+        "EarnForecastRevision": 2689,
+        "FYFinancialStatements_NonConsolidated_JP": 559,
+        "1QFinancialStatements_NonConsolidated_JP": 522,
+        "3QFinancialStatements_NonConsolidated_JP": 522,
+        "2QFinancialStatements_NonConsolidated_JP": 509,
+        "DividendForecastRevision": 408,
+        "FYFinancialStatements_Consolidated_IFRS": 214,
+        "1QFinancialStatements_Consolidated_IFRS": 206,
+        "2QFinancialStatements_Consolidated_IFRS": 206,
+        "3QFinancialStatements_Consolidated_IFRS": 190,
+        "FYFinancialStatements_Consolidated_REIT": 128,
+        "REITEarnForecastRevision": 62,
+        "3QFinancialStatements_Consolidated_US": 14,
+        "FYFinancialStatements_Consolidated_US": 14,
+        "2QFinancialStatements_Consolidated_US": 13,
+        "1QFinancialStatements_Consolidated_US": 12,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 4,
+        "REITDividendForecastRevision": 2,
+        "2QFinancialStatements_Consolidated_REIT": 2
+      },
+      "2020": {
+        "EarnForecastRevision": 3531,
+        "FYFinancialStatements_Consolidated_JP": 3284,
+        "1QFinancialStatements_Consolidated_JP": 3090,
+        "3QFinancialStatements_Consolidated_JP": 3083,
+        "2QFinancialStatements_Consolidated_JP": 3083,
+        "FYFinancialStatements_NonConsolidated_JP": 535,
+        "1QFinancialStatements_NonConsolidated_JP": 515,
+        "3QFinancialStatements_NonConsolidated_JP": 515,
+        "2QFinancialStatements_NonConsolidated_JP": 504,
+        "DividendForecastRevision": 407,
+        "FYFinancialStatements_Consolidated_IFRS": 226,
+        "1QFinancialStatements_Consolidated_IFRS": 222,
+        "2QFinancialStatements_Consolidated_IFRS": 219,
+        "3QFinancialStatements_Consolidated_IFRS": 214,
+        "FYFinancialStatements_Consolidated_REIT": 126,
+        "REITEarnForecastRevision": 67,
+        "FYFinancialStatements_Consolidated_US": 13,
+        "3QFinancialStatements_Consolidated_US": 12,
+        "1QFinancialStatements_Consolidated_US": 12,
+        "2QFinancialStatements_Consolidated_US": 12,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 7,
+        "2QFinancialStatements_Consolidated_REIT": 2,
+        "OtherPeriodFinancialStatements_NonConsolidated_JP": 1,
+        "FYFinancialStatements_NonConsolidated_IFRS": 1,
+        "1QFinancialStatements_NonConsolidated_IFRS": 1,
+        "2QFinancialStatements_NonConsolidated_IFRS": 1,
+        "REITDividendForecastRevision": 1
+      },
+      "2021": {
+        "FYFinancialStatements_Consolidated_JP": 3326,
+        "EarnForecastRevision": 3294,
+        "1QFinancialStatements_Consolidated_JP": 3118,
+        "3QFinancialStatements_Consolidated_JP": 3105,
+        "2QFinancialStatements_Consolidated_JP": 3084,
+        "FYFinancialStatements_NonConsolidated_JP": 549,
+        "3QFinancialStatements_NonConsolidated_JP": 524,
+        "1QFinancialStatements_NonConsolidated_JP": 516,
+        "2QFinancialStatements_NonConsolidated_JP": 505,
+        "DividendForecastRevision": 456,
+        "1QFinancialStatements_Consolidated_IFRS": 239,
+        "FYFinancialStatements_Consolidated_IFRS": 237,
+        "2QFinancialStatements_Consolidated_IFRS": 233,
+        "3QFinancialStatements_Consolidated_IFRS": 224,
+        "FYFinancialStatements_Consolidated_REIT": 122,
+        "REITEarnForecastRevision": 70,
+        "3QFinancialStatements_Consolidated_US": 11,
+        "FYFinancialStatements_Consolidated_US": 11,
+        "1QFinancialStatements_Consolidated_US": 10,
+        "2QFinancialStatements_Consolidated_US": 10,
+        "2QFinancialStatements_Consolidated_REIT": 3,
+        "3QFinancialStatements_NonConsolidated_IFRS": 2,
+        "FYFinancialStatements_NonConsolidated_IFRS": 2,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 2,
+        "1QFinancialStatements_NonConsolidated_IFRS": 2,
+        "2QFinancialStatements_NonConsolidated_IFRS": 2,
+        "REITDividendForecastRevision": 1
+      },
+      "2022": {
+        "FYFinancialStatements_Consolidated_JP": 3300,
+        "1QFinancialStatements_Consolidated_JP": 3123,
+        "3QFinancialStatements_Consolidated_JP": 3115,
+        "2QFinancialStatements_Consolidated_JP": 3104,
+        "EarnForecastRevision": 2568,
+        "FYFinancialStatements_NonConsolidated_JP": 567,
+        "1QFinancialStatements_NonConsolidated_JP": 542,
+        "3QFinancialStatements_NonConsolidated_JP": 538,
+        "2QFinancialStatements_NonConsolidated_JP": 535,
+        "DividendForecastRevision": 403,
+        "FYFinancialStatements_Consolidated_IFRS": 257,
+        "1QFinancialStatements_Consolidated_IFRS": 256,
+        "2QFinancialStatements_Consolidated_IFRS": 251,
+        "3QFinancialStatements_Consolidated_IFRS": 247,
+        "FYFinancialStatements_Consolidated_REIT": 125,
+        "REITEarnForecastRevision": 54,
+        "FYFinancialStatements_Consolidated_US": 11,
+        "3QFinancialStatements_Consolidated_US": 10,
+        "1QFinancialStatements_Consolidated_US": 9,
+        "2QFinancialStatements_Consolidated_US": 9,
+        "3QFinancialStatements_NonConsolidated_IFRS": 2,
+        "FYFinancialStatements_NonConsolidated_IFRS": 2,
+        "1QFinancialStatements_NonConsolidated_IFRS": 2,
+        "2QFinancialStatements_NonConsolidated_IFRS": 2,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 1,
+        "REITDividendForecastRevision": 1,
+        "2QFinancialStatements_Consolidated_REIT": 1
+      },
+      "2023": {
+        "FYFinancialStatements_Consolidated_JP": 3352,
+        "1QFinancialStatements_Consolidated_JP": 3137,
+        "3QFinancialStatements_Consolidated_JP": 3133,
+        "2QFinancialStatements_Consolidated_JP": 3129,
+        "EarnForecastRevision": 2435,
+        "FYFinancialStatements_NonConsolidated_JP": 590,
+        "3QFinancialStatements_NonConsolidated_JP": 553,
+        "1QFinancialStatements_NonConsolidated_JP": 550,
+        "2QFinancialStatements_NonConsolidated_JP": 541,
+        "DividendForecastRevision": 428,
+        "FYFinancialStatements_Consolidated_IFRS": 275,
+        "2QFinancialStatements_Consolidated_IFRS": 263,
+        "1QFinancialStatements_Consolidated_IFRS": 262,
+        "3QFinancialStatements_Consolidated_IFRS": 260,
+        "FYFinancialStatements_Consolidated_REIT": 120,
+        "REITEarnForecastRevision": 56,
+        "FYFinancialStatements_Consolidated_US": 9,
+        "3QFinancialStatements_Consolidated_US": 9,
+        "1QFinancialStatements_Consolidated_US": 8,
+        "2QFinancialStatements_Consolidated_US": 8,
+        "3QFinancialStatements_NonConsolidated_IFRS": 2,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 2,
+        "FYFinancialStatements_NonConsolidated_IFRS": 2,
+        "1QFinancialStatements_Consolidated_Foreign": 2,
+        "1QFinancialStatements_NonConsolidated_IFRS": 2,
+        "2QFinancialStatements_Consolidated_Foreign": 2,
+        "2QFinancialStatements_NonConsolidated_IFRS": 2,
+        "FYFinancialStatements_Consolidated_Foreign": 1,
+        "2QFinancialStatements_Consolidated_REIT": 1,
+        "OtherPeriodFinancialStatements_Consolidated_IFRS": 1,
+        "3QFinancialStatements_Consolidated_Foreign": 1,
+        "2QFinancialStatements_NonConsolidated_Foreign": 1,
+        "REITDividendForecastRevision": 1
+      },
+      "2024": {
+        "FYFinancialStatements_Consolidated_JP": 3356,
+        "1QFinancialStatements_Consolidated_JP": 3187,
+        "3QFinancialStatements_Consolidated_JP": 3141,
+        "2QFinancialStatements_Consolidated_JP": 3104,
+        "EarnForecastRevision": 2158,
+        "FYFinancialStatements_NonConsolidated_JP": 578,
+        "3QFinancialStatements_NonConsolidated_JP": 560,
+        "1QFinancialStatements_NonConsolidated_JP": 559,
+        "2QFinancialStatements_NonConsolidated_JP": 541,
+        "DividendForecastRevision": 455,
+        "FYFinancialStatements_Consolidated_IFRS": 293,
+        "1QFinancialStatements_Consolidated_IFRS": 292,
+        "2QFinancialStatements_Consolidated_IFRS": 283,
+        "3QFinancialStatements_Consolidated_IFRS": 275,
+        "FYFinancialStatements_Consolidated_REIT": 121,
+        "REITEarnForecastRevision": 69,
+        "FYFinancialStatements_Consolidated_US": 9,
+        "3QFinancialStatements_Consolidated_US": 8,
+        "1QFinancialStatements_Consolidated_US": 8,
+        "REITDividendForecastRevision": 7,
+        "2QFinancialStatements_Consolidated_US": 7,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 5,
+        "1QFinancialStatements_Consolidated_Foreign": 3,
+        "1QFinancialStatements_NonConsolidated_IFRS": 3,
+        "3QFinancialStatements_NonConsolidated_IFRS": 2,
+        "3QFinancialStatements_Consolidated_Foreign": 2,
+        "FYFinancialStatements_Consolidated_Foreign": 2,
+        "FYFinancialStatements_NonConsolidated_IFRS": 2,
+        "2QFinancialStatements_Consolidated_Foreign": 2,
+        "2QFinancialStatements_NonConsolidated_IFRS": 2,
+        "2QFinancialStatements_Consolidated_REIT": 1
+      },
+      "2025": {
+        "FYFinancialStatements_Consolidated_JP": 3367,
+        "3QFinancialStatements_Consolidated_JP": 3214,
+        "1QFinancialStatements_Consolidated_JP": 3178,
+        "2QFinancialStatements_Consolidated_JP": 3095,
+        "EarnForecastRevision": 1940,
+        "FYFinancialStatements_NonConsolidated_JP": 565,
+        "1QFinancialStatements_NonConsolidated_JP": 542,
+        "3QFinancialStatements_NonConsolidated_JP": 532,
+        "2QFinancialStatements_NonConsolidated_JP": 531,
+        "DividendForecastRevision": 473,
+        "FYFinancialStatements_Consolidated_IFRS": 304,
+        "1QFinancialStatements_Consolidated_IFRS": 303,
+        "3QFinancialStatements_Consolidated_IFRS": 300,
+        "2QFinancialStatements_Consolidated_IFRS": 292,
+        "FYFinancialStatements_Consolidated_REIT": 113,
+        "REITEarnForecastRevision": 71,
+        "REITDividendForecastRevision": 14,
+        "3QFinancialStatements_Consolidated_US": 9,
+        "1QFinancialStatements_Consolidated_US": 9,
+        "2QFinancialStatements_Consolidated_US": 7,
+        "FYFinancialStatements_Consolidated_US": 7,
+        "2QFinancialStatements_NonConsolidated_IFRS": 3,
+        "3QFinancialStatements_NonConsolidated_IFRS": 2,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 2,
+        "FYFinancialStatements_Consolidated_Foreign": 2,
+        "3QFinancialStatements_Consolidated_Foreign": 2,
+        "FYFinancialStatements_NonConsolidated_IFRS": 2,
+        "1QFinancialStatements_Consolidated_Foreign": 2,
+        "1QFinancialStatements_NonConsolidated_IFRS": 2,
+        "2QFinancialStatements_Consolidated_Foreign": 2,
+        "2QFinancialStatements_Consolidated_REIT": 2,
+        "OtherPeriodFinancialStatements_NonConsolidated_JP": 1
+      },
+      "2026": {
+        "FYFinancialStatements_Consolidated_JP": 2974,
+        "1QFinancialStatements_Consolidated_JP": 2821,
+        "3QFinancialStatements_Consolidated_JP": 2609,
+        "EarnForecastRevision": 1381,
+        "2QFinancialStatements_Consolidated_JP": 1026,
+        "FYFinancialStatements_NonConsolidated_JP": 451,
+        "1QFinancialStatements_NonConsolidated_JP": 440,
+        "3QFinancialStatements_NonConsolidated_JP": 421,
+        "DividendForecastRevision": 309,
+        "1QFinancialStatements_Consolidated_IFRS": 308,
+        "FYFinancialStatements_Consolidated_IFRS": 307,
+        "3QFinancialStatements_Consolidated_IFRS": 238,
+        "2QFinancialStatements_NonConsolidated_JP": 232,
+        "2QFinancialStatements_Consolidated_IFRS": 105,
+        "FYFinancialStatements_Consolidated_REIT": 85,
+        "REITEarnForecastRevision": 36,
+        "1QFinancialStatements_Consolidated_US": 7,
+        "3QFinancialStatements_NonConsolidated_IFRS": 6,
+        "FYFinancialStatements_Consolidated_US": 6,
+        "3QFinancialStatements_Consolidated_US": 6,
+        "FYFinancialStatements_Consolidated_Foreign": 5,
+        "OtherPeriodFinancialStatements_Consolidated_JP": 4,
+        "FYFinancialStatements_NonConsolidated_IFRS": 2,
+        "1QFinancialStatements_NonConsolidated_IFRS": 2,
+        "OtherPeriodFinancialStatements_NonConsolidated_JP": 2,
+        "1QFinancialStatements_Consolidated_Foreign": 2,
+        "3QFinancialStatements_Consolidated_Foreign": 1,
+        "2QFinancialStatements_Consolidated_US": 1,
+        "2QFinancialStatements_Consolidated_Foreign": 1,
+        "2QFinancialStatements_Consolidated_REIT": 1
+      }
+    },
+    "curpertype_by_year": {
+      "2016": {
+        "2Q": 3486,
+        "FY": 981,
+        "3Q": 522,
+        "1Q": 245,
+        "4Q": 2
+      },
+      "2017": {
+        "FY": 6874,
+        "2Q": 4779,
+        "1Q": 3724,
+        "3Q": 3701,
+        "4Q": 3
+      },
+      "2018": {
+        "FY": 6533,
+        "2Q": 4517,
+        "1Q": 3805,
+        "3Q": 3756,
+        "4Q": 2
+      },
+      "2019": {
+        "FY": 6470,
+        "2Q": 4579,
+        "1Q": 3831,
+        "3Q": 3788,
+        "4Q": 4
+      },
+      "2020": {
+        "FY": 7272,
+        "2Q": 4686,
+        "1Q": 3870,
+        "3Q": 3848,
+        "4Q": 7,
+        "5Q": 1
+      },
+      "2021": {
+        "FY": 7259,
+        "2Q": 4600,
+        "1Q": 3909,
+        "3Q": 3888,
+        "4Q": 2
+      },
+      "2022": {
+        "FY": 6618,
+        "2Q": 4535,
+        "1Q": 3951,
+        "3Q": 3930,
+        "4Q": 1
+      },
+      "2023": {
+        "FY": 6664,
+        "2Q": 4512,
+        "1Q": 3982,
+        "3Q": 3977,
+        "4Q": 3
+      },
+      "2024": {
+        "FY": 6513,
+        "2Q": 4433,
+        "1Q": 4074,
+        "3Q": 4010,
+        "4Q": 5
+      },
+      "2025": {
+        "FY": 6425,
+        "2Q": 4323,
+        "3Q": 4079,
+        "1Q": 4058,
+        "4Q": 3
+      },
+      "2026": {
+        "FY": 5365,
+        "1Q": 3600,
+        "3Q": 3296,
+        "2Q": 1522,
+        "4Q": 5,
+        "5Q": 1
+      }
+    },
+    "mapping_used": {
+      "event_doctype_pattern": "^(1Q|2Q|3Q|FY)FinancialStatements_",
+      "event_doctype_matched_values": [
+        "1QFinancialStatements_Consolidated_Foreign",
+        "1QFinancialStatements_Consolidated_IFRS",
+        "1QFinancialStatements_Consolidated_JP",
+        "1QFinancialStatements_Consolidated_US",
+        "1QFinancialStatements_NonConsolidated_IFRS",
+        "1QFinancialStatements_NonConsolidated_JP",
+        "2QFinancialStatements_Consolidated_Foreign",
+        "2QFinancialStatements_Consolidated_IFRS",
+        "2QFinancialStatements_Consolidated_JP",
+        "2QFinancialStatements_Consolidated_REIT",
+        "2QFinancialStatements_Consolidated_US",
+        "2QFinancialStatements_NonConsolidated_Foreign",
+        "2QFinancialStatements_NonConsolidated_IFRS",
+        "2QFinancialStatements_NonConsolidated_JP",
+        "3QFinancialStatements_Consolidated_Foreign",
+        "3QFinancialStatements_Consolidated_IFRS",
+        "3QFinancialStatements_Consolidated_JP",
+        "3QFinancialStatements_Consolidated_US",
+        "3QFinancialStatements_NonConsolidated_IFRS",
+        "3QFinancialStatements_NonConsolidated_JP",
+        "FYFinancialStatements_Consolidated_Foreign",
+        "FYFinancialStatements_Consolidated_IFRS",
+        "FYFinancialStatements_Consolidated_JP",
+        "FYFinancialStatements_Consolidated_REIT",
+        "FYFinancialStatements_Consolidated_US",
+        "FYFinancialStatements_NonConsolidated_IFRS",
+        "FYFinancialStatements_NonConsolidated_JP"
+      ],
+      "non_event_doctype_values": [
+        "DividendForecastRevision",
+        "EarnForecastRevision",
+        "OtherPeriodFinancialStatements_Consolidated_IFRS",
+        "OtherPeriodFinancialStatements_Consolidated_JP",
+        "OtherPeriodFinancialStatements_NonConsolidated_JP",
+        "REITDividendForecastRevision",
+        "REITEarnForecastRevision"
+      ],
+      "event_curpertype_values": [
+        "1Q",
+        "2Q",
+        "3Q",
+        "FY"
+      ],
+      "curpertype_values_not_in_event_set": [
+        "4Q",
+        "5Q"
+      ]
+    },
+    "mapping_ambiguous": false
+  },
+  "9-2_raw_sue_descriptive_stats_by_year": {
+    "by_year": {
+      "2016": {
+        "n": 412,
+        "min": -0.06686046511627906,
+        "p01": -0.014255102040816326,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0,
+        "p99": 0.0020554984583761563,
+        "max": 0.011818181818181818,
+        "mean": -0.000427992186053465,
+        "exact_zero_count": 381,
+        "exact_zero_ratio": 0.9247572815533981
+      },
+      "2017": {
+        "n": 11507,
+        "min": -1.0330882352941178,
+        "p01": -0.032916666666666664,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0062816326530612246,
+        "p99": 0.03333333333333333,
+        "max": 6.153846153846154,
+        "mean": 0.0015804502827378,
+        "exact_zero_count": 7765,
+        "exact_zero_ratio": 0.6748066394368645
+      },
+      "2018": {
+        "n": 11778,
+        "min": -1.0409395973154363,
+        "p01": -0.03571428571428571,
+        "p10": -0.0014285714285714286,
+        "median": 0.0,
+        "p90": 0.00425531914893617,
+        "p99": 0.029425079221367133,
+        "max": 2.66,
+        "mean": 0.0006858852947925276,
+        "exact_zero_count": 7985,
+        "exact_zero_ratio": 0.6779589064357276
+      },
+      "2019": {
+        "n": 11978,
+        "min": -1.492537313432836,
+        "p01": -0.04395604395604396,
+        "p10": -0.0032102728731942215,
+        "median": 0.0,
+        "p90": 0.0038646638471634825,
+        "p99": 0.027762803234501348,
+        "max": 23.37418604651163,
+        "mean": 0.0027737633752791067,
+        "exact_zero_count": 8003,
+        "exact_zero_ratio": 0.668141592920354
+      },
+      "2020": {
+        "n": 9692,
+        "min": -1.1834451901565997,
+        "p01": -0.057692307692307696,
+        "p10": -0.004633802816901409,
+        "median": 0.0,
+        "p90": 0.006595744680851064,
+        "p99": 0.04491017964071856,
+        "max": 54.0,
+        "mean": 0.005497443808767201,
+        "exact_zero_count": 5814,
+        "exact_zero_ratio": 0.5998761865456046
+      },
+      "2021": {
+        "n": 11401,
+        "min": -0.5318085106382979,
+        "p01": -0.04428571428571428,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.014583333333333334,
+        "p99": 0.06095238095238095,
+        "max": 52.0,
+        "mean": 0.00820837445136573,
+        "exact_zero_count": 6926,
+        "exact_zero_ratio": 0.6074905710025437
+      },
+      "2022": {
+        "n": 12019,
+        "min": -2.358139534883721,
+        "p01": -0.0504,
+        "p10": -0.0008346471297412594,
+        "median": 0.0,
+        "p90": 0.01126046511627907,
+        "p99": 0.058333333333333334,
+        "max": 3.0,
+        "mean": 0.00227053344157484,
+        "exact_zero_count": 7520,
+        "exact_zero_ratio": 0.6256760129794492
+      },
+      "2023": {
+        "n": 12515,
+        "min": -0.7168473728106756,
+        "p01": -0.06019047619047619,
+        "p10": -0.0038356164383561643,
+        "median": 0.0,
+        "p90": 0.008711538461538462,
+        "p99": 0.04659498207885305,
+        "max": 32.4,
+        "mean": 0.005418762450021329,
+        "exact_zero_count": 7774,
+        "exact_zero_ratio": 0.6211745904914103
+      },
+      "2024": {
+        "n": 12711,
+        "min": -1.106060606060606,
+        "p01": -0.05641476274165202,
+        "p10": -0.002238805970149254,
+        "median": 0.0,
+        "p90": 0.009113924050632912,
+        "p99": 0.042961876832844574,
+        "max": 10.65,
+        "mean": 0.005564597183664065,
+        "exact_zero_count": 8045,
+        "exact_zero_ratio": 0.6329163716466053
+      },
+      "2025": {
+        "n": 12651,
+        "min": -10.5,
+        "p01": -0.060384615384615384,
+        "p10": -0.002362204724409449,
+        "median": 0.0,
+        "p90": 0.00897345132743363,
+        "p99": 0.03868905963146801,
+        "max": 194.5,
+        "mean": 0.015643136494995744,
+        "exact_zero_count": 7947,
+        "exact_zero_ratio": 0.6281716860327247
+      },
+      "2026": {
+        "n": 9334,
+        "min": -1.7588075880758807,
+        "p01": -0.06028131279303416,
+        "p10": -0.0010857142857142858,
+        "median": 0.0,
+        "p90": 0.010948449612403101,
+        "p99": 0.05336363636363636,
+        "max": 43.666666666666664,
+        "mean": 0.006058383483995914,
+        "exact_zero_count": 5578,
+        "exact_zero_ratio": 0.5976001714163274
+      }
+    },
+    "excluded_by_year": {
+      "2016": {
+        "no_matching_prior_disclosure": 2566,
+        "null_or_nonnumeric_input": 482
+      },
+      "2017": {
+        "null_or_nonnumeric_input": 2499,
+        "no_matching_prior_disclosure": 228
+      },
+      "2018": {
+        "null_or_nonnumeric_input": 2540,
+        "no_matching_prior_disclosure": 235
+      },
+      "2019": {
+        "null_or_nonnumeric_input": 2610,
+        "no_matching_prior_disclosure": 225
+      },
+      "2020": {
+        "null_or_nonnumeric_input": 4886,
+        "no_matching_prior_disclosure": 207
+      },
+      "2021": {
+        "null_or_nonnumeric_input": 3416,
+        "no_matching_prior_disclosure": 250,
+        "scale_le_zero": 1
+      },
+      "2022": {
+        "null_or_nonnumeric_input": 3199,
+        "no_matching_prior_disclosure": 214
+      },
+      "2023": {
+        "null_or_nonnumeric_input": 2985,
+        "no_matching_prior_disclosure": 211,
+        "scale_le_zero": 2
+      },
+      "2024": {
+        "null_or_nonnumeric_input": 3010,
+        "no_matching_prior_disclosure": 182,
+        "scale_le_zero": 4
+      },
+      "2025": {
+        "null_or_nonnumeric_input": 3080,
+        "no_matching_prior_disclosure": 185,
+        "scale_le_zero": 4
+      },
+      "2026": {
+        "null_or_nonnumeric_input": 2258,
+        "no_matching_prior_disclosure": 116,
+        "scale_le_zero": 3
+      }
+    },
+    "overall": {
+      "n": 115998,
+      "min": -10.5,
+      "p01": -0.0504,
+      "p10": -0.001629032258064516,
+      "median": 0.0,
+      "p90": 0.008333333333333333,
+      "p99": 0.04533275713050994,
+      "max": 194.5,
+      "mean": 0.005400649367956515,
+      "exact_zero_count": 73738,
+      "exact_zero_ratio": 0.6356833738512733
+    }
+  },
+  "9-3_DS_gates": {
+    "selection_range": [
+      "2016-12-28",
+      "2019-12-30"
+    ],
+    "confirmation_range": [
+      "2020-01-06",
+      "2026-09-15"
+    ],
+    "selection_event_count": 1827,
+    "DS-1_confirmation_valid_event_count": 3527,
+    "DS-1_threshold": 1200,
+    "DS-1_pass": true,
+    "DS-2a_days_with_ge5_events_K": 246,
+    "DS-2a_threshold": 120,
+    "DS-2a_pass": true,
+    "DS-2a_avg_events_per_K_day_n_d": 11.93089430894309,
+    "DS-2b_MDE_pre": 0.03172272607996068,
+    "DS-2b_threshold": 0.055,
+    "DS-2b_pass": true,
+    "DS-2b_formula": "1.645 / (sqrt(n_d-1) * sqrt(K))",
+    "DS-3_universe_count_by_date": {
+      "2016-12-16": 233,
+      "2017-01-04": 228,
+      "2018-01-04": 209,
+      "2019-01-04": 260,
+      "2020-01-06": 233,
+      "2021-01-04": 197,
+      "2022-01-04": 219,
+      "2023-01-04": 229,
+      "2024-01-04": 241,
+      "2025-01-06": 271,
+      "2026-01-05": 250
+    },
+    "DS-3_threshold": 150,
+    "DS-3_pass": true,
+    "DS-4_missing_business_day_rate": 0.0016231891438200142,
+    "DS-4_threshold": 0.05,
+    "DS-4_pass": true,
+    "DS-5_max_single_day_share": 0.008505812305075135,
+    "DS-5_max_single_day_count": 30,
+    "DS-5_threshold": 0.1,
+    "DS-5_pass": true,
+    "DS-6_distinct_disclosure_days": 598,
+    "DS-6_threshold": 400,
+    "DS-6_pass": true,
+    "DS-7_distinct_calendar_quarters": 27,
+    "DS-7_threshold": 20,
+    "DS-7_pass": true,
+    "all_pass": true,
+    "sigma_R_fixed_const": 0.04,
+    "IC_econ_at_fixed_sigma_R": 0.04985754985754986,
+    "events_per_day_distribution": {
+      "min": 1,
+      "median": 3.0,
+      "max": 30
+    },
+    "top10_event_days": [
+      [
+        "2025-05-13",
+        30
+      ],
+      [
+        "2022-05-13",
+        29
+      ],
+      [
+        "2023-05-11",
+        29
+      ],
+      [
+        "2022-05-12",
+        29
+      ],
+      [
+        "2026-08-07",
+        28
+      ],
+      [
+        "2023-05-12",
+        27
+      ],
+      [
+        "2024-05-10",
+        26
+      ],
+      [
+        "2024-05-14",
+        26
+      ],
+      [
+        "2025-07-31",
+        25
+      ],
+      [
+        "2025-08-08",
+        25
+      ]
+    ],
+    "quarterly_event_counts": {
+      "2020Q1": 18,
+      "2020Q2": 32,
+      "2020Q3": 19,
+      "2020Q4": 22,
+      "2021Q1": 22,
+      "2021Q2": 19,
+      "2021Q3": 23,
+      "2021Q4": 22,
+      "2022Q1": 21,
+      "2022Q2": 20,
+      "2022Q3": 18,
+      "2022Q4": 22,
+      "2023Q1": 22,
+      "2023Q2": 22,
+      "2023Q3": 23,
+      "2023Q4": 22,
+      "2024Q1": 22,
+      "2024Q2": 23,
+      "2024Q3": 24,
+      "2024Q4": 25,
+      "2025Q1": 21,
+      "2025Q2": 25,
+      "2025Q3": 24,
+      "2025Q4": 24,
+      "2026Q1": 20,
+      "2026Q2": 24,
+      "2026Q3": 19
+    }
+  },
+  "9-5_pead_disc_dates_summary": {
+    "distinct_disc_dates_count": 2334,
+    "saved_to": "research/EXP-OBS000007/10-result/pead_disc_dates.json"
+  },
+  "9-7_exclusion_breakdown": {
+    "total_excluded": 35598,
+    "by_reason": {
+      "no_matching_prior_disclosure": 4619,
+      "null_or_nonnumeric_input": 30965,
+      "scale_le_zero": 14
+    },
+    "by_year_and_reason": {
+      "2016": {
+        "no_matching_prior_disclosure": 2566,
+        "null_or_nonnumeric_input": 482
+      },
+      "2017": {
+        "null_or_nonnumeric_input": 2499,
+        "no_matching_prior_disclosure": 228
+      },
+      "2018": {
+        "null_or_nonnumeric_input": 2540,
+        "no_matching_prior_disclosure": 235
+      },
+      "2019": {
+        "null_or_nonnumeric_input": 2610,
+        "no_matching_prior_disclosure": 225
+      },
+      "2020": {
+        "null_or_nonnumeric_input": 4886,
+        "no_matching_prior_disclosure": 207
+      },
+      "2021": {
+        "null_or_nonnumeric_input": 3416,
+        "no_matching_prior_disclosure": 250,
+        "scale_le_zero": 1
+      },
+      "2022": {
+        "null_or_nonnumeric_input": 3199,
+        "no_matching_prior_disclosure": 214
+      },
+      "2023": {
+        "null_or_nonnumeric_input": 2985,
+        "no_matching_prior_disclosure": 211,
+        "scale_le_zero": 2
+      },
+      "2024": {
+        "null_or_nonnumeric_input": 3010,
+        "no_matching_prior_disclosure": 182,
+        "scale_le_zero": 4
+      },
+      "2025": {
+        "null_or_nonnumeric_input": 3080,
+        "no_matching_prior_disclosure": 185,
+        "scale_le_zero": 4
+      },
+      "2026": {
+        "null_or_nonnumeric_input": 2258,
+        "no_matching_prior_disclosure": 116,
+        "scale_le_zero": 3
+      }
+    }
+  },
+  "D4_D8_common_tasks_reference": "research/EXP-OBS000007/10-result/d4_d8_common_tasks.json"
+}

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""EXP-OBS000006（ギャップ・10年版）§4〜§5・§6.4〜§6.5 G2（パイプライン統合）測定。
+"""EXP-OBS000008（ギャップ・10年版）§4〜§5・§6.4〜§6.5 G2（パイプライン統合）測定。
 
 前提: `gap10y_prediction_unit.py` がG1全合格していること（N-12）。
 
-出力: `research/EXP-OBS000006/10-result/pipeline.json` / `cost-model.json`
+出力: `research/EXP-OBS000008/10-result/pipeline.json` / `cost-model.json`
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.jq10y_common import DB_PATH, RAW_DIR, Calendar, UniverseIndex, load_calendar, load_universe  # noqa: E402
 from lib.pipeline_engine import PipelineConfig, run_pipeline  # noqa: E402
 
-RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000006" / "10-result"
+RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000008" / "10-result"
 U6_CAP_LABEL = "gap"
 
 COST_MODEL = {

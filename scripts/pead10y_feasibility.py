@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""EXP-OBS000005（PEAD・10年版）§9 先行タスクと §6.0 データ十分性ゲート（DS-1〜DS-7）。
+"""EXP-OBS000007（PEAD・10年版）§9 先行タスクと §6.0 データ十分性ゲート（DS-1〜DS-7）。
 
 前提: `jq10y_build_db.py`・`jq10y_compute_calendar.py`・`jq10y_build_universe.py`・
 `jq10y_common_tasks.py` が完了していること。
 
 出力:
-  - `research/EXP-OBS000005/10-result/feasibility.json`
-  - `research/EXP-OBS000005/10-result/params.json`（既存D-0〜D-8の内容に9-1〜9-7をマージ）
+  - `research/EXP-OBS000007/10-result/feasibility.json`
+  - `research/EXP-OBS000007/10-result/params.json`（既存D-0〜D-8の内容に9-1〜9-7をマージ）
 
 **リターンを一切参照しない。** カウント・銘柄数・日数・欠損率のみで評価する。
 """
@@ -26,7 +26,7 @@ from lib.jq10y_common import (  # noqa: E402
     load_calendar, load_universe, median, pctile,
 )
 
-RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000005" / "10-result"
+RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000007" / "10-result"
 U6_CAP_LABEL = "pead"
 
 # 検出力の式に入るσ_Rは事前固定の定数（実測値を使わない。10Y-COMMON §7.1原則5）
@@ -271,7 +271,7 @@ def main() -> int:
         "9-3_DS_gates": ds,
         "9-5_pead_disc_dates_summary": t95,
         "9-7_exclusion_breakdown": t97,
-        "D4_D8_common_tasks_reference": "research/EXP-OBS000005/10-result/d4_d8_common_tasks.json",
+        "D4_D8_common_tasks_reference": "research/EXP-OBS000007/10-result/d4_d8_common_tasks.json",
     }
     RESULT_DIR.mkdir(parents=True, exist_ok=True)
     (RESULT_DIR / "feasibility.json").write_text(json.dumps(feasibility, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -287,9 +287,9 @@ def main() -> int:
     params["shared_data_layer_reference"] = {
         "d0_contract_range_probe": "data/raw/jq10y/d0_contract_range_probe.json",
         "d3_master_fetch_summary": "data/raw/jq10y/d3_master_fetch_summary.json",
-        "point_in_time_master_validation": "research/EXP-OBS000005/10-result/point_in_time_master_validation.json",
-        "d4_d8_common_tasks": "research/EXP-OBS000005/10-result/d4_d8_common_tasks.json",
-        "universe": "research/EXP-OBS000005/10-result/universe.json",
+        "point_in_time_master_validation": "research/EXP-OBS000007/10-result/point_in_time_master_validation.json",
+        "d4_d8_common_tasks": "research/EXP-OBS000007/10-result/d4_d8_common_tasks.json",
+        "universe": "research/EXP-OBS000007/10-result/universe.json",
         "raw_data_root": "data/raw/jq10y/",
     }
     try:

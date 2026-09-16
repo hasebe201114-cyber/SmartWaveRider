@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""EXP-OBS000005（PEAD・10年版）§6.1〜§6.3 G1（予測単位）測定。
+"""EXP-OBS000007（PEAD・10年版）§6.1〜§6.3 G1（予測単位）測定。
 
 前提: `pead10y_feasibility.py` が DS ゲート全合格していること（N-10）。
 乱数シード: 20260915固定（permutation・SUEpctには乱数を使わないため実際に使うのはpermutationのみ）。
 
-出力: `research/EXP-OBS000005/10-result/prediction-unit.json`
+出力: `research/EXP-OBS000007/10-result/prediction-unit.json`
 """
 
 from __future__ import annotations
@@ -23,7 +23,7 @@ from lib.jq10y_common import (  # noqa: E402
 )
 from lib import pead_common as pc  # noqa: E402
 
-RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000005" / "10-result"
+RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000007" / "10-result"
 U6_CAP_LABEL = "pead"
 N_PERM = 10000
 SLIPPAGE_BUY = 0.00075
@@ -206,7 +206,11 @@ def main() -> int:
             insufficient_window_count += 1
         else:
             s = sorted(running_sue)
-            rank = bisect.bisect_left(s, e["raw_sue"])
+            # spec §3.4「同値（タイ）は平均順位で処理する」（EXP-OBS000007 §14.2 是正指示）。
+            # bisect_left単独（タイ集団の最小順位）ではなく、タイ集団の下端・上端の中点を rank とする。
+            lo = bisect.bisect_left(s, e["raw_sue"])
+            hi = bisect.bisect_right(s, e["raw_sue"])
+            rank = (lo + hi) / 2.0  # 平均順位（タイ集団の中央）
             pct = rank / n
             suepct_map[(e["code"], e["disc_date"], e.get("disc_no"))] = pct
         running_sue.append(e["raw_sue"])

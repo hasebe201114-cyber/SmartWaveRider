@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""EXP-OBS000006（ギャップ・10年版）§6.1〜§6.3 G1（予測単位）測定。
+"""EXP-OBS000008（ギャップ・10年版）§6.1〜§6.3 G1（予測単位）測定。
 
 前提: `gap10y_feasibility.py` が DS ゲート（DS-1〜DS-8）・V-1〜V-6 全合格していること（N-11・K-6）。
 `gap_pool.json`（候補プールP。is_candidate & z<=-1.5）を再利用する。
 
-出力: `research/EXP-OBS000006/10-result/prediction-unit.json`
+出力: `research/EXP-OBS000008/10-result/prediction-unit.json`
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.jq10y_common import DB_PATH, Calendar, UniverseIndex, load_calendar, load_universe, spearman, median, make_rng  # noqa: E402
 
-RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000006" / "10-result"
+RESULT_DIR = Path(__file__).resolve().parent.parent / "research" / "EXP-OBS000008" / "10-result"
 U6_CAP_LABEL = "gap"
 N_PERM = 10000
 

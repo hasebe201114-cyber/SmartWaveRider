@@ -1,7 +1,7 @@
-"""EXP-OBS000006（ギャップ・10年版）専用ロジック。DBベースの `DbCalendar` を提供し、
+"""EXP-OBS000008（ギャップ・10年版）専用ロジック。DBベースの `DbCalendar` を提供し、
 既存 `gap_engine.py` の純粋関数（σ_gap計算・候補判定等）を10年データに対して再利用する。
 
-spec: `research/EXP-OBS000006/01-spec.md`。10Y-COMMON §6.1（決済サイクル分岐）を実装する。
+spec: `research/EXP-OBS000008/01-spec.md`。10Y-COMMON §6.1（決済サイクル分岐）を実装する。
 """
 
 from __future__ import annotations
@@ -180,7 +180,60 @@ def compute_theoretical_drop_ratio(cal: DbCalendar, code: str, x: str, dps: floa
     return dps / float(c_prev)
 
 
-def run_v1_v6(cal: DbCalendar, e2a_result: dict, codes: list[str]) -> dict:
+def compute_v5_period_end_check(fins_records: list[dict]) -> dict:
+    """10Y-COMMON §8 D-6 / EXP-OBS000008 §3.1.2 V-5: 期末日の算術検算。
+
+    §3.1.1 step 2 の暦月加算で構成した四半期末日（CurPerType に対応するもの）が、
+    `CurPerEn` が存在する行についてそれと一致する比率を検算する。
+    """
+    total_checked = 0
+    match_count = 0
+    mismatch_examples: list[dict] = []
+    per_type_field = {"1Q": 3, "2Q": 6, "3Q": 9}
+    for rec in fins_records:
+        cur_per_type = rec.get("CurPerType")
+        cur_per_en = rec.get("CurPerEn")
+        cur_fy_st_s = rec.get("CurFYSt")
+        cur_fy_en_s = rec.get("CurFYEn")
+        if not cur_per_en or not cur_fy_st_s:
+            continue
+        try:
+            fy_st = dt.date.fromisoformat(str(cur_fy_st_s))
+        except ValueError:
+            continue
+        if cur_per_type in per_type_field:
+            computed = gc.quarter_end(fy_st, per_type_field[cur_per_type])
+        elif cur_per_type == "FY":
+            if not cur_fy_en_s:
+                continue
+            try:
+                computed = dt.date.fromisoformat(str(cur_fy_en_s))
+            except ValueError:
+                continue
+        else:
+            continue
+        total_checked += 1
+        if computed.isoformat() == str(cur_per_en):
+            match_count += 1
+        elif len(mismatch_examples) < 20:
+            mismatch_examples.append(
+                {
+                    "code": rec.get("Code"), "disc_date": rec.get("DiscDate"), "cur_per_type": cur_per_type,
+                    "computed": computed.isoformat(), "cur_per_en": cur_per_en,
+                }
+            )
+    rate = (match_count / total_checked) if total_checked else None
+    return {
+        "total_checked": total_checked,
+        "match_count": match_count,
+        "match_rate": rate,
+        "mismatch_examples": mismatch_examples,
+        "threshold": 0.99,
+        "pass": rate is not None and rate >= 0.99,
+    }
+
+
+def run_v1_v6(cal: DbCalendar, e2a_result: dict, codes: list[str], fins_records: list[dict] | None = None) -> dict:
     """V-1（全体傾き）・V-2（プラセボ）・V-3（日別再現性）・V-4（カバレッジ）・
     V-5（期末日算術検算は9-2bで別途）・V-6（T+3期の独立検証）を評価する。"""
     e2a_map = e2a_result["e2a_map"]
@@ -276,11 +329,16 @@ def run_v1_v6(cal: DbCalendar, e2a_result: dict, codes: list[str]) -> dict:
     v4_pass = v4_rate is not None and v4_rate >= 0.99
     v6_pass = slope_in_range(fit_t3.get("b")) and placebo_ok(placebo_t3)
 
+    # V-5（10Y-COMMON §8.2 / spec §13.2 是正指示。EXP-OBS000006では未実施だった）
+    v5_result = compute_v5_period_end_check(fins_records or [])
+    v5_pass = v5_result["pass"]
+
     return {
         "V1_overall_slope": fit_v1, "V1_pass": v1_pass,
         "V2_placebo": placebo, "V2_pass": v2_pass,
         "V3_daily_reproducibility_rate": v3_rate, "V3_days_evaluated": total_days, "V3_pass": v3_pass,
         "V4_coverage_rate": v4_rate, "V4_pass": v4_pass,
+        "V5_period_end_check": v5_result, "V5_pass": v5_pass,
         "V6_t3_slope": fit_t3, "V6_t3_placebo": placebo_t3, "V6_pass": v6_pass,
-        "all_v_pass": v1_pass and v2_pass and v3_pass and v4_pass and v6_pass,
+        "all_v_pass": v1_pass and v2_pass and v3_pass and v4_pass and v5_pass and v6_pass,
     }

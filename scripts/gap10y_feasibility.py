@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""EXP-OBS000006（ギャップ・10年版）§9 先行タスクと §6.0 データ十分性ゲート（DS-1〜DS-8）。
+"""EXP-OBS000008（ギャップ・10年版）§9 先行タスクと §6.0 データ十分性ゲート（DS-1〜DS-8）。
 
 前提: `jq10y_build_db.py`・`jq10y_compute_calendar.py`・`jq10y_build_universe.py`（PEAD側と共有）・
 `jq10y_common_tasks.py` が完了していること。
 
 出力:
-  - `research/EXP-OBS000006/10-result/feasibility.json`
-  - `research/EXP-OBS000006/10-result/params.json`
+  - `research/EXP-OBS000008/10-result/feasibility.json`
+  - `research/EXP-OBS000008/10-result/params.json`
 
 **リターンを一切参照しない。** z* 較正は選定期間の候補件数のみを入力とする（§3.6）。
 """
@@ -28,8 +28,8 @@ from lib import gap_engine as ge  # noqa: E402
 from lib import pead_common as pc  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-RESULT_DIR = REPO_ROOT / "research" / "EXP-OBS000006" / "10-result"
-PEAD_RESULT_DIR = REPO_ROOT / "research" / "EXP-OBS000005" / "10-result"
+RESULT_DIR = REPO_ROOT / "research" / "EXP-OBS000008" / "10-result"
+PEAD_RESULT_DIR = REPO_ROOT / "research" / "EXP-OBS000007" / "10-result"
 U6_CAP_LABEL = "gap"
 
 Z_STAR_GRID = [round(-1.50 - 0.25 * i, 2) for i in range(27)]  # -1.50 .. -8.00, 0.25刻み・27点
@@ -88,18 +88,63 @@ def main() -> int:
     e2b_dates = e2b_date_set(e2b_by_month)
     log(f"E2A pairs={len(e2a_result['e2a_map'])} E2B distinct dates={len(e2b_dates)} transition_band_count={e2a_result['transition_band_count']}")
 
-    log("V-1〜V-6検証中...")
-    v_result = run_v1_v6(dbcal, e2a_result, gap_codes)
-    log(f"V-pass: {v_result['all_v_pass']}  V1={v_result['V1_pass']} V2={v_result['V2_pass']} V3={v_result['V3_pass']} V4={v_result['V4_pass']} V6={v_result['V6_pass']}")
+    log("V-1〜V-6検証中（V-5含む。13.2是正）...")
+    v_result = run_v1_v6(dbcal, e2a_result, gap_codes, fins_records=fins_records)
+    log(
+        f"V-pass: {v_result['all_v_pass']}  V1={v_result['V1_pass']} V2={v_result['V2_pass']} "
+        f"V3={v_result['V3_pass']} V4={v_result['V4_pass']} V5={v_result['V5_pass']} V6={v_result['V6_pass']}"
+    )
 
     e2a_set = set(e2a_result["e2a_map"].keys())
 
+    # 10Y-COMMON §8.2.1（D-6是正・最優先）: E-1のOR条件実装修正を確認する。
+    # AdjFactor!=1.0 の全行がExRTの値によらずE-1で除外されることを件数で検算する（gap_codesユニバースに限定）。
+    log("D-6/E-1 OR条件検算中（§8.2.1）...")
+    e1_adjfactor_ne1_total = 0
+    e1_adjfactor_ne1_excluded = 0
+    for code in gap_codes:
+        for date_s, row in dbcal.bars_by_code.get(code, {}).items():
+            af = row.get("AdjFactor")
+            if af is not None and af != 1.0:
+                e1_adjfactor_ne1_total += 1
+                if gc.is_split_merger_row(row):
+                    e1_adjfactor_ne1_excluded += 1
+    e1_or_condition_check = {
+        "e1_adjfactor_ne1_total": e1_adjfactor_ne1_total,
+        "e1_adjfactor_ne1_excluded_by_is_split_merger_row": e1_adjfactor_ne1_excluded,
+        "match": e1_adjfactor_ne1_total == e1_adjfactor_ne1_excluded,
+        "methodology": (
+            "gapユニバース和集合の全銘柄・全期間についてAdjFactor!=1.0の行を数え、"
+            "is_split_merger_row()（spec§3.1のOR条件で修正済み）がその全行を除外判定することを検算した。"
+            "一致すればExRTの意味（'2'/'3'）が未解決でもE-1の実害（未除外の混入）は排除されている（10Y-COMMON §8.2.1）。"
+        ),
+        "pass": e1_adjfactor_ne1_total == e1_adjfactor_ne1_excluded,
+    }
+    log(f"  e1_adjfactor_ne1_total={e1_adjfactor_ne1_total} excluded={e1_adjfactor_ne1_excluded} match={e1_or_condition_check['match']}")
+
     # 有効ギャップ位置・σ_gapキャッシュ（gap_engine.pyを再利用。DbCalendarはgc.Calendarと同インタフェース）
-    log("有効ギャップ位置構築中...")
+    log("有効ギャップ位置構築中（E-1修正反映後）...")
     valid_positions = ge.build_valid_positions(dbcal, e2a_set, e2b_dates)
     log("K_look分布計算中（9-5）...")
     k_dist = ge.compute_k_distribution(dbcal, valid_positions)
-    log(f"  K_look max={k_dist['k_max']} coverage<=66={k_dist['k_le_66_coverage_rate']}")
+    log(f"  K_look max={k_dist['k_max']} coverage<=66={k_dist['k_le_66_coverage_rate']} gate_k_le_66_all={k_dist['gate_k_le_66_all']}")
+
+    # 10Y-COMMON §8 D-6 / spec §13.3（K_look>66 停止規則。実際に処理を止める制御フローとして実装する）
+    if not k_dist["gate_k_le_66_all"]:
+        log("STOP: K_look>66が1件以上検出された（§3.2・§9-5・K-6）。上限66を延ばす独自判断は禁止（N-8）。処理を停止しSに差し戻す。")
+        RESULT_DIR.mkdir(parents=True, exist_ok=True)
+        stop_payload = {
+            "stopped_at": "9-5_k_look_gate",
+            "reason": "K_look>66 が1件以上存在する（spec §3.2・§9-5・K-6の無条件停止規則）",
+            "k_look_distribution": k_dist,
+            "e1_or_condition_check": e1_or_condition_check,
+            "V_gates": v_result,
+        }
+        (RESULT_DIR / "feasibility.json").write_text(
+            json.dumps(stop_payload, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+        )
+        log(f"saved (stop payload): {RESULT_DIR / 'feasibility.json'}")
+        return 6
 
     log("gap値キャッシュ構築中...")
     gap_cache = ge.build_gap_value_cache(dbcal, valid_positions)
@@ -319,6 +364,7 @@ def main() -> int:
             "cycle_counter": e2a_result["cycle_counter"],
             "V_gates": v_result,
         },
+        "8.2.1_e1_or_condition_check": e1_or_condition_check,
         "9-5_k_look_distribution": k_dist,
         "9-6_DS_gates": ds_result,
         "9-7_pead_disjointness": disjointness,
@@ -348,11 +394,18 @@ def main() -> int:
         "z_star": z_star,
         "random_seed": 20260915,
         "u6_cap_applied": 175,
-        "shared_universe_reference": "research/EXP-OBS000005/10-result/universe.json（10Y-COMMON §8 D-9で構築。本EXPはU6_cap=175で打ち切ったものを使用。271キャップはPEAD専用でありD-16はギャップEXPに適用しない）",
+        "shared_universe_reference": "research/EXP-OBS000007/10-result/universe.json（10Y-COMMON §8 D-9で構築。本EXPはU6_cap=175で打ち切ったものを使用。271キャップはPEAD専用でありD-16はギャップEXPに適用しない）",
         "shared_data_layer_reference": {
             "raw_data_root": "data/raw/jq10y/",
             "d0_contract_range_probe": "data/raw/jq10y/d0_contract_range_probe.json",
+            "d4_d8_common_tasks": "research/EXP-OBS000007/10-result/d4_d8_common_tasks.json（D-4/D-6はPEAD側で実行・本EXPと共有。10Y-COMMON §8.1/§8.2が正本）",
         },
+        "e1_or_condition_check": e1_or_condition_check,
+        "d6_note": (
+            "D-6（ExRTの意味）はEXP-OBS000007側のd4_d8_common_tasks.jsonでPEAD向けに全件検算済み。"
+            "本EXP（Gap）にとってのD-6の実害は、上記e1_or_condition_checkのmatch=Trueによって、"
+            "ExRTの意味が未解決のままでも排除されていることを確認した（10Y-COMMON §8.2.1/§8.2.4）。"
+        ),
     }
     (RESULT_DIR / "params.json").write_text(json.dumps(params, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     log(f"saved: {RESULT_DIR / 'params.json'}")
