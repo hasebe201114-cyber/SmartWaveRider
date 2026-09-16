@@ -156,15 +156,25 @@ def main() -> int:  # noqa: C901
         # 9-4: 遡り上限66の再実測（10年データ・v2候補集合）
         k_dist = ge.compute_k_distribution(cal, valid_positions)
         outlier_detail = task_9_4_outlier_detail(cal, valid_positions)
+        r9_4_1 = task_9_4_1_breakdown(outlier_detail)
         r9_4 = {**k_dist, "outliers_k_gt_66": outlier_detail}
         feasibility["9-4_lookback_66_recheck"] = r9_4
+        feasibility["9-4.1_k_over_66_breakdown"] = r9_4_1
         log.append(
             f"[9-4] k_max={k_dist['k_max']} coverage_66={k_dist['k_le_66_coverage_rate']} "
-            f"gate={k_dist['gate_k_le_66_all']} outlier_stock_days={outlier_detail['count']} "
-            f"outlier_distinct_codes={outlier_detail['distinct_codes']}"
+            f"outlier_stock_days={outlier_detail['count']} outlier_distinct_codes={outlier_detail['distinct_codes']}"
         )
-        if not k_dist["gate_k_le_66_all"]:
-            stop_reason = "9-4: 有効ギャップ60本収集に要する遡り営業日数が66を超える銘柄日が存在する"
+        log.append(
+            f"[9-4.1] (a)low_coverage_codes={r9_4_1['a_low_coverage']['codes']} "
+            f"stock_days={r9_4_1['a_low_coverage']['stock_days_count']} | "
+            f"(b)2020-10-01_codes={r9_4_1['b_2020_10_01_halt']['codes']} "
+            f"stock_days={r9_4_1['b_2020_10_01_halt']['stock_days_count']} | "
+            f"(c)unidentified_count={r9_4_1['c_unidentified']['stock_days_count']}"
+        )
+        # spec第5版（§9-4改訂）: カバー率100%未満それ自体では差し戻さない。
+        # §3.2.1で確定した2つの構造的原因(a)(b)以外の未識別K>66が1件でもあれば差し戻す(K-6)。
+        if r9_4_1["c_unidentified"]["stock_days_count"] > 0:
+            stop_reason = "9-4.1(c): §3.2.1の2原因のいずれにも該当しない未識別のK>66が存在する"
             escalate_kind = "K-6"
 
     if stop_reason is None:
@@ -336,6 +346,7 @@ def task_9_4_outlier_detail(cal: v2.CalendarV2, valid_positions: dict[str, list[
         "codes": distinct_codes,
         "code_coverage_rate_pinned_range": code_coverage,
         "top_20_by_k": outliers[:20],
+        "_all_outliers_full": outliers,
         "root_cause_classification": {
             "severe_low_coverage_codes": sorted(severe_codes),
             "severe_low_coverage_max_k": max((o["k"] for o in outliers if o["code"] in severe_codes), default=None),
@@ -351,6 +362,52 @@ def task_9_4_outlier_detail(cal: v2.CalendarV2, valid_positions: dict[str, list[
             "K>66となった167銘柄日は2つの異なる原因に分かれる（上記root_cause_classification参照）。"
             "窓長の延長・短縮・代用は行っていない（新しい閾値も作っていない）。"
         ),
+    }
+
+
+# spec §3.2.1（第5版で確定）。S戦略チームが独立に識別した2つの構造的原因のコード。
+K_OVER_66_CAUSE_A_LOW_COVERAGE_CODES = {"35490", "83030", "87290"}
+K_OVER_66_CAUSE_B_2020_10_01_HALT_CODES = {"33910", "68610", "82270", "98430"}
+
+
+def task_9_4_1_breakdown(outlier_detail: dict) -> dict:
+    """spec §9-4.1（第5版で新設）: K>66銘柄日の原因内訳開示。
+
+    (a) 実際に60本の有効ギャップが存在しない銘柄（上場時期／長期売買停止）
+    (b) 2020-10-01の東証システム障害による市場全体の1日欠測
+    (c) (a)(b)いずれにも該当しない未識別のK>66（1件でもあればK-6）
+    """
+    all_outliers = outlier_detail.get("top_20_by_k", [])
+    # top_20_by_kは上位20件のみなので、全件を再取得できるよう outlier_detail 側で
+    # 保持しているcode一覧・カバレッジ情報から分類する（全件リストは冗長になるため
+    # コード単位での分類とし、日数はcount/codeで按分せず実件数をtask_9_4_outlier_detail
+    # 側から受け取る）。
+    codes_in_outliers = set(outlier_detail.get("codes", []))
+    a_codes = sorted(codes_in_outliers & K_OVER_66_CAUSE_A_LOW_COVERAGE_CODES)
+    b_codes = sorted(codes_in_outliers & K_OVER_66_CAUSE_B_2020_10_01_HALT_CODES)
+    c_codes = sorted(codes_in_outliers - K_OVER_66_CAUSE_A_LOW_COVERAGE_CODES - K_OVER_66_CAUSE_B_2020_10_01_HALT_CODES)
+
+    rc = outlier_detail.get("root_cause_classification", {})
+    a_stock_days = sum(1 for o in outlier_detail.get("_all_outliers_full", []) if o["code"] in a_codes)
+    b_stock_days = sum(1 for o in outlier_detail.get("_all_outliers_full", []) if o["code"] in b_codes)
+    c_stock_days = sum(1 for o in outlier_detail.get("_all_outliers_full", []) if o["code"] in c_codes)
+
+    return {
+        "a_low_coverage": {
+            "description": "実際に60本の有効ギャップが存在しない銘柄（上場時期／長期売買停止に伴う大規模希薄化）",
+            "codes": a_codes, "stock_days_count": a_stock_days,
+            "coverage_detail": {c: outlier_detail["code_coverage_rate_pinned_range"].get(c) for c in a_codes},
+        },
+        "b_2020_10_01_halt": {
+            "description": "2020-10-01の東証システム障害による市場全体の1日欠測（既存の有効ギャップ定義が正しく機能した結果）",
+            "codes": b_codes, "stock_days_count": b_stock_days,
+        },
+        "c_unidentified": {
+            "description": "(a)(b)いずれにも該当しない未識別のK>66（1件でも存在すればK-6でSに差し戻す）",
+            "codes": c_codes, "stock_days_count": c_stock_days,
+        },
+        "total_stock_days": outlier_detail.get("count", 0),
+        "sum_check": a_stock_days + b_stock_days + c_stock_days == outlier_detail.get("count", 0),
     }
 
 

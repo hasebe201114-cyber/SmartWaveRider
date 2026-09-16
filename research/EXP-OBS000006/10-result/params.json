@@ -256,7 +256,7 @@
   "e2b_x_dates_pre_t2_count": 34,
   "e2b_x_dates_post_t2_count": 87,
   "e2b_note": "E-2B(暦ベース一括)のXは暦・T・制度施行日のみから決まる。C品質チームはこの一覧を暦のみから独立再計算できる（spec §3.1.3）。",
-  "z_star_frozen": null,
+  "z_star_frozen": -3.25,
   "z_star_grid_27points": [
     -1.5,
     -1.75,
@@ -288,15 +288,25 @@
   ],
   "z_star_year_days_constant": 245.0,
   "z_star_target_N_ann": 215.0,
-  "ds_gates_all_pass": null,
-  "ds_gates_summary": null,
+  "ds_gates_all_pass": true,
+  "ds_gates_summary": {
+    "DS-1": true,
+    "DS-2a": true,
+    "DS-2b": true,
+    "DS-3": true,
+    "DS-4": true,
+    "DS-5": true,
+    "DS-6": true,
+    "DS-7": true,
+    "C7-3": true
+  },
   "signal_definition": {
     "g": "ln(O(j,T[i])/C(j,T[i-1]))",
     "sigma_gap": "有効ギャップちょうど60本（遡り上限66営業日）の標本標準偏差(ddof=1)",
     "z": "g/sigma_gap",
     "S": "-z",
     "pool_threshold": -1.5,
-    "event_threshold_z_star": null
+    "event_threshold_z_star": -3.25
   },
   "prediction_window": {
     "horizon_primary_H": 5,
