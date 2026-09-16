@@ -1,0 +1,106 @@
+EXP-OBS000005（PEAD・10年版）実行ログ
+実行日: 2026-09-16
+担当: B実装チーム（quant-researcher）
+
+## 再現用の実行コマンド（順序どおり）
+
+# 10Y-COMMON §8 共通タスク（EXP-OBS000005/000006 共有）
+python3 scripts/jq10y_fetch_data.py --step probe
+python3 scripts/jq10y_fetch_data.py --step bars
+python3 scripts/jq10y_compute_calendar.py
+python3 -c "import json; d=json.load(open('data/raw/jq10y/calendar.json')); json.dump(d['U_dates'], open('/tmp/u_dates.json','w'))"
+python3 scripts/jq10y_fetch_data.py --step master --dates-file /tmp/u_dates.json
+python3 scripts/jq10y_build_db.py --tables bars master
+python3 scripts/jq10y_build_universe.py
+python3 scripts/jq10y_fetch_data.py --step fins
+python3 scripts/jq10y_fetch_data.py --step earnings
+python3 scripts/jq10y_build_db.py --tables fins_summary earnings_date
+python3 scripts/jq10y_common_tasks.py
+
+# EXP-OBS000005 固有
+python3 scripts/pead10y_feasibility.py
+python3 scripts/pead10y_prediction_unit.py
+# G1不合格のため以降は実行していない（N-8）:
+# python3 scripts/pead10y_pipeline.py  <- 未実行
+
+## 決定性
+乱数を使用するのはpermutation検定のみ。シードは20260915固定（全スクリプト共通）。
+同一コマンドを再実行すれば同一結果が得られる（データ層は data/raw/jq10y/ に
+永続化済みのキャッシュから読むため、API呼び出しをやり直しても再現する）。
+
+## 実測サマリ（生データ。判定語なし）
+
+### 10Y-COMMON §8 D-0〜D-9
+- D-0: 契約範囲実測 min_date=2016-09-16, max_date=2026-09-15
+  （10Y-COMMON文書記載の推定2016-09-15とは1日ずれる。ロールング10年契約窓が
+  文書作成日2026-09-15からB実装開始日2026-09-16へ1日進んだことによる。T1は
+  この実測値から機械的に構成した）
+- D-1: bars_by_date 2,441営業日分を data/raw/jq10y/bars_by_date/ に永続化
+  （SQLite化: bars テーブル 10,122,345行・5,385銘柄）
+- D-2: T構成 T1=2016-09-16 |T|=2441 T61=2016-12-16 T68=2016-12-28
+  split_date=2020-01-06(s=804) 選定=2016-12-28〜2019-12-30 確認=2020-01-06〜2026-09-15
+- D-3: point-in-timeマスタ全11確定日で分岐(i)（ScaleCat直接取得）が成立
+  （フォールバック不使用）
+- D-4: /fins/summary 10年カバレッジ 全期間取得済み（190,829行）。
+  「年あたりレコード件数が直近年の50%以上」の文字通りの判定は不成立
+  （2016年の直近年(2026年)比率=0.38）。2016年・2026年は10年ロールング窓の
+  両端でともに暦年として不完全（2016年は9月16日開始で約3.5ヶ月分、2026年は
+  9月15日までで約8.5ヶ月分）であり、この構造的事実がそのまま比率を押し下げて
+  いる。閾値・判定式は変更していない。
+- D-5: /fins/earnings-date 全期間取得済み（155,099行）。PubDate範囲=2016-09-16〜
+  2026-09-15、SchDate範囲=2016-09-30〜2027-08-13。
+- D-6: AdjFactor≠1.0の行（2,592行）についてExRTの全ユニーク値を実測したところ
+  {"1": 1815, "2": 754, "3": 23} の3値が出現した。旧2年spec・既存
+  gap_common.is_split_merger_row()が前提とする対応付け（ExRT=="1" ⟺ 分割・併合）
+  は "1"（1,815行）についてのみ確認済みで、"2"（754行）・"3"（23行）の意味は
+  10Y-COMMON D-6が要求する「意味が一意に決まる」を満たさないまま未解決
+  （consistent_ext1_iff_split=False）。**この点はSへの差し戻し対象であり、
+  本実装ではEXP-OBS000006（Gap）のE-1除外ロジックを旧定義（ExRT=="1"のみ）の
+  まま変更せずに実行した。ExRT="2"/"3"の754+23=777行が真に権利落ち関連で
+  あった場合、E-1除外が不完全である可能性がある。** サンプル検算（AdjFactor
+  非1.0が最多の上位5銘柄）はd4_d8_common_tasks.jsonに記録。
+- D-7: UL/LL 全ユニーク値は "1"/"0"のみ（空文字・nullなし）、欠損率=0.0%
+- D-8: 欠損営業日率 0.1623%（PEAD 271cap ∪ Gap 175cap の和集合ユニバース対象）
+- D-9: universe.json に全11確定日 × PEAD(271cap)/Gap(175cap) 両方の結果を保存
+
+### EXP-OBS000005 §6.0 データ十分性ゲート（DS-1〜DS-7）実測値
+全て合格（DS-1〜DS-7）:
+  DS-1 確認期間有効イベント数=3,527件（閾値>=1,200）
+  DS-2a K（1日5件以上の開示日数）=246日（閾値>=120）
+  DS-2b MDE_pre=0.03172（閾値<=0.055、n_d平均=11.93）
+  DS-3 全11確定日でユニバース>=150銘柄
+  DS-4 欠損営業日率=0.1623%（閾値<=5%）
+  DS-5 最大単日シェア=0.8506%（閾値<=10%）
+  DS-6 相異なる開示日数=598日（閾値>=400）
+  DS-7 決算シーズン数（暦四半期）=27（閾値>=20）
+
+### EXP-OBS000005 §6.2 G1合格条件（G1-1〜G1-7）実測値
+  G1-1 確認期間IC_bar=0.042023, K=237日, permutation p=0.028597 (<0.05) → 合格
+  G1-2 選定期間IC_bar=-0.009026, K=115日（符号負） → 不合格
+  G1-3 上位デシルR5グロス平均=1.3635%（閾値>=0.35%） → 合格
+  G1-4 上位3デシル市場超過平均=0.1609%（>0） → 合格
+  G1-5 デシル単調性 rho_dec=0.7143（閾値>=0.30） → 合格
+  G1-6 最大シーズン除去後 IC_bar=0.036634（>0）・上位デシル平均=1.3961%（>0） → 合格
+  G1-7 Va上位175銘柄限定 IC_bar=0.019847（>0）・上位デシル平均=1.4873%（>0） → 合格
+  実測sigma_R（確認期間）=4.837%
+
+G1-1〜G1-7のうちG1-2が未達のため、all_G1_pass=false。spec N-8により
+G2（パイプライン統合）は測定していない。
+
+## 出力ファイル
+- universe.json / point_in_time_master_validation.json（D-3・D-9）
+- d4_d8_common_tasks.json（D-4〜D-8）
+- feasibility.json（9-1〜9-7・DSゲート）
+- prediction-unit.json（G1）
+- params.json（calendar・DSゲート結果・共有データ層参照を含む）
+- pead_disc_dates.json（EXP-OBS000006との排反性確認用）
+- pipeline.json / cost-model.json: 未生成（G1不合格のため）
+
+## 永続化した生データの場所とサイズ
+- data/raw/jq10y/ 配下（.gitignore対象、git管理外）
+  - bars_by_date/（2,441ファイル）
+  - fins_summary_by_date/（2,447ファイル）
+  - earnings_date_by_date/（2,441ファイル）
+  - master_by_date/（11ファイル）
+  - jq10y.db（SQLite集約キャッシュ）
+  - d0_contract_range_probe.json / d3_master_fetch_summary.json / calendar.json

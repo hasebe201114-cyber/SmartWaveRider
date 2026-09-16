@@ -1,0 +1,102 @@
+EXP-OBS000006（非決算オーバーナイト・ギャップ反転・10年版）実行ログ
+実行日: 2026-09-16
+担当: B実装チーム（quant-researcher）
+
+## 再現用の実行コマンド（順序どおり）
+
+# データ層はEXP-OBS000005と共有（研究/EXP-OBS000005/10-result/run.logを参照）
+python3 scripts/jq10y_fetch_data.py --step probe
+python3 scripts/jq10y_fetch_data.py --step bars
+python3 scripts/jq10y_compute_calendar.py
+python3 scripts/jq10y_fetch_data.py --step master --dates-file /tmp/u_dates.json
+python3 scripts/jq10y_build_db.py --tables bars master
+python3 scripts/jq10y_build_universe.py
+python3 scripts/jq10y_fetch_data.py --step fins
+python3 scripts/jq10y_fetch_data.py --step earnings
+python3 scripts/jq10y_build_db.py --tables fins_summary earnings_date
+python3 scripts/jq10y_common_tasks.py
+
+# EXP-OBS000006 固有
+python3 scripts/gap10y_feasibility.py
+# V-1〜V-6検証不合格のため以降は実行していない（K-6）:
+# python3 scripts/gap10y_prediction_unit.py  <- 未実行
+# python3 scripts/gap10y_pipeline.py         <- 未実行
+
+## 決定性
+乱数シード20260915固定（z*較正はカウントのみで乱数を使わない・決定的）。
+
+## 実測サマリ（生データ。判定語なし）
+
+### §6.0 データ十分性ゲート（DS-1〜DS-8）実測値
+全て合格:
+  z* 較正結果 = -3.25（選定期間N_ann=193.48、D_eff選定=699・D_eff確認=1557）
+  DS-1 確認期間プール件数=11,699件（閾値>=6,000）
+  DS-2a 選定期間でN_ann∈[150,300]を満たすグリッド点が存在 → 合格
+  DS-2b 確認期間N_ann=244.53（閾値100〜400）
+  DS-3 全11確定日でGapユニバース(175cap)>=150銘柄
+  DS-4 欠損営業日率=0.196%（閾値<=5%、Gapユニバース限定計算）
+  DS-5a K_event=288日（閾値>=140）
+  DS-5b MDE_level=0.001669（閾値<=0.0035）
+  DS-6a K=407日（閾値>=250）
+  DS-6b MDE_IC=0.016529（閾値<=0.035）
+  DS-7 最大単日シェア=1.470%（閾値<=25%）
+  DS-7b 上位5日合計シェア=7.103%（閾値<=50%）
+  DS-8 決算含む暦四半期数=27（閾値>=12）
+
+### §3.1.2 検証ゲート V-1〜V-6（配当落ち識別の妥当性検証）実測値
+  V-1 全体傾きb̂=-1.0823（se=0.339, n=6758）区間[-1.15,-0.70]内 → 合格
+  V-2 プラセボ（shift=-2,-1,+1,+2）全て|b̂|<=0.35 → 合格
+  V-3 日別再現性 = 11.86%（59日評価。閾値80%以上） → **不合格**
+  V-4 カバレッジ = 99.49%（閾値>=99%） → 合格
+  V-6 T+3期独立検証: 傾きb̂_T3=-1.9214（se=0.931, n=2049）区間[-1.15,-0.70]外
+      （プラセボ4点は全て|b̂|<=0.35で合格）→ **不合格**
+
+V-1〜V-6のうちV-3・V-6が未達。spec K-6「V-1〜V-6のいずれかが未達なら実験を
+回さずSに差し戻す（結果を作らない）」に該当するため、G1（予測単位）測定を
+実行していない。
+
+### 【追加で判明した、独立の未解決事項（K-6相当・要エスカレーション）】
+
+**(a) K_look（σ_gapの遡り営業日数）が上限66を超える銘柄日が存在する。**
+spec §3.2「遡り上限66の根拠」・§9-5は「K_look<=66が全銘柄日で成立することを
+確認する。1件でもK_look>66が出ればSに差し戻す（上限を延ばす独自判断を禁止）」
+と定めている。実測: 908,523銘柄日中 883,932件でK_look収集に成功し、うち
+K_look<=66の被覆率=99.983%（gate_k_le_66_all=False）。K_lookの最大値=1,308、
+p50=63・p90=64・p99=65。**すなわち微小割合（約0.017%・150件程度）の銘柄日で
+K_look>66が発生しており、この条件単独でもK-6に該当する。** 本スクリプトの
+停止判定はV-1〜V-6のみをチェックしており、このK_look条件を明示的な停止条件
+として実装していなかった（本ログで事実として記録するに留め、判定・対処は
+行っていない）。
+
+**(b) AdjFactor≠1.0の行のExRT値が旧spec前提の"1"以外にも出現する
+（研究/EXP-OBS000005/10-result/run.log のD-6参照）。** Gap実験のE-1除外
+（gap_common.is_split_merger_row、ExRT=="1"のみを分割・併合とみなす）は
+旧2年specの定義のまま変更せずに実行した。ExRT="2"（754行）・"3"（23行）の
+意味は本実装では確定していない。これらが真に権利落ち関連であった場合、
+E-1除外が不完全である可能性があり、σ_gap・プールP・z*較正の実測値に
+影響しうるが、その影響の大きさは検証していない。
+
+### 参考データ（合否判定に使わない記述統計）
+- 9-7 PEAD/Gapの排反性チェック: 全期間のGapイベント日集合（288日）とPEAD
+  開示日集合（2,334日）の**日付集合としての**積集合は281日で非空
+  （intersection_count=281, is_disjoint=False）。
+  **注記: これは spec §3.5 が要求する「同一銘柄について事象が排反であること」
+  の検証にはなっていない。** §3.5の排反性は行レベルのE-3除外
+  （`DiscDate∈[D-2,D+2]`の銘柄日を候補から除外）としてスクリプト内に
+  実装・適用済みであり、それとは別に本チェックは「Gapイベントが発生した
+  暦日のいずれかに、（別銘柄も含め）PEADの開示が全期間のどこかであったか」
+  という弱い日付集合の比較に過ぎない。約5,000銘柄・10年間では通常ほぼ
+  必然的に非空になる比較であり、E-3による銘柄・日単位の排反性を否定する
+  ものではない。この点、本チェックの設計自体が spec の要求を正しく
+  検証できていない不備であったことを記録する。
+- K_look分布: 上記(a)参照
+
+## 出力ファイル
+- feasibility.json（9-2a・9-2b・V-1〜V-6・9-5・9-6 DSゲート・9-7）
+- gap_pool.json（候補プールP・17,122件）
+- params.json（calendar・DSゲート結果・z*・U6_cap=175・共有データ層参照）
+- prediction-unit.json / pipeline.json / cost-model.json: 未生成
+  （V-1〜V-6不合格のためG1測定を実行していない）
+
+## 永続化した生データの場所
+- data/raw/jq10y/（EXP-OBS000005と共有。詳細は同EXPのrun.log参照）
