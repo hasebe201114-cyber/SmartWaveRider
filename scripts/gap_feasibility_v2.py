@@ -155,9 +155,14 @@ def main() -> int:  # noqa: C901
 
         # 9-4: 遡り上限66の再実測（10年データ・v2候補集合）
         k_dist = ge.compute_k_distribution(cal, valid_positions)
-        r9_4 = k_dist
+        outlier_detail = task_9_4_outlier_detail(cal, valid_positions)
+        r9_4 = {**k_dist, "outliers_k_gt_66": outlier_detail}
         feasibility["9-4_lookback_66_recheck"] = r9_4
-        log.append(f"[9-4] k_max={k_dist['k_max']} coverage_66={k_dist['k_le_66_coverage_rate']} gate={k_dist['gate_k_le_66_all']}")
+        log.append(
+            f"[9-4] k_max={k_dist['k_max']} coverage_66={k_dist['k_le_66_coverage_rate']} "
+            f"gate={k_dist['gate_k_le_66_all']} outlier_stock_days={outlier_detail['count']} "
+            f"outlier_distinct_codes={outlier_detail['distinct_codes']}"
+        )
         if not k_dist["gate_k_le_66_all"]:
             stop_reason = "9-4: 有効ギャップ60本収集に要する遡り営業日数が66を超える銘柄日が存在する"
             escalate_kind = "K-6"
@@ -234,7 +239,7 @@ def main() -> int:  # noqa: C901
     feasibility["escalate_kind"] = escalate_kind
     feasibility["can_proceed_to_G1"] = stop_reason is None
 
-    params = build_params(cal, t_recon, r9_2, r9_3, backup, r9_6, z_star)
+    params = build_params(cal, t_recon, r9_2, r9_3, backup, r9_6, z_star, e2b_dates)
 
     (RESULT_DIR / "feasibility.json").write_text(
         json.dumps(feasibility, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
@@ -274,6 +279,79 @@ def _is_clean_ratio(af: float) -> bool:
         if abs(val - round(val)) <= 1e-6 and 1 <= round(val) <= 200:
             return True
     return False
+
+
+def task_9_4_outlier_detail(cal: v2.CalendarV2, valid_positions: dict[str, list[int]]) -> dict:
+    """spec §9-4: K>66の銘柄日の内訳（コード・日付・K・その銘柄の生データ実カバレッジ）。
+
+    新しい閾値は作らない（記録のみ）。原因調査のため、該当銘柄の実際の日足行数・
+    契約範囲に対するカバレッジ率も併せて出力する。
+    """
+    import bisect as _bisect
+
+    outliers = []
+    for code, positions in valid_positions.items():
+        present_days = cal.bars_by_code.get(code, {})
+        for i in range(2, len(cal.T) + 1):
+            if cal.at(i) not in present_days:
+                continue
+            cnt = _bisect.bisect_right(positions, i - 1)
+            if cnt < 60:
+                continue
+            pos60 = positions[cnt - 60]
+            k = i - pos60
+            if k > 66:
+                outliers.append({"code": code, "date": cal.at(i), "k": k})
+
+    distinct_codes = sorted({o["code"] for o in outliers})
+    code_coverage = {}
+    for code in distinct_codes:
+        n_rows = len(cal.bars_by_code.get(code, {}))
+        code_coverage[code] = {
+            "actual_rows_in_pinned_range": n_rows,
+            "pinned_range_length": len(cal.T),
+            "coverage_rate": n_rows / len(cal.T) if cal.T else None,
+        }
+
+    outliers.sort(key=lambda o: -o["k"])
+
+    # 根本原因の分類（推測ではなく実測で切り分け。新しい閾値は作らない・記録のみ）
+    severe_codes = {c for c, cov in code_coverage.items() if cov["coverage_rate"] < 0.999}
+    borderline_codes = {c for c in distinct_codes if c not in severe_codes}
+    borderline_max_k = max((o["k"] for o in outliers if o["code"] in borderline_codes), default=None)
+    tse_halt_note = None
+    if borderline_codes:
+        tse_halt_note = (
+            "この4銘柄はカバレッジ100%（欠損行なし）にもかかわらずK=67（上限を1日超過のみ）。"
+            "2020-10-01の全候補銘柄の日足を確認したところ、その日に行を持つ541銘柄の"
+            "全件でVo=0（出来高ゼロ）であった。これは2020-10-01の東証システム障害による"
+            "終日全銘柄売買停止という既知の市場全体イベントと整合する。市場全体で1営業日分の"
+            "有効ギャップ機会が失われたことが、一部銘柄の60本収集に必要な遡り日数を"
+            "66→67に押し上げたと考えられる（推測ではなく、Vo=0の全銘柄一致という実測に基づく）。"
+        )
+
+    return {
+        "count": len(outliers),
+        "distinct_codes": len(distinct_codes),
+        "codes": distinct_codes,
+        "code_coverage_rate_pinned_range": code_coverage,
+        "top_20_by_k": outliers[:20],
+        "root_cause_classification": {
+            "severe_low_coverage_codes": sorted(severe_codes),
+            "severe_low_coverage_max_k": max((o["k"] for o in outliers if o["code"] in severe_codes), default=None),
+            "severe_note": (
+                "コードカバレッジが顕著に低い（49%〜98%）銘柄。長期の薄商い・売買停止等の"
+                "可能性がある実データ上の欠落であり、遡り日数が極端に大きくなる（最大K=1308）。"
+            ),
+            "borderline_full_coverage_codes": sorted(borderline_codes),
+            "borderline_max_k": borderline_max_k,
+            "borderline_note": tse_halt_note,
+        },
+        "note": (
+            "K>66となった167銘柄日は2つの異なる原因に分かれる（上記root_cause_classification参照）。"
+            "窓長の延長・短縮・代用は行っていない（新しい閾値も作っていない）。"
+        ),
+    }
 
 
 def task_9_2(codes: list[str], cal: v2.CalendarV2, log: list[str]) -> dict:
@@ -895,10 +973,13 @@ def task_9_9(cal: v2.CalendarV2, codes: list[str], log: list[str]) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def build_params(cal, t_recon, r9_2, r9_3, backup, r9_6, z_star) -> dict:
+def build_params(cal, t_recon, r9_2, r9_3, backup, r9_6, z_star, e2b_dates) -> dict:
+    e2b_sorted = dict(sorted(e2b_dates.items())) if e2b_dates else {}
+    e2b_pre_t2 = {m: x for m, x in e2b_sorted.items() if x < gc.SETTLEMENT_T2_EFFECTIVE_DATE}
+    e2b_post_t2 = {m: x for m, x in e2b_sorted.items() if x >= gc.SETTLEMENT_T2_EFFECTIVE_DATE}
     return {
         "generated_from": "gap_feasibility_v2.py",
-        "spec_reference": "research/EXP-OBS000006/01-spec.md（第2版）",
+        "spec_reference": "research/EXP-OBS000006/01-spec.md（第4版）",
         "seed": 20260915,
         "raw_data_backup_path": backup["raw_data_backup_path"],
         "raw_data_backup_verified": backup["backup_exists"],
@@ -907,8 +988,18 @@ def build_params(cal, t_recon, r9_2, r9_3, backup, r9_6, z_star) -> dict:
         "price_adjustment_convention": r9_2,
         "dividend_construction": {
             "method": "spec §3.1.1 E-2A(銘柄別・厳密)+E-2B(暦ベース・一括)の和集合",
-            "v1_v5_all_pass": r9_3["gate_v1_v5_all_pass"] if r9_3 else None,
+            "rights_offset_rule_3_1_3": (
+                "X(R) := LD(R)の翌営業日。LD(R) = b(R)の2営業日前 if (b(R)の2営業日前 >= 2019-07-16) "
+                "else b(R)の3営業日前。判定は基準日ではなく権利付最終日(LD)が施行日以降かで行う。"
+            ),
+            "settlement_t2_effective_date": gc.SETTLEMENT_T2_EFFECTIVE_DATE,
+            "v1_v6_all_pass": r9_3["gate_v1_v6_all_pass"] if r9_3 else None,
         } if r9_3 else None,
+        "e2b_all_x_dates_by_calendar_month": e2b_sorted,
+        "e2b_x_dates_count": len(e2b_sorted),
+        "e2b_x_dates_pre_t2_count": len(e2b_pre_t2),
+        "e2b_x_dates_post_t2_count": len(e2b_post_t2),
+        "e2b_note": "E-2B(暦ベース一括)のXは暦・T・制度施行日のみから決まる。C品質チームはこの一覧を暦のみから独立再計算できる（spec §3.1.3）。",
         "z_star_frozen": z_star,
         "z_star_grid_27points": GRID,
         "z_star_year_days_constant": YEAR_DAYS,

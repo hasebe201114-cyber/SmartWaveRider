@@ -189,14 +189,39 @@ def construct_dividend_basis_records(fins_records: list[dict]) -> tuple[list[dic
     return out, skipped_missing_fy
 
 
+# spec §3.1.3（EXP-OBS000006 第4版で確定）。日本の株式決済は2019-07-16にT+3からT+2へ移行した。
+# 旧spec §3.1.1 step3の「X := b(R)の1営業日前」はT+2を前提とした式（spec原文が明記）であり、
+# それ以前の期間には当てはまらない。判定は基準日ではなく権利付最終日（LD。実際に約定する日）が
+# 施行日以降かで行う。
+SETTLEMENT_T2_EFFECTIVE_DATE = "2019-07-16"
+
+
+def _rights_offset_x_index(cal: "Calendar", i_b: int) -> int | None:
+    """spec §3.1.3: 基準日の直前営業日インデックス i_b（= idx(b(R))）から権利落ち日Xのインデックスを返す。
+
+    LD2 := b(R)の2営業日前（T+2仮定での権利付最終日）
+    LD  := LD2 if LD2 >= 2019-07-16（T+2期） else b(R)の3営業日前（T+3期）
+    X   := LDの翌営業日 （⇒ T+2期は i_b-1、T+3期は i_b-2）
+    """
+    if i_b is None or i_b <= 3:
+        return None
+    ld2_date = cal.at(i_b - 2)
+    if ld2_date is not None and ld2_date >= SETTLEMENT_T2_EFFECTIVE_DATE:
+        return i_b - 1  # T+2期: Xはb(R)の1営業日前
+    return i_b - 2  # T+3期: Xはb(R)の2営業日前
+
+
 def build_e2a(cal: Calendar, basis_records: list[dict]) -> dict:
-    """spec §3.1.1 step 3・5。基準日を権利落ち日 X へ写し、DPS>0 の (code,X) を構成する。"""
+    """spec §3.1.1 step 3・5 + §3.1.3。基準日を権利落ち日 X へ写し、DPS>0 の (code,X) を構成する。
+
+    Xのオフセットは決済サイクル依存（§3.1.3。T+2期はb(R)の1営業日前、T+3期は2営業日前）。
+    """
     by_code_x_pos: dict[tuple[str, str], list[float]] = defaultdict(list)
     explicit_zero_codes: set[str] = set()
     positive_codes: set[str] = set()
     any_record_codes: set[str] = set()
     no_mapping_count = 0  # b(R) が構成できない（T に R 以下の営業日が無い）
-    below_t1_count = 0  # b(R) = T[1]（1営業日前が存在しない）
+    below_t1_count = 0  # Xのオフセット計算に必要な過去営業日が足りない
 
     for r in basis_records:
         code = r["code"]
@@ -206,10 +231,11 @@ def build_e2a(cal: Calendar, basis_records: list[dict]) -> dict:
             no_mapping_count += 1
             continue
         i = cal.idx(b)
-        if i is None or i <= 1:
+        x_index = _rights_offset_x_index(cal, i)
+        if x_index is None:
             below_t1_count += 1
             continue
-        x = cal.at(i - 1)
+        x = cal.at(x_index)
         if r["dps"] > 0:
             positive_codes.add(code)
             by_code_x_pos[(code, x)].append(r["dps"])
@@ -234,8 +260,9 @@ def build_e2a(cal: Calendar, basis_records: list[dict]) -> dict:
 
 
 def build_e2b(cal: Calendar) -> dict[str, str]:
-    """spec §3.1.1 の E-2B。各暦月の最終営業日の1営業日前 X(m) を全銘柄共通で構成する。
+    """spec §3.1.1 の E-2B + §3.1.3。各暦月の最終営業日を基準に定めた X(m) を全銘柄共通で構成する。
 
+    Xのオフセットは決済サイクル依存（§3.1.3。build_e2aと同一規則）。
     戻り値: 暦月 "YYYY-MM" -> X(m) の日付文字列。
     """
     by_month: dict[str, list[str]] = defaultdict(list)
@@ -246,9 +273,10 @@ def build_e2b(cal: Calendar) -> dict[str, str]:
         days.sort()
         last_day = days[-1]
         i = cal.idx(last_day)
-        if i is None or i <= 1:
+        x_index = _rights_offset_x_index(cal, i)
+        if x_index is None:
             continue
-        result[m] = cal.at(i - 1)
+        result[m] = cal.at(x_index)
     return result
 
 
