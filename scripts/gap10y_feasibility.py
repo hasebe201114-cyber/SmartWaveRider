@@ -342,7 +342,18 @@ def main() -> int:
     (RESULT_DIR / "gap_pool.json").write_text(json.dumps(pool_out, ensure_ascii=False), encoding="utf-8")
     log(f"saved: {RESULT_DIR / 'gap_pool.json'}（{len(pool_out)}件）")
 
-    params = {"calendar": cal_json, "gap_ds_gate_result": ds_result, "z_star": z_star, "random_seed": 20260915}
+    params = {
+        "calendar": cal_json,
+        "gap_ds_gate_result": ds_result,
+        "z_star": z_star,
+        "random_seed": 20260915,
+        "u6_cap_applied": 175,
+        "shared_universe_reference": "research/EXP-OBS000005/10-result/universe.json（10Y-COMMON §8 D-9で構築。本EXPはU6_cap=175で打ち切ったものを使用。271キャップはPEAD専用でありD-16はギャップEXPに適用しない）",
+        "shared_data_layer_reference": {
+            "raw_data_root": "data/raw/jq10y/",
+            "d0_contract_range_probe": "data/raw/jq10y/d0_contract_range_probe.json",
+        },
+    }
     (RESULT_DIR / "params.json").write_text(json.dumps(params, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     log(f"saved: {RESULT_DIR / 'params.json'}")
 
