@@ -185,7 +185,10 @@ def main() -> int:
                 perm_ics.append(sum(day_ics) / len(day_ics))
     ge_count = sum(1 for x in perm_ics if x >= perm_obs) if perm_obs is not None else None
     p_value = ((1 + ge_count) / (1 + len(perm_ics))) if perm_ics and ge_count is not None else None
-    perm_std = (median(perm_ics) and (sum((x - sum(perm_ics)/len(perm_ics))**2 for x in perm_ics)/(len(perm_ics)-1))**0.5) if len(perm_ics) > 1 else None
+    perm_std = None
+    if len(perm_ics) > 1:
+        _perm_mean = sum(perm_ics) / len(perm_ics)
+        perm_std = (sum((x - _perm_mean) ** 2 for x in perm_ics) / (len(perm_ics) - 1)) ** 0.5
     log(f"  permutation p={p_value}  n_reps={len(perm_ics)}")
 
     g1_1_pass = (perm_obs is not None and perm_obs > 0 and p_value is not None and p_value < 0.05)
