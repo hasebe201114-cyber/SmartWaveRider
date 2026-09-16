@@ -56,22 +56,34 @@ class RollingRateLimiter:
     このリミッタで合計リクエスト数を120件/分以内に抑える。
     """
 
-    def __init__(self, max_per_minute: int = 110):
+    def __init__(self, max_per_minute: int = 80):
         self.max_per_minute = max_per_minute
         self._lock = threading.Lock()
         self._timestamps: collections.deque = collections.deque()
+        self._penalty_until = 0.0  # 429を受けたら一時的にさらに絞る（サーバー側の実際の窓との齟齬を吸収）
+
+    def register_429(self) -> None:
+        import random as _random
+
+        with self._lock:
+            self._penalty_until = max(self._penalty_until, time.monotonic() + 20.0 + _random.random() * 10.0)
 
     def acquire(self) -> None:
+        import random as _random
+
         while True:
             with self._lock:
                 now = time.monotonic()
-                while self._timestamps and now - self._timestamps[0] > 60.0:
-                    self._timestamps.popleft()
-                if len(self._timestamps) < self.max_per_minute:
-                    self._timestamps.append(now)
-                    return
-                wait = 60.0 - (now - self._timestamps[0]) + 0.05
-            time.sleep(max(wait, 0.05))
+                if now < self._penalty_until:
+                    wait = self._penalty_until - now
+                else:
+                    while self._timestamps and now - self._timestamps[0] > 60.0:
+                        self._timestamps.popleft()
+                    if len(self._timestamps) < self.max_per_minute:
+                        self._timestamps.append(now)
+                        return
+                    wait = 60.0 - (now - self._timestamps[0]) + 0.05
+            time.sleep(max(wait, 0.05) + _random.random() * 0.3)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = REPO_ROOT / "data" / "raw" / "jq10y"
@@ -214,10 +226,14 @@ def fetch_by_date_concurrent(endpoint: str, out_subdir: str, workers: int = 8, f
                     )
             status, records, err = _do_get(api_key, endpoint, iso)
             if status == 429:
+                limiter.register_429()  # 他スレッドも含め一時的に送信を絞る（サーバー側429ストームの防止）
                 with lock:
                     counters["retry"] += 1
-                time.sleep(backoff)
-                backoff *= 2.0
+                    counters["429_count"] = counters.get("429_count", 0) + 1
+                    if counters["429_count"] % 10 == 0:
+                        stderr_log(f"[{out_subdir}] 429累計={counters['429_count']}件目 (date={iso}, attempt={attempt})")
+                time.sleep(min(backoff, 30.0))
+                backoff *= 1.6
                 continue
             if status == 0:
                 # 接続エラー（一時的な切断等）。短い待機でリトライする（真の欠測と混同しない）。
@@ -383,9 +399,9 @@ def main() -> int:
     elif args.step == "bars":
         fetch_by_date_concurrent("/equities/bars/daily", "bars_by_date", workers=8, force=args.force)
     elif args.step == "fins":
-        fetch_by_date_concurrent("/fins/summary", "fins_summary_by_date", workers=20, force=args.force)
+        fetch_by_date_concurrent("/fins/summary", "fins_summary_by_date", workers=6, force=args.force)
     elif args.step == "earnings":
-        fetch_by_date_concurrent("/fins/earnings-date", "earnings_date_by_date", workers=20, force=args.force)
+        fetch_by_date_concurrent("/fins/earnings-date", "earnings_date_by_date", workers=6, force=args.force)
     elif args.step == "master":
         if not args.dates_file:
             print("エラー: --step master には --dates-file が必要", file=sys.stderr)
