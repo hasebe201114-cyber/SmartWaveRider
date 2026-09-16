@@ -205,6 +205,13 @@ def fetch_by_date_concurrent(endpoint: str, out_subdir: str, workers: int = 8, f
         backoff = 8.0
         for attempt in range(6):
             limiter.acquire()
+            with lock:
+                counters["attempts"] = counters.get("attempts", 0) + 1
+                if counters["attempts"] % 100 == 0:
+                    stderr_log(
+                        f"[{out_subdir}] 試行数={counters['attempts']} 成功={counters['n']} "
+                        f"接続エラー累計={counters.get('conn_err', 0)}"
+                    )
             status, records, err = _do_get(api_key, endpoint, iso)
             if status == 429:
                 with lock:
@@ -216,6 +223,9 @@ def fetch_by_date_concurrent(endpoint: str, out_subdir: str, workers: int = 8, f
                 # 接続エラー（一時的な切断等）。短い待機でリトライする（真の欠測と混同しない）。
                 with lock:
                     counters["retry"] += 1
+                    counters["conn_err"] = counters.get("conn_err", 0) + 1
+                    if counters["conn_err"] % 20 == 0:
+                        stderr_log(f"[{out_subdir}] {iso}: 接続エラー累計{counters['conn_err']}件目 (attempt={attempt}): {err}")
                 time.sleep(2.0 + attempt * 2.0)
                 continue
             if status == 400:
@@ -373,9 +383,9 @@ def main() -> int:
     elif args.step == "bars":
         fetch_by_date_concurrent("/equities/bars/daily", "bars_by_date", workers=8, force=args.force)
     elif args.step == "fins":
-        fetch_by_date_concurrent("/fins/summary", "fins_summary_by_date", workers=8, force=args.force)
+        fetch_by_date_concurrent("/fins/summary", "fins_summary_by_date", workers=20, force=args.force)
     elif args.step == "earnings":
-        fetch_by_date_concurrent("/fins/earnings-date", "earnings_date_by_date", workers=8, force=args.force)
+        fetch_by_date_concurrent("/fins/earnings-date", "earnings_date_by_date", workers=20, force=args.force)
     elif args.step == "master":
         if not args.dates_file:
             print("エラー: --step master には --dates-file が必要", file=sys.stderr)
