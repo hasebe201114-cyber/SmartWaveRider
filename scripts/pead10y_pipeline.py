@@ -195,11 +195,24 @@ def main() -> int:
     g2_3_pass = (g2_1_value is not None and g2_1_value > 0) and (g2_3_sel_value is not None and g2_3_sel_value > 0)
     g2_4_pass = result["max_drawdown"] <= 0.15
     g2_5_pass = len(conf_trades) >= 60
-    total_signals_conf = sum(len(v) for i, v in signals_by_i.items() if conf_lo <= T[i-1] <= conf_hi) if signals_by_i else 0
-    unfilled = sum(1 for sc in result["slot_conflicts"] if sc.get("reason", "").startswith("buy_blocked") and conf_lo <= T[sc.get("entry_i", 1)-1] <= conf_hi) if False else None
-    g2_6_pass = None  # 詳細な約定不能率はslot_conflicts内訳から別途出す
 
-    all_g2_pass = g2_1_pass and g2_2_pass and g2_3_pass and g2_4_pass and g2_5_pass
+    total_signals_conf = sum(len(v) for i, v in signals_by_i.items() if conf_lo <= T[i - 1] <= conf_hi)
+    buy_blocked_conf = sum(
+        1 for sc in result["slot_conflicts"]
+        if sc.get("reason", "").startswith("buy_blocked") and conf_lo <= sc.get("signal_group", "") <= conf_hi
+    )
+    g2_6_value = (buy_blocked_conf / total_signals_conf) if total_signals_conf else None
+    g2_6_pass = g2_6_value is not None and g2_6_value <= 0.50
+
+    all_g2_pass = g2_1_pass and g2_2_pass and g2_3_pass and g2_4_pass and g2_5_pass and g2_6_pass
+
+    # G2-7: 往復コスト0.50%ケース（中心0.35%からの差分+0.15%を手数料に上乗せして近似）
+    log("G2-7（往復0.50%ケース）再シミュレーション中...")
+    cfg_high_cost = PipelineConfig(**{**cfg.__dict__, "commission_roundtrip": cfg.commission_roundtrip + 0.0015})
+    result_hc = run_pipeline(T, i_start, i_end, signals_by_i, bars_by_code, cfg_high_cost, forced_close_check)
+    conf_trades_hc = [t for t in result_hc["trades"] if conf_lo <= t["entry_date"] <= conf_hi]
+    g2_7_value = avg([t["return_on_notional_net"] for t in conf_trades_hc if t["return_on_notional_net"] is not None])
+    g2_7_pass = g2_7_value is not None and g2_7_value > 0.0
 
     exit_breakdown = result["exit_reason_counter"]
     slot_conflict_reasons = Counter(sc.get("reason") for sc in result["slot_conflicts"])
@@ -210,7 +223,9 @@ def main() -> int:
         "G2-3_selection_avg_net_return": g2_3_sel_value, "G2-3_pass": g2_3_pass,
         "G2-4_max_drawdown": result["max_drawdown"], "G2-4_threshold": 0.15, "G2-4_pass": g2_4_pass,
         "G2-5_confirmation_trade_count": len(conf_trades), "G2-5_threshold": 60, "G2-5_pass": g2_5_pass,
-        "all_G2_pass_excl_G2_6_G2_7": all_g2_pass,
+        "G2-6_unfillable_rate": g2_6_value, "G2-6_threshold": 0.50, "G2-6_pass": g2_6_pass,
+        "G2-7_confirmation_avg_net_return_at_050pct_roundtrip": g2_7_value, "G2-7_pass": g2_7_pass,
+        "all_G2_pass": all_g2_pass and g2_7_pass,
         "trade_count_total": len(trades), "trade_count_confirmation": len(conf_trades), "trade_count_selection": len(sel_trades),
         "exit_reason_breakdown": exit_breakdown,
         "slot_conflict_reason_breakdown": dict(slot_conflict_reasons),

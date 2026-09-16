@@ -84,6 +84,7 @@ def main() -> int:
 
     signals_by_i: dict[int, list[dict]] = defaultdict(list)
     skipped_no_cd = 0
+    e8_excluded = 0
     for r in candidates_raw:
         i0 = idx_of.get(r["date"])
         if i0 is None:
@@ -95,12 +96,19 @@ def main() -> int:
         if row_d is None or row_d.get("C") is None:
             skipped_no_cd += 1
             continue
+        # E-8（本EXP固有の追加除外）: LL(t1)=1 かつ O(t1)=L(t1) は見送る
+        t1_date = T[entry_i - 1] if 1 <= entry_i <= len(T) else None
+        row_t1 = bars_by_code.get(r["code"], {}).get(t1_date) if t1_date else None
+        if row_t1 is not None and str(row_t1.get("LL")) == "1" and row_t1.get("L") is not None and row_t1.get("O") is not None:
+            if abs(float(row_t1["O"]) - float(row_t1["L"])) <= 1e-6 * max(1.0, abs(float(row_t1["L"]))):
+                e8_excluded += 1
+                continue
         signals_by_i[entry_i].append({
             "code": r["code"], "sector": sector_for(r["code"], r["date"]),
             "signal_group": r["date"], "ref_price_for_sizing": float(row_d["C"]),
             "priority_key": (-r["S"], r["code"]),
         })
-    log(f"エントリー候補件数={sum(len(v) for v in signals_by_i.values())}（C(D)欠損除外={skipped_no_cd}）")
+    log(f"エントリー候補件数={sum(len(v) for v in signals_by_i.values())}（C(D)欠損除外={skipped_no_cd} E-8除外={e8_excluded}）")
 
     log("決算跨ぎ制約（H-3字義通り）用データ読み込み中...")
     ed_rows = conn.execute("SELECT pubdate, schdate, code FROM earnings_date").fetchall()
@@ -170,7 +178,23 @@ def main() -> int:
     g2_4_pass = result["max_drawdown"] <= 0.15
     g2_5_pass = len(conf_trades) >= 30
 
-    all_g2_pass = g2_1_pass and g2_2_pass and g2_3_pass and g2_4_pass and g2_5_pass
+    total_signals_conf = sum(len(v) for i, v in signals_by_i.items() if conf_lo <= T[i - 1] <= conf_hi)
+    buy_blocked_conf = sum(
+        1 for sc in result["slot_conflicts"]
+        if sc.get("reason", "").startswith("buy_blocked") and conf_lo <= sc.get("signal_group", "") <= conf_hi
+    )
+    g2_6_value = (buy_blocked_conf / total_signals_conf) if total_signals_conf else None
+    g2_6_pass = g2_6_value is not None and g2_6_value <= 0.50
+
+    all_g2_pass = g2_1_pass and g2_2_pass and g2_3_pass and g2_4_pass and g2_5_pass and g2_6_pass
+
+    # G2-7: 往復コスト0.60%ケース（片道スリッページ0.100%→0.175%、他は固定。spec §8.2）
+    log("G2-7（往復0.60%ケース）再シミュレーション中...")
+    cfg_high_cost = PipelineConfig(**{**cfg.__dict__, "buy_slippage": 0.00175, "sell_slippage": 0.00175})
+    result_hc = run_pipeline(T, i_start, i_end, signals_by_i, bars_by_code, cfg_high_cost, forced_close_check)
+    conf_trades_hc = [t for t in result_hc["trades"] if conf_lo <= t["entry_date"] <= conf_hi]
+    g2_7_value = avg([t["return_on_notional_net"] for t in conf_trades_hc if t["return_on_notional_net"] is not None])
+    g2_7_pass = g2_7_value is not None and g2_7_value > 0.0
 
     exit_breakdown = result["exit_reason_counter"]
     slot_conflict_reasons = Counter(sc.get("reason") for sc in result["slot_conflicts"])
@@ -182,7 +206,9 @@ def main() -> int:
         "G2-3_selection_avg_net_return": g2_3_sel_value, "G2-3_pass": g2_3_pass,
         "G2-4_max_drawdown": result["max_drawdown"], "G2-4_threshold": 0.15, "G2-4_pass": g2_4_pass,
         "G2-5_confirmation_trade_count": len(conf_trades), "G2-5_threshold": 30, "G2-5_pass": g2_5_pass,
-        "all_G2_pass_excl_G2_6_G2_7": all_g2_pass,
+        "G2-6_unfillable_rate": g2_6_value, "G2-6_threshold": 0.50, "G2-6_pass": g2_6_pass,
+        "G2-7_confirmation_avg_net_return_at_060pct_roundtrip": g2_7_value, "G2-7_pass": g2_7_pass,
+        "all_G2_pass": all_g2_pass and g2_7_pass,
         "trade_count_total": len(trades), "trade_count_confirmation": len(conf_trades), "trade_count_selection": len(sel_trades),
         "exit_reason_breakdown": exit_breakdown,
         "slot_conflict_reason_breakdown": dict(slot_conflict_reasons),
