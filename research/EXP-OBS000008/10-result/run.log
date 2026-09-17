@@ -8,14 +8,43 @@
 [9-7] selection_n=134963 confirmation_n=130235
 [9-8] present=464 missing=90
 [9-9] selection_checked=134963 selection_violations=624 confirmation_checked=130235 confirmation_violations=681 total=1305
+[9-9b] total_rows_scanned=1300269 a_violations=0 b_violations=274 b_violations_all_last_split_in_series=True fallback_excluded_pairs_if_applied=1050/1305 diff_records=1305 gate_pass=False
 saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/feasibility.json
 saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/params.json
-STOP (K-6): 9-9: イベントの[t1,t19]窓に分割・併合(AdjFactor≠1)を含む件数が0でない
+STOP (K-6): 9-9b: check(b)の違反274件（AdjFactor≠1だがAdjO=O/AdjC=C）が、機械的検算によりすべて『Tピン留め範囲内でその銘柄にとって最後の分割・併合イベント』という単一パターンに一致することが判明。spec §9-9bの部分的フォールバックを文字通り適用すると9-9該当1305件中1050件（80.4%）を除外することになり、§4.3.1の不変条件（サンプル数は不変）と規模の面で矛盾するため、B実装チームの権限で機械的に適用せず停止した。
 exit_code=2
 
 # 再現用コマンド
 python3 scripts/margin_feasibility.py
 
 # 上記コマンドはfeasibility.json/params.json/candidate_codes_v3.jsonを
-# research/EXP-OBS000008/10-result/ に出力する。9-9タスクで停止したため
-# G1（margin_g1.py相当）は実行していない。
+# research/EXP-OBS000008/10-result/ に出力する。
+#
+# 本セッションでの変更点（spec第2版 §9-9b新設への対応）:
+#   - scripts/margin_feasibility.py に task_9_9b() を追加実装した
+#     （EXP-OBS000006 §9-3 V-6と同型の適合性検査。(a) is_split_merger_row()捕捉検査、
+#     (b) AdjO/AdjCの非null・生値との差分検査、(c) 9-9で検出した624+681件の(code,week)
+#     ペアそれぞれについて生値R_5とAdj系列R_5の差分を監査証跡として記録）。
+#   - spec第2版に合わせ、9-9の検出（624件・681件）自体はもはやG1をブロックしない
+#     （main()のstop_reason設定ロジックから9-9のtotal_violations>0条件を削除）。
+#
+# 実行結果: 9-9bのcheck(a)は0件（0違反）で合格。check(b)は274件の違反
+# （AdjFactor≠1だがAdjO=O・AdjC=C）を検出した。機械的な原因切り分け（判定ではなく
+# 事実の検算）の結果、この274件は例外なく「同一銘柄のTピン留め範囲内でその日付より
+# 後にAdjFactor≠1の行が存在しない（＝その銘柄にとって範囲内最後の分割・併合イベント）」
+# という単一パターンに100%一致することが判明した（`data/raw/pead/bars_daily/18010.json`
+# はその典型例: 2017-09-27にAdjFactor=5.0の分割が1回だけ発生し、2026-09-14までの
+# その後9年間splitが一切発生しないため、当日のAdjO(=5890.0)がO(=5890.0)と完全一致する）。
+#
+# spec §9-9bは「(a)(b)いずれかで違反が見つかった場合、該当(code,week)ペアのみ機械的に
+# 除外して続行してよい」と規定するが、本実測でこのフォールバックを文字通り適用すると、
+# 9-9で検出した1305件の(code,week)ペアのうち1050件（80.4%）が除外対象になる。これは
+# spec §4.3.1が明記する不変条件「除外は行わずサンプルを一切失わない・サンプル数は不変
+# （選定134,963件・確認130,235件）」と規模の面で正面から矛盾する。この274件のパターンが
+# AdjFactor/AdjOフィールドの正式な仕様（意図された挙動）なのか、それともspec §9-9b check(b)
+# の想定と食い違う未確認の挙動なのかは、B実装チームの権限では判定できない
+# （CLAUDE.md「推測で埋めない」・spec絶対厳守6・trading-app-v2 EXP-OBS000037の教訓＝
+# 時系列/フィールド意味論の矛盾を自己解釈で埋めない、に基づき判定を行わない）。
+#
+# よって9-9bで停止し（K-6）、9-10（UL/LL）・G1（margin_g1.py相当）はいずれも実行していない
+# （absolute rule: 停止条件に該当したらそこで完全に停止する）。
