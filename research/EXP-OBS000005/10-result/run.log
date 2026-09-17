@@ -1,0 +1,78 @@
+EXP-OBS000005（PEAD・10年データ版・spec第3版）実行ログ
+========================================================================
+
+このログは §9-0〜§9-10（feasibility）およびG1（prediction-unit.json）の実行記録である。
+G2は未実行（G1の結果に基づき、次のアクションはSまたは司令塔の判断を待つ）。
+
+再現用コマンド（実行順序どおり）:
+
+    # 1. master_v2 の追加取得（EXP-OBS000005/000006 共用。Standard契約中のみ実行可能）
+    python3 scripts/pead_fetch_data.py --step master_v2
+
+    # 2. 候補集合の再構成は research/EXP-OBS000005/10-result/candidate_codes_v2.json として
+    #    既に生成済み（EXP-OBS000005/000006 共用）。
+
+    # 3. 新規銘柄の日足取得（既存キャッシュは絶対に --force で上書きしない。§9-0/N-10）
+    python3 scripts/pead_fetch_data.py --step bars --codes-file <newly_added_codes.json>
+
+    # 4. §9 先行タスク本体（9-0〜9-10）
+    python3 scripts/pead_feasibility_v2.py
+
+    # 5. G1（予測単位）測定
+    python3 scripts/pead_g1_v2.py
+
+実行日: 2026-09-15
+実行環境: JQUANTS_API_KEY は環境変数から取得（.env.local は読んでいない）
+
+## §9 先行タスク（pead_feasibility_v2.py）実行結果サマリー
+
+[9-0] backup_exists=True path=/home/user/backups/data_raw_backup_20260915.tar.gz
+[9-1] candidate_codes_count=554
+[T] N=2441 m=1220 T[1]=2016-09-15 T[N]=2026-09-14 T[m]=2021-09-15 matches=True
+[9-2] mapping_unambiguous=True（ScaleCatのTOPIX Small1区分の有無を除き2016年/2021年で整合）
+[universe] selection: final_count=175 / confirmation: final_count=175
+[9-3] overall_missing_rate=0.137%
+[9-5] DS-1=1930:True DS-2=160:True DS-3=175:True DS-4=0.137%:True C7-1=160:True C7-2=1.14%:True C7-3=1.02:True（7項目すべて合格）
+[9-6] excluded_total=8395
+[9-7] UL/LL anomalous=0 missing_rate=0.0
+[9-9] later_start_codes=98（先頭欠け1日。イベント範囲より前のU-4助走窓内。U-4不通過7件は既存規則で機械的処理）
+[9-10] selection_violations=0 confirmation_violations=0（分割・併合による前方リターン汚染なし。第3版で新設したタスク）
+
+最終判定: stop_reason=None, can_proceed_to_G1=True
+
+## G1（予測単位）測定結果サマリー（pead_g1_v2.py）
+
+selection_range=(2016-12-15, 2021-08-24) confirmation_range=(2021-09-16, 2026-08-21)
+valid_events_total=12617
+raw_sue_exact_zero_ratio=0.5251（全有効RawSUEイベントの52.5%が厳密にゼロ。§3.4必須出力）
+selection_period_events=1795 confirmation_period_events=1930
+K(raw, >=5events/day)=160  DS-2(feasibility)=160  matches=True（N-6確認OK）
+
+confirmation IC_bar(primary/excluded)=0.054804  K_usable=149
+confirmation IC_bar(virtual/included)=0.057963
+selection IC_bar(primary/excluded)=-0.025384
+permutation: obs_IC_bar=0.054804 p_value=0.035696 (10,000回, seed=20260915) null_sd=0.030548
+
+G1-1 (confirmation IC_bar>0 かつ p<0.05): PASS (ic_bar=0.0548, p=0.0357)
+G1-2 (selection IC_bar>0): FAIL (ic_bar=-0.0254)
+G1-3 (confirmation 第10デシル グロス平均≥+0.35%): PASS (decile10_gross_mean=1.334%)
+G1-4 (confirmation 上位3デシル 市場超過平均>0): PASS (top3_excess=0.253%)
+G1-5 (デシル単調性 rho_dec≥+0.30): PASS (rho_dec=0.714)
+
+g1_all_pass = False（G1-2が未達のため。K-1に該当: 「§6.2のG1-1〜G1-5のいずれかが未達→Kill。
+G2以降は測定しない」。N-12遵守によりG2は実行していない）
+
+出力ファイル:
+  - research/EXP-OBS000005/10-result/candidate_codes_v2.json
+  - research/EXP-OBS000005/10-result/universe_v2.json
+  - research/EXP-OBS000005/10-result/feasibility.json
+  - research/EXP-OBS000005/10-result/params.json
+  - research/EXP-OBS000005/10-result/prediction-unit.json
+  - research/EXP-OBS000005/10-result/run.log（本ファイル）
+
+データバックアップ: /home/user/backups/data_raw_backup_20260915.tar.gz（オーケストレータが取得）
+
+乱数シード: 20260915（permutation検定10,000回。gap_feasibility_v2.pyのz*較正では未使用＝PEADに較正なし）
+
+決定性についての注記: 既存キャッシュ（本ログの実行時点のもの）を変更しない限り、
+本スクリプトの再実行結果は決定的である（§2.0.1のローリング窓に関する既知の限界を除く）。

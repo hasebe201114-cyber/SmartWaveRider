@@ -1,0 +1,83 @@
+{
+  "task": "EXP-OBS000007 P-1 実機確認（0-24）",
+  "executed_at": "2026-09-16",
+  "executed_by": "B実装チーム（quant-researcher）",
+  "purpose": "候補1（信用取引残高）のエンドポイント疎通・データ形状の実測のみ。エッジ有無・採否は評価しない。",
+  "client": "scripts/lib/jquants_client.py JQuantsClient（x-api-key方式・base=https://api.jquants.com/v2）",
+  "primary_endpoint_probe": {
+    "path": "/markets/margin-interest",
+    "http_status": 200,
+    "params_tested": [
+      {"code": "72030"},
+      {"code": "72030", "date": "2016-09-15"},
+      {"code": "72030", "date": "2016-09-16"},
+      {"code": "72030", "date": "2016-09-09"},
+      {"date": "2026-09-11"}
+    ]
+  },
+  "response_shape": {
+    "top_level_keys": ["data"],
+    "data_is_list": true,
+    "fields_per_record": [
+      "Date", "Code", "ShrtVol", "LongVol",
+      "ShrtNegVol", "LongNegVol", "ShrtStdVol", "LongStdVol", "IssType"
+    ],
+    "granularity": "銘柄別（code指定）。dateのみ指定（codeなし）でも200が返り、その日の全銘柄横断データが返る（2026-09-11指定でn=4259件）",
+    "frequency": "週次（レコード間隔の実測: 508件中 7日間隔460件・6日13件・8日13件・14日13件・5日3件・9日3件・15日1件。日足ではない）",
+    "field_semantics_observed_only": {
+      "note": "フィールド名からの直接的な読み（J-Quants側のフィールド説明ドキュメントは本タスクでは参照していない。以下は実測データからの加算関係のみを事実として確認した内容）",
+      "additivity_check": {
+        "sample_record": {
+          "Date": "2016-09-16", "Code": "72030",
+          "ShrtVol": 1907100.0, "LongVol": 5074200.0,
+          "ShrtNegVol": 186400.0, "LongNegVol": 1370100.0,
+          "ShrtStdVol": 1720700.0, "LongStdVol": 3704100.0,
+          "IssType": "2"
+        },
+        "ShrtNegVol_plus_ShrtStdVol_equals_ShrtVol": true,
+        "LongNegVol_plus_LongStdVol_equals_LongVol": true
+      },
+      "IssType_observed_values": {
+        "72030": ["2"],
+        "13320": ["2"],
+        "99890": ["2"]
+      },
+      "signed_margin_ratio_field": "レスポンスに信用倍率（買い残/売り残の比率）そのものを表す単一フィールドは存在しない。LongVol・ShrtVolから算出する必要がある（未算出。本タスクの範囲外）"
+    }
+  },
+  "rolling_window_boundary": {
+    "method": "research/EXP-OBS000001/11-data-refetch-standard-plan.md「訂正: 実体はローリング窓である」節と同一手法。境界日を明示指定してHTTP 400になる日を探索",
+    "probe_date": "2016-09-16",
+    "results": [
+      {"date": "2016-09-09", "code": "72030", "http_status": 400, "message": "Your subscription covers the following dates: 2016-09-16 ~ . If you want more data, please check other plans:https://jpx-jquants.com/#dataset"},
+      {"date": "2016-09-15", "code": "72030", "http_status": 400, "message": "Your subscription covers the following dates: 2016-09-16 ~ . If you want more data, please check other plans:https://jpx-jquants.com/#dataset"},
+      {"date": "2016-09-16", "code": "72030", "http_status": 200, "n_records": 1}
+    ],
+    "observed_lower_boundary_as_of_2026-09-16": "2016-09-16",
+    "note_on_drift": "research/EXP-OBS000001/11-data-refetch-standard-plan.md は2026-09-15実施の実測で境界2016-09-16を記録している（同日にはbars/daily等で2016-09-15→2016-09-16への1日前進を観測）。本タスク実施日2026-09-16でも境界は同じく2016-09-16であり、他エンドポイントと同型のローリング窓（クエリ実行日から遡る約10年）と整合する挙動である",
+    "no_code_upper_boundary_probe_not_performed": "上限側（最新データ）は明示的な400探索を行っていない。code指定の全期間取得で最終レコードが2026-09-11（週次データのため直近の公表済み週）であることのみ確認した"
+  },
+  "universe_sample_check": {
+    "source_file": "research/EXP-OBS000005/10-result/candidate_codes_v2.json",
+    "candidate_codes_total": 554,
+    "sample_method": "先頭5件・中央5件・末尾5件（決定的サンプリング。恣意的選別なし）",
+    "sample_codes": ["13320", "13330", "14140", "16050", "16620", "65040", "65060", "65860", "65920", "65940", "99620", "99830", "99840", "99870", "99890"],
+    "sample_size": 15,
+    "results_all_15": {
+      "n_records": 508,
+      "first_date": "2016-09-16",
+      "last_date": "2026-09-11",
+      "http_status": 200
+    },
+    "hits": "15/15",
+    "note": "候補ユニバース（candidate_codes_v2.json）は既に流動性・信用取引可否でフィルタ済みの母集団のため、サンプル全件がヒットしたことは母集団全体（554件全件）のヒット率を保証しない。全件確認は本タスクのスコープ外（軽いサンプル確認の指示のため）"
+  },
+  "alternative_paths_tried": "該当なし（主エンドポイントが最初からHTTP 200のため、代替パスの探索は実施していない）",
+  "api_usage": {
+    "min_request_interval_sec": 0.6,
+    "approx_total_requests": 24,
+    "rate_limit_429_occurred": false,
+    "contract_limit": "120件/分",
+    "note": "全リクエストが0.6秒間隔で逐次実行され、120件/分の制限内に収まっている"
+  }
+}

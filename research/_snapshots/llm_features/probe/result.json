@@ -1,0 +1,43 @@
+{
+ "probe": "C-8 lookahead contamination probe",
+ "target_model": "claude-opus-5",
+ "administration": "self-administered by the running claude-opus-5 agent (no API key available in this environment). Answers were written before any true or placebo close was read or computed in this session; no price file for the confirmation period was opened prior to writing this file.",
+ "n_answered": 200,
+ "n_items": 200,
+ "tolerance": 0.02,
+ "leak_threshold": 0.1,
+ "primary": {
+  "hits_within_2pct": 15,
+  "n": 200,
+  "hit_rate": 0.075,
+  "verdict": "NOT_CONFIRMED"
+ },
+ "placebo_control": {
+  "hits_within_2pct": 23,
+  "n": 200,
+  "hit_rate": 0.115
+ },
+ "by_stratum": {
+  "mktcap_top_half": {
+   "n": 100,
+   "hits": 8,
+   "hit_rate": 0.08,
+   "placebo_hits": 10,
+   "placebo_hit_rate": 0.1
+  },
+  "mktcap_bottom_half": {
+   "n": 100,
+   "hits": 7,
+   "hit_rate": 0.07,
+   "placebo_hits": 13,
+   "placebo_hit_rate": 0.13
+  }
+ },
+ "error_distribution": {
+  "median_abs_rel_err": 0.1361218805608861,
+  "p10_abs_rel_err": 0.02432778489116516,
+  "p25_abs_rel_err": 0.06454630495790459,
+  "mean_abs_rel_err": 0.33793659013970406
+ },
+ "interpretation_limit": "陽性は漏洩の証明になるが、陰性は不在の証明にならない。本プローブが陰性でも「LLM判断型のバックテストは可能」とは結論しない（C-8）。"
+}

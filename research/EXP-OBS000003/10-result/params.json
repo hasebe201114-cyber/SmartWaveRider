@@ -1,0 +1,208 @@
+{
+  "generated_from": "gap_feasibility.py",
+  "spec_reference": "research/EXP-OBS000003/01-spec.md（第2版）",
+  "seed": 20260914,
+  "reference_calendar_T_checkpoints": {
+    "T[1]": "2024-06-21",
+    "T[60]": "2024-09-17",
+    "T[61]": "2024-09-18",
+    "T[62]": "2024-09-19",
+    "T[66]": "2024-09-26",
+    "T[67]": "2024-09-27",
+    "T[68]": "2024-09-30",
+    "T[477]": "2026-06-08",
+    "T[481]": "2026-06-12",
+    "T[482]": "2026-06-15",
+    "T[487]": "2026-06-22"
+  },
+  "reference_calendar_T_len": 487,
+  "price_adjustment_convention": {
+    "split_merger_identifiable": true
+  },
+  "dividend_construction": {
+    "method": "spec §3.1.1 E-2A(銘柄別・厳密)+E-2B(暦ベース・一括)の和集合",
+    "v1_v5_all_pass": true,
+    "v1": {
+      "fit": {
+        "a": -0.0057228858658779965,
+        "b": -0.9422438061411232,
+        "se_b": 0.07075917814630274,
+        "n": 1792
+      },
+      "excluded_e1_count": 66,
+      "missing_count": 1,
+      "threshold": [
+        -1.15,
+        -0.7
+      ],
+      "pass": true
+    },
+    "v2": {
+      "results": {
+        "-2": {
+          "fit": {
+            "a": 0.001782801240785168,
+            "b": 0.0746005372855509,
+            "se_b": 0.030601332618827682,
+            "n": 1858
+          },
+          "excluded_e1": 0,
+          "missing": 1,
+          "abs_b_le_0_35": true
+        },
+        "-1": {
+          "fit": {
+            "a": 0.0012986097593821392,
+            "b": -0.06995086134838131,
+            "se_b": 0.037966179511363,
+            "n": 1858
+          },
+          "excluded_e1": 0,
+          "missing": 1,
+          "abs_b_le_0_35": true
+        },
+        "1": {
+          "fit": {
+            "a": -0.012345493412433359,
+            "b": 0.018400011482889323,
+            "se_b": 0.04459802192492168,
+            "n": 1858
+          },
+          "excluded_e1": 0,
+          "missing": 1,
+          "abs_b_le_0_35": true
+        },
+        "2": {
+          "fit": {
+            "a": 0.007291826634046473,
+            "b": 0.05586435065150264,
+            "se_b": 0.03816188178098917,
+            "n": 1858
+          },
+          "excluded_e1": 0,
+          "missing": 1,
+          "abs_b_le_0_35": true
+        }
+      },
+      "threshold_abs_max": 0.35,
+      "pass": true
+    },
+    "v3": {
+      "qualifying_days_count": 8,
+      "in_range_count": 7,
+      "fraction": 0.875,
+      "threshold_fraction_min": 0.7,
+      "day_results": [
+        {
+          "x": "2024-06-27",
+          "n": 65,
+          "b": -1.2070869842386744,
+          "in_range": true
+        },
+        {
+          "x": "2024-09-27",
+          "n": 334,
+          "b": -0.8524265017620325,
+          "in_range": true
+        },
+        {
+          "x": "2024-12-27",
+          "n": 72,
+          "b": -0.84769044626127,
+          "in_range": true
+        },
+        {
+          "x": "2025-03-28",
+          "n": 371,
+          "b": -0.9036195748492848,
+          "in_range": true
+        },
+        {
+          "x": "2025-06-27",
+          "n": 65,
+          "b": -0.8150782499007432,
+          "in_range": true
+        },
+        {
+          "x": "2025-09-29",
+          "n": 342,
+          "b": -0.8003980662965763,
+          "in_range": true
+        },
+        {
+          "x": "2025-12-29",
+          "n": 67,
+          "b": -0.9154684023561208,
+          "in_range": true
+        },
+        {
+          "x": "2026-03-30",
+          "n": 365,
+          "b": -0.48519505937744467,
+          "in_range": false
+        }
+      ],
+      "pass": true
+    },
+    "v4": {
+      "covered_codes_count": 510,
+      "total_candidate_codes": 511,
+      "fraction": 0.9980430528375733,
+      "threshold_fraction_min": 0.95,
+      "pass": true
+    },
+    "v5": {
+      "total_2Q_unique_periods": 1015,
+      "match_count": 1015,
+      "fraction": 1.0,
+      "threshold_fraction_min": 0.995,
+      "pass": true
+    }
+  },
+  "ul_ll_missing_rate": 0.0,
+  "universe": {
+    "selection_D_u": "2024-09-18",
+    "confirmation_D_u": "2025-07-01",
+    "selection_codes_count": 175,
+    "confirmation_codes_count": 175,
+    "confirmation_pead_reproduction_match": true
+  },
+  "z_star_frozen": -4.0,
+  "z_star_grid": [
+    -1.5,
+    -1.75,
+    -2.0,
+    -2.25,
+    -2.5,
+    -2.75,
+    -3.0,
+    -3.25,
+    -3.5,
+    -3.75,
+    -4.0
+  ],
+  "z_star_year_days_constant": 245.0,
+  "z_star_target_N_ann": 215.0,
+  "ds_gates_all_pass": false,
+  "ds_gates_summary": {
+    "DS-1": true,
+    "DS-2a": false,
+    "DS-2b": true,
+    "DS-5": false,
+    "DS-6": false,
+    "DS-7": false
+  },
+  "japan_specific_conditions_status": {
+    "A_unit_100_share_discretization": "未実施（DSゲート未達またはG1未達のため）",
+    "B_price_limit_ul_ll": "規約確定済み（E-4/E-5/E-7/E-8として候補判定に組込み済み）",
+    "C_trading_hours_fixed": "記述統計のみ実施（9-5のB-5前後別）。G2は未実施",
+    "D_earnings_date_avoidance": "未実施（/fins/earnings-date 未取得。G2到達時に取得予定）",
+    "E_margin_requirement": "未実施（G2未達のため）",
+    "F_credit_regulation_unsimulatable": "模擬不能（データ取得不可・C-5・HTTP403）。spec §7 F項の通り",
+    "G_margin_interest_rate": "未実施（G2未達のため）",
+    "H_short_leg": "該当なし（ロングオンリー・spec §5.2）",
+    "I_rights_dividend_exclusion": "E-1(分割併合)・E-2A(配当・銘柄別)・E-2B(配当・暦ベース)すべて識別可能。V-1〜V-5=全合格"
+  },
+  "stop_reason": "9-6: データ十分性ゲート(DS-1〜DS-7)のいずれかが未達。K-5に従いSへ差し戻す（判定不能。確認期間のリターンは未見のまま温存）。",
+  "escalate_kind": "K-5"
+}

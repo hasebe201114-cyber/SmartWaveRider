@@ -1,0 +1,352 @@
+{
+  "9-1_summary": {
+    "mapping_ambiguous": false,
+    "note": "詳細は params.json の field_value_mapping_9_1 を参照"
+  },
+  "9-1b_ul_ll_flag_check": {
+    "total_bars_rows_scanned": 245273,
+    "ul_unique_values_and_counts": {
+      "'0'": 245088,
+      "'1'": 185
+    },
+    "ll_unique_values_and_counts": {
+      "'0'": 245162,
+      "'1'": 111
+    },
+    "ul_null_count": 0,
+    "ll_null_count": 0,
+    "combined_missing_rate": 0.0,
+    "anomalous_values_outside_1_0_empty_null": [],
+    "values_confined_to_1_0_empty_null": true,
+    "missing_rate_threshold": 0.01,
+    "missing_rate_pass": true,
+    "pass": true
+  },
+  "9-2_missing_rate": {
+    "candidate_codes_count": 511,
+    "codes_with_bars_fetched": 511,
+    "codes_fetch_failed_429_or_error": [],
+    "reference_calendar_trading_days": 487,
+    "reference_calendar_range": [
+      "2024-06-21",
+      "2026-06-22"
+    ],
+    "total_expected_code_days": 245273,
+    "total_actual_code_days": 245273,
+    "total_missing_code_days": 0,
+    "overall_missing_rate": 0.0,
+    "worst_20_codes_by_missing_rate": [
+      {
+        "code": "13320",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "13330",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "14140",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "14170",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "16050",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "17210",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18010",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18020",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18030",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18080",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18120",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18200",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18600",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18780",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "18930",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "19110",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "19250",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "19280",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "19420",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "code": "19440",
+        "active_range": [
+          "2024-06-21",
+          "2026-06-19"
+        ],
+        "expected_days": 486,
+        "actual_days": 486,
+        "missing_days": 0,
+        "missing_rate": 0.0
+      }
+    ],
+    "methodology": "各銘柄について、全候補銘柄の観測日付の和集合を参照営業日カレンダーとし、その銘柄自身の最初の観測日〜最後の観測日の範囲内にある参照営業日のうち、実際にその銘柄の行が存在しない日数を欠損とした（上場前/廃止後の期間は分母に含めない）。HTTP429で取得自体に失敗した銘柄は分母・分子いずれにも算入せず、codes_fetch_failed_429_or_error に別掲する（真の欠測と混同しないため）。"
+  },
+  "9-3_concentration": {
+    "valid_event_count_all_periods": 2079,
+    "distinct_disclosure_days": 229,
+    "days_with_ge5_events": 90,
+    "events_per_day_distribution": {
+      "min": 1,
+      "median": 2,
+      "max": 54,
+      "mean": 9.078602620087336
+    },
+    "events_by_year_month": {
+      "2024-08": 8,
+      "2024-09": 3,
+      "2024-10": 13,
+      "2024-11": 11,
+      "2024-12": 9,
+      "2025-01": 11,
+      "2025-02": 11,
+      "2025-03": 7,
+      "2025-04": 12,
+      "2025-05": 14,
+      "2025-06": 7,
+      "2025-07": 13,
+      "2025-08": 10,
+      "2025-09": 7,
+      "2025-10": 14,
+      "2025-11": 9,
+      "2025-12": 7,
+      "2026-01": 11,
+      "2026-02": 13,
+      "2026-03": 6,
+      "2026-04": 13,
+      "2026-05": 13,
+      "2026-06": 7
+    },
+    "cur_fy_end_month_distribution": {
+      "01": 16,
+      "02": 137,
+      "03": 2124,
+      "04": 20,
+      "05": 18,
+      "06": 40,
+      "07": 8,
+      "08": 36,
+      "09": 25,
+      "10": 19,
+      "11": 16,
+      "12": 289
+    }
+  },
+  "9-4_data_sufficiency_gate": {
+    "DS-1_confirmation_valid_event_count": 341,
+    "DS-1_threshold": 300,
+    "DS-1_pass": true,
+    "DS-2_days_with_ge5_events": 27,
+    "DS-2_threshold": 30,
+    "DS-2_pass": false,
+    "DS-3_confirmation_universe_count": 175,
+    "DS-3_threshold": 150,
+    "DS-3_pass": true,
+    "DS-4_overall_missing_rate": 0.0,
+    "DS-4_threshold": 0.05,
+    "DS-4_pass": true,
+    "all_pass": false
+  },
+  "9-5_raw_sue_descriptive_stats": {
+    "total_events_scanned": 4132,
+    "valid_raw_sue_count": 2079,
+    "excluded_count_by_reason": {
+      "no_matching_prior_disclosure": 501,
+      "null_or_nonnumeric_input": 1552
+    },
+    "raw_sue_descriptive_stats": {
+      "n": 2079,
+      "min": -0.13529411764705881,
+      "p01": -0.03,
+      "p05": -0.007095,
+      "p10": -0.001492,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0036979166666666666,
+      "p90": 0.011061946902654867,
+      "p95": 0.018157058556513846,
+      "p99": 0.040670922376500704,
+      "max": 0.1390467861827722,
+      "mean": 0.002338956549024603,
+      "exact_zero_count": 1028,
+      "exact_zero_ratio": 0.49446849446849445
+    }
+  }
+}

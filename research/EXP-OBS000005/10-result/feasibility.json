@@ -1,0 +1,1631 @@
+{
+  "generated_from": "pead_feasibility_v2.py",
+  "spec_reference": "research/EXP-OBS000005/01-spec.md（第2版）§9",
+  "9-0_backup_verification": {
+    "raw_data_backup_path": "/home/user/backups/data_raw_backup_20260915.tar.gz",
+    "backup_exists": true,
+    "backup_size_bytes": 90612488
+  },
+  "9-1_candidate_set": {
+    "candidate_codes_count": 554,
+    "selection_du_2016-12-15_pass_count": 501,
+    "confirmation_du_2021-09-16_pass_count": 497,
+    "newly_added_vs_old_511_count": 90,
+    "old_511_not_in_v2_union_count": 47,
+    "note": "既存の candidate_codes_v2.json（EXP-OBS000005/000006共用）を読み込んだのみ。再取得なし"
+  },
+  "T_reconstruction": {
+    "contract_range_pin": [
+      "2016-09-15",
+      "2026-09-14"
+    ],
+    "N": 2441,
+    "m": 1220,
+    "missing_bars_codes": [],
+    "checkpoints": {
+      "T[1]": "2016-09-15",
+      "T[N]": "2026-09-14",
+      "T[m]": "2021-09-15",
+      "T[m+1]": "2021-09-16",
+      "T[61]": "2016-12-15",
+      "T[m-16]": "2021-08-24",
+      "T[N-16]": "2026-08-21"
+    },
+    "expected": {
+      "N": 2441,
+      "m": 1220,
+      "T1": "2016-09-15",
+      "TN": "2026-09-14",
+      "Tm": "2021-09-15",
+      "T61": "2016-12-15",
+      "Tm_plus_1": "2021-09-16"
+    },
+    "matches_expected": true
+  },
+  "9-2_field_value_mapping": {
+    "master_field_unique_values_by_determination_date": {
+      "ScaleCat": {
+        "d_sel_2016-12-15": {
+          "TOPIX Mid400": 401,
+          "TOPIX Large70": 70,
+          "TOPIX Small 2": 44,
+          "TOPIX Core30": 30,
+          "-": 3
+        },
+        "d_conf_2021-09-16": {
+          "TOPIX Mid400": 398,
+          "TOPIX Large70": 70,
+          "TOPIX Small 1": 38,
+          "TOPIX Core30": 29,
+          "-": 1
+        },
+        "value_set_identical": false,
+        "values_only_in_d_sel": [
+          "TOPIX Small 2"
+        ],
+        "values_only_in_d_conf": [
+          "TOPIX Small 1"
+        ]
+      },
+      "Mrgn": {
+        "d_sel_2016-12-15": {
+          "2": 543,
+          "1": 4,
+          "3": 1
+        },
+        "d_conf_2021-09-16": {
+          "2": 533,
+          "1": 2,
+          "3": 1
+        },
+        "value_set_identical": true,
+        "values_only_in_d_sel": [],
+        "values_only_in_d_conf": []
+      },
+      "MrgnNm": {
+        "d_sel_2016-12-15": {
+          "貸借": 543,
+          "信用": 4,
+          "その他": 1
+        },
+        "d_conf_2021-09-16": {
+          "貸借": 533,
+          "信用": 2,
+          "その他": 1
+        },
+        "value_set_identical": true,
+        "values_only_in_d_sel": [],
+        "values_only_in_d_conf": []
+      },
+      "S33": {
+        "d_sel_2016-12-15": {
+          "3650": 50,
+          "3200": 47,
+          "6100": 37,
+          "7050": 35,
+          "5250": 34,
+          "3600": 34,
+          "3050": 29,
+          "9050": 26,
+          "6050": 26,
+          "3250": 25,
+          "5050": 24,
+          "2050": 23,
+          "3700": 23,
+          "8050": 14,
+          "4050": 13,
+          "3750": 11,
+          "7200": 11,
+          "3800": 10,
+          "3400": 9,
+          "3450": 8,
+          "3500": 8,
+          "7150": 7,
+          "7100": 7,
+          "3100": 6,
+          "3550": 6,
+          "3300": 5,
+          "3150": 4,
+          "3350": 4,
+          "5100": 3,
+          "5200": 3,
+          "0050": 2,
+          "1050": 2,
+          "5150": 2
+        },
+        "d_conf_2021-09-16": {
+          "3650": 50,
+          "3200": 46,
+          "6100": 36,
+          "5250": 34,
+          "3600": 34,
+          "7050": 34,
+          "3050": 28,
+          "9050": 25,
+          "6050": 25,
+          "5050": 25,
+          "3250": 24,
+          "2050": 23,
+          "3700": 23,
+          "8050": 13,
+          "4050": 13,
+          "3750": 11,
+          "7200": 10,
+          "3800": 10,
+          "3400": 9,
+          "3500": 8,
+          "3450": 7,
+          "7100": 7,
+          "3100": 6,
+          "3550": 6,
+          "7150": 6,
+          "3150": 4,
+          "3350": 4,
+          "3300": 3,
+          "5100": 3,
+          "5200": 3,
+          "0050": 2,
+          "1050": 2,
+          "5150": 2
+        },
+        "value_set_identical": null,
+        "values_only_in_d_sel": null,
+        "values_only_in_d_conf": null
+      },
+      "S33Nm": {
+        "d_sel_2016-12-15": {
+          "電気機器": 50,
+          "化学": 47,
+          "小売業": 37,
+          "銀行業": 35,
+          "情報･通信業": 34,
+          "機械": 34,
+          "食料品": 29,
+          "サービス業": 26,
+          "卸売業": 26,
+          "医薬品": 25,
+          "陸運業": 24,
+          "建設業": 23,
+          "輸送用機器": 23,
+          "不動産業": 14,
+          "電気･ガス業": 13,
+          "精密機器": 11,
+          "その他金融業": 11,
+          "その他製品": 10,
+          "ガラス･土石製品": 9,
+          "鉄鋼": 8,
+          "非鉄金属": 8,
+          "保険業": 7,
+          "証券･商品先物取引業": 7,
+          "繊維製品": 6,
+          "金属製品": 6,
+          "石油･石炭製品": 5,
+          "パルプ・紙": 4,
+          "ゴム製品": 4,
+          "海運業": 3,
+          "倉庫･運輸関連業": 3,
+          "水産・農林業": 2,
+          "鉱業": 2,
+          "空運業": 2
+        },
+        "d_conf_2021-09-16": {
+          "電気機器": 50,
+          "化学": 46,
+          "小売業": 36,
+          "情報･通信業": 34,
+          "機械": 34,
+          "銀行業": 34,
+          "食料品": 28,
+          "サービス業": 25,
+          "卸売業": 25,
+          "陸運業": 25,
+          "医薬品": 24,
+          "建設業": 23,
+          "輸送用機器": 23,
+          "不動産業": 13,
+          "電気･ガス業": 13,
+          "精密機器": 11,
+          "その他金融業": 10,
+          "その他製品": 10,
+          "ガラス･土石製品": 9,
+          "非鉄金属": 8,
+          "鉄鋼": 7,
+          "証券･商品先物取引業": 7,
+          "繊維製品": 6,
+          "金属製品": 6,
+          "保険業": 6,
+          "パルプ・紙": 4,
+          "ゴム製品": 4,
+          "石油･石炭製品": 3,
+          "海運業": 3,
+          "倉庫･運輸関連業": 3,
+          "水産・農林業": 2,
+          "鉱業": 2,
+          "空運業": 2
+        },
+        "value_set_identical": null,
+        "values_only_in_d_sel": null,
+        "values_only_in_d_conf": null
+      }
+    },
+    "fins_summary_scanned_records": 25134,
+    "doctype_unique_values_and_counts": {
+      "FYFinancialStatements_Consolidated_JP": 4089,
+      "3QFinancialStatements_Consolidated_JP": 4009,
+      "2QFinancialStatements_Consolidated_JP": 3973,
+      "1QFinancialStatements_Consolidated_JP": 3961,
+      "EarnForecastRevision": 2688,
+      "1QFinancialStatements_Consolidated_IFRS": 1376,
+      "FYFinancialStatements_Consolidated_IFRS": 1326,
+      "3QFinancialStatements_Consolidated_IFRS": 1268,
+      "2QFinancialStatements_Consolidated_IFRS": 1265,
+      "DividendForecastRevision": 529,
+      "FYFinancialStatements_Consolidated_US": 116,
+      "3QFinancialStatements_Consolidated_US": 115,
+      "2QFinancialStatements_Consolidated_US": 112,
+      "1QFinancialStatements_Consolidated_US": 102,
+      "1QFinancialStatements_NonConsolidated_JP": 53,
+      "3QFinancialStatements_NonConsolidated_JP": 52,
+      "FYFinancialStatements_NonConsolidated_JP": 51,
+      "2QFinancialStatements_NonConsolidated_JP": 48,
+      "OtherPeriodFinancialStatements_Consolidated_JP": 1
+    },
+    "curpertype_unique_values_and_counts": {
+      "FY": 8137,
+      "2Q": 6042,
+      "1Q": 5499,
+      "3Q": 5455,
+      "4Q": 1
+    },
+    "era_check_2016_2017_doctype_values": [
+      "1QFinancialStatements_Consolidated_IFRS",
+      "1QFinancialStatements_Consolidated_JP",
+      "1QFinancialStatements_Consolidated_US",
+      "1QFinancialStatements_NonConsolidated_JP",
+      "2QFinancialStatements_Consolidated_IFRS",
+      "2QFinancialStatements_Consolidated_JP",
+      "2QFinancialStatements_Consolidated_US",
+      "2QFinancialStatements_NonConsolidated_JP",
+      "3QFinancialStatements_Consolidated_IFRS",
+      "3QFinancialStatements_Consolidated_JP",
+      "3QFinancialStatements_Consolidated_US",
+      "3QFinancialStatements_NonConsolidated_JP",
+      "FYFinancialStatements_Consolidated_IFRS",
+      "FYFinancialStatements_Consolidated_JP",
+      "FYFinancialStatements_Consolidated_US",
+      "FYFinancialStatements_NonConsolidated_JP"
+    ],
+    "era_check_2021_doctype_values": [
+      "1QFinancialStatements_Consolidated_IFRS",
+      "1QFinancialStatements_Consolidated_JP",
+      "1QFinancialStatements_Consolidated_US",
+      "1QFinancialStatements_NonConsolidated_JP",
+      "2QFinancialStatements_Consolidated_IFRS",
+      "2QFinancialStatements_Consolidated_JP",
+      "2QFinancialStatements_Consolidated_US",
+      "2QFinancialStatements_NonConsolidated_JP",
+      "3QFinancialStatements_Consolidated_IFRS",
+      "3QFinancialStatements_Consolidated_JP",
+      "3QFinancialStatements_Consolidated_US",
+      "3QFinancialStatements_NonConsolidated_JP",
+      "FYFinancialStatements_Consolidated_IFRS",
+      "FYFinancialStatements_Consolidated_JP",
+      "FYFinancialStatements_Consolidated_US",
+      "FYFinancialStatements_NonConsolidated_JP"
+    ],
+    "era_check_2016_2017_curpertype_values": [
+      "1Q",
+      "2Q",
+      "3Q",
+      "FY"
+    ],
+    "era_check_2021_curpertype_values": [
+      "1Q",
+      "2Q",
+      "3Q",
+      "FY"
+    ],
+    "event_doctype_matched_values": [
+      "1QFinancialStatements_Consolidated_IFRS",
+      "1QFinancialStatements_Consolidated_JP",
+      "1QFinancialStatements_Consolidated_US",
+      "1QFinancialStatements_NonConsolidated_JP",
+      "2QFinancialStatements_Consolidated_IFRS",
+      "2QFinancialStatements_Consolidated_JP",
+      "2QFinancialStatements_Consolidated_US",
+      "2QFinancialStatements_NonConsolidated_JP",
+      "3QFinancialStatements_Consolidated_IFRS",
+      "3QFinancialStatements_Consolidated_JP",
+      "3QFinancialStatements_Consolidated_US",
+      "3QFinancialStatements_NonConsolidated_JP",
+      "FYFinancialStatements_Consolidated_IFRS",
+      "FYFinancialStatements_Consolidated_JP",
+      "FYFinancialStatements_Consolidated_US",
+      "FYFinancialStatements_NonConsolidated_JP"
+    ],
+    "curpertype_values_not_in_event_set": [
+      "4Q"
+    ],
+    "mapping_used": {
+      "U1_scalecat_topix500_equivalent": [
+        "TOPIX Core30",
+        "TOPIX Large70",
+        "TOPIX Mid400"
+      ],
+      "U2_mrgn_margin_eligible": [
+        "1",
+        "2"
+      ],
+      "event_doctype_pattern": "^(1Q|2Q|3Q|FY)FinancialStatements_",
+      "event_curpertype_values": [
+        "1Q",
+        "2Q",
+        "3Q",
+        "FY"
+      ]
+    },
+    "scalecat_vocabulary_note": "ScaleCatの全ユニーク値集合は2016-12-15時点と2021-09-16時点で完全には一致しない（2021-09-16時点にのみ 'TOPIX Small 1' が出現。2016-12-15時点は 'TOPIX Small 2' と '-' のみでSmall1相当の区分が無い）。これはTOPIX指数区分自体の制度変更であり、U-1が受理する集合 {TOPIX Core30, TOPIX Large70, TOPIX Mid400} にもその意味にも影響しない（Small1・Small2ともに常にU-1の対象外）ため、mapping_unambiguousの判定には用いていない。curpertype '4Q' はEVENT_CURPERTYPE_OKに含まれない値として両時点に存在するが、これは元spec（EXP-OBS000001）から継続する既知の非イベント値であり、is_event_disclosure()が要求するCurPerType∈{1Q,2Q,3Q,FY}の判定から機械的に除外される（curpertype_values_not_in_event_setに記録済み）。",
+    "mapping_unambiguous": true
+  },
+  "9-3_missing_rate": {
+    "candidate_codes_count": 554,
+    "codes_with_bars": 554,
+    "total_expected_code_days": 1302054,
+    "total_actual_code_days": 1300269,
+    "total_missing_code_days": 1785,
+    "overall_missing_rate": 0.001370910883880392,
+    "worst_20_codes_by_missing_rate": [
+      {
+        "code": "87290",
+        "active_range": [
+          "2016-09-16",
+          "2026-09-14"
+        ],
+        "expected": 2440,
+        "actual": 1197,
+        "missing": 1243,
+        "missing_rate": 0.5094262295081967
+      },
+      {
+        "code": "83030",
+        "active_range": [
+          "2016-09-16",
+          "2026-09-14"
+        ],
+        "expected": 2440,
+        "actual": 1898,
+        "missing": 542,
+        "missing_rate": 0.22213114754098362
+      }
+    ],
+    "methodology": "契約範囲でピン留めしたTを参照営業日カレンダーとし、各銘柄について自身の最初の観測日〜最後の観測日（ピン留め後）の範囲内にあるT上の日のうち、実際にその銘柄の行が存在しない日数を欠損とした（上場前/廃止後の期間・ローリング窓により失われた先頭日は分母に含めない＝missing扱いにしない）。"
+  },
+  "9-5_data_sufficiency_gate": {
+    "selection_event_range": [
+      "2016-12-15",
+      "2021-08-24"
+    ],
+    "confirmation_event_range": [
+      "2021-09-16",
+      "2026-08-21"
+    ],
+    "selection_event_object_venue_business_days": 1144,
+    "confirmation_event_object_business_days": 1205,
+    "selection_event_count": 1795,
+    "confirmation_event_count": 1930,
+    "DS-1_confirmation_valid_event_count": {
+      "value": 1930,
+      "threshold_min": 300,
+      "pass": true
+    },
+    "DS-2_days_with_ge5_events": {
+      "value": 160,
+      "threshold_min": 30,
+      "pass": true
+    },
+    "DS-3_confirmation_universe_count": {
+      "value": 175,
+      "threshold_min": 150,
+      "pass": true
+    },
+    "DS-4_overall_missing_rate": {
+      "value": 0.001370910883880392,
+      "threshold_max": 0.05,
+      "pass": true
+    },
+    "C7-1_distinct_event_days": {
+      "value": 160,
+      "threshold_min": 30,
+      "pass": true
+    },
+    "C7-2_max_single_day_share": {
+      "value": 0.011398963730569948,
+      "max_day_date": "2022-05-12",
+      "max_day_count": 22,
+      "threshold_max": 0.25,
+      "pass": true
+    },
+    "C7-3_selection_confirmation_rate_ratio": {
+      "rate_selection": 1.569055944055944,
+      "rate_confirmation": 1.6016597510373445,
+      "value": 1.0207792508004023,
+      "threshold_max": 2.0,
+      "pass": true
+    },
+    "all_pass": true
+  },
+  "9-6_exclusion_breakdown": {
+    "total_events_scanned": 21012,
+    "valid_raw_sue_count": 12617,
+    "excluded_total": 8395,
+    "excluded_count_by_reason": {
+      "B_t_absent_or_fy_mismatch_no_matching_prior_disclosure": 520,
+      "null_or_nonnumeric_input_A_B_or_Scale": 7875,
+      "scale_le_zero": 0
+    },
+    "note_on_granularity": "pead_common.compute_raw_sue_for_code は A(t)欠測とB(t)/Scale(t)欠測を 'null_or_nonnumeric_input' に合算して返す実装のため、これ以上の細分（A単独/B単独/Scale単独）は本スクリプトでは分離していない。'no_matching_prior_disclosure' はspec の「B(t)不在（同一会計年度の直前開示なし）」に相当し、会計年度不一致もこのカテゴリに含まれる（同一会計年度に一致する直前開示が存在しないという点で同一の判定だから）。",
+    "excluded_codes_in_confirmation_universe_count": 171,
+    "excluded_codes_scalecat_distribution": {
+      "TOPIX Mid400": 137,
+      "TOPIX Core30": 6,
+      "TOPIX Large70": 28
+    },
+    "excluded_codes_s33_distribution": {
+      "3200": 17,
+      "3650": 16,
+      "6050": 4,
+      "5050": 12,
+      "2050": 3,
+      "6100": 9,
+      "3350": 3,
+      "3600": 11,
+      "3550": 3,
+      "3750": 3,
+      "7150": 3,
+      "8050": 8,
+      "3050": 8,
+      "3700": 8,
+      "5250": 9,
+      "3450": 3,
+      "5150": 2,
+      "3300": 2,
+      "3250": 6,
+      "7200": 4,
+      "9050": 10,
+      "3400": 5,
+      "3800": 4,
+      "4050": 6,
+      "3150": 1,
+      "3500": 4,
+      "7050": 4,
+      "3100": 1,
+      "7100": 1,
+      "5200": 1
+    }
+  },
+  "9-7_ul_ll_flag_check": {
+    "total_bars_rows_scanned_pinned_range": 1300269,
+    "UL_unique_values_and_counts": {
+      "'0'": 1299849,
+      "'1'": 420
+    },
+    "LL_unique_values_and_counts": {
+      "'0'": 1300066,
+      "'1'": 203
+    },
+    "combined_missing_rate": 0.0,
+    "anomalous_values": [],
+    "values_confined_to_1_0_empty_null": true,
+    "gate_pass": true
+  },
+  "9-9_rolling_window_leading_gap": {
+    "T1_pinned": "2016-09-15",
+    "codes_with_raw_first_date_after_T1_count": 98,
+    "codes_with_raw_first_date_after_T1_detail": [
+      {
+        "code": "16620",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "18210",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2025-12-18",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "18240",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "18330",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "18830",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "22700",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "24120",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2024-05-17",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "24920",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "25800",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2017-03-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "28150",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "31010",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "36680",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "38630",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "38650",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "39380",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-12-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "40440",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "40950",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "41850",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2024-06-24",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "42170",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-06-18",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45060",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45080",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-02-26",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45340",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45410",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2023-03-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45470",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45520",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45550",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-03-29",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45690",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "45810",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2024-04-08",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "46860",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "47390",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2023-11-30",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "50020",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2019-03-26",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "50120",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2017-03-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "52020",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "54130",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2018-12-25",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "54860",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2022-12-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "57030",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "59490",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "63660",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "64740",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "65020",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2023-12-19",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "67030",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "69950",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "70030",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "70040",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "72220",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "77620",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "79660",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "80160",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "80280",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-11-11",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "80360",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-05-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "80780",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "81300",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "81400",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2024-03-27",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "81840",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-03-23",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "82180",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "82190",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83030",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83240",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2018-09-25",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83360",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83550",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2022-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83560",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83580",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83610",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83660",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83690",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2023-09-27",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83700",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83790",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83810",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83820",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2022-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "83850",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2022-09-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "85150",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-03-27",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "85240",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "85850",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "85860",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-03-29",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "86090",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "86160",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "86280",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "87140",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "87290",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "88480",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "89330",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2019-01-07",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "90620",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2021-12-28",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "90750",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "93030",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "94090",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "94370",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2020-12-24",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "97470",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2018-03-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "97830",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2024-05-16",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "99560",
+        "raw_first_date": "2016-09-16",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "71890",
+        "raw_first_date": "2016-10-03",
+        "raw_last_date": "2026-09-15",
+        "in_newly_added_90": true,
+        "likely_cause": "rolling_window_fetched_today"
+      },
+      {
+        "code": "91420",
+        "raw_first_date": "2016-10-25",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "35490",
+        "raw_first_date": "2016-11-21",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "35630",
+        "raw_first_date": "2017-03-30",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "39940",
+        "raw_first_date": "2017-09-29",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "91430",
+        "raw_first_date": "2017-12-13",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "94340",
+        "raw_first_date": "2018-12-19",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "73370",
+        "raw_first_date": "2020-10-01",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      },
+      {
+        "code": "48870",
+        "raw_first_date": "2021-04-01",
+        "raw_last_date": "2026-09-14",
+        "in_newly_added_90": false,
+        "likely_cause": "genuine_later_listing_or_other"
+      }
+    ],
+    "fetch_execution_date_inference_note": "個々のAPI呼び出しタイムスタンプはログに残していない（ファイルmtimeはコンテナ再展開により全ファイル同一日を示し信頼できない）。raw_first_date が契約開始日2016-09-15と一致するかどうかを代理指標として使い、'in_newly_added_90'（本セッションでcandidate_codes_v2.json構築時に新規取得と記録した90銘柄のリストとの一致）と突き合わせている。",
+    "va_count_in_U4_window_detail": [
+      {
+        "code": "16620",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "18210",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "18240",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "18330",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "18830",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "22700",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "24120",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "24920",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "25800",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "28150",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "31010",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "36680",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "38630",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "38650",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "39380",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "40440",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "40950",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "41850",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "42170",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45060",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45080",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45340",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45410",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45470",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45520",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45550",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45690",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "45810",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "46860",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "47390",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "50020",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "50120",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "52020",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "54130",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "54860",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "57030",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "59490",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "63660",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "64740",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "65020",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "67030",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "69950",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "70030",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "70040",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "72220",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "77620",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "79660",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "80160",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "80280",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "80360",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "80780",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "81300",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "81400",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "81840",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "82180",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "82190",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83030",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83240",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83360",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83550",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83560",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83580",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83610",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83660",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83690",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83700",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83790",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83810",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83820",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "83850",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "85150",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "85240",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "85850",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "85860",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "86090",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "86160",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "86280",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "87140",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "87290",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "88480",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "89330",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "90620",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "90750",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "93030",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "94090",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "94370",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "97470",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "97830",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "99560",
+        "va_count_in_U4_window_T1_T60": 59
+      },
+      {
+        "code": "71890",
+        "va_count_in_U4_window_T1_T60": 50
+      },
+      {
+        "code": "91420",
+        "va_count_in_U4_window_T1_T60": 35
+      },
+      {
+        "code": "35490",
+        "va_count_in_U4_window_T1_T60": 17
+      },
+      {
+        "code": "35630",
+        "va_count_in_U4_window_T1_T60": 0
+      },
+      {
+        "code": "39940",
+        "va_count_in_U4_window_T1_T60": 0
+      },
+      {
+        "code": "91430",
+        "va_count_in_U4_window_T1_T60": 0
+      },
+      {
+        "code": "94340",
+        "va_count_in_U4_window_T1_T60": 0
+      },
+      {
+        "code": "73370",
+        "va_count_in_U4_window_T1_T60": 0
+      },
+      {
+        "code": "48870",
+        "va_count_in_U4_window_T1_T60": 0
+      }
+    ],
+    "U4_valid_va_below_30_count": 7,
+    "U4_existing_rule_threshold": 30,
+    "note": "新しい閾値は導入していない。既存のU-4規則（有効Va30個未満は不通過）で機械的に処理されることの確認のみ"
+  },
+  "9-10_corporate_action_in_forward_window": {
+    "methodology": "イベントの[t1,t16]窓（W-7）にAdjFactor≠1の行を含む件数。カウントのみ、リターンは参照しない",
+    "selection_range": [
+      "2016-12-15",
+      "2021-08-24"
+    ],
+    "confirmation_range": [
+      "2021-09-16",
+      "2026-08-21"
+    ],
+    "selection_checked_events": 1795,
+    "selection_violations": [],
+    "confirmation_checked_events": 1930,
+    "confirmation_violations": [],
+    "total_violations": 0
+  },
+  "stop_reason": null,
+  "escalate_to_S": false,
+  "escalate_kind": null,
+  "can_proceed_to_G1": true
+}

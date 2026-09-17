@@ -1,0 +1,417 @@
+{
+  "spec_version_reference": "research/EXP-OBS000001/01-spec.md（2026-09-13初版）",
+  "random_seed": 20260913,
+  "field_value_mapping_9_1": {
+    "master_field_unique_values": {
+      "ScaleCat": {
+        "selection_start_2024-06-21": {
+          "-": 2230,
+          "TOPIX Small 2": 1147,
+          "TOPIX Small 1": 498,
+          "TOPIX Mid400": 394,
+          "TOPIX Large70": 69,
+          "TOPIX Core30": 30
+        },
+        "confirmation_start_2025-07-01": {
+          "-": 2731,
+          "TOPIX Small 2": 695,
+          "TOPIX Small 1": 489,
+          "TOPIX Mid400": 397,
+          "TOPIX Large70": 70,
+          "TOPIX Core30": 30
+        }
+      },
+      "Mrgn": {
+        "selection_start_2024-06-21": {
+          "2": 2712,
+          "1": 1534,
+          "3": 122
+        },
+        "confirmation_start_2025-07-01": {
+          "2": 2724,
+          "1": 1522,
+          "3": 166
+        }
+      },
+      "MrgnNm": {
+        "selection_start_2024-06-21": {
+          "貸借": 2712,
+          "信用": 1534,
+          "その他": 122
+        },
+        "confirmation_start_2025-07-01": {
+          "貸借": 2724,
+          "信用": 1522,
+          "その他": 166
+        }
+      },
+      "S33": {
+        "selection_start_2024-06-21": {
+          "5250": 624,
+          "9050": 559,
+          "9999": 421,
+          "6100": 354,
+          "6050": 310,
+          "3650": 242,
+          "3600": 223,
+          "3200": 210,
+          "2050": 159,
+          "8050": 158,
+          "3050": 125,
+          "3800": 108,
+          "3550": 89,
+          "3700": 88,
+          "7050": 80,
+          "3250": 79,
+          "5050": 63,
+          "3400": 54,
+          "3100": 49,
+          "3750": 49,
+          "3450": 42,
+          "7100": 41,
+          "7200": 40,
+          "5200": 37,
+          "3500": 34,
+          "4050": 27,
+          "3150": 24,
+          "3350": 18,
+          "7150": 15,
+          "0050": 12,
+          "3300": 11,
+          "5100": 11,
+          "1050": 6,
+          "5150": 6
+        },
+        "confirmation_start_2025-07-01": {
+          "5250": 632,
+          "9050": 585,
+          "9999": 454,
+          "6100": 355,
+          "6050": 305,
+          "3650": 235,
+          "3600": 220,
+          "3200": 207,
+          "2050": 165,
+          "8050": 155,
+          "3050": 126,
+          "3800": 106,
+          "3550": 88,
+          "3700": 87,
+          "3250": 82,
+          "7050": 80,
+          "5050": 60,
+          "3750": 53,
+          "3400": 52,
+          "3100": 49,
+          "7200": 40,
+          "7100": 39,
+          "3450": 39,
+          "5200": 35,
+          "3500": 33,
+          "4050": 28,
+          "3150": 25,
+          "3350": 18,
+          "7150": 15,
+          "0050": 12,
+          "3300": 11,
+          "5100": 11,
+          "1050": 5,
+          "5150": 5
+        }
+      },
+      "S33Nm": {
+        "selection_start_2024-06-21": {
+          "情報･通信業": 624,
+          "サービス業": 559,
+          "その他": 421,
+          "小売業": 354,
+          "卸売業": 310,
+          "電気機器": 242,
+          "機械": 223,
+          "化学": 210,
+          "建設業": 159,
+          "不動産業": 158,
+          "食料品": 125,
+          "その他製品": 108,
+          "金属製品": 89,
+          "輸送用機器": 88,
+          "銀行業": 80,
+          "医薬品": 79,
+          "陸運業": 63,
+          "ガラス･土石製品": 54,
+          "繊維製品": 49,
+          "精密機器": 49,
+          "鉄鋼": 42,
+          "証券･商品先物取引業": 41,
+          "その他金融業": 40,
+          "倉庫･運輸関連業": 37,
+          "非鉄金属": 34,
+          "電気･ガス業": 27,
+          "パルプ・紙": 24,
+          "ゴム製品": 18,
+          "保険業": 15,
+          "水産・農林業": 12,
+          "石油･石炭製品": 11,
+          "海運業": 11,
+          "鉱業": 6,
+          "空運業": 6
+        },
+        "confirmation_start_2025-07-01": {
+          "情報･通信業": 632,
+          "サービス業": 585,
+          "その他": 454,
+          "小売業": 355,
+          "卸売業": 305,
+          "電気機器": 235,
+          "機械": 220,
+          "化学": 207,
+          "建設業": 165,
+          "不動産業": 155,
+          "食料品": 126,
+          "その他製品": 106,
+          "金属製品": 88,
+          "輸送用機器": 87,
+          "医薬品": 82,
+          "銀行業": 80,
+          "陸運業": 60,
+          "精密機器": 53,
+          "ガラス･土石製品": 52,
+          "繊維製品": 49,
+          "その他金融業": 40,
+          "証券･商品先物取引業": 39,
+          "鉄鋼": 39,
+          "倉庫･運輸関連業": 35,
+          "非鉄金属": 33,
+          "電気･ガス業": 28,
+          "パルプ・紙": 25,
+          "ゴム製品": 18,
+          "保険業": 15,
+          "水産・農林業": 12,
+          "石油･石炭製品": 11,
+          "海運業": 11,
+          "鉱業": 5,
+          "空運業": 5
+        }
+      }
+    },
+    "fins_summary_total_records_scanned": 37679,
+    "doctype_unique_values_and_counts": {
+      "FYFinancialStatements_Consolidated_JP": 6622,
+      "1QFinancialStatements_Consolidated_JP": 6402,
+      "3QFinancialStatements_Consolidated_JP": 6335,
+      "2QFinancialStatements_Consolidated_JP": 6229,
+      "EarnForecastRevision": 3983,
+      "FYFinancialStatements_NonConsolidated_JP": 1110,
+      "1QFinancialStatements_NonConsolidated_JP": 1081,
+      "3QFinancialStatements_NonConsolidated_JP": 1078,
+      "2QFinancialStatements_NonConsolidated_JP": 1055,
+      "DividendForecastRevision": 861,
+      "FYFinancialStatements_Consolidated_IFRS": 625,
+      "1QFinancialStatements_Consolidated_IFRS": 608,
+      "3QFinancialStatements_Consolidated_IFRS": 601,
+      "2QFinancialStatements_Consolidated_IFRS": 580,
+      "FYFinancialStatements_Consolidated_REIT": 233,
+      "REITEarnForecastRevision": 139,
+      "REITDividendForecastRevision": 20,
+      "3QFinancialStatements_Consolidated_US": 18,
+      "1QFinancialStatements_Consolidated_US": 17,
+      "FYFinancialStatements_Consolidated_US": 14,
+      "2QFinancialStatements_Consolidated_US": 14,
+      "3QFinancialStatements_NonConsolidated_IFRS": 8,
+      "OtherPeriodFinancialStatements_Consolidated_JP": 7,
+      "1QFinancialStatements_NonConsolidated_IFRS": 6,
+      "1QFinancialStatements_Consolidated_Foreign": 5,
+      "2QFinancialStatements_NonConsolidated_IFRS": 5,
+      "FYFinancialStatements_Consolidated_Foreign": 5,
+      "2QFinancialStatements_Consolidated_Foreign": 4,
+      "3QFinancialStatements_Consolidated_Foreign": 4,
+      "FYFinancialStatements_NonConsolidated_IFRS": 4,
+      "2QFinancialStatements_Consolidated_REIT": 3,
+      "OtherPeriodFinancialStatements_NonConsolidated_JP": 3
+    },
+    "curpertype_unique_values_and_counts": {
+      "FY": 12671,
+      "2Q": 8754,
+      "1Q": 8161,
+      "3Q": 8083,
+      "4Q": 10
+    },
+    "doctype_curpertype_combo_counts": {
+      "FYFinancialStatements_Consolidated_JP|FY": 6622,
+      "1QFinancialStatements_Consolidated_JP|1Q": 6402,
+      "3QFinancialStatements_Consolidated_JP|3Q": 6335,
+      "2QFinancialStatements_Consolidated_JP|2Q": 6229,
+      "EarnForecastRevision|FY": 3038,
+      "FYFinancialStatements_NonConsolidated_JP|FY": 1110,
+      "1QFinancialStatements_NonConsolidated_JP|1Q": 1081,
+      "3QFinancialStatements_NonConsolidated_JP|3Q": 1078,
+      "2QFinancialStatements_NonConsolidated_JP|2Q": 1055,
+      "EarnForecastRevision|2Q": 864,
+      "DividendForecastRevision|FY": 861,
+      "FYFinancialStatements_Consolidated_IFRS|FY": 625,
+      "1QFinancialStatements_Consolidated_IFRS|1Q": 608,
+      "3QFinancialStatements_Consolidated_IFRS|3Q": 601,
+      "2QFinancialStatements_Consolidated_IFRS|2Q": 580,
+      "FYFinancialStatements_Consolidated_REIT|FY": 233,
+      "REITEarnForecastRevision|FY": 139,
+      "EarnForecastRevision|1Q": 42,
+      "EarnForecastRevision|3Q": 39,
+      "REITDividendForecastRevision|FY": 20,
+      "3QFinancialStatements_Consolidated_US|3Q": 18,
+      "1QFinancialStatements_Consolidated_US|1Q": 17,
+      "FYFinancialStatements_Consolidated_US|FY": 14,
+      "2QFinancialStatements_Consolidated_US|2Q": 14,
+      "3QFinancialStatements_NonConsolidated_IFRS|3Q": 8,
+      "OtherPeriodFinancialStatements_Consolidated_JP|4Q": 7,
+      "1QFinancialStatements_NonConsolidated_IFRS|1Q": 6,
+      "1QFinancialStatements_Consolidated_Foreign|1Q": 5,
+      "2QFinancialStatements_NonConsolidated_IFRS|2Q": 5,
+      "FYFinancialStatements_Consolidated_Foreign|FY": 5,
+      "2QFinancialStatements_Consolidated_Foreign|2Q": 4,
+      "3QFinancialStatements_Consolidated_Foreign|3Q": 4,
+      "FYFinancialStatements_NonConsolidated_IFRS|FY": 4,
+      "2QFinancialStatements_Consolidated_REIT|2Q": 3,
+      "OtherPeriodFinancialStatements_NonConsolidated_JP|4Q": 3
+    },
+    "mapping_used": {
+      "U1_scalecat_topix500_equivalent": [
+        "TOPIX Core30",
+        "TOPIX Large70",
+        "TOPIX Mid400"
+      ],
+      "U2_mrgn_margin_eligible": [
+        "1",
+        "2"
+      ],
+      "U2_mrgn_excluded": [
+        "3"
+      ],
+      "event_doctype_pattern": "^(1Q|2Q|3Q|FY)FinancialStatements_",
+      "event_doctype_matched_values": [
+        "1QFinancialStatements_Consolidated_Foreign",
+        "1QFinancialStatements_Consolidated_IFRS",
+        "1QFinancialStatements_Consolidated_JP",
+        "1QFinancialStatements_Consolidated_US",
+        "1QFinancialStatements_NonConsolidated_IFRS",
+        "1QFinancialStatements_NonConsolidated_JP",
+        "2QFinancialStatements_Consolidated_Foreign",
+        "2QFinancialStatements_Consolidated_IFRS",
+        "2QFinancialStatements_Consolidated_JP",
+        "2QFinancialStatements_Consolidated_REIT",
+        "2QFinancialStatements_Consolidated_US",
+        "2QFinancialStatements_NonConsolidated_IFRS",
+        "2QFinancialStatements_NonConsolidated_JP",
+        "3QFinancialStatements_Consolidated_Foreign",
+        "3QFinancialStatements_Consolidated_IFRS",
+        "3QFinancialStatements_Consolidated_JP",
+        "3QFinancialStatements_Consolidated_US",
+        "3QFinancialStatements_NonConsolidated_IFRS",
+        "3QFinancialStatements_NonConsolidated_JP",
+        "FYFinancialStatements_Consolidated_Foreign",
+        "FYFinancialStatements_Consolidated_IFRS",
+        "FYFinancialStatements_Consolidated_JP",
+        "FYFinancialStatements_Consolidated_REIT",
+        "FYFinancialStatements_Consolidated_US",
+        "FYFinancialStatements_NonConsolidated_IFRS",
+        "FYFinancialStatements_NonConsolidated_JP"
+      ],
+      "non_event_doctype_values": [
+        "DividendForecastRevision",
+        "EarnForecastRevision",
+        "OtherPeriodFinancialStatements_Consolidated_JP",
+        "OtherPeriodFinancialStatements_NonConsolidated_JP",
+        "REITDividendForecastRevision",
+        "REITEarnForecastRevision"
+      ],
+      "event_curpertype_values": [
+        "1Q",
+        "2Q",
+        "3Q",
+        "FY"
+      ],
+      "curpertype_values_not_in_event_set": [
+        "4Q"
+      ]
+    },
+    "mapping_ambiguous": false
+  },
+  "sue_definition": {
+    "formula": "RawSUE(j,t) = (A(t) - B(t)) / Scale(t)",
+    "A_t_source": "1Q/2Q/3Q開示: FOdP / FY開示: OdP",
+    "B_t_source": "直前開示が1Q/2Q/3Q/修正: FOdP / 直前がFY: NxFOdP",
+    "Scale_t_source": "直前開示が1Q/2Q/3Q/修正: FSales / 直前がFY: NxFSales",
+    "winsorize": "行わない（RawSUE・リターンとも）"
+  },
+  "prediction_window": {
+    "horizon_primary_H": 5,
+    "horizon_sensitivity": [
+      3,
+      5,
+      10
+    ],
+    "entry_price": "O(t1)（t0の翌営業日の始値）",
+    "entry_slippage": 0.00075,
+    "gross_return_formula": "R_H(j) = C(t_H) / O(t1) - 1"
+  },
+  "trailing_stop_params": {
+    "initial_stop_pct": -0.03,
+    "trail_activation_pct": 0.04,
+    "trail_follow_pct": -0.02,
+    "update_and_fill_basis": "日足終値のみで更新・抵触判定。抵触翌営業日始値で約定",
+    "max_holding_business_days": 10,
+    "forced_carry_over_max_days": 5
+  },
+  "position_sizing": {
+    "capital_jpy": 1000000,
+    "target_position_jpy": 250000,
+    "position_cap_jpy": 375000,
+    "unit_shares": 100,
+    "max_concurrent_positions": 5,
+    "max_total_notional_jpy": 1500000,
+    "max_same_sector_s33_positions": 2,
+    "max_new_positions_same_disc_date": 3,
+    "circuit_breaker_new_entry_halt_dd": 0.1,
+    "circuit_breaker_liquidate_dd": 0.15
+  },
+  "universe_rules": {
+    "U1_scalecat": [
+      "TOPIX Core30",
+      "TOPIX Large70",
+      "TOPIX Mid400"
+    ],
+    "U2_mrgn_ok": [
+      "1",
+      "2"
+    ],
+    "U4_liquidity_min_va_jpy": 500000000.0,
+    "U4_window_business_days": 60,
+    "U5_price_band_main": [
+      1000,
+      3500
+    ],
+    "U6_max_universe": 175,
+    "U7_min_universe": 150,
+    "U7_price_band_fallback": [
+      700,
+      8000
+    ]
+  },
+  "cost_model_summary": {
+    "spread_roundtrip_pct": 0.0005,
+    "slippage_roundtrip_pct": 0.0015,
+    "commission_roundtrip_pct": 0.0005,
+    "margin_interest_annual_pct": 0.028,
+    "total_roundtrip_pct_at_avg_10cal_days": 0.0035,
+    "status": "仮置き（R-2/R-3未確認）"
+  },
+  "japan_specific_conditions_status": {
+    "A_lot_size_100shares": "実装（単元離散化・実効f記録）",
+    "B_price_limit_UL_LL": "実装（spec §4.0改訂により確定）。UL/LLは価格水準ではなく日中高値/安値が値幅制限に達したか否かの0/1フラグ。BUY_BLOCKED(t)=(Vo(t)==0) or (O(t) is null) or (UL(t)==1 and O(t)==H(t))、SELL_BLOCKED(t)=(Vo(t)==0) or (O(t) is null) or (LL(t)==1 and O(t)==L(t)) の2式で判定（§4.0.4）",
+    "C_trading_hours": "実装（日足のO=寄付・C=大引けとして対応。日中足は使用しない）",
+    "D_earnings_calendar_carryover_rule": "未実装（G2フェーズで実装予定。G1未達なら測定しない）",
+    "E_margin_requirement_ratio": "未実装（G2フェーズで実装予定）",
+    "F_credit_regulation": "模擬不能（C-5・HTTP403でデータ取得不可）。測定範囲の空白として明記",
+    "G_margin_interest_rate": "未実装（G2フェーズで実装予定。年率2.8%×実保有暦日数/365）",
+    "H_short_selling": "該当なし（ロングオンリー）"
+  }
+}
