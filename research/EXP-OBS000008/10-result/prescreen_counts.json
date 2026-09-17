@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "purpose": "EXP-OBS000008 prescreen §B: counts only, no price/return data referenced, no API calls",
+    "input_dir": "data/raw/margin_interest",
+    "n_codes": 554,
+    "total_records": 270081
+  },
+  "weekly_grid_W": {
+    "N_w": 507,
+    "m_w_floor_half": 253,
+    "W_1": "2016-09-23",
+    "W_m": "2021-09-17",
+    "W_m_plus_1": "2021-09-24",
+    "W_N": "2026-09-11"
+  },
+  "week_coverage": {
+    "coverage_min": 502,
+    "coverage_max": 549,
+    "coverage_avg": 532.7041420118343,
+    "weeks_below_90pct_of_n_codes": 0,
+    "weeks_below_50pct_of_n_codes": 0
+  },
+  "duplicate_date_per_code_count": 0,
+  "shrtvol_zero": {
+    "total_records_checked": 270081,
+    "shrtvol_zero_count": 152,
+    "shrtvol_zero_rate": 0.0005627941247255452
+  },
+  "delta_m_feasibility": {
+    "consecutive_pairs_total": 269527,
+    "consecutive_pairs_both_shrtvol_nonzero": 269346,
+    "delta_m_feasible_rate": 0.9993284531790878
+  },
+  "gap_days_distribution_top15": [
+    [
+      7,
+      244422
+    ],
+    [
+      6,
+      7467
+    ],
+    [
+      14,
+      6939
+    ],
+    [
+      8,
+      6933
+    ],
+    [
+      5,
+      1616
+    ],
+    [
+      9,
+      1616
+    ],
+    [
+      15,
+      532
+    ],
+    [
+      819,
+      1
+    ],
+    [
+      1862,
+      1
+    ]
+  ],
+  "record_count_per_code_distribution": {
+    "507": 491,
+    "254": 3,
+    "306": 3,
+    "28": 2,
+    "468": 2,
+    "229": 2,
+    "116": 2,
+    "484": 2,
+    "502": 2,
+    "393": 2
+  },
+  "provisional_split_no_buffer": {
+    "selection": {
+      "n_weeks": 253,
+      "start_date": "2016-09-23",
+      "end_date": "2021-09-17",
+      "total_stock_week_obs": 137771,
+      "shrtvol_zero_stock_week_obs": 93,
+      "shrtvol_zero_rate": 0.0006750332072787452,
+      "per_week_stock_count_min": 536,
+      "per_week_stock_count_max": 549,
+      "per_week_stock_count_avg": 544.5494071146245
+    },
+    "confirmation": {
+      "n_weeks": 254,
+      "start_date": "2021-09-24",
+      "end_date": "2026-09-11",
+      "total_stock_week_obs": 132310,
+      "shrtvol_zero_stock_week_obs": 59,
+      "shrtvol_zero_rate": 0.00044592245484090394,
+      "per_week_stock_count_min": 502,
+      "per_week_stock_count_max": 536,
+      "per_week_stock_count_avg": 520.9055118110236
+    },
+    "confirmation_max_single_week_share": 0.004051092132113974,
+    "confirmation_max_single_week_date": "2021-09-24"
+  }
+}

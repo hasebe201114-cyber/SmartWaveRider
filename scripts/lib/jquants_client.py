@@ -26,8 +26,9 @@ from typing import Any
 
 BASE_URL = "https://api.jquants.com/v2"
 
-# 基本間隔: 5秒（司令塔指示の「間隔5秒」を既定値とする）
-MIN_REQUEST_INTERVAL_SEC = 5.0
+# 基本間隔: 0.6秒（Standardプラン 120件/分＝理論上限0.5秒間隔に対し安全マージンを見た値。
+# EXP-OBS000001データ再取得(0-23)時に実測: 0.6秒間隔で6リクエスト連続実行しても429は発生しなかった）
+MIN_REQUEST_INTERVAL_SEC = 0.6
 # 429 時: 指数バックオフ（10s, 20s, 40s, 80s, 160s）。5回まで粘り、
 # それでも429ならエラーとして記録する（真の欠測と混同しないため、呼び出し側で区別できるよう例外を投げる）。
 RATE_LIMIT_BASE_BACKOFF_SEC = 10.0

@@ -41,8 +41,20 @@ RAW_DIR = REPO_ROOT / "data" / "raw" / "pead"
 
 SELECTION_START = dt.date(2024, 6, 21)
 CONFIRMATION_START = dt.date(2025, 7, 1)
-CONTRACT_START = dt.date(2024, 6, 21)
-CONTRACT_END = dt.date(2026, 6, 21)
+# Standardプラン契約(0-23)後に実測した契約可能期間。/fins/summary に日付を振って境界を確認:
+#   2016-09-14 => HTTP 400 "Your subscription covers the following dates: 2016-09-15 ~"
+#   2016-09-15 => HTTP 200 実データ25件（=契約開始日）
+#   2026-09-14 => HTTP 200 実データ103件（=直近営業日、確認できた最新日）
+# `/equities/bars/daily` も同一境界（2016-09-15〜2026-09-14、トヨタ72030で2,441件）であることを
+# 別途確認済み（オーケストレータ実測、2026-09-15）。
+CONTRACT_START = dt.date(2016, 9, 15)
+CONTRACT_END = dt.date(2026, 9, 14)
+
+# EXP-OBS000005 §9-1 / EXP-OBS000006 §9-1（共用）。
+# D_sel = T[61]（選定ユニバース確定日）／ D_conf = T[m+1]（確認ユニバース確定日、m=floor(N/2)）。
+# 実測値は 00-prescreen.md §B-1（PEAD）/ §B-1（GAP）に記載（両EXPとも同一値）。
+D_SEL_V2 = dt.date(2016, 12, 15)
+D_CONF_V2 = dt.date(2021, 9, 16)
 
 
 def fetch_master(client: JQuantsClient, force: bool = False) -> None:
@@ -58,6 +70,23 @@ def fetch_master(client: JQuantsClient, force: bool = False) -> None:
             raise RuntimeError(f"[master] date={date.isoformat()} が HTTP 200 だが実データが空")
         out_path.write_text(json.dumps(body, ensure_ascii=False), encoding="utf-8")
         stderr_log(f"[master] 保存: {out_path}（{len(body['data'])}件）")
+
+
+def fetch_master_v2(client: JQuantsClient, force: bool = False) -> None:
+    """EXP-OBS000005 §9-1 / EXP-OBS000006 §9-1（共用）。D_sel=2016-12-15・D_conf=2021-09-16 時点の
+    `/equities/master` を追加取得する。"""
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    for label, date in (("d_sel_v2", D_SEL_V2), ("d_conf_v2", D_CONF_V2)):
+        out_path = RAW_DIR / f"master_{label}_{date.isoformat()}.json"
+        if out_path.exists() and not force:
+            stderr_log(f"[master_v2] 既存キャッシュを使用: {out_path}")
+            continue
+        stderr_log(f"[master_v2] 取得中: date={date.isoformat()}")
+        body = client.get("/equities/master", {"date": date.isoformat()})
+        if not JQuantsClient.has_real_data(body):
+            raise RuntimeError(f"[master_v2] date={date.isoformat()} が HTTP 200 だが実データが空")
+        out_path.write_text(json.dumps(body, ensure_ascii=False), encoding="utf-8")
+        stderr_log(f"[master_v2] 保存: {out_path}（{len(body['data'])}件）")
 
 
 def fetch_fins_summary(client: JQuantsClient, force: bool = False) -> None:
@@ -118,6 +147,7 @@ def fetch_fins_summary(client: JQuantsClient, force: bool = False) -> None:
             records = body.get("data", []) if isinstance(body, dict) else []
             if not records:
                 zero.add(iso)
+                failed.discard(iso)
                 _save_state(state_path, done, failed, zero)
                 continue
 
@@ -208,7 +238,7 @@ def _save_bars_state(path: Path, done: set, failed: set) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--step", required=True, choices=["master", "fins", "bars"])
+    parser.add_argument("--step", required=True, choices=["master", "master_v2", "fins", "bars"])
     parser.add_argument("--codes-file", type=str, default=None)
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
@@ -217,6 +247,8 @@ def main() -> int:
 
     if args.step == "master":
         fetch_master(client, force=args.force)
+    elif args.step == "master_v2":
+        fetch_master_v2(client, force=args.force)
     elif args.step == "fins":
         fetch_fins_summary(client, force=args.force)
     elif args.step == "bars":

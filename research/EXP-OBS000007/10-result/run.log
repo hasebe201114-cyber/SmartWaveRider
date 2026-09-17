@@ -1,0 +1,58 @@
+# EXP-OBS000007 P-1（0-24）実機確認 run.log
+#
+# 再現用の実行コマンド:
+#   cd /home/user/SmartWaveRider
+#   export JQUANTS_API_KEY=（マイページ発行のAPIキー。.env.localは読まない方針のため環境変数で渡す）
+#   python3 research/EXP-OBS000007/10-result/probe_margin_interest.py
+#
+# 実行日時: 2026-09-16
+# 乱数: 不使用（決定的スクリプト。同一APIレスポンスに対し常に同一出力）
+# 注意: 本スクリプトはローリング窓の境界を明示date指定で探索するため、
+#       翌日以降に再実行すると境界日（2016-09-16）は1日前進して変わりうる
+#       （research/EXP-OBS000001/11-data-refetch-standard-plan.md の既知の挙動）。
+#       それ以外（フィールド構成・粒度・加算関係・サンプルヒット率）は再現される見込み。
+
+=== 1. 主エンドポイント疎通 (/markets/margin-interest, code=72030) ===
+HTTP 200 / top_level_keys=['data'] / n_records=508
+fields=['Code', 'Date', 'IssType', 'LongNegVol', 'LongStdVol', 'LongVol', 'ShrtNegVol', 'ShrtStdVol', 'ShrtVol']
+first_record={'Date': '2016-09-16', 'Code': '72030', 'ShrtVol': 1907100.0, 'LongVol': 5074200.0, 'ShrtNegVol': 186400.0, 'LongNegVol': 1370100.0, 'ShrtStdVol': 1720700.0, 'LongStdVol': 3704100.0, 'IssType': '2'}
+last_record={'Date': '2026-09-11', 'Code': '72030', 'ShrtVol': 2625400.0, 'LongVol': 17239000.0, 'ShrtNegVol': 136300.0, 'LongNegVol': 6957500.0, 'ShrtStdVol': 2489100.0, 'LongStdVol': 10281500.0, 'IssType': '2'}
+
+=== 2. 週次/日次の粒度確認（レコード間隔の分布） ===
+delta_days_counter={7: 460, 6: 14, 8: 13, 14: 13, 5: 3, 9: 3, 15: 1}
+
+=== 3. 加算関係の確認（ShrtVol = ShrtNegVol + ShrtStdVol 等） ===
+ShrtNegVol+ShrtStdVol == ShrtVol: True
+LongNegVol+LongStdVol == LongVol: True
+
+=== 4. ローリング窓 下限境界の探索（明示date指定） ===
+date=2016-09-09 -> ERROR: /markets/margin-interest: HTTP 400 - Your subscription covers the following dates: 2016-09-16 ~ . If you want more data, please check other plans:https://jpx-jquants.com/#dataset
+date=2016-09-15 -> ERROR: /markets/margin-interest: HTTP 400 - Your subscription covers the following dates: 2016-09-16 ~ . If you want more data, please check other plans:https://jpx-jquants.com/#dataset
+date=2016-09-16 -> HTTP 200 (n=1)
+
+=== 5. date指定のみ（code省略）での挙動確認 ===
+date=2026-09-11 (code省略) -> HTTP 200 (n=4259)
+sample_record={'Date': '2026-09-11', 'Code': '13010', 'ShrtVol': 8900.0, 'LongVol': 158300.0, 'ShrtNegVol': 0.0, 'LongNegVol': 34900.0, 'ShrtStdVol': 8900.0, 'LongStdVol': 123400.0, 'IssType': '2'}
+
+=== 6. 候補ユニバースのサンプルヒット率 ===
+candidate_codes_total=554
+sample_codes=['13320', '13330', '14140', '16050', '16620', '65040', '65060', '65860', '65920', '65940', '99620', '99830', '99840', '99870', '99890']
+  13320: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  13330: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  14140: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  16050: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  16620: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  65040: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  65060: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  65860: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  65920: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  65940: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  99620: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  99830: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  99840: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  99870: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+  99890: HTTP 200 n=508 range=[2016-09-16, 2026-09-11]
+hits=15/15
+
+=== API使用状況 ===
+total_requests=20 retries=0

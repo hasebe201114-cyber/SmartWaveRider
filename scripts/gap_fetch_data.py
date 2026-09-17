@@ -36,9 +36,13 @@ RAW_DIR = REPO_ROOT / "data" / "raw" / "gap"
 PEAD_RAW_DIR = REPO_ROOT / "data" / "raw" / "pead"
 
 # T[61]（spec §2.1 選定期間のユニバース確定日 D_u）。実測値: research/EXP-OBS000003/10-result/params.json
+# 旧spec（第3版・frozen）が使った選定期間の基準日。0-23のデータ再取得では変更しない。
 SELECTION_DU = dt.date(2024, 9, 18)
-CONTRACT_START = dt.date(2024, 6, 21)
-CONTRACT_END = dt.date(2026, 6, 21)
+# Standardプラン契約(0-23)後に実測した契約可能期間（pead_fetch_data.py と同一境界。詳細はそちら参照）。
+# 本ファイルでは `/fins/earnings-date`（コード指定で全期間を返す実装のため未使用）・
+# `/equities/master`（SELECTION_DU 固定のため未使用）の参照用定数として、実態に合わせて更新のみ行う。
+CONTRACT_START = dt.date(2016, 9, 15)
+CONTRACT_END = dt.date(2026, 9, 14)
 
 
 def load_candidate_codes() -> list[str]:
