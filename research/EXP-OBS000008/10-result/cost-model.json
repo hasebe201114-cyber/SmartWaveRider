@@ -1,0 +1,23 @@
+{
+  "generated_from": "margin_feasibility.py (stop at section 9)",
+  "spec_reference": "research/EXP-OBS000008/01-spec.md section 8",
+  "status": "spec section 8 で固定済みのコスト前提の宣言のみ。G1はコストを一切参照しない（グロス段階）。G2は9-9（K-6）の停止により未実行。以下は実測値ではなく、spec section 8 に定められた固定値の書き写しである。",
+  "primary_cost_assumptions": {
+    "slippage_one_way_pct": 0.00075,
+    "roundtrip_cost_pct_per_leg": 0.0035,
+    "margin_interest_rate_annual_pct_long_leg": 0.028,
+    "margin_interest_basis": "実保有暦日数を365で割った値",
+    "lending_fee_annual_pct_short_leg": 0.030,
+    "lending_fee_basis": "実保有暦日数を365で割った値",
+    "reverse_repo_fee": "モデル化しない（データ未取得。楽観側の偏りとして開示）",
+    "short_sale_regulation_flag": "適用しない（データ未取得。楽観側の偏りとして開示）",
+    "estimate_vs_measured": "仮置き（EXP-OBS000001/005由来の既定値を継承。実測値ではない）"
+  },
+  "sensitivity_declared_not_applied": {
+    "roundtrip_cost_pct_grid": [0.0025, 0.0035, 0.0050],
+    "lending_fee_annual_pct_grid": [0.020, 0.030, 0.050]
+  },
+  "g1_uses_cost": false,
+  "g2_executed": false,
+  "g2_not_executed_reason": "9-9（K-6）で停止。feasibility.json参照"
+}

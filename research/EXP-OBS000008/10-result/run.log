@@ -1,0 +1,21 @@
+[9-0] pead_backup_exists=True margin_backup_exists=True
+[9-1] candidate_count=554 margin_files=554 exact_match=True
+[9-2] T={'N': 2441, 'T1': '2016-09-15', 'TN': '2026-09-14'} matches=True | W={'N_w': 507, 'W1': '2016-09-23', 'WN': '2026-09-11', 'm_w': 253, 'Wm': '2021-09-17', 'Wm_plus_1': '2021-09-24'} matches=True
+[9-3] DS-1=130235:True DS-2=250:True DS-3=537:True DS-4=0.001370910883880392:True DS-5=0.0005141901122008871:True DS-6=7.420406860908184e-06:True ALL=True
+[9-4] short_eligible_mrgn_values=['2'] unambiguous=True
+[9-5] total_weeks=507 weeks_not_in_T=0
+[9-6] buffer_b=4 sel_last_forward_end=1221 conf_first_k=1225 overlap_sel_into_conf=False conf_violations=0 sel_violations=0
+[9-7] selection_n=134963 confirmation_n=130235
+[9-8] present=464 missing=90
+[9-9] selection_checked=134963 selection_violations=624 confirmation_checked=130235 confirmation_violations=681 total=1305
+saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/feasibility.json
+saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/params.json
+STOP (K-6): 9-9: イベントの[t1,t19]窓に分割・併合(AdjFactor≠1)を含む件数が0でない
+exit_code=2
+
+# 再現用コマンド
+python3 scripts/margin_feasibility.py
+
+# 上記コマンドはfeasibility.json/params.json/candidate_codes_v3.jsonを
+# research/EXP-OBS000008/10-result/ に出力する。9-9タスクで停止したため
+# G1（margin_g1.py相当）は実行していない。
