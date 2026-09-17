@@ -1,0 +1,77 @@
+{
+ "event_title_pattern": "自己株式.{0,3}取得に係る事項の決定",
+ "universe_file": "research/_snapshots/llm_features/frozen/universe_v1.json",
+ "universe_codes_sha256": "07f86898bcbd8fb53b9e0380fff4036138e06256fbd57339e7bdf97550eacd6f",
+ "universe_count": 271,
+ "snapshot_window": {
+  "n_files": 42,
+  "date_min": "2026-08-06",
+  "date_max": "2026-09-17",
+  "note": "TDnet日次スナップショットの蓄積開始からの全期間（過去への遡及取得は不可）"
+ },
+ "all_market": {
+  "total_events": 100,
+  "distinct_event_days": 22,
+  "max_single_day": {
+   "date": "2026-08-07",
+   "count": 19
+  },
+  "max_single_day_share": 0.19,
+  "annualized_events_per_year": 583.3333333333334
+ },
+ "universe_271_only": {
+  "total_events": 7,
+  "distinct_event_days": 5,
+  "distinct_universe_codes_hit": 7,
+  "max_single_day": {
+   "date": "2026-08-06",
+   "count": 2
+  },
+  "max_single_day_share": 0.2857142857142857,
+  "annualized_events_per_year": 40.833333333333336
+ },
+ "matched_rows_universe_271": [
+  {
+   "date": "2026-08-06",
+   "code": "58310",
+   "company_name": "しずおかＦＧ",
+   "title": "通期連結業績予想の修正、期末配当予想の修正（増配）および 自己株式取得に係る事項の決定に関するお知らせ"
+  },
+  {
+   "date": "2026-08-06",
+   "code": "88760",
+   "company_name": "リログループ",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ"
+  },
+  {
+   "date": "2026-08-07",
+   "code": "16050",
+   "company_name": "ＩＮＰＥＸ",
+   "title": "自己株式の取得に係る事項の決定に関するお知らせ"
+  },
+  {
+   "date": "2026-08-07",
+   "code": "58300",
+   "company_name": "いよぎんＨＤ",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ"
+  },
+  {
+   "date": "2026-08-10",
+   "code": "46310",
+   "company_name": "ＤＩＣ",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ （会社法第165条第２項の規定による定款の定めに基づく自己株式の取得）"
+  },
+  {
+   "date": "2026-08-27",
+   "code": "30640",
+   "company_name": "ＭＲＯ",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ"
+  },
+  {
+   "date": "2026-08-31",
+   "code": "79880",
+   "company_name": "ニフコ",
+   "title": "自己株式取得に係る事項の決定に関するお知らせ （会社法第165条第２項の規定による定款の定めに基づく自己株式の取得）"
+  }
+ ]
+}
