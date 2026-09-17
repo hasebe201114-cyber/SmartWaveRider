@@ -48,3 +48,66 @@ python3 scripts/margin_feasibility.py
 #
 # よって9-9bで停止し（K-6）、9-10（UL/LL）・G1（margin_g1.py相当）はいずれも実行していない
 # （absolute rule: 停止条件に該当したらそこで完全に停止する）。
+
+# ---------------------------------------------------------------------------
+# 本セッション（2026-09-17・spec第3版 §11再指示事項への対応）
+# ---------------------------------------------------------------------------
+#
+# 変更点:
+#   - scripts/margin_feasibility.py の task_9_9b() を改修し、check(b)をspec第3版・§4.3.2・
+#     §11-1どおりに再定義した（AdjFactor≠1の349行のうち、has_later_split_in_pinned_range=true
+#     の75行のみを検査対象とし、false の274行はcheck_b_excluded_no_later_event_countとして
+#     別掲・検査対象外とする）。
+#   - task_9_9c() を新規実装（§9-9c・§11-2）。既存のcheck_c_raw_vs_adj_r5_diff_audit_trail
+#     （1,305件）を再利用し、実窓(t_1,t_5]内の分割・併合有無で2群化して|raw_R5-adj_R5|の
+#     最小・最大・中央値を出力。
+#   - main()にSの実測値との一致確認ステップ（s_expected_value_reconciliation）を追加。
+#     check(b)違反0件・9-9cの2群がS実測0.000354/0.048377とオーダー・分離とも一致することを
+#     機械的に確認した上でのみG1へ進める。
+#   - scripts/margin_g1.py を新規実装（spec §6.1〜§6.3のG1測定）。
+
+再現用コマンド:
+    python3 scripts/margin_feasibility.py
+    python3 scripts/margin_g1.py
+
+## 実行結果（margin_feasibility.py 再実行・本セッション）
+
+[9-0] pead_backup_exists=True margin_backup_exists=True
+[9-1] candidate_count=554 margin_files=554 exact_match=True
+[9-2] T={'N': 2441, 'T1': '2016-09-15', 'TN': '2026-09-14'} matches=True | W={'N_w': 507, 'W1': '2016-09-23', 'WN': '2026-09-11', 'm_w': 253, 'Wm': '2021-09-17', 'Wm_plus_1': '2021-09-24'} matches=True
+[9-3] DS-1=130235:True DS-2=250:True DS-3=537:True DS-4=0.001370910883880392:True DS-5=0.0005141901122008871:True DS-6=7.420406860908184e-06:True ALL=True
+[9-4] short_eligible_mrgn_values=['2'] unambiguous=True
+[9-5] total_weeks=507 weeks_not_in_T=0
+[9-6] buffer_b=4 sel_last_forward_end=1221 conf_first_k=1225 overlap_sel_into_conf=False conf_violations=0 sel_violations=0
+[9-7] selection_n=134963 confirmation_n=130235
+[9-8] present=464 missing=90
+[9-9] selection_checked=134963 selection_violations=624 confirmation_checked=130235 confirmation_violations=681 total=1305
+[9-9b] total_rows_scanned=1300269 a_violations=0 check_b_population_total=349 check_b_tested(has_later_split=true)=75 check_b_excluded_no_later_event(false)=274 check_b_violations(redefined)=0 legacy_check_b_violations(pre-v3 definition)=274 fallback_excluded_pairs_if_applied=0/1305 diff_records=1305 gate_pass=True
+[9-9c] total_pairs=1305 excluded_price_missing=5 no_split_in_window(count=958, max=0.0003540805389680157) has_split_in_window(count=342, min=0.048376876326900686) ranges_overlap=False gate_pass=True
+[S-reconciliation] {'check_b_violations_observed': 0, 'check_b_violations_S_reported': 0, 'check_b_matches': True, 'no_split_in_window_max_abs_diff_observed': 0.0003540805389680157, 'no_split_in_window_max_abs_diff_S_reported': 0.000354, 'has_split_in_window_min_abs_diff_observed': 0.048376876326900686, 'has_split_in_window_min_abs_diff_S_reported': 0.048377, 'order_of_magnitude_separation_matches': True, 'overall_matches_S_expected': True}
+[9-10] total_rows=1300269 anomalous=[] missing_rate=0.0 gate=True
+saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/feasibility.json
+saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/params.json
+exit_code=0 (can_proceed_to_G1=true)
+
+## 実行結果（margin_g1.py・本セッション新規実装。実行時間 real 7m30.847s）
+
+candidate_codes=554
+N_w=507 m_w=253 sel_range_w=(1, 249) conf_range_w=(254, 503)
+selection_events=134393 (price_missing=570) confirmation_events=130183 (price_missing=52)
+confirmation IC_bar=0.004009414504866552 K=250
+selection IC_bar=0.002663156973034293 K=247
+N-6 check: K(G1)=250 DS-2(feasibility)=250 matches=True
+permutation: obs=0.004009 p=0.919308 n_perm=10000
+K_eff: K=250 L=4 K_eff=278.5989
+G1-1(ic<0 & p<0.05)=False G1-1b(K_eff>=15)=True G1-2(sel sign)=False G1-3(spread>=0.70%)=False G1-4(market excess sign)=False G1-5(rho<=-0.30)=False ALL=False
+saved: /home/user/SmartWaveRider/research/EXP-OBS000008/10-result/prediction-unit.json
+g1_all_pass=False
+exit_code=0
+
+# 備考: selection_events/confirmation_events の件数（134,393・130,183）は、feasibility.json
+# 9-3のDS-1（130,235・有効ΔM_wを持つ銘柄週の総数）と一致しない。これは価格データ欠損
+# （selection: 570件・confirmation: 52件）をG1側でAdjO/AdjC非null条件により追加除外して
+# いるため（spec §4.3のR_5計算に価格が必須なため機械的に生じる差分であり、意図的な
+# サンプル操作ではない）。price_missing件数はprediction-unit.jsonのconfirmation_events_
+# price_missing_n / selection_events_price_missing_n に記録済み。

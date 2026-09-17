@@ -1,7 +1,7 @@
 {
-  "generated_from": "margin_feasibility.py (stop at section 9)",
+  "generated_from": "margin_feasibility.py / margin_g1.py",
   "spec_reference": "research/EXP-OBS000008/01-spec.md section 8",
-  "status": "spec section 8 で固定済みのコスト前提の宣言のみ。G1はコストを一切参照しない（グロス段階）。G2は9-9（K-6）の停止により未実行。以下は実測値ではなく、spec section 8 に定められた固定値の書き写しである。",
+  "status": "spec section 8 で固定済みのコスト前提の宣言のみ。G1はコストを一切参照しない（グロス段階）。G1（prediction-unit.json）は測定済み・g1_all_pass=false。G2は本タスクの対象外のため未実行。以下は実測値ではなく、spec section 8 に定められた固定値の書き写しである。",
   "primary_cost_assumptions": {
     "slippage_one_way_pct": 0.00075,
     "roundtrip_cost_pct_per_leg": 0.0035,
@@ -18,6 +18,7 @@
     "lending_fee_annual_pct_grid": [0.020, 0.030, 0.050]
   },
   "g1_uses_cost": false,
+  "g1_executed": true,
   "g2_executed": false,
-  "g2_not_executed_reason": "9-9（K-6）で停止。feasibility.json参照"
+  "g2_not_executed_reason": "本タスクの指示範囲がG1（予測単位）測定に限定されているため未実行（G2は対象外）。prediction-unit.json参照"
 }

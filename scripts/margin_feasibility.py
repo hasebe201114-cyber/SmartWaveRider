@@ -169,26 +169,72 @@ def main() -> int:  # noqa: C901
         # 出力は引き続き必須（上記で実施済み）。K-6に該当するのは9-9bで解消できない不整合の
         # みであり、9-9の件数それ自体では stop_reason を設定しない。
 
-    # ---------------- 9-9b（第2版で新設）: Adj系列適合性検査（EXP-OBS000006 §9-3 V-6と同型） ----------------
+    # ---------------- 9-9b（第2版で新設・第3版でcheck(b)を再定義）: Adj系列適合性検査 ----------------
+    r9_9b = None
     if stop_reason is None:
         r9_9b = task_9_9b(cal, codes, r9_9, log)
         feasibility["9-9b_adj_price_conformance"] = r9_9b
         if not r9_9b["gate_pass"]:
-            # spec §9-9bは「(a)(b)いずれかで違反が見つかった場合、該当(code,week)ペアのみ
-            # 機械的に除外して続行してよい」と規定するが、本実測ではcheck(b)の違反274件を
-            # 文字通り適用すると9-9の該当1305件中1050件（80.4%）が除外対象となり、
-            # §4.3.1が明記する不変条件（除外は行わずサンプル数は不変）と規模の面で正面から
-            # 矛盾する。違反はいずれも「その銘柄にとってTピン留め範囲内で最後の分割・併合"
-            # イベント当日はAdjO=O・AdjC=Cになる」という単一の機械的パターンに100%一致しており、
-            # これがAdjFactor/AdjOの正式仕様なのかspec check(b)の想定違いなのかをB実装チームの
-            # 権限では判定できない（推測で埋めない・T-8/EXP-OBS000037と同型のため自己解釈で
-            # 埋めずSに差し戻す）。
+            # 第3版再定義後もなお(a)または再定義後の(b)（has_later_split_in_pinned_range=trueの
+            # 行に限定）で違反が検出された場合は、S戦略チームの§4.3.2実測（違反0件）と一致しない
+            # ため、B実装チームの権限では原因を切り分けられず停止する（推測で埋めない）。
             stop_reason = (
-                "9-9b: check(b)の違反274件（AdjFactor≠1だがAdjO=O/AdjC=C）が、機械的検算により"
-                "すべて『Tピン留め範囲内でその銘柄にとって最後の分割・併合イベント』という単一パターンに"
-                "一致することが判明。spec §9-9bの部分的フォールバックを文字通り適用すると9-9該当"
-                "1305件中1050件（80.4%）を除外することになり、§4.3.1の不変条件（サンプル数は不変）と"
-                "規模の面で矛盾するため、B実装チームの権限で機械的に適用せず停止した。"
+                "9-9b: 第3版再定義後のcheck(a)/(b)でなお違反が検出された。S戦略チームの§4.3.2実測"
+                "（違反0件）と一致しないため、原因を特定できるまでSに差し戻す。"
+            )
+            escalate_kind = "K-6"
+
+    # ---------------- 9-9c（第3版で新設）: R_5窓レベルのAdj補正の直接検証 ----------------
+    r9_9c = None
+    if stop_reason is None:
+        r9_9c = task_9_9c(cal, r9_9b, log)
+        feasibility["9-9c_window_level_adj_correction_check"] = r9_9c
+        feasibility["window_level_adj_correction_check"] = r9_9c
+        if not r9_9c["gate_pass"]:
+            stop_reason = (
+                "9-9c: no_split_in_window群とhas_split_in_window群の|diff|の値域が重なった"
+                "（no_splitの最大値がhas_splitの最小値以上）。Adj系列の窓補正が機能していない"
+                "可能性があるため、原因を特定できるまでSに差し戻す。"
+            )
+            escalate_kind = "K-6"
+
+    # ---------------- Sの実測値との一致確認（9-9b check(b)違反0件・9-9cの2群分離）----------------
+    s_reported_check_b_violations = 0
+    s_reported_no_split_max = 0.000354
+    s_reported_has_split_min = 0.048377
+    s_match = None
+    if stop_reason is None:
+        b_viol_count = r9_9b["check_b_adjO_adjC_nonnull_and_differs_from_raw"]["violations_count"]
+        no_split_max = r9_9c["no_split_in_window"]["max_abs_diff"]
+        has_split_min = r9_9c["has_split_in_window"]["min_abs_diff"]
+        check_b_matches = b_viol_count == s_reported_check_b_violations
+        # 9-9cは「明確な2桁以上の分離」がSの実測の主旨であり、有効桁の丸め表記（0.000354/0.048377）
+        # そのもののビット単位一致までは要求しない。桁のオーダーが一致すること（no_split側が
+        # 10^-3台以下・has_split側が10^-2台以上、かつ両者が2桁以上分離）を機械的に確認する。
+        order_separation_matches = (
+            no_split_max is not None and has_split_min is not None
+            and no_split_max < 0.001 and has_split_min > 0.01
+            and (has_split_min / no_split_max) >= 100
+        )
+        s_match = {
+            "check_b_violations_observed": b_viol_count,
+            "check_b_violations_S_reported": s_reported_check_b_violations,
+            "check_b_matches": check_b_matches,
+            "no_split_in_window_max_abs_diff_observed": no_split_max,
+            "no_split_in_window_max_abs_diff_S_reported": s_reported_no_split_max,
+            "has_split_in_window_min_abs_diff_observed": has_split_min,
+            "has_split_in_window_min_abs_diff_S_reported": s_reported_has_split_min,
+            "order_of_magnitude_separation_matches": order_separation_matches,
+            "overall_matches_S_expected": check_b_matches and order_separation_matches,
+        }
+        feasibility["s_expected_value_reconciliation"] = s_match
+        log.append(f"[S-reconciliation] {s_match}")
+        if not s_match["overall_matches_S_expected"]:
+            stop_reason = (
+                "S戦略チームの§4.3.2実測値（check(b)違反0件・9-9c 2群がS実測0.000354/0.048377で"
+                "明確分離）と、B実装チームの再計算結果が一致しない。原因を特定できるまでSに差し戻す"
+                "（K-6・N-9。Sの実測値をそのまま流用してよいという意味ではないため、一致しない場合は"
+                "そのまま自己判断で埋めない）。"
             )
             escalate_kind = "K-6"
 
@@ -670,23 +716,27 @@ def task_9_9(cal: v2.CalendarV2, W: list[str], by_date_index, sel_range_w, conf_
 
 
 def task_9_9b(cal: v2.CalendarV2, codes: list[str], r9_9: dict, log: list[str]) -> dict:
-    """spec §4.3.1・§9タスク表 9-9b:
+    """spec §4.3.1・§4.3.2・§9タスク表 9-9b（第3版でcheck(b)を再定義）:
 
     (a) `AdjFactor≠1`の全行が`is_split_merger_row(row)`で捕捉されること
-    (b) `AdjFactor≠1`の全行で`AdjO`/`AdjC`が非null・生値`O`/`C`と異なる値を持つこと
+    (b)（第3版で再定義。spec §4.3.2・§11-1）`AdjFactor≠1`の行`(j,d)`のうち、銘柄`j`のTピン留め
+        範囲内に`d`より後の日付を持つ`AdjFactor≠1`行が1件でも存在するもの
+        （`has_later_split_in_pinned_range=true`）**に限り**、`AdjO`/`AdjC`が非null・生値`O`/`C`と
+        異なる値を持つことを検査する。`false`の行（範囲内でその銘柄にとって最後の分割・併合イベント）は
+        検査対象外とし、`AdjO=O`・`AdjC=C`のままであることを正常として扱う
         （候補554銘柄の`bars_daily`全行をスキャン。EXP-OBS000006 V-6と同一の走査範囲）
     (c) §9-9で検出した624+681件の`(code,week)`ペアそれぞれについて、生値ベースの`R_5`と
         `Adj`系列ベースの`R_5`を両方算出し差分を記録する（判定には使わない。監査証跡）
 
-    (a)(b)いずれかで違反が見つかった場合、その違反行の日付を含む前方窓を持つ
+    (a)、または再定義後の(b)でいずれかで違反が見つかった場合、その違反行の日付を含む前方窓を持つ
     `(code,week)`ペア（9-9の該当リストのサブセット）を機械的に特定し、
     `fallback_excluded_pairs`として出力する（G1側で個別除外するための入力）。
     """
-    # ---- (a)(b): 候補554銘柄のbars_daily全行を走査 ----
+    # ---- (a)(b): 候補554銘柄のbars_daily全行を走査。AdjFactor≠1の全行を一旦収集する ----
     total_rows = 0
     adjfactor_nonunity_counter: Counter = Counter()
     a_violations: list[dict] = []
-    b_violations: list[dict] = []
+    nonunity_rows: list[dict] = []  # AdjFactor≠1の全行（違反の有無を問わず）
 
     for code in codes:
         bd = cal.bars_by_code.get(code)
@@ -710,35 +760,37 @@ def task_9_9b(cal: v2.CalendarV2, codes: list[str], r9_9: dict, log: list[str]) 
                 adj_o is not None and adj_c is not None
                 and adj_o != o and adj_c != c
             )
-            if not b_ok:
-                b_violations.append(
-                    {"code": code, "date": date_str, "AdjFactor": af, "O": o, "AdjO": adj_o, "C": c, "AdjC": adj_c}
-                )
+            nonunity_rows.append(
+                {"code": code, "date": date_str, "AdjFactor": af, "O": o, "AdjO": adj_o, "C": c, "AdjC": adj_c, "b_ok": b_ok}
+            )
 
     a_pass = len(a_violations) == 0
-    b_pass = len(b_violations) == 0
 
-    # ---- (b)違反の機械的な原因切り分け（判定はしない。事実の記録のみ） ----
-    # 各b違反行について、同一銘柄のbars_daily全行（Tのピン留め範囲内）に、その日付より
-    # 後の日付でAdjFactor≠1の行が存在するか（＝その銘柄にとって「直近最後の分割・併合」
-    # ではないか）を機械的に確認する。
-    b_violations_with_later_split = []
-    for v in b_violations:
-        code = v["code"]
+    # ---- 第3版 check(b)再定義: 各AdjFactor≠1行について、同一銘柄のbars_daily全行
+    # （Tのピン留め範囲内）に、その日付より後の日付でAdjFactor≠1の行が存在するか
+    # （has_later_split_in_pinned_range）を全349行について機械的に算出する（spec §4.3.2・§11-1）。
+    for row in nonunity_rows:
+        code = row["code"]
         bd = cal.bars_by_code.get(code, {})
         later_nonunity_dates = sorted(
             d for d, r in bd.items()
-            if d > v["date"] and r.get("AdjFactor") is not None and abs(r["AdjFactor"] - 1.0) > 1e-9
+            if d > row["date"] and r.get("AdjFactor") is not None and abs(r["AdjFactor"] - 1.0) > 1e-9
         )
-        b_violations_with_later_split.append(
-            {**v, "has_later_split_in_pinned_range": bool(later_nonunity_dates), "later_split_dates": later_nonunity_dates}
-        )
-    b_violations_all_are_last_split_in_series = (
-        len(b_violations) > 0 and all(not e["has_later_split_in_pinned_range"] for e in b_violations_with_later_split)
-    )
+        row["has_later_split_in_pinned_range"] = bool(later_nonunity_dates)
+        row["later_split_dates"] = later_nonunity_dates
 
-    # ---- 違反行 -> 該当(code,week)ペアの機械的特定（(a)(b)いずれかの違反があった場合のみ意味を持つ） ----
-    violating_code_dates = {(v["code"], v["date"]) for v in a_violations} | {(v["code"], v["date"]) for v in b_violations}
+    # 再定義後のcheck(b)対象母集団: has_later_split_in_pinned_range=trueの行のみ
+    check_b_tested_population = [r for r in nonunity_rows if r["has_later_split_in_pinned_range"]]
+    check_b_excluded_no_later_event = [r for r in nonunity_rows if not r["has_later_split_in_pinned_range"]]
+    b_violations_with_later_split = [r for r in check_b_tested_population if not r["b_ok"]]
+    b_pass = len(b_violations_with_later_split) == 0
+    # 旧定義（第2版まで。全349行を対象にAdjO≠O・AdjC≠Cを要求）での違反件数も監査証跡として保持
+    legacy_b_violations = [r for r in nonunity_rows if not r["b_ok"]]
+
+    # ---- 違反行 -> 該当(code,week)ペアの機械的特定（(a)、または再定義後の(b)の違反があった場合のみ意味を持つ） ----
+    violating_code_dates = {(v["code"], v["date"]) for v in a_violations} | {
+        (v["code"], v["date"]) for v in b_violations_with_later_split
+    }
     fallback_excluded_pairs: list[dict] = []
     if violating_code_dates:
         for label, viol_list in (("selection", r9_9["selection_violations"] if r9_9 else []),
@@ -778,20 +830,19 @@ def task_9_9b(cal: v2.CalendarV2, codes: list[str], r9_9: dict, log: list[str]) 
                 rec.update(t1=t1, t5=t5, raw_R5=raw_r5, adj_R5=adj_r5, diff=diff)
                 diff_records.append(rec)
 
-    # gate_pass: (a)は0件必須（構造的に自明だが検算）。(b)は文字通りには274件の違反があり、
-    # 全674...ではなく全274件が「その銘柄にとって範囲内で最後（最新）の分割・併合イベント」
-    # という単一の機械的パターンに一致する（後段でチェック済み・例外0件）。この場合の
-    # fallback_excluded_pairs（1305件中の大半）をそのまま適用すると§4.3.1が明記する不変条件
-    # 「サンプル数は不変（選定134,963件・確認130,235件）」と直接矛盾する規模になるため、
-    # spec §9-9bの部分的フォールバック手続きを自己判断で機械的に適用せず、ここで停止しSに
-    # 差し戻す（T-8/EXP-OBS000037と同型の「窓・フィールド意味論の矛盾を自己解釈で埋めない」
-    # 原則に基づく）。
+    # gate_pass（第3版）: (a)は0件必須。(b)は再定義後の母集団（has_later_split_in_pinned_range=true、
+    # 75件相当）のみを対象に0件必須。has_later_split_in_pinned_range=falseの274件相当は
+    # check_b_excluded_no_later_event_countとして別掲し、違反母集団に含めない（spec §4.3.2・§11-1）。
     escalation_required = not (a_pass and b_pass)
     gate_pass = a_pass and b_pass
 
     log.append(
         f"[9-9b] total_rows_scanned={total_rows} a_violations={len(a_violations)} "
-        f"b_violations={len(b_violations)} b_violations_all_last_split_in_series={b_violations_all_are_last_split_in_series} "
+        f"check_b_population_total={len(nonunity_rows)} "
+        f"check_b_tested(has_later_split=true)={len(check_b_tested_population)} "
+        f"check_b_excluded_no_later_event(false)={len(check_b_excluded_no_later_event)} "
+        f"check_b_violations(redefined)={len(b_violations_with_later_split)} "
+        f"legacy_check_b_violations(pre-v3 definition)={len(legacy_b_violations)} "
         f"fallback_excluded_pairs_if_applied={len(fallback_excluded_pairs)}/{(len(r9_9['selection_violations']) + len(r9_9['confirmation_violations'])) if r9_9 else 0} "
         f"diff_records={len(diff_records)} gate_pass={gate_pass}"
     )
@@ -800,7 +851,10 @@ def task_9_9b(cal: v2.CalendarV2, codes: list[str], r9_9: dict, log: list[str]) 
         "methodology": (
             "EXP-OBS000006 §9-3 V-6と同型。候補554銘柄のbars_daily全行を走査し、"
             "(a) AdjFactor≠1の全行がis_split_merger_row()で捕捉されるか、"
-            "(b) AdjFactor≠1の全行でAdjO/AdjCが非null・生値と異なるか、を検査する。"
+            "(b)（第3版で再定義。spec §4.3.2・§11-1）AdjFactor≠1の行のうち、銘柄のTピン留め範囲内に"
+            "その日付より後の日付を持つAdjFactor≠1行が存在する行（has_later_split_in_pinned_range=true）"
+            "のみを対象に、AdjO/AdjCが非null・生値と異なるか、を検査する。"
+            "後続イベントが無い行（false）は検査対象外とし正常として扱う。"
             "(c) §9-9で検出した(code,week)ペアそれぞれについて生値R_5とAdj系列R_5の差分を"
             "監査証跡として記録する（判定には使わない）。"
         ),
@@ -811,19 +865,25 @@ def task_9_9b(cal: v2.CalendarV2, codes: list[str], r9_9: dict, log: list[str]) 
             "violations_count": len(a_violations), "violations": a_violations, "pass": a_pass,
         },
         "check_b_adjO_adjC_nonnull_and_differs_from_raw": {
-            "violations_count": len(b_violations), "violations": b_violations_with_later_split, "pass": b_pass,
-            "diagnostic_all_violations_are_codes_last_split_in_pinned_range": b_violations_all_are_last_split_in_series,
-            "diagnostic_note": (
-                "検算（判定ではない）: 274件のb違反すべてについて、同一銘柄のTピン留め範囲内で"
-                "その日付より後にAdjFactor≠1の行が存在しない（＝範囲内で最後の分割・併合イベント）"
-                "という単一パターンに100%一致することを機械的に確認した。spec §4.3.1は「AdjOはウィンドウ"
-                "外側の分割・併合を含め比較時点基準に揃える累積調整後の値」と説明しているが、実データでは"
-                "分割・併合イベント当日の行自体は『その日より後の分割・併合』のみを反映し当日分の"
-                "AdjFactorは当日のAdjO/AdjCには適用されない（＝その日が範囲内最後のイベントなら"
-                "AdjO=O・AdjC=Cに数値的に一致する）という規則性が観測された。これがJ-Quantsの"
-                "AdjFactor/AdjOの正式な定義上の仕様なのか、それとも§9-9bチェック(b)の想定と"
-                "食い違う未確認の挙動なのかは、B実装チームの権限では判定できない（推測で埋めない）。"
+            "definition": (
+                "第3版再定義（spec §4.3.2・§11-1）: AdjFactor≠1の行(j,d)について、銘柄jのTピン留め範囲"
+                "[T[1],T[N]]内にdより後の日付を持つAdjFactor≠1行が1件でも存在する場合"
+                "（has_later_split_in_pinned_range=true）に限り、AdjO(j,d)≠O(j,d)かつAdjC(j,d)≠C(j,d)"
+                "であることを要求する。false の行は検査対象外とし、AdjO=O・AdjC=Cのままであることを"
+                "正常として扱う（除外ではなく非該当）。"
             ),
+            "population_total_adjfactor_nonunity_rows": len(nonunity_rows),
+            "population_with_later_split_tested_count": len(check_b_tested_population),
+            "check_b_excluded_no_later_event_count": len(check_b_excluded_no_later_event),
+            "check_b_excluded_no_later_event": check_b_excluded_no_later_event,
+            "violations_count": len(b_violations_with_later_split),
+            "violations": b_violations_with_later_split,
+            "pass": b_pass,
+            "legacy_definition_note": (
+                "第2版までのcheck(b)（AdjFactor≠1の全349行にAdjO≠O・AdjC≠Cを要求する定義）での"
+                "違反件数（監査証跡・判定には使わない）。"
+            ),
+            "legacy_check_b_violations_count": len(legacy_b_violations),
         },
         "fallback_excluded_pairs_if_applied": fallback_excluded_pairs,
         "fallback_excluded_pairs_if_applied_count": len(fallback_excluded_pairs),
@@ -835,15 +895,99 @@ def task_9_9b(cal: v2.CalendarV2, codes: list[str], r9_9: dict, log: list[str]) 
         "gate_pass": gate_pass,
         "escalation_required": escalation_required,
         "note": (
-            "違反が0件ならfallback_excluded_pairs_if_appliedは空でありG1は全サンプル（選定134,963件・"
-            "確認130,235件）をAdj系列のまま使用する。本実測では(b)に274件の違反があり、それを"
-            "spec §9-9bの部分的フォールバック手続きどおり機械的に適用すると、9-9で検出した1305件の"
-            "(code,week)ペアのうち1050件（80.4%）が除外対象になる。これは§4.3.1が明記する不変条件"
-            "「除外は行わずサンプルを一切失わない・サンプル数は不変」と規模の面で正面から矛盾するため、"
-            "B実装チームの権限でこのフォールバックを機械的に適用することを見送り、実験を停止してSに"
-            "差し戻す（K-6）。fallback_excluded_pairs_if_appliedはSの判断材料として算出済みの値を"
-            "そのまま出力している（適用はしていない）。"
+            "第3版再定義後のcheck(b)は、has_later_split_in_pinned_range=trueの母集団"
+            f"（{len(check_b_tested_population)}件）のみを対象に検査した違反件数"
+            f"（{len(b_violations_with_later_split)}件）。false の"
+            f"{len(check_b_excluded_no_later_event)}件は検査対象外（正常）として"
+            "check_b_excluded_no_later_event_countに別掲した。違反が0件ならfallback_excluded_pairs_"
+            "if_appliedは空でありG1は全サンプル（選定134,963件・確認130,235件）をAdj系列のまま使用する。"
         ),
+    }
+
+
+# ---------------------------------------------------------------------------
+# 9-9c（第3版で新設）: R_5が実際に使う窓での Adj 補正の正しさの直接検証
+# ---------------------------------------------------------------------------
+
+
+def task_9_9c(cal: v2.CalendarV2, r9_9b: dict, log: list[str]) -> dict:
+    """spec §4.3.2・§9タスク表 9-9c・§11-2:
+
+    既存の`check_c_raw_vs_adj_r5_diff_audit_trail`（1,305件）を再利用し、各(code,week)ペアの
+    実窓`(t_1, t_5]`（t_1を含まずt_5を含む、T上の位置でk+5〜k+9の5営業日）内に`AdjFactor≠1`の日が
+    存在するか否かで2群に分け、`|raw_R5−adj_R5|`の最小・最大・中央値を出力する。
+    `raw_R5`/`adj_R5`がnullの記録（2020-10-01の東証システム障害起因）は`excluded_price_missing`として
+    除外し分母に含めない。新規のデータ取得・全件スキャンは不要（bars_dailyの既存キャッシュを
+    `(t_1,t_5]`という狭い窓だけ読み直す）。
+    """
+    diff_records = r9_9b["check_c_raw_vs_adj_r5_diff_audit_trail"]
+
+    excluded_price_missing = [r for r in diff_records if r["raw_R5"] is None or r["adj_R5"] is None]
+    usable = [r for r in diff_records if r["raw_R5"] is not None and r["adj_R5"] is not None]
+
+    no_split_group: list[dict] = []
+    has_split_group: list[dict] = []
+    for r in usable:
+        code = r["code"]
+        t1, t5 = r["t1"], r["t5"]
+        k1 = cal.idx(t1)
+        k5 = cal.idx(t5)
+        bd = cal.bars_by_code.get(code, {})
+        has_split = False
+        split_dates: list[str] = []
+        if k1 is not None and k5 is not None:
+            for kk in range(k1 + 1, k5 + 1):
+                d = cal.at(kk)
+                if d is None:
+                    continue
+                row = bd.get(d)
+                if row is None:
+                    continue
+                af = row.get("AdjFactor")
+                if af is not None and abs(af - 1.0) > 1e-9:
+                    has_split = True
+                    split_dates.append(d)
+        rec = {**r, "has_split_in_window": has_split, "split_dates_in_window": split_dates, "abs_diff": abs(r["diff"])}
+        (has_split_group if has_split else no_split_group).append(rec)
+
+    def group_stats(group: list[dict]) -> dict:
+        if not group:
+            return {"count": 0, "min_abs_diff": None, "max_abs_diff": None, "median_abs_diff": None}
+        vals = sorted(g["abs_diff"] for g in group)
+        n = len(vals)
+        median = vals[n // 2] if n % 2 else (vals[n // 2 - 1] + vals[n // 2]) / 2.0
+        return {"count": n, "min_abs_diff": vals[0], "max_abs_diff": vals[-1], "median_abs_diff": median}
+
+    no_split_stats = group_stats(no_split_group)
+    has_split_stats = group_stats(has_split_group)
+
+    ranges_overlap = (
+        no_split_stats["max_abs_diff"] is not None and has_split_stats["min_abs_diff"] is not None
+        and no_split_stats["max_abs_diff"] >= has_split_stats["min_abs_diff"]
+    )
+    gate_pass = not ranges_overlap
+
+    log.append(
+        f"[9-9c] total_pairs={len(diff_records)} excluded_price_missing={len(excluded_price_missing)} "
+        f"no_split_in_window(count={no_split_stats['count']}, max={no_split_stats['max_abs_diff']}) "
+        f"has_split_in_window(count={has_split_stats['count']}, min={has_split_stats['min_abs_diff']}) "
+        f"ranges_overlap={ranges_overlap} gate_pass={gate_pass}"
+    )
+
+    return {
+        "methodology": (
+            "9-9で検出した延べ1,305件の(code,week)ペアについて、実際のR_5窓(t_1,t_5]"
+            "（t_1を含まずt_5を含む、T上でk+5〜k+9の5営業日）内にAdjFactor≠1の日が存在するか否かで"
+            "2群に分け、|raw_R5-adj_R5|の分布（最小・最大・中央値）を出力する。"
+            "raw_R5/adj_R5いずれかがnullの記録は excluded_price_missing として除外し分母に含めない。"
+        ),
+        "total_pairs": len(diff_records),
+        "excluded_price_missing_count": len(excluded_price_missing),
+        "excluded_price_missing": excluded_price_missing,
+        "no_split_in_window": no_split_stats,
+        "has_split_in_window": has_split_stats,
+        "ranges_overlap": ranges_overlap,
+        "gate_pass": gate_pass,
     }
 
 
